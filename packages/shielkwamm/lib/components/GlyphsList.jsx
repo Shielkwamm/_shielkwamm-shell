@@ -1,0 +1,31 @@
+import React from 'react';
+import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+
+//import GlyphsList from '../../modules/collection.js';
+
+const GlyphsList = ({ loading, results }) => (
+  <div className="movies-list">
+    <h1>Yer dang glyphs</h1>
+    <div className="movies-contents">
+    {loading ? 
+      <Components.Loading/> :
+      results && <ul>
+        {results.map(movie => 
+          <li key={movie.name}>
+            <h4>{movie.name}</h4>
+            {movie.review && <p>{movie.review}</p>}
+            {movie.user && <p><em>– {movie.user.displayName}</em></p>}
+          </li>
+        )}
+      </ul>
+    }
+    </div>
+  </div>
+);
+
+/*const options = {
+  collection: Movies,
+  // fragmentName: 'MovieFragment', // uncomment on #Step11
+}*/
+
+registerComponent({ name: 'GlyphsList', component: GlyphsList });
