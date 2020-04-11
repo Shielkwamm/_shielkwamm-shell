@@ -610,6 +610,103 @@ input CallbackSelectorUniqueInput {
 }
 
 
+# Type for Games
+type Game {
+  _id: String 
+  createdAt: Date 
+  name: String 
+}
+
+
+input DeleteGameInput{
+  filter: GameFilterInput
+  id: String
+}
+
+input SingleGameInput {
+  # filtering
+  filter: GameFilterInput
+  sort: GameSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: GameSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiGameInput {
+
+  # filtering
+  filter: GameFilterInput
+  sort: GameSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleGameOutput{
+  result: Game
+}
+
+type  MultiGameOutput{
+  results: [Game]
+  totalCount: Int
+}
+
+type GameMutationOutput{
+  data: Game
+}
+
+input GameFilterInput {
+  _and: [GameFilterInput]
+  _not: GameFilterInput
+  _or: [GameFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+}
+
+input GameSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+}
+
+input GameSelectorInput {
+  _and: [GameSelectorInput]
+  _or: [GameSelectorInput]
+
+}
+
+input GameSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -628,6 +725,12 @@ type Query {
   settings(input: MultiSettingInput):  MultiSettingOutput
   
   callbacks(input: MultiCallbackInput):  MultiCallbackOutput
+  
+  # A single Game document fetched by ID or slug
+  game(input: SingleGameInput!): SingleGameOutput
+  
+  # A list of Game documents matching a set of query terms
+  games(input: MultiGameInput):  MultiGameOutput
   
 }
   
@@ -664,6 +767,13 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
+
+  # Mutation for deleting a Game document
+  deleteGame(
+  input: DeleteGameInput,
+  "Deprecated (use 'input' field instead)."
+  selector: GameSelectorUniqueInput
+) : GameMutationOutput
 
 }
 

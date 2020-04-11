@@ -4,23 +4,11 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 //import GlyphsList from '../../modules/collection.js';
 
 const GlyphsList = ({ loading, results }) => (
-  <div className="movies-list">
-    <h1>Yer dang glyphs</h1>
-    <div className="movies-contents">
-    {loading ? 
-      <Components.Loading/> :
-      results && <ul>
-        {results.map(movie => 
-          <li key={movie.name}>
-            <h4>{movie.name}</h4>
-            {movie.review && <p>{movie.review}</p>}
-            {movie.user && <p><em>– {movie.user.displayName}</em></p>}
-          </li>
-        )}
-      </ul>
-    }
-    </div>
-  </div>
+  <React.Fragment>
+    <h2 style={{textAlign: "center", left: 0, right: 0, position: "fixed", bottom: "0"}}>
+      ☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓ |  ◯ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 | △áìéïḱḿí△ △Ńń△  ▵ÖöÓóÒòÔôḱ▵ | Ⅹ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ
+    </h2>
+  </React.Fragment>
 );
 
 /*const options = {
@@ -29,3 +17,14 @@ const GlyphsList = ({ loading, results }) => (
 }*/
 
 registerComponent({ name: 'GlyphsList', component: GlyphsList });
+/*
+<h2>◯ ф</h2>
+    <h2>△ ▵</h2>
+    <h2>↑↓</h2>
+    <h2>Ⅹ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ</h2>
+    <h2>✔ 🔬 💻</h2>
+    <h2>☸ 当 Ω</h2>
+    */
+
+    //<h2> ◯ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻</h2>
+//    <h2>△áìéïḱḿí△ △Ńń△  ▵ÖöÓóÒòÔôḱ▵</h2>

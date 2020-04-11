@@ -1,3 +1,3 @@
 import { addRoute, Components } from 'meteor/vulcan:core';
 
-addRoute({ name: 'glphysList', path: '/', componentName: 'GlyphsList' });
+addRoute({ name: 'home', path: '/', componentName: 'GamesList' });
