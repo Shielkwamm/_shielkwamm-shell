@@ -6,6 +6,7 @@ const Overview = () => (
   <div className="movies-list">
     <h1><Link to="/rooms">Rooms</Link></h1>
     <h1><Link to="/handles">Handles</Link></h1>
+    <h1><Link to="/parties">Parties</Link></h1>
     <h1><Link to="/markets">Markets</Link></h1>
     <h1><Link to="/historic_sh_">Historic △</Link></h1>
   </div>

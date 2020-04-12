@@ -6,6 +6,7 @@ import '../components/ActiveRoom.jsx';
 import '../components/RoomMessages.jsx';
 
 import '../components/HandlesList.jsx';
+import '../components/PartiesList.jsx';
 import '../components/MarketsList.jsx';
 
 import '../components/Market.jsx';
