@@ -12,7 +12,8 @@ const ActiveGameInner = ({ loading, document }) => (
       <h3 >{document.name}<span style={{float: "right"}}> {document._sh_} : {document.bwam} </span></h3>
       <p>{document.currentExpPoints} / {document.totalExpPoints} △ | {document.level} / {document.maxLevel} ☸ <a href={document.currentMusicUrl} target={"_blank"}><span style={{float: "right"}}>{document.currentMusicName}</span></a></p>
       <hr></hr>
-        
+        <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{gameId: document._id}}/>
+        <Components.GameMessages gameId={document._id}/>
       </div>
     )}
   </React.Fragment>
@@ -33,7 +34,7 @@ const ActiveGame = ({ match }) => (
 //<Components.CryptoMarketPairsInner input={{filter: {left: {_eq: crypto.exchangeSymbol}}, sort: {[filterColumn]: filterDir}}} showIn={showIn}/>
 
 registerComponent({ name: 'ActiveGame', component: ActiveGame, hocs: [withRouter]});
-//<Components.GameMessages input={{gameId: document._id}} gameId={document._id}/>
+
 
 
 //<Components.GameMessages document={match.slug} />
