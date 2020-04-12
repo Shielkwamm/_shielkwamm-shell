@@ -615,6 +615,7 @@ type Game {
   _id: String 
   createdAt: Date 
   name: String 
+  slug: String 
   level: String 
   maxLevel: String 
   totalExpPoints: String 
@@ -687,6 +688,29 @@ input CreateGameInput {
 
 input CreateGameDataInput {
   name: String 
+  slug: String 
+  level: String 
+  maxLevel: String 
+  totalExpPoints: String 
+  bwam: String 
+  _sh_: String 
+}
+
+input UpdateGameInput{
+  filter: GameFilterInput
+  id: String
+  data: UpdateGameDataInput!
+}
+
+input UpsertGameInput{
+  filter: GameFilterInput
+  id: String
+  data: UpdateGameDataInput!
+}
+
+input UpdateGameDataInput {
+  name: String 
+  slug: String 
   level: String 
   maxLevel: String 
   totalExpPoints: String 
@@ -703,6 +727,7 @@ input GameFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  slug: String_Selector
   level: String_Selector
   maxLevel: String_Selector
   totalExpPoints: String_Selector
@@ -714,6 +739,7 @@ input GameSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  slug: SortOptions
   level: SortOptions
   maxLevel: SortOptions
   totalExpPoints: SortOptions
@@ -728,6 +754,132 @@ input GameSelectorInput {
 }
 
 input GameSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Messages
+type Message {
+  _id: String 
+  createdAt: Date 
+  text: String 
+  gameId: String 
+}
+
+
+input DeleteMessageInput{
+  filter: MessageFilterInput
+  id: String
+}
+
+input SingleMessageInput {
+  # filtering
+  filter: MessageFilterInput
+  sort: MessageSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: MessageSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiMessageInput {
+
+  # filtering
+  filter: MessageFilterInput
+  sort: MessageSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleMessageOutput{
+  result: Message
+}
+
+type  MultiMessageOutput{
+  results: [Message]
+  totalCount: Int
+}
+
+type MessageMutationOutput{
+  data: Message
+}
+
+input CreateMessageInput {
+  data: CreateMessageDataInput!
+}
+
+input CreateMessageDataInput {
+  text: String 
+  gameId: String 
+}
+
+input UpdateMessageInput{
+  filter: MessageFilterInput
+  id: String
+  data: UpdateMessageDataInput!
+}
+
+input UpsertMessageInput{
+  filter: MessageFilterInput
+  id: String
+  data: UpdateMessageDataInput!
+}
+
+input UpdateMessageDataInput {
+  text: String 
+  gameId: String 
+}
+
+input MessageFilterInput {
+  _and: [MessageFilterInput]
+  _not: MessageFilterInput
+  _or: [MessageFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  text: String_Selector
+  gameId: String_Selector
+}
+
+input MessageSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  text: SortOptions
+  gameId: SortOptions
+}
+
+input MessageSelectorInput {
+  _and: [MessageSelectorInput]
+  _or: [MessageSelectorInput]
+
+}
+
+input MessageSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -759,6 +911,12 @@ type Query {
   
   # A list of Game documents matching a set of query terms
   games(input: MultiGameInput):  MultiGameOutput
+  
+  # A single Message document fetched by ID or slug
+  message(input: SingleMessageInput!): SingleMessageOutput
+  
+  # A list of Message documents matching a set of query terms
+  messages(input: MultiMessageInput):  MultiMessageOutput
   
 }
   
@@ -803,12 +961,62 @@ type Mutation {
   data: CreateGameDataInput
 ) : GameMutationOutput
 
+  # Mutation for updating a Game document
+  updateGame(
+  input: UpdateGameInput,
+  "Deprecated (use 'input' field instead)."
+  selector: GameSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateGameDataInput 
+) : GameMutationOutput
+
+  # Mutation for upserting a Game document
+  upsertGame(
+  input: UpsertGameInput,
+  "Deprecated (use 'input' field instead)."
+  selector: GameSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateGameDataInput
+) : GameMutationOutput
+
   # Mutation for deleting a Game document
   deleteGame(
   input: DeleteGameInput,
   "Deprecated (use 'input' field instead)."
   selector: GameSelectorUniqueInput
 ) : GameMutationOutput
+
+  # Mutation for creating new Message documents
+  createMessage(
+  input: CreateMessageInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateMessageDataInput
+) : MessageMutationOutput
+
+  # Mutation for updating a Message document
+  updateMessage(
+  input: UpdateMessageInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MessageSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateMessageDataInput 
+) : MessageMutationOutput
+
+  # Mutation for upserting a Message document
+  upsertMessage(
+  input: UpsertMessageInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MessageSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateMessageDataInput
+) : MessageMutationOutput
+
+  # Mutation for deleting a Message document
+  deleteMessage(
+  input: DeleteMessageInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MessageSelectorUniqueInput
+) : MessageMutationOutput
 
 }
 

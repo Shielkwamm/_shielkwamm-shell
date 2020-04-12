@@ -10,5 +10,6 @@ registerFragment(`
      totalExpPoints
      bwam
      _sh_
+     slug
    }
 `);
