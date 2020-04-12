@@ -1,10 +1,10 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment MessagesFragment on Message {
+   fragment PartiesFragment on Party {
      _id
      createdAt
-     text
-     roomId
+     name
+     description
    }
 `);

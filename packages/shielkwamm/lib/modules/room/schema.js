@@ -92,9 +92,16 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  currentMusicName: {
+  currentMusicTitle: {
     type: String,
     defaultValue: "↑↑⬤ Marble Madness Remix (2009)",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  description: {
+    type: String,
+    optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']

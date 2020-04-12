@@ -610,8 +610,8 @@ input CallbackSelectorUniqueInput {
 }
 
 
-# Type for Games
-type Game {
+# Type for Rooms
+type Room {
   _id: String 
   createdAt: Date 
   name: String 
@@ -624,25 +624,26 @@ type Game {
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
-  currentMusicName: String 
+  currentMusicTitle: String 
+  description: String 
 }
 
 
-input DeleteGameInput{
-  filter: GameFilterInput
+input DeleteRoomInput{
+  filter: RoomFilterInput
   id: String
 }
 
-input SingleGameInput {
+input SingleRoomInput {
   # filtering
-  filter: GameFilterInput
-  sort: GameSortInput
+  filter: RoomFilterInput
+  sort: RoomSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: GameSelectorUniqueInput
+  selector: RoomSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -651,11 +652,11 @@ input SingleGameInput {
   allowNull: Boolean
 }
 
-input MultiGameInput {
+input MultiRoomInput {
 
   # filtering
-  filter: GameFilterInput
-  sort: GameSortInput
+  filter: RoomFilterInput
+  sort: RoomSortInput
   search: String
   offset: Int
   limit: Int
@@ -673,24 +674,24 @@ input MultiGameInput {
   
 }
 
-type SingleGameOutput{
-  result: Game
+type SingleRoomOutput{
+  result: Room
 }
 
-type  MultiGameOutput{
-  results: [Game]
+type  MultiRoomOutput{
+  results: [Room]
   totalCount: Int
 }
 
-type GameMutationOutput{
-  data: Game
+type RoomMutationOutput{
+  data: Room
 }
 
-input CreateGameInput {
-  data: CreateGameDataInput!
+input CreateRoomInput {
+  data: CreateRoomDataInput!
 }
 
-input CreateGameDataInput {
+input CreateRoomDataInput {
   name: String 
   slug: String 
   level: String 
@@ -701,22 +702,23 @@ input CreateGameDataInput {
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
-  currentMusicName: String 
+  currentMusicTitle: String 
+  description: String 
 }
 
-input UpdateGameInput{
-  filter: GameFilterInput
+input UpdateRoomInput{
+  filter: RoomFilterInput
   id: String
-  data: UpdateGameDataInput!
+  data: UpdateRoomDataInput!
 }
 
-input UpsertGameInput{
-  filter: GameFilterInput
+input UpsertRoomInput{
+  filter: RoomFilterInput
   id: String
-  data: UpdateGameDataInput!
+  data: UpdateRoomDataInput!
 }
 
-input UpdateGameDataInput {
+input UpdateRoomDataInput {
   name: String 
   slug: String 
   level: String 
@@ -727,13 +729,14 @@ input UpdateGameDataInput {
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
-  currentMusicName: String 
+  currentMusicTitle: String 
+  description: String 
 }
 
-input GameFilterInput {
-  _and: [GameFilterInput]
-  _not: GameFilterInput
-  _or: [GameFilterInput]
+input RoomFilterInput {
+  _and: [RoomFilterInput]
+  _not: RoomFilterInput
+  _or: [RoomFilterInput]
 
 
   _id: String_Selector
@@ -748,10 +751,11 @@ input GameFilterInput {
   bwam: String_Selector
   _sh_: String_Selector
   currentMusicUrl: String_Selector
-  currentMusicName: String_Selector
+  currentMusicTitle: String_Selector
+  description: String_Selector
 }
 
-input GameSortInput {
+input RoomSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
@@ -764,16 +768,17 @@ input GameSortInput {
   bwam: SortOptions
   _sh_: SortOptions
   currentMusicUrl: SortOptions
-  currentMusicName: SortOptions
+  currentMusicTitle: SortOptions
+  description: SortOptions
 }
 
-input GameSelectorInput {
-  _and: [GameSelectorInput]
-  _or: [GameSelectorInput]
+input RoomSelectorInput {
+  _and: [RoomSelectorInput]
+  _or: [RoomSelectorInput]
 
 }
 
-input GameSelectorUniqueInput {
+input RoomSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -786,7 +791,7 @@ type Message {
   _id: String 
   createdAt: Date 
   text: String 
-  gameId: String 
+  roomId: String 
 }
 
 
@@ -854,7 +859,7 @@ input CreateMessageInput {
 
 input CreateMessageDataInput {
   text: String 
-  gameId: String 
+  roomId: String 
 }
 
 input UpdateMessageInput{
@@ -871,7 +876,7 @@ input UpsertMessageInput{
 
 input UpdateMessageDataInput {
   text: String 
-  gameId: String 
+  roomId: String 
 }
 
 input MessageFilterInput {
@@ -883,14 +888,14 @@ input MessageFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   text: String_Selector
-  gameId: String_Selector
+  roomId: String_Selector
 }
 
 input MessageSortInput {
   _id: SortOptions
   createdAt: SortOptions
   text: SortOptions
-  gameId: SortOptions
+  roomId: SortOptions
 }
 
 input MessageSelectorInput {
@@ -1243,6 +1248,132 @@ input ShSelectorUniqueInput {
 }
 
 
+# Type for Parties
+type Party {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  description: String 
+}
+
+
+input DeletePartyInput{
+  filter: PartyFilterInput
+  id: String
+}
+
+input SinglePartyInput {
+  # filtering
+  filter: PartyFilterInput
+  sort: PartySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: PartySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiPartyInput {
+
+  # filtering
+  filter: PartyFilterInput
+  sort: PartySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SinglePartyOutput{
+  result: Party
+}
+
+type  MultiPartyOutput{
+  results: [Party]
+  totalCount: Int
+}
+
+type PartyMutationOutput{
+  data: Party
+}
+
+input CreatePartyInput {
+  data: CreatePartyDataInput!
+}
+
+input CreatePartyDataInput {
+  name: String 
+  description: String 
+}
+
+input UpdatePartyInput{
+  filter: PartyFilterInput
+  id: String
+  data: UpdatePartyDataInput!
+}
+
+input UpsertPartyInput{
+  filter: PartyFilterInput
+  id: String
+  data: UpdatePartyDataInput!
+}
+
+input UpdatePartyDataInput {
+  name: String 
+  description: String 
+}
+
+input PartyFilterInput {
+  _and: [PartyFilterInput]
+  _not: PartyFilterInput
+  _or: [PartyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  description: String_Selector
+}
+
+input PartySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  description: SortOptions
+}
+
+input PartySelectorInput {
+  _and: [PartySelectorInput]
+  _or: [PartySelectorInput]
+
+}
+
+input PartySelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -1262,11 +1393,11 @@ type Query {
   
   callbacks(input: MultiCallbackInput):  MultiCallbackOutput
   
-  # A single Game document fetched by ID or slug
-  game(input: SingleGameInput!): SingleGameOutput
+  # A single Room document fetched by ID or slug
+  room(input: SingleRoomInput!): SingleRoomOutput
   
-  # A list of Game documents matching a set of query terms
-  games(input: MultiGameInput):  MultiGameOutput
+  # A list of Room documents matching a set of query terms
+  rooms(input: MultiRoomInput):  MultiRoomOutput
   
   # A single Message document fetched by ID or slug
   message(input: SingleMessageInput!): SingleMessageOutput
@@ -1291,6 +1422,12 @@ type Query {
   
   # A list of Sh documents matching a set of query terms
   shes(input: MultiShInput):  MultiShOutput
+  
+  # A single Party document fetched by ID or slug
+  party(input: SinglePartyInput!): SinglePartyOutput
+  
+  # A list of Party documents matching a set of query terms
+  parties(input: MultiPartyInput):  MultiPartyOutput
   
 }
   
@@ -1328,37 +1465,37 @@ type Mutation {
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
 
-  # Mutation for creating new Game documents
-  createGame(
-  input: CreateGameInput,
+  # Mutation for creating new Room documents
+  createRoom(
+  input: CreateRoomInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateGameDataInput
-) : GameMutationOutput
+  data: CreateRoomDataInput
+) : RoomMutationOutput
 
-  # Mutation for updating a Game document
-  updateGame(
-  input: UpdateGameInput,
+  # Mutation for updating a Room document
+  updateRoom(
+  input: UpdateRoomInput,
   "Deprecated (use 'input' field instead)."
-  selector: GameSelectorUniqueInput,
+  selector: RoomSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateGameDataInput 
-) : GameMutationOutput
+  data: UpdateRoomDataInput 
+) : RoomMutationOutput
 
-  # Mutation for upserting a Game document
-  upsertGame(
-  input: UpsertGameInput,
+  # Mutation for upserting a Room document
+  upsertRoom(
+  input: UpsertRoomInput,
   "Deprecated (use 'input' field instead)."
-  selector: GameSelectorUniqueInput,
+  selector: RoomSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateGameDataInput
-) : GameMutationOutput
+  data: UpdateRoomDataInput
+) : RoomMutationOutput
 
-  # Mutation for deleting a Game document
-  deleteGame(
-  input: DeleteGameInput,
+  # Mutation for deleting a Room document
+  deleteRoom(
+  input: DeleteRoomInput,
   "Deprecated (use 'input' field instead)."
-  selector: GameSelectorUniqueInput
-) : GameMutationOutput
+  selector: RoomSelectorUniqueInput
+) : RoomMutationOutput
 
   # Mutation for creating new Message documents
   createMessage(
@@ -1462,6 +1599,38 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: ShSelectorUniqueInput
 ) : ShMutationOutput
+
+  # Mutation for creating new Party documents
+  createParty(
+  input: CreatePartyInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreatePartyDataInput
+) : PartyMutationOutput
+
+  # Mutation for updating a Party document
+  updateParty(
+  input: UpdatePartyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdatePartyDataInput 
+) : PartyMutationOutput
+
+  # Mutation for upserting a Party document
+  upsertParty(
+  input: UpsertPartyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdatePartyDataInput
+) : PartyMutationOutput
+
+  # Mutation for deleting a Party document
+  deleteParty(
+  input: DeletePartyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartySelectorUniqueInput
+) : PartyMutationOutput
 
 }
 

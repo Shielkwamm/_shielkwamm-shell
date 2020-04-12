@@ -14,19 +14,19 @@ const schema = {
       return new Date();
     }
   },
-  text: {
+  name: {
     type: String,
-    optional: false,
-    canRead: ['members', 'admins'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  roomId: {
-    type: String,
-    optional: false,
+    optional: true,
     canRead: ['admins'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
+    canUpdate: ['admins'],
+    canCreate: ['admins']
+  },
+  description: {
+    type: String,
+    optional: true,
+    canRead: ['admins'],
+    canUpdate: ['admins'],
+    canCreate: ['admins']
   }
   // userId: {
   //   type: String,

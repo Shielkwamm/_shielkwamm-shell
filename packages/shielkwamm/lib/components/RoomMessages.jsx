@@ -1,7 +1,7 @@
 import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 
-const GameMessagesInner = ({ loading, results }) => (
+const RoomMessagesInner = ({ loading, results }) => (
   <React.Fragment>
   {!loading && results.map(message => 
     <div key={message._id}>
@@ -16,10 +16,10 @@ const options = {
   fragmentName: 'MessagesFragment', // uncomment on #Step11
 }
 
-registerComponent({ name: 'GameMessagesInner', component: GameMessagesInner, hocs: [[withMulti2, options]]});
+registerComponent({ name: 'RoomMessagesInner', component: RoomMessagesInner, hocs: [[withMulti2, options]]});
 
-const GameMessages = ({ gameId }) => (
-  <Components.GameMessagesInner input={{filter: {gameId: {_eq: gameId}}}}/>
+const RoomMessages = ({ roomId }) => (
+  <Components.RoomMessagesInner input={{filter: {roomId: {_eq: roomId}}}}/>
 );
 
-registerComponent({ name: 'GameMessages', component: GameMessages});
+registerComponent({ name: 'RoomMessages', component: RoomMessages});

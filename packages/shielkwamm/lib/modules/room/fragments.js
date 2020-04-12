@@ -1,7 +1,7 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment GamesFragment on Game {
+   fragment RoomsFragment on Room {
      _id
      createdAt
      name
@@ -14,6 +14,7 @@ registerFragment(`
      _sh_
      slug
      currentMusicUrl
-     currentMusicName
+     currentMusicTitle
+     description
    }
 `);
