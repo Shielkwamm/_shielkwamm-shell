@@ -3,8 +3,8 @@ import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
-const ActiveGame = ({ loading, document, match }) => (
-  <div className="movies-list">
+const ActiveGameInner = ({ loading, document }) => (
+  <React.Fragment>
     {loading ? (
       null
     ) : (
@@ -12,18 +12,29 @@ const ActiveGame = ({ loading, document, match }) => (
       <h3 >{document.name}<span style={{float: "right"}}> {document._sh_} : {document.bwam} </span></h3>
       <p>{document.currentExpPoints} / {document.totalExpPoints} △ | {document.level} / {document.maxLevel} ☸ <a href={document.currentMusicUrl} target={"_blank"}><span style={{float: "right"}}>{document.currentMusicName}</span></a></p>
       <hr></hr>
-        {match.params.slug}
+        
       </div>
     )}
-  </div>
-);
+  </React.Fragment>
+)
 
 const options = {
   collectionName: "Games",
   fragmentName: 'GamesFragment', // uncomment on #Step11
 }
 
-registerComponent({ name: 'ActiveGame', component: ActiveGame, hocs: [withRouter, [withSingle2, options]]});
+registerComponent( {name: 'ActiveGameInner', component: ActiveGameInner, hocs: [[withSingle2, options]]})
+
+const ActiveGame = ({ match }) => (
+  <Components.ActiveGameInner input={{selector: {slug: match.params.slug}}}/>
+);
+
+
+//<Components.CryptoMarketPairsInner input={{filter: {left: {_eq: crypto.exchangeSymbol}}, sort: {[filterColumn]: filterDir}}} showIn={showIn}/>
+
+registerComponent({ name: 'ActiveGame', component: ActiveGame, hocs: [withRouter]});
+//<Components.GameMessages input={{gameId: document._id}} gameId={document._id}/>
+
 
 //<Components.GameMessages document={match.slug} />
 

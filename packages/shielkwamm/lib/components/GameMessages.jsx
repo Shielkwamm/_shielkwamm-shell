@@ -1,10 +1,11 @@
 import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 
-const GameMessages = ({ loading, results }) => (
+const GameMessages = ({ loading, results, gameId}) => (
   <div className="movies-list">
-    {!loading && results.map(message) (
-      <div>one message here</div>
+    <Components.SmartForm collectionName='Messages' fields={["text"]}/>
+    {!loading && results.map(message => 
+      <div>Rest of messages</div>
     )}
   </div>
 );
