@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 const GamesList = ({ loading, results }) => (
   <div className="movies-list">
-    <h3>List of active games</h3>
+    <h2>Games</h2>
+    <hr></hr>
     {!loading && results.map(game => (
-      <h1><Link to={`/game/${game.slug}`}>{game.name}</Link></h1>
+      <p><Link to={`/game/${game.slug}`}>{game.name}</Link>: {game._sh_} : {game.bwam} </p>
     ))}
   </div>
 );

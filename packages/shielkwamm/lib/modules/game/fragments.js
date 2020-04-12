@@ -12,5 +12,7 @@ registerFragment(`
      bwam
      _sh_
      slug
+     currentMusicUrl
+     currentMusicName
    }
 `);

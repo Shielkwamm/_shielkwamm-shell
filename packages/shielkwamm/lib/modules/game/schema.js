@@ -75,6 +75,21 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  currentMusicUrl: {
+    type: String,
+    optional: false,
+    defaultValue: "https://www.youtube.com/watch?v=HxAYJdLXgZo",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  currentMusicName: {
+    type: String,
+    defaultValue: "↑↑⬤ Marble Madness Remix (2009)",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   }
 };
 

@@ -622,6 +622,8 @@ type Game {
   totalExpPoints: String 
   bwam: String 
   _sh_: String 
+  currentMusicUrl: String 
+  currentMusicName: String 
 }
 
 
@@ -696,6 +698,8 @@ input CreateGameDataInput {
   totalExpPoints: String 
   bwam: String 
   _sh_: String 
+  currentMusicUrl: String 
+  currentMusicName: String 
 }
 
 input UpdateGameInput{
@@ -719,6 +723,8 @@ input UpdateGameDataInput {
   totalExpPoints: String 
   bwam: String 
   _sh_: String 
+  currentMusicUrl: String 
+  currentMusicName: String 
 }
 
 input GameFilterInput {
@@ -737,6 +743,8 @@ input GameFilterInput {
   totalExpPoints: String_Selector
   bwam: String_Selector
   _sh_: String_Selector
+  currentMusicUrl: String_Selector
+  currentMusicName: String_Selector
 }
 
 input GameSortInput {
@@ -750,6 +758,8 @@ input GameSortInput {
   totalExpPoints: SortOptions
   bwam: SortOptions
   _sh_: SortOptions
+  currentMusicUrl: SortOptions
+  currentMusicName: SortOptions
 }
 
 input GameSelectorInput {

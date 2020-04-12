@@ -1,6 +1,7 @@
 import React from 'react';
 import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const ActiveGame = ({ loading, document, match }) => (
   <div className="movies-list">
@@ -9,7 +10,7 @@ const ActiveGame = ({ loading, document, match }) => (
     ) : (
       <div>
       <h3 >{document.name}<span style={{float: "right"}}> {document._sh_} : {document.bwam} </span></h3>
-      <p>{document.currentExpPoints} / {document.totalExpPoints} △ | {document.level} / {document.maxLevel} ☸</p>
+      <p>{document.currentExpPoints} / {document.totalExpPoints} △ | {document.level} / {document.maxLevel} ☸ <a href={document.currentMusicUrl} target={"_blank"}><span style={{float: "right"}}>{document.currentMusicName}</span></a></p>
       <hr></hr>
         {match.params.slug}
       </div>
