@@ -36,6 +36,14 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  currentExpPoints: {
+    type: String,
+    optional: false,
+    defaultValue: "0",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   maxLevel: {
     type: String,
     optional: false,

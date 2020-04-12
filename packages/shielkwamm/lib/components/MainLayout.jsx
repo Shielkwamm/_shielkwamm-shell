@@ -11,7 +11,6 @@ const MainLayout = ({ children, currentUser }) => (
           <div className="col-8">
             <h1>{ children }</h1>
           </div>
-          <hr></hr>
           <div className="col-4">
             <Components.GlyphsList />
           </div>

@@ -7,6 +7,7 @@ registerFragment(`
      name
      level
      maxLevel
+     currentExpPoints
      totalExpPoints
      bwam
      _sh_

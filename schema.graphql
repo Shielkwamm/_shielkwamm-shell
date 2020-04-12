@@ -617,6 +617,7 @@ type Game {
   name: String 
   slug: String 
   level: String 
+  currentExpPoints: String 
   maxLevel: String 
   totalExpPoints: String 
   bwam: String 
@@ -690,6 +691,7 @@ input CreateGameDataInput {
   name: String 
   slug: String 
   level: String 
+  currentExpPoints: String 
   maxLevel: String 
   totalExpPoints: String 
   bwam: String 
@@ -712,6 +714,7 @@ input UpdateGameDataInput {
   name: String 
   slug: String 
   level: String 
+  currentExpPoints: String 
   maxLevel: String 
   totalExpPoints: String 
   bwam: String 
@@ -729,6 +732,7 @@ input GameFilterInput {
   name: String_Selector
   slug: String_Selector
   level: String_Selector
+  currentExpPoints: String_Selector
   maxLevel: String_Selector
   totalExpPoints: String_Selector
   bwam: String_Selector
@@ -741,6 +745,7 @@ input GameSortInput {
   name: SortOptions
   slug: SortOptions
   level: SortOptions
+  currentExpPoints: SortOptions
   maxLevel: SortOptions
   totalExpPoints: SortOptions
   bwam: SortOptions
