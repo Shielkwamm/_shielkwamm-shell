@@ -14,7 +14,7 @@ const schema = {
       return new Date();
     }
   },
-  name: {
+  text: {
     type: String,
     optional: false,
     canRead: ['guests'],

@@ -9,7 +9,7 @@ const MainLayout = ({ children, currentUser }) => (
       <div className="container">
         <div className="row">
           <div className="col-8">
-            <h1>{ children }</h1>
+            { children }
           </div>
           <div className="col-4">
             <Components.GlyphsList />

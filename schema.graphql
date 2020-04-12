@@ -1122,6 +1122,127 @@ input MarketSelectorUniqueInput {
 }
 
 
+# Type for ShS
+type Sh {
+  _id: String 
+  createdAt: Date 
+  text: String 
+}
+
+
+input DeleteShInput{
+  filter: ShFilterInput
+  id: String
+}
+
+input SingleShInput {
+  # filtering
+  filter: ShFilterInput
+  sort: ShSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: ShSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiShInput {
+
+  # filtering
+  filter: ShFilterInput
+  sort: ShSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleShOutput{
+  result: Sh
+}
+
+type  MultiShOutput{
+  results: [Sh]
+  totalCount: Int
+}
+
+type ShMutationOutput{
+  data: Sh
+}
+
+input CreateShInput {
+  data: CreateShDataInput!
+}
+
+input CreateShDataInput {
+  text: String 
+}
+
+input UpdateShInput{
+  filter: ShFilterInput
+  id: String
+  data: UpdateShDataInput!
+}
+
+input UpsertShInput{
+  filter: ShFilterInput
+  id: String
+  data: UpdateShDataInput!
+}
+
+input UpdateShDataInput {
+  text: String 
+}
+
+input ShFilterInput {
+  _and: [ShFilterInput]
+  _not: ShFilterInput
+  _or: [ShFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  text: String_Selector
+}
+
+input ShSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  text: SortOptions
+}
+
+input ShSelectorInput {
+  _and: [ShSelectorInput]
+  _or: [ShSelectorInput]
+
+}
+
+input ShSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -1164,6 +1285,12 @@ type Query {
   
   # A list of Market documents matching a set of query terms
   markets(input: MultiMarketInput):  MultiMarketOutput
+  
+  # A single Sh document fetched by ID or slug
+  sh(input: SingleShInput!): SingleShOutput
+  
+  # A list of Sh documents matching a set of query terms
+  shes(input: MultiShInput):  MultiShOutput
   
 }
   
@@ -1303,6 +1430,38 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: MarketSelectorUniqueInput
 ) : MarketMutationOutput
+
+  # Mutation for creating new Sh documents
+  createSh(
+  input: CreateShInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateShDataInput
+) : ShMutationOutput
+
+  # Mutation for updating a Sh document
+  updateSh(
+  input: UpdateShInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ShSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateShDataInput 
+) : ShMutationOutput
+
+  # Mutation for upserting a Sh document
+  upsertSh(
+  input: UpsertShInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ShSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateShDataInput
+) : ShMutationOutput
+
+  # Mutation for deleting a Sh document
+  deleteSh(
+  input: DeleteShInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ShSelectorUniqueInput
+) : ShMutationOutput
 
 }
 

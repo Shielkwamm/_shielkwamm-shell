@@ -7,8 +7,9 @@ const GamesList = ({ loading, results }) => (
     <h2>Games</h2>
     <hr></hr>
     {!loading && results.map(game => (
-      <p key={game._id}><Link to={`/game/${game.slug}`}>{game.name}</Link>: {game._sh_} : {game.bwam} </p>
+      <h1 key={game._id}><Link to={`/game/${game.slug}`}>{game.name}</Link>: {game._sh_} : {game.bwam} </h1>
     ))}
+    <hr></hr>
   </div>
 );
 
