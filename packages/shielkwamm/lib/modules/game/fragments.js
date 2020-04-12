@@ -5,5 +5,10 @@ registerFragment(`
      _id
      createdAt
      name
+     level
+     maxLevel
+     totalExpPoints
+     bwam
+     _sh_
    }
 `);

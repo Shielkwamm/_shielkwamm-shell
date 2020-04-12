@@ -17,37 +17,43 @@ const schema = {
   name: {
     type: String,
     optional: false,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins']
   },
   level: {
-    type: Number,
+    type: String,
     optional: false,
-    defaultValue: 0,
-    canRead: ['guests']
+    defaultValue: "0",
+    canRead: ['guests'],
+    canCreate: ['admins']
   },
   maxLevel: {
-    type: Number,
+    type: String,
     optional: false,
-    defaultValue: 5,
-    canRead: ['guests']
+    defaultValue: "5",
+    canRead: ['guests'],
+    canCreate: ['admins']
   },
   totalExpPoints: {
-    type: Number,
+    type: String,
     optional: false,
-    defaultValue: 50,
-    canRead: ['guests']
+    defaultValue: "50",
+    canRead: ['guests'],
+    canCreate: ['admins']
   },
   bwam: { // ◯++
     type: String, 
     optional: false,
-    defaultValue: "◯" ,
-    canRead: ['guests']
+    defaultValue: "◯",
+    canRead: ['guests'],
+    canCreate: ['admins']
   },
-  shiel: { //+△+
+  _sh_: { //+△+
     type: String,
     optional: false,
-    defaultValue: "△" ,
-    canRead: ['guests']
+    defaultValue: "△",
+    canRead: ['guests'],
+    canCreate: ['admins']
   }
 };
 

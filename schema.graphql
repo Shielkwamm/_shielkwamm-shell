@@ -615,11 +615,11 @@ type Game {
   _id: String 
   createdAt: Date 
   name: String 
-  level: Float 
-  maxLevel: Float 
-  totalExpPoints: Float 
+  level: String 
+  maxLevel: String 
+  totalExpPoints: String 
   bwam: String 
-  shiel: String 
+  _sh_: String 
 }
 
 
@@ -681,6 +681,19 @@ type GameMutationOutput{
   data: Game
 }
 
+input CreateGameInput {
+  data: CreateGameDataInput!
+}
+
+input CreateGameDataInput {
+  name: String 
+  level: String 
+  maxLevel: String 
+  totalExpPoints: String 
+  bwam: String 
+  _sh_: String 
+}
+
 input GameFilterInput {
   _and: [GameFilterInput]
   _not: GameFilterInput
@@ -690,11 +703,11 @@ input GameFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
-  level: Float_Selector
-  maxLevel: Float_Selector
-  totalExpPoints: Float_Selector
+  level: String_Selector
+  maxLevel: String_Selector
+  totalExpPoints: String_Selector
   bwam: String_Selector
-  shiel: String_Selector
+  _sh_: String_Selector
 }
 
 input GameSortInput {
@@ -705,7 +718,7 @@ input GameSortInput {
   maxLevel: SortOptions
   totalExpPoints: SortOptions
   bwam: SortOptions
-  shiel: SortOptions
+  _sh_: SortOptions
 }
 
 input GameSelectorInput {
@@ -782,6 +795,13 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
+
+  # Mutation for creating new Game documents
+  createGame(
+  input: CreateGameInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateGameDataInput
+) : GameMutationOutput
 
   # Mutation for deleting a Game document
   deleteGame(

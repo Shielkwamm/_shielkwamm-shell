@@ -10,7 +10,7 @@ const Games = createCollection({
   // mutations: yourCustomMutations // null to disable default mutations generation
   permissions: {
     canRead: ['guests'],
-    canCreate: ['guests'],
+    canCreate: ['admins'],
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },
