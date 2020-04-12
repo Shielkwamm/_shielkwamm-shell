@@ -3,7 +3,7 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 
 const RoomMessagesInner = ({ loading, results }) => (
   <React.Fragment>
-  {!loading && results.map(message => 
+  {!loading && results.map(message =>
     <div key={message._id}>
       <p>{new Date(message.createdAt).toLocaleTimeString('en-US')}: {message.text}</p>
     </div>
