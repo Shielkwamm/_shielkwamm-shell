@@ -22,27 +22,32 @@ const schema = {
   level: {
     type: Number,
     optional: false,
-    defaultValue: 0
+    defaultValue: 0,
+    canRead: ['guests']
   },
   maxLevel: {
     type: Number,
     optional: false,
-    defaultValue: 5
+    defaultValue: 5,
+    canRead: ['guests']
   },
   totalExpPoints: {
     type: Number,
     optional: false,
-    defaultValue: 50
+    defaultValue: 50,
+    canRead: ['guests']
   },
   bwam: { // ◯++
     type: String, 
     optional: false,
-    defaultValue: "◯" 
+    defaultValue: "◯" ,
+    canRead: ['guests']
   },
   shiel: { //+△+
     type: String,
     optional: false,
-    defaultValue: "△" 
+    defaultValue: "△" ,
+    canRead: ['guests']
   }
 };
 

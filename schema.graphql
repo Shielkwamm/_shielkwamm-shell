@@ -615,6 +615,11 @@ type Game {
   _id: String 
   createdAt: Date 
   name: String 
+  level: Float 
+  maxLevel: Float 
+  totalExpPoints: Float 
+  bwam: String 
+  shiel: String 
 }
 
 
@@ -685,12 +690,22 @@ input GameFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  level: Float_Selector
+  maxLevel: Float_Selector
+  totalExpPoints: Float_Selector
+  bwam: String_Selector
+  shiel: String_Selector
 }
 
 input GameSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  level: SortOptions
+  maxLevel: SortOptions
+  totalExpPoints: SortOptions
+  bwam: SortOptions
+  shiel: SortOptions
 }
 
 input GameSelectorInput {
