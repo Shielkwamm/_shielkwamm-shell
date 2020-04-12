@@ -9,6 +9,7 @@ registerFragment(`
      maxLevel
      currentExpPoints
      totalExpPoints
+     zork
      bwam
      _sh_
      slug

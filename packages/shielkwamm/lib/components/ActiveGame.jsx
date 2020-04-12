@@ -9,7 +9,7 @@ const ActiveGameInner = ({ loading, document }) => (
       null
     ) : (
       <div>
-      <h3 >{document.name}<span style={{float: "right"}}> {document._sh_} : {document.bwam} </span></h3>
+      <h3 >{document.name}<span style={{float: "right"}}> <Link to="/">{document.zork}</Link> : <Link to="/">{document._sh_}</Link> : <Link to="/">{document.bwam}</Link> </span></h3>
       <p>{document.currentExpPoints} / {document.totalExpPoints} △ | {document.level} / {document.maxLevel} ☸ <a href={document.currentMusicUrl} target={"_blank"}><span style={{float: "right"}}>{document.currentMusicName}</span></a></p>
       <hr></hr>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{gameId: document._id}}/>

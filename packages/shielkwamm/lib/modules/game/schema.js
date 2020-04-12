@@ -60,6 +60,14 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  zork: { // +☰
+    type: String,
+    optional: false,
+    defaultValue: "+☰",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   bwam: { // ◯++
     type: String, 
     optional: false,

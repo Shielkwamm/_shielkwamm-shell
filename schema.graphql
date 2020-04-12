@@ -620,6 +620,7 @@ type Game {
   currentExpPoints: String 
   maxLevel: String 
   totalExpPoints: String 
+  zork: String 
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
@@ -696,6 +697,7 @@ input CreateGameDataInput {
   currentExpPoints: String 
   maxLevel: String 
   totalExpPoints: String 
+  zork: String 
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
@@ -721,6 +723,7 @@ input UpdateGameDataInput {
   currentExpPoints: String 
   maxLevel: String 
   totalExpPoints: String 
+  zork: String 
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
@@ -741,6 +744,7 @@ input GameFilterInput {
   currentExpPoints: String_Selector
   maxLevel: String_Selector
   totalExpPoints: String_Selector
+  zork: String_Selector
   bwam: String_Selector
   _sh_: String_Selector
   currentMusicUrl: String_Selector
@@ -756,6 +760,7 @@ input GameSortInput {
   currentExpPoints: SortOptions
   maxLevel: SortOptions
   totalExpPoints: SortOptions
+  zork: SortOptions
   bwam: SortOptions
   _sh_: SortOptions
   currentMusicUrl: SortOptions
@@ -902,6 +907,221 @@ input MessageSelectorUniqueInput {
 }
 
 
+# Type for Handles
+type Handle {
+  _id: String 
+  createdAt: Date 
+  name: String 
+}
+
+
+input DeleteHandleInput{
+  filter: HandleFilterInput
+  id: String
+}
+
+input SingleHandleInput {
+  # filtering
+  filter: HandleFilterInput
+  sort: HandleSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: HandleSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiHandleInput {
+
+  # filtering
+  filter: HandleFilterInput
+  sort: HandleSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleHandleOutput{
+  result: Handle
+}
+
+type  MultiHandleOutput{
+  results: [Handle]
+  totalCount: Int
+}
+
+type HandleMutationOutput{
+  data: Handle
+}
+
+input CreateHandleInput {
+  data: CreateHandleDataInput!
+}
+
+input CreateHandleDataInput {
+  name: String 
+}
+
+input UpdateHandleInput{
+  filter: HandleFilterInput
+  id: String
+  data: UpdateHandleDataInput!
+}
+
+input UpsertHandleInput{
+  filter: HandleFilterInput
+  id: String
+  data: UpdateHandleDataInput!
+}
+
+input UpdateHandleDataInput {
+  name: String 
+}
+
+input HandleFilterInput {
+  _and: [HandleFilterInput]
+  _not: HandleFilterInput
+  _or: [HandleFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+}
+
+input HandleSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+}
+
+input HandleSelectorInput {
+  _and: [HandleSelectorInput]
+  _or: [HandleSelectorInput]
+
+}
+
+input HandleSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Markets
+type Market {
+  _id: String 
+  createdAt: Date 
+}
+
+
+input DeleteMarketInput{
+  filter: MarketFilterInput
+  id: String
+}
+
+input SingleMarketInput {
+  # filtering
+  filter: MarketFilterInput
+  sort: MarketSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: MarketSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiMarketInput {
+
+  # filtering
+  filter: MarketFilterInput
+  sort: MarketSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleMarketOutput{
+  result: Market
+}
+
+type  MultiMarketOutput{
+  results: [Market]
+  totalCount: Int
+}
+
+type MarketMutationOutput{
+  data: Market
+}
+
+input MarketFilterInput {
+  _and: [MarketFilterInput]
+  _not: MarketFilterInput
+  _or: [MarketFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+}
+
+input MarketSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+}
+
+input MarketSelectorInput {
+  _and: [MarketSelectorInput]
+  _or: [MarketSelectorInput]
+
+}
+
+input MarketSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -932,6 +1152,18 @@ type Query {
   
   # A list of Message documents matching a set of query terms
   messages(input: MultiMessageInput):  MultiMessageOutput
+  
+  # A single Handle document fetched by ID or slug
+  handle(input: SingleHandleInput!): SingleHandleOutput
+  
+  # A list of Handle documents matching a set of query terms
+  handles(input: MultiHandleInput):  MultiHandleOutput
+  
+  # A single Market document fetched by ID or slug
+  market(input: SingleMarketInput!): SingleMarketOutput
+  
+  # A list of Market documents matching a set of query terms
+  markets(input: MultiMarketInput):  MultiMarketOutput
   
 }
   
@@ -1032,6 +1264,45 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: MessageSelectorUniqueInput
 ) : MessageMutationOutput
+
+  # Mutation for creating new Handle documents
+  createHandle(
+  input: CreateHandleInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateHandleDataInput
+) : HandleMutationOutput
+
+  # Mutation for updating a Handle document
+  updateHandle(
+  input: UpdateHandleInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandleDataInput 
+) : HandleMutationOutput
+
+  # Mutation for upserting a Handle document
+  upsertHandle(
+  input: UpsertHandleInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandleDataInput
+) : HandleMutationOutput
+
+  # Mutation for deleting a Handle document
+  deleteHandle(
+  input: DeleteHandleInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleSelectorUniqueInput
+) : HandleMutationOutput
+
+  # Mutation for deleting a Market document
+  deleteMarket(
+  input: DeleteMarketInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MarketSelectorUniqueInput
+) : MarketMutationOutput
 
 }
 
