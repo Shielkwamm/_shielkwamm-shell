@@ -6,3 +6,4 @@ import './handle/collection.js';
 import './market/collection.js';
 import './sh/collection.js';
 import './party/collection.js';
+import './i18n/collection.js';
