@@ -26,7 +26,16 @@ const schema = {
     optional: true,
     canRead: ['admins'],
     canUpdate: ['admins'],
-    canCreate: ['admins']
+    canCreate: ['admins'],
+    input: 'textarea'
+  },
+  isActive: {
+    type: Boolean,
+    optional: true,
+    defaultValue: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   },
   mood: {
     type: String,
@@ -34,14 +43,6 @@ const schema = {
     canRead: ['admins'],
     canUpdate: ['admins'],
     canCreate: ['admins']
-  },
-  isActive: {
-    type: String,
-    optional: true,
-    defaultValue: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
   },
   // userId: {
   //   type: String,

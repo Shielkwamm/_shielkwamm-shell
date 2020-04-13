@@ -21,6 +21,15 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  description: {
+    type: String,
+    optional: true,
+    defaultValue: "n00b",
+    canRead: ['admins'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    input: 'textarea'
+  },
   'partiesIds.$': {
     label: "Parties",
     type: String,
@@ -61,21 +70,12 @@ const schema = {
     canUpdate: ['admins']
   },
   isActive: {
-    type: String,
+    type: Boolean,
     optional: true,
     defaultValue: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
-  },
-  description: {
-    type: String,
-    optional: true,
-    defaultValue: "n00b",
-    canRead: ['admins'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    input: 'textarea'
   },
   parties: {
     type: String,

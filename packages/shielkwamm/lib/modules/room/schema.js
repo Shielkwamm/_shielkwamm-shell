@@ -28,10 +28,18 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  level: {
+  description: {
     type: String,
-    optional: false,
-    defaultValue: "0",
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    input: 'textarea'
+  },
+  isActive: {
+    type: Boolean,
+    optional: true,
+    defaultValue: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -44,10 +52,18 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  isActive: {
+  totalExpPoints: {
     type: String,
-    optional: true,
-    defaultValue: true,
+    optional: false,
+    defaultValue: "50",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  level: {
+    type: String,
+    optional: false,
+    defaultValue: "0",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -56,14 +72,6 @@ const schema = {
     type: String,
     optional: false,
     defaultValue: "5",
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  totalExpPoints: {
-    type: String,
-    optional: false,
-    defaultValue: "50",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -103,13 +111,6 @@ const schema = {
   currentMusicTitle: {
     type: String,
     defaultValue: "↑↑⬤ Marble Madness Remix (2009)",
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  description: {
-    type: String,
-    optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']

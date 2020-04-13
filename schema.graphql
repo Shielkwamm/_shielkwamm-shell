@@ -616,17 +616,17 @@ type Room {
   createdAt: Date 
   name: String 
   slug: String 
-  level: String 
+  description: String 
+  isActive: Boolean 
   currentExpPoints: String 
-  isActive: String 
-  maxLevel: String 
   totalExpPoints: String 
+  level: String 
+  maxLevel: String 
   zork: String 
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  description: String 
 }
 
 
@@ -695,17 +695,17 @@ input CreateRoomInput {
 input CreateRoomDataInput {
   name: String 
   slug: String 
-  level: String 
+  description: String 
+  isActive: Boolean 
   currentExpPoints: String 
-  isActive: String 
-  maxLevel: String 
   totalExpPoints: String 
+  level: String 
+  maxLevel: String 
   zork: String 
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  description: String 
 }
 
 input UpdateRoomInput{
@@ -723,17 +723,17 @@ input UpsertRoomInput{
 input UpdateRoomDataInput {
   name: String 
   slug: String 
-  level: String 
+  description: String 
+  isActive: Boolean 
   currentExpPoints: String 
-  isActive: String 
-  maxLevel: String 
   totalExpPoints: String 
+  level: String 
+  maxLevel: String 
   zork: String 
   bwam: String 
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  description: String 
 }
 
 input RoomFilterInput {
@@ -746,17 +746,17 @@ input RoomFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   slug: String_Selector
-  level: String_Selector
+  description: String_Selector
+  isActive: Boolean_Selector
   currentExpPoints: String_Selector
-  isActive: String_Selector
-  maxLevel: String_Selector
   totalExpPoints: String_Selector
+  level: String_Selector
+  maxLevel: String_Selector
   zork: String_Selector
   bwam: String_Selector
   _sh_: String_Selector
   currentMusicUrl: String_Selector
   currentMusicTitle: String_Selector
-  description: String_Selector
 }
 
 input RoomSortInput {
@@ -764,17 +764,17 @@ input RoomSortInput {
   createdAt: SortOptions
   name: SortOptions
   slug: SortOptions
-  level: SortOptions
-  currentExpPoints: SortOptions
+  description: SortOptions
   isActive: SortOptions
-  maxLevel: SortOptions
+  currentExpPoints: SortOptions
   totalExpPoints: SortOptions
+  level: SortOptions
+  maxLevel: SortOptions
   zork: SortOptions
   bwam: SortOptions
   _sh_: SortOptions
   currentMusicUrl: SortOptions
   currentMusicTitle: SortOptions
-  description: SortOptions
 }
 
 input RoomSelectorInput {
@@ -922,11 +922,11 @@ type Handle {
   _id: String 
   createdAt: Date 
   name: String 
+  description: String 
   partiesIds: [String] 
   partys: [Party] 
   mood: String 
-  isActive: String 
-  description: String 
+  isActive: Boolean 
   parties: String 
 }
 
@@ -995,10 +995,10 @@ input CreateHandleInput {
 
 input CreateHandleDataInput {
   name: String 
+  description: String 
   partiesIds: [String] 
   mood: String 
-  isActive: String 
-  description: String 
+  isActive: Boolean 
   parties: String 
 }
 
@@ -1016,10 +1016,10 @@ input UpsertHandleInput{
 
 input UpdateHandleDataInput {
   name: String 
+  description: String 
   partiesIds: [String] 
   mood: String 
-  isActive: String 
-  description: String 
+  isActive: Boolean 
   parties: String 
 }
 
@@ -1032,10 +1032,10 @@ input HandleFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  description: String_Selector
   partiesIds: String_Array_Selector
   mood: String_Selector
-  isActive: String_Selector
-  description: String_Selector
+  isActive: Boolean_Selector
   parties: String_Selector
 }
 
@@ -1043,10 +1043,10 @@ input HandleSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  description: SortOptions
   partiesIds: SortOptions
   mood: SortOptions
   isActive: SortOptions
-  description: SortOptions
   parties: SortOptions
 }
 
@@ -1285,8 +1285,8 @@ type Party {
   createdAt: Date 
   name: String 
   description: String 
+  isActive: Boolean 
   mood: String 
-  isActive: String 
 }
 
 
@@ -1355,8 +1355,8 @@ input CreatePartyInput {
 input CreatePartyDataInput {
   name: String 
   description: String 
+  isActive: Boolean 
   mood: String 
-  isActive: String 
 }
 
 input UpdatePartyInput{
@@ -1374,8 +1374,8 @@ input UpsertPartyInput{
 input UpdatePartyDataInput {
   name: String 
   description: String 
+  isActive: Boolean 
   mood: String 
-  isActive: String 
 }
 
 input PartyFilterInput {
@@ -1388,8 +1388,8 @@ input PartyFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   description: String_Selector
+  isActive: Boolean_Selector
   mood: String_Selector
-  isActive: String_Selector
 }
 
 input PartySortInput {
@@ -1397,8 +1397,8 @@ input PartySortInput {
   createdAt: SortOptions
   name: SortOptions
   description: SortOptions
-  mood: SortOptions
   isActive: SortOptions
+  mood: SortOptions
 }
 
 input PartySelectorInput {
