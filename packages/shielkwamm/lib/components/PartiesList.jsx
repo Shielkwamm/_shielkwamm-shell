@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 
 const PartiesList = ({ loading, results }) => (
   <div className="movies-list">
-    <h2>Parties</h2>
+    <h2><Link to="/">⏎</Link>Parties</h2>
     <hr></hr>
-    
+    {!loading && results.map(party => (
+      <div key={party._id}>
+      <h1>{party.prefix} {party.name}</h1>
+      <p>{party.description}</p>
+      <hr></hr>
+      </div>
+    ))}
   </div>
 );
 
@@ -15,15 +21,4 @@ const options = {
   fragmentName: 'PartiesFragment', // uncomment on #Step11
 }
 
-registerComponent({ name: 'PartiesList', component: PartiesList, hocs: [[withMulti2, options]]})
-
-/*
-{!loading && results.map(party => (
-      <div key={room._id}>
-      <h1><Link to={`/room/${room.slug}`}>{room.name}</Link></h1>
-      <p>{room._sh_} : {room.bwam}<span style={{float: "right"}}><a href={room.currentMusicUrl}>{room.currentMusicTitle}</a> </span></p>
-      <p>{room.description}</p>
-      <hr></hr>
-      </div>
-    ))}
-    */
+registerComponent({ name: 'PartiesList', component: PartiesList, hocs: [[withMulti2, options]]});

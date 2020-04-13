@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RoomsList = ({ loading, results }) => (
   <div className="movies-list">
-    <h2>Rooms</h2>
+    <h2><Link to="/">⏎ </Link>Rooms</h2>
     <hr></hr>
     {!loading && results.map(room => (
       <div key={room._id}>

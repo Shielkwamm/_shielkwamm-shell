@@ -27,6 +27,13 @@ const schema = {
     canRead: ['admins'],
     canUpdate: ['admins'],
     canCreate: ['admins']
+  },
+  mood: {
+    type: String,
+    optional: true,
+    canRead: ['admins'],
+    canUpdate: ['admins'],
+    canCreate: ['admins']
   }
   // userId: {
   //   type: String,

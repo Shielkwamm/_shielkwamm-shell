@@ -1,24 +1,35 @@
 import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Link } from 'react-router-dom';
 
 //import GlyphsList from '../../modules/collection.js';
 
-const HandlesList = () => (
+const HandlesList = ({ loading, results }) => (
   <React.Fragment>
-    <h2>Handles</h2>
+    <h2><Link to="/">⏎ </Link>Handles</h2>
     <p>~unconfirmed, !inbound, []spammy</p>
     <hr></hr>
-    <p>zZz admin</p>
-    <p>~warmIceElation</p>
-    <p>zZz airBursts</p>
-    <p>+☴☴ BurpingCactus</p>
-    <p>TrussHere</p>
-    <p>++☴☴ +m Jimmy[capsule]</p>
-    <p>[lolliebombs]</p>
-    <p></p>
+    {!loading && results.map(handles => (
+      <React.Fragment>
+       <p>{handles.state} {handles.name}</p>
+      
+      </React.Fragment>
+    ))}
     <hr></hr>
   </React.Fragment>
 );
 
+const options = {
+  collectionName: "Handles",
+  fragmentName: 'HandlesFragment', // uncomment on #Step11
+}
 
-registerComponent({ name: 'HandlesList', component: HandlesList });
+registerComponent({ name: 'HandlesList', component: HandlesList, hocs: [[withMulti2, options]] });
+
+/*
+<p>~warmIceElation</p>
+    <p>+☴☴ BurpingCactus</p>
+    <p>++☴☴ +m Jimmy[capsule]</p>
+    <p>[lolliebombs]</p>
+
+    */

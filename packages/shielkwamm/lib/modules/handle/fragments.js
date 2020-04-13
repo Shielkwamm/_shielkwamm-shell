@@ -5,5 +5,10 @@ registerFragment(`
      _id
      createdAt
      name
+     description
+     parties
    }
 `);
+
+//partyIds
+//parties

@@ -917,6 +917,11 @@ type Handle {
   _id: String 
   createdAt: Date 
   name: String 
+  partiesIds: [String] 
+  partys: [Party] 
+  mood: String 
+  description: String 
+  parties: String 
 }
 
 
@@ -984,6 +989,10 @@ input CreateHandleInput {
 
 input CreateHandleDataInput {
   name: String 
+  partiesIds: [String] 
+  mood: String 
+  description: String 
+  parties: String 
 }
 
 input UpdateHandleInput{
@@ -1000,6 +1009,10 @@ input UpsertHandleInput{
 
 input UpdateHandleDataInput {
   name: String 
+  partiesIds: [String] 
+  mood: String 
+  description: String 
+  parties: String 
 }
 
 input HandleFilterInput {
@@ -1011,12 +1024,20 @@ input HandleFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  partiesIds: String_Array_Selector
+  mood: String_Selector
+  description: String_Selector
+  parties: String_Selector
 }
 
 input HandleSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  partiesIds: SortOptions
+  mood: SortOptions
+  description: SortOptions
+  parties: SortOptions
 }
 
 input HandleSelectorInput {
@@ -1254,6 +1275,7 @@ type Party {
   createdAt: Date 
   name: String 
   description: String 
+  mood: String 
 }
 
 
@@ -1322,6 +1344,7 @@ input CreatePartyInput {
 input CreatePartyDataInput {
   name: String 
   description: String 
+  mood: String 
 }
 
 input UpdatePartyInput{
@@ -1339,6 +1362,7 @@ input UpsertPartyInput{
 input UpdatePartyDataInput {
   name: String 
   description: String 
+  mood: String 
 }
 
 input PartyFilterInput {
@@ -1351,6 +1375,7 @@ input PartyFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   description: String_Selector
+  mood: String_Selector
 }
 
 input PartySortInput {
@@ -1358,6 +1383,7 @@ input PartySortInput {
   createdAt: SortOptions
   name: SortOptions
   description: SortOptions
+  mood: SortOptions
 }
 
 input PartySelectorInput {

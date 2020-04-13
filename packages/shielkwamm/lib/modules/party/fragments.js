@@ -5,6 +5,7 @@ registerFragment(`
      _id
      createdAt
      name
+     mood
      description
    }
 `);
