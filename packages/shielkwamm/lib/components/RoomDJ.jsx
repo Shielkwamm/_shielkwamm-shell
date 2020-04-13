@@ -3,19 +3,15 @@ import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
-const RoomRoomInner = ({ loading, document }) => (
+const RoomDJInner = ({ loading, document }) => (
   <React.Fragment>
     {loading ? (
       null
     ) : (
       <div>
+        <Components.HeadTags title={`DJ: ${document.name}`}/>
         <Components.RoomHeader room={document}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["name"]}/>
-        <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["zork"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
@@ -29,10 +25,10 @@ const options = {
   fragmentName: 'RoomsFragment', // uncomment on #Step11
 }
 
-registerComponent( {name: 'RoomRoomInner', component: RoomRoomInner, hocs: [[withSingle2, options]]})
+registerComponent( {name: 'RoomDJInner', component: RoomDJInner, hocs: [[withSingle2, options]]})
 
-const RoomRoom = ({ match }) => (
-  <Components.RoomRoomInner input={{selector: {slug: match.params.slug}}}/>
+const RoomDJ = ({ match }) => (
+  <Components.RoomDJInner input={{selector: {slug: match.params.slug}}}/>
 );
 
-registerComponent({ name: 'RoomRoom', component: RoomRoom, hocs: [withRouter]});
+registerComponent({ name: 'RoomDJ', component: RoomDJ, hocs: [withRouter]});

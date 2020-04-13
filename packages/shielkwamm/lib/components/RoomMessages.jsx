@@ -1,7 +1,7 @@
 import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 
-const RoomMessage = ({ message, linkColor, backgroundColor }) => {
+const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let timeStamp = new Date(message.createdAt);
   let _zr_ = /^.*:.*$/;
   //let _sh_ = /.*:.*/;
@@ -12,7 +12,7 @@ const RoomMessage = ({ message, linkColor, backgroundColor }) => {
   let _zr_Match = false;
   let _ng_Match = false;
   if(message.text.match(_ng_)){
-    style.color = linkColor;
+    style.color = color;
     style.fontSize = "35px";
     style.verticalAlign = "-6px";
     style.marginTop = "-23px";
@@ -58,11 +58,11 @@ const RoomMessage = ({ message, linkColor, backgroundColor }) => {
   )
 }
 
-const RoomMessagesInner = ({ loading, results, linkColor, backgroundColor }) => (
+const RoomMessagesInner = ({ loading, results, linkColor, backgroundColor, color }) => (
   <React.Fragment>
   {!loading && results.map(message =>
     <div key={message._id}>
-      <RoomMessage message={message} linkColor={linkColor}  backgroundColor={backgroundColor}/>
+      <RoomMessage message={message} linkColor={linkColor} color={color} backgroundColor={backgroundColor}/>
     </div>
   )}
   </React.Fragment>
@@ -75,8 +75,8 @@ const options = {
 
 registerComponent({ name: 'RoomMessagesInner', component: RoomMessagesInner, hocs: [[withMulti2, options]]});
 
-const RoomMessages = ({ roomId, linkColor, backgroundColor }) => (
-  <Components.RoomMessagesInner linkColor={linkColor} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
+const RoomMessages = ({ roomId, linkColor, backgroundColor, color }) => (
+  <Components.RoomMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
 );
 
 registerComponent({ name: 'RoomMessages', component: RoomMessages});

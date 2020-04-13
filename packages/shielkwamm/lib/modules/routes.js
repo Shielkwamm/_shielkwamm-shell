@@ -3,6 +3,8 @@ import { addRoute, Components } from 'meteor/vulcan:core';
 addRoute({ name: 'home', path: '/', componentName: 'Overview' });
 addRoute({ name: 'roomsList', path: '/rooms', componentName: "RoomsList"})
 addRoute({ name: 'roomRoom', path: '/room/:slug/room', componentName: "RoomRoom"});
+addRoute({ name: 'roomDJ', path: '/room/:slug/dj', componentName: "RoomDJ"});
+addRoute({ name: 'roomCannon', path: '/room/:slug/cannon', componentName: "RoomCannon"});
 
 addRoute({ name: 'markets', path: '/markets', componentName: "MarketsList"})
 addRoute({ name: 'handles', path: '/handles', componentName: "HandlesList"});
