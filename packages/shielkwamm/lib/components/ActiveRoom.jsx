@@ -18,15 +18,15 @@ const ActiveRoomInner = ({ loading, document }) => (
         backgroundColor: document.backgroundColor,
       }}>
       <h3><Link style={{color: document.linkColor}} to="/rooms">⏎</Link>{document.name} ☸_{document.level} <span style={{float: "right"}}>{document.zork} {document._sh_} {document.bwam}</span></h3>
-      <p> {document.vibe} <a style={{color: document.linkColor}} href={document.currentMusicUrl} target={"_blank"}>{document.currentMusicTitle}</a></p>
+      <p style={{textAlign: "right"}}> <a style={{color: document.linkColor}} href={document.currentMusicUrl} target={"_blank"}>{document.currentMusicTitle}</a> {document.vibe}</p>
       <hr></hr>
       </div>
-        <Components.RoomMessages roomId={document._id}/>
+        <Components.RoomMessages roomId={document._id} backgroundColor={document.backgroundColor} linkColor={document.linkColor}/>
       </div>
     )}
   </React.Fragment>
 )
-////"#FF00DD"//"#FFCCDD"
+
 const options = {
   collectionName: "Rooms",
   fragmentName: 'RoomsFragment', // uncomment on #Step11
