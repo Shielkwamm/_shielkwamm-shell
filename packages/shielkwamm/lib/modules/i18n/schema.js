@@ -64,28 +64,28 @@ const schema = {
     canUpdate: ['admins']
   },
   left: {
-    type: false,
+    type: String,
     defaultValue: "Òòìḱ",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   leftName: {
-    type: false,
+    type: String,
     defaultValue: "Em0ti0n",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   right: {
-    type: false,
+    type: String,
     defaultValue: "Ööï",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   rightName: {
-    type: false,
+    type: String,
     defaultValue: "Intigat0r",
     canRead: ['guests'],
     canCreate: ['admins'],

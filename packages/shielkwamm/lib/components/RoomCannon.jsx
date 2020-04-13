@@ -2,12 +2,31 @@ import React from 'react';
 import { Components, registerComponent, withSingle2, withMulti2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+
+
+const RoomCannonMessage = ({ message, linkColor }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  return (
+    <React.Fragment>
+      {isEditing ? (
+        <React.Fragment>
+          <p><a onClick={e => setIsEditing(false)} style={{color: linkColor}}>exit</a></p>
+          <Components.SmartForm collectionName='Messages' fields={["text"]} documentId={message._id}/>
+        </React.Fragment>
+      ) : (
+        <p><a onClick={e => setIsEditing(true)} style={{color: linkColor}}>edit</a> {new Date(message.createdAt).toLocaleTimeString()}: {message.text}</p>
+      )}
+    </React.Fragment>
+  )
+}
 
 const RoomCannonMessagesInner = ({ loading, results, linkColor, backgroundColor, color }) => (
   <React.Fragment>
   {!loading && results.map(message =>
     <div key={message._id}>
-       <p><span style={{color: linkColor}}>edit</span> {new Date(message.createdAt).toLocaleTimeString()}: {message.text}</p>
+       <RoomCannonMessage message={message} linkColor={linkColor}/>
     </div>
   )}
   </React.Fragment>

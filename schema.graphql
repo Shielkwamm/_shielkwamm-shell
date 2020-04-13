@@ -1450,6 +1450,172 @@ input PartySelectorUniqueInput {
 }
 
 
+# Type for I18ns
+type I18n {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  description: String 
+  up: String 
+  upName: String 
+  down: String 
+  downName: String 
+  left: String 
+  leftName: String 
+  right: String 
+  rightName: String 
+}
+
+
+input DeleteI18nInput{
+  filter: I18nFilterInput
+  id: String
+}
+
+input SingleI18nInput {
+  # filtering
+  filter: I18nFilterInput
+  sort: I18nSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: I18nSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiI18nInput {
+
+  # filtering
+  filter: I18nFilterInput
+  sort: I18nSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleI18nOutput{
+  result: I18n
+}
+
+type  MultiI18nOutput{
+  results: [I18n]
+  totalCount: Int
+}
+
+type I18nMutationOutput{
+  data: I18n
+}
+
+input CreateI18nInput {
+  data: CreateI18nDataInput!
+}
+
+input CreateI18nDataInput {
+  name: String 
+  description: String 
+  up: String 
+  upName: String 
+  down: String 
+  downName: String 
+  left: String 
+  leftName: String 
+  right: String 
+  rightName: String 
+}
+
+input UpdateI18nInput{
+  filter: I18nFilterInput
+  id: String
+  data: UpdateI18nDataInput!
+}
+
+input UpsertI18nInput{
+  filter: I18nFilterInput
+  id: String
+  data: UpdateI18nDataInput!
+}
+
+input UpdateI18nDataInput {
+  name: String 
+  description: String 
+  up: String 
+  upName: String 
+  down: String 
+  downName: String 
+  left: String 
+  leftName: String 
+  right: String 
+  rightName: String 
+}
+
+input I18nFilterInput {
+  _and: [I18nFilterInput]
+  _not: I18nFilterInput
+  _or: [I18nFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  description: String_Selector
+  up: String_Selector
+  upName: String_Selector
+  down: String_Selector
+  downName: String_Selector
+  left: String_Selector
+  leftName: String_Selector
+  right: String_Selector
+  rightName: String_Selector
+}
+
+input I18nSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  description: SortOptions
+  up: SortOptions
+  upName: SortOptions
+  down: SortOptions
+  downName: SortOptions
+  left: SortOptions
+  leftName: SortOptions
+  right: SortOptions
+  rightName: SortOptions
+}
+
+input I18nSelectorInput {
+  _and: [I18nSelectorInput]
+  _or: [I18nSelectorInput]
+
+}
+
+input I18nSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -1504,6 +1670,12 @@ type Query {
   
   # A list of Party documents matching a set of query terms
   parties(input: MultiPartyInput):  MultiPartyOutput
+  
+  # A single I18n document fetched by ID or slug
+  i18n(input: SingleI18nInput!): SingleI18nOutput
+  
+  # A list of I18n documents matching a set of query terms
+  i18ns(input: MultiI18nInput):  MultiI18nOutput
   
 }
   
@@ -1707,6 +1879,38 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: PartySelectorUniqueInput
 ) : PartyMutationOutput
+
+  # Mutation for creating new I18n documents
+  createI18n(
+  input: CreateI18nInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateI18nDataInput
+) : I18nMutationOutput
+
+  # Mutation for updating a I18n document
+  updateI18n(
+  input: UpdateI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: I18nSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateI18nDataInput 
+) : I18nMutationOutput
+
+  # Mutation for upserting a I18n document
+  upsertI18n(
+  input: UpsertI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: I18nSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateI18nDataInput
+) : I18nMutationOutput
+
+  # Mutation for deleting a I18n document
+  deleteI18n(
+  input: DeleteI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: I18nSelectorUniqueInput
+) : I18nMutationOutput
 
 }
 
