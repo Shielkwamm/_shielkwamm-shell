@@ -12,7 +12,7 @@ const RoomsList = ({ loading, results }) => (
         paddingTop: "1px",
         paddingLeft: "14px",
         paddingRight: "14px",
-        backgroundColor: room.backgroundColor,
+        background: room.backgroundColor,
       }} key={room._id}>
         <h1><Link style={{color: room.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} {room._sh_} {room.bwam} </span></h1>
         <p>{room.vibe} <a style={{color: room.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>

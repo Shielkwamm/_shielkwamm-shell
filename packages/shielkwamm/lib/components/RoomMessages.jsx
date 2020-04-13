@@ -35,7 +35,7 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
     style.fontSize = "30px";
     style.verticalAlign = "-6px";
     style.color = linkColor;
-    style.backgroundColor = backgroundColor;
+    style.background = backgroundColor;
     style.margin = "-4px";
     style.padding = "9px";
   }
