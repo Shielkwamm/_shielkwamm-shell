@@ -7,9 +7,12 @@ const Best_sh_List = ({ loading, results }) => (
     <h2 style={{textAlign: "right"}}>△ Historic</h2>
     <hr></hr>
     {!loading && results.map(_sh_ => (
+      <React.Fragment>
       <h1 style={{textAlign: "center"}} key={_sh_._id}>{_sh_.text}</h1>
+      <hr></hr>
+      </React.Fragment>
     ))}
-    <hr></hr>
+    
   </div>
 );
 

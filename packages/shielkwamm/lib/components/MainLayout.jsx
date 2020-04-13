@@ -6,16 +6,9 @@ import { Components, registerComponent, replaceComponent, withCurrentUser } from
 const MainLayout = ({ children, currentUser }) => (
   <React.Fragment>
     {/*currentUser*/ true ? (
-      <div className="container">
-        <div className="row">
-          <div className="col-8">
-            { children }
-          </div>
-          <div className="col-4">
-            <Components.GlyphsList />
-          </div>
-        </div>
-      </div>
+      <div>
+      { children }
+      </div>    
     ) : (
       <Components.AccountsLoginForm />
     )}

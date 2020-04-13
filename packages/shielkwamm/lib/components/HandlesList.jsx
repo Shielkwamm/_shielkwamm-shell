@@ -9,13 +9,12 @@ const HandlesList = ({ loading, results }) => (
     <h2><Link to="/">⏎ </Link>Handles</h2>
     <p>~unconfirmed, !inbound, []spammy</p>
     <hr></hr>
-    {!loading && results.map(handles => (
+    {!loading && results.map(handle => (
       <React.Fragment>
-       <p>{handles.state} {handles.name}</p>
-      
+       <h1>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} </h1>
+       <hr></hr>
       </React.Fragment>
     ))}
-    <hr></hr>
   </React.Fragment>
 );
 

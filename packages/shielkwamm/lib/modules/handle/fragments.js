@@ -5,6 +5,8 @@ registerFragment(`
      _id
      createdAt
      name
+     mood
+     isActive
      description
      parties
    }

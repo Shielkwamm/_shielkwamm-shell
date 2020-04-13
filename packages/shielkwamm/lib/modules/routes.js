@@ -2,6 +2,8 @@ import { addRoute, Components } from 'meteor/vulcan:core';
 
 addRoute({ name: 'home', path: '/', componentName: 'Overview' });
 addRoute({ name: 'roomsList', path: '/rooms', componentName: "RoomsList"})
+addRoute({ name: 'roomRoom', path: '/room/:slug/room', componentName: "RoomRoom"});
+
 addRoute({ name: 'markets', path: '/markets', componentName: "MarketsList"})
 addRoute({ name: 'handles', path: '/handles', componentName: "HandlesList"});
 addRoute({ name: "parties", path: "/parties", componentName: "PartiesList"});
@@ -11,4 +13,6 @@ addRoute({ name: 'room', path: '/room/:slug', componentName: "ActiveRoom"})
 //addRoute({ name: 'roomHandles', path: '/room/:slug/handles', componentName: "RoomHandles"})
 addRoute({ name: 'roomMessages', path: '/room/:slug/messages', componentName: "RoomMessages"})
 
-addRoute({ name: 'market', path: '/market/:slug', componentName: "Market"})
+addRoute({ name: 'market', path: '/market/:slug', componentName: "Market"});
+
+addRoute({ name: 'glphysList', path: '/glyphs', componentName: "GlyphsList"})

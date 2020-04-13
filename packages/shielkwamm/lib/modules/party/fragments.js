@@ -7,5 +7,6 @@ registerFragment(`
      name
      mood
      description
+     isActive
    }
 `);

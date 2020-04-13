@@ -8,7 +8,7 @@ const PartiesList = ({ loading, results }) => (
     <hr></hr>
     {!loading && results.map(party => (
       <div key={party._id}>
-      <h1>{party.prefix} {party.name}</h1>
+      <h1>{party.isActive? "": "zZz "} {party.mood} {party.name}</h1>
       <p>{party.description}</p>
       <hr></hr>
       </div>

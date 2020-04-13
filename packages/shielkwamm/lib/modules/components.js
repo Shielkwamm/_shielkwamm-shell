@@ -3,6 +3,7 @@ import '../components/MainLayout.jsx';
 import '../components/GlyphsList.jsx';
 import '../components/RoomsList.jsx';
 import '../components/ActiveRoom.jsx';
+import '../components/RoomRoom.jsx';
 import '../components/RoomMessages.jsx';
 
 import '../components/HandlesList.jsx';
