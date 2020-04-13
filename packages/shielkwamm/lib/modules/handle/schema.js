@@ -51,12 +51,19 @@ const schema = {
       type: '[Party]',
       relation: 'hasMany'
     }
-
   },
   mood: {
     type: String,
     optional: true,
     defaultValue: "~",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  isActive: {
+    type: String,
+    optional: true,
+    defaultValue: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']

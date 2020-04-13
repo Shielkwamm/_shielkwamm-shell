@@ -44,6 +44,14 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  isActive: {
+    type: String,
+    optional: true,
+    defaultValue: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   maxLevel: {
     type: String,
     optional: false,

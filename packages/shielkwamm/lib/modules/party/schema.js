@@ -34,7 +34,15 @@ const schema = {
     canRead: ['admins'],
     canUpdate: ['admins'],
     canCreate: ['admins']
-  }
+  },
+  isActive: {
+    type: String,
+    optional: true,
+    defaultValue: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   // userId: {
   //   type: String,
   //   optional: true,
