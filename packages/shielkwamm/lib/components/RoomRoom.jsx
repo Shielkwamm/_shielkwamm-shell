@@ -17,6 +17,7 @@ const RoomRoomInner = ({ loading, document }) => (
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
+        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
       </div>
     )}
   </React.Fragment>

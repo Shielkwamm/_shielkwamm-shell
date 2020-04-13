@@ -7,11 +7,17 @@ const RoomsList = ({ loading, results }) => (
     <h2><Link to="/">⏎ </Link>Rooms</h2>
     <hr></hr>
     {!loading && results.map(room => (
-      <div key={room._id}>
-      <h1><Link to={`/room/${room.slug}`}>{room.name}</Link></h1>
-      <p>{room._sh_} : {room.bwam}<span style={{float: "right"}}><a href={room.currentMusicUrl}>{room.currentMusicTitle}</a> </span></p>
-      <p>{room.description}</p>
-      <hr></hr>
+      <div  style={{
+        color: room.color,
+        paddingTop: "1px",
+        paddingLeft: "14px",
+        paddingRight: "14px",
+        backgroundColor: room.backgroundColor,
+      }} key={room._id}>
+        <h1><Link style={{color: room.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} {room._sh_} {room.bwam} </span></h1>
+        <p>{room.vibe} <a style={{color: room.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
+        <p>{room.description}</p>
+        <hr></hr>
       </div>
     ))}
   </div>

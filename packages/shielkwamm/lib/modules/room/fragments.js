@@ -17,5 +17,8 @@ registerFragment(`
      currentMusicUrl
      currentMusicTitle
      description
+     color
+     backgroundColor
+     linkColor
    }
 `);

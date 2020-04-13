@@ -741,6 +741,9 @@ type Room {
   _id: String 
   createdAt: Date 
   name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -821,6 +824,9 @@ input CreateRoomInput {
 
 input CreateRoomDataInput {
   name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -850,6 +856,9 @@ input UpsertRoomInput{
 
 input UpdateRoomDataInput {
   name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -874,6 +883,9 @@ input RoomFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  color: String_Selector
+  backgroundColor: String_Selector
+  linkColor: String_Selector
   slug: String_Selector
   description: String_Selector
   isActive: Boolean_Selector
@@ -893,6 +905,9 @@ input RoomSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  color: SortOptions
+  backgroundColor: SortOptions
+  linkColor: SortOptions
   slug: SortOptions
   description: SortOptions
   isActive: SortOptions
