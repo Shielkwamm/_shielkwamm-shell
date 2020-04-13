@@ -9,9 +9,9 @@ const ActiveRoomInner = ({ loading, document }) => (
       null
     ) : (
       <div>
-      <Components.HeadTags title={`${document.zork} : ${document._sh_} : ${document.bwam}`}/>
-      <h3><Link to="/rooms">⏎</Link> {document.name}<span style={{float: "right"}}>{document.currentExpPoints} / {document.totalExpPoints} △ | {document.level} / {document.maxLevel} ☸</span></h3>
-      <p> <a href={document.currentMusicUrl} target={"_blank"}>{document.currentMusicTitle}</a></p>
+      <Components.HeadTags title={`${document.name} ▵△${document.currentExpPoints} / ${document.totalExpPoints}△▵  ☸${document.level} / ${document.maxLevel}☸`}/>
+      <h3><Link to="/rooms">⏎</Link>{document.name} ☸_{document.level} <span style={{float: "right"}}>{document.zork} : {document._sh_} : {document.bwam}</span></h3>
+      <p> {document.vibe} <a href={document.currentMusicUrl} target={"_blank"}>{document.currentMusicTitle}</a></p>
       <hr></hr>
         <Components.RoomMessages roomId={document._id}/>
       </div>

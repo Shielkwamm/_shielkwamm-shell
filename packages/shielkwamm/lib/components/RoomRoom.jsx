@@ -9,6 +9,7 @@ const RoomRoomInner = ({ loading, document }) => (
       null
     ) : (
       <div>
+        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["name"]}/>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["zork"]}/>

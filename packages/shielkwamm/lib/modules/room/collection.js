@@ -29,7 +29,7 @@ const Rooms = createCollection({
           Messages.insert({text: document.bwam, roomId: document._id, createdAt: new Date()});
         }
         if(data.currentMusicTitle) {
-          Messages.insert({text: `${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date()});
+          Messages.insert({text: `⬤: ${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date()});
         }
         return document;
       }]
