@@ -12,6 +12,7 @@ registerFragment(`
      zork
      bwam
      _sh_
+     vibe
      slug
      currentMusicUrl
      currentMusicTitle

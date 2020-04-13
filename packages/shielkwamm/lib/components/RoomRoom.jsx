@@ -9,10 +9,12 @@ const RoomRoomInner = ({ loading, document }) => (
       null
     ) : (
       <div>
+        <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["zork"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
+        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
       </div>
     )}

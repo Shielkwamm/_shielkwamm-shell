@@ -610,187 +610,6 @@ input CallbackSelectorUniqueInput {
 }
 
 
-# Type for Rooms
-type Room {
-  _id: String 
-  createdAt: Date 
-  name: String 
-  slug: String 
-  description: String 
-  isActive: Boolean 
-  currentExpPoints: String 
-  totalExpPoints: String 
-  level: String 
-  maxLevel: String 
-  zork: String 
-  bwam: String 
-  _sh_: String 
-  currentMusicUrl: String 
-  currentMusicTitle: String 
-}
-
-
-input DeleteRoomInput{
-  filter: RoomFilterInput
-  id: String
-}
-
-input SingleRoomInput {
-  # filtering
-  filter: RoomFilterInput
-  sort: RoomSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: RoomSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiRoomInput {
-
-  # filtering
-  filter: RoomFilterInput
-  sort: RoomSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleRoomOutput{
-  result: Room
-}
-
-type  MultiRoomOutput{
-  results: [Room]
-  totalCount: Int
-}
-
-type RoomMutationOutput{
-  data: Room
-}
-
-input CreateRoomInput {
-  data: CreateRoomDataInput!
-}
-
-input CreateRoomDataInput {
-  name: String 
-  slug: String 
-  description: String 
-  isActive: Boolean 
-  currentExpPoints: String 
-  totalExpPoints: String 
-  level: String 
-  maxLevel: String 
-  zork: String 
-  bwam: String 
-  _sh_: String 
-  currentMusicUrl: String 
-  currentMusicTitle: String 
-}
-
-input UpdateRoomInput{
-  filter: RoomFilterInput
-  id: String
-  data: UpdateRoomDataInput!
-}
-
-input UpsertRoomInput{
-  filter: RoomFilterInput
-  id: String
-  data: UpdateRoomDataInput!
-}
-
-input UpdateRoomDataInput {
-  name: String 
-  slug: String 
-  description: String 
-  isActive: Boolean 
-  currentExpPoints: String 
-  totalExpPoints: String 
-  level: String 
-  maxLevel: String 
-  zork: String 
-  bwam: String 
-  _sh_: String 
-  currentMusicUrl: String 
-  currentMusicTitle: String 
-}
-
-input RoomFilterInput {
-  _and: [RoomFilterInput]
-  _not: RoomFilterInput
-  _or: [RoomFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  name: String_Selector
-  slug: String_Selector
-  description: String_Selector
-  isActive: Boolean_Selector
-  currentExpPoints: String_Selector
-  totalExpPoints: String_Selector
-  level: String_Selector
-  maxLevel: String_Selector
-  zork: String_Selector
-  bwam: String_Selector
-  _sh_: String_Selector
-  currentMusicUrl: String_Selector
-  currentMusicTitle: String_Selector
-}
-
-input RoomSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  name: SortOptions
-  slug: SortOptions
-  description: SortOptions
-  isActive: SortOptions
-  currentExpPoints: SortOptions
-  totalExpPoints: SortOptions
-  level: SortOptions
-  maxLevel: SortOptions
-  zork: SortOptions
-  bwam: SortOptions
-  _sh_: SortOptions
-  currentMusicUrl: SortOptions
-  currentMusicTitle: SortOptions
-}
-
-input RoomSelectorInput {
-  _and: [RoomSelectorInput]
-  _or: [RoomSelectorInput]
-
-}
-
-input RoomSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
 # Type for Messages
 type Message {
   _id: String 
@@ -910,6 +729,192 @@ input MessageSelectorInput {
 }
 
 input MessageSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Rooms
+type Room {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  slug: String 
+  description: String 
+  isActive: Boolean 
+  currentExpPoints: String 
+  totalExpPoints: String 
+  level: String 
+  maxLevel: String 
+  zork: String 
+  bwam: String 
+  vibe: String 
+  _sh_: String 
+  currentMusicUrl: String 
+  currentMusicTitle: String 
+}
+
+
+input DeleteRoomInput{
+  filter: RoomFilterInput
+  id: String
+}
+
+input SingleRoomInput {
+  # filtering
+  filter: RoomFilterInput
+  sort: RoomSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: RoomSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiRoomInput {
+
+  # filtering
+  filter: RoomFilterInput
+  sort: RoomSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleRoomOutput{
+  result: Room
+}
+
+type  MultiRoomOutput{
+  results: [Room]
+  totalCount: Int
+}
+
+type RoomMutationOutput{
+  data: Room
+}
+
+input CreateRoomInput {
+  data: CreateRoomDataInput!
+}
+
+input CreateRoomDataInput {
+  name: String 
+  slug: String 
+  description: String 
+  isActive: Boolean 
+  currentExpPoints: String 
+  totalExpPoints: String 
+  level: String 
+  maxLevel: String 
+  zork: String 
+  bwam: String 
+  vibe: String 
+  _sh_: String 
+  currentMusicUrl: String 
+  currentMusicTitle: String 
+}
+
+input UpdateRoomInput{
+  filter: RoomFilterInput
+  id: String
+  data: UpdateRoomDataInput!
+}
+
+input UpsertRoomInput{
+  filter: RoomFilterInput
+  id: String
+  data: UpdateRoomDataInput!
+}
+
+input UpdateRoomDataInput {
+  name: String 
+  slug: String 
+  description: String 
+  isActive: Boolean 
+  currentExpPoints: String 
+  totalExpPoints: String 
+  level: String 
+  maxLevel: String 
+  zork: String 
+  bwam: String 
+  vibe: String 
+  _sh_: String 
+  currentMusicUrl: String 
+  currentMusicTitle: String 
+}
+
+input RoomFilterInput {
+  _and: [RoomFilterInput]
+  _not: RoomFilterInput
+  _or: [RoomFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  slug: String_Selector
+  description: String_Selector
+  isActive: Boolean_Selector
+  currentExpPoints: String_Selector
+  totalExpPoints: String_Selector
+  level: String_Selector
+  maxLevel: String_Selector
+  zork: String_Selector
+  bwam: String_Selector
+  vibe: String_Selector
+  _sh_: String_Selector
+  currentMusicUrl: String_Selector
+  currentMusicTitle: String_Selector
+}
+
+input RoomSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  slug: SortOptions
+  description: SortOptions
+  isActive: SortOptions
+  currentExpPoints: SortOptions
+  totalExpPoints: SortOptions
+  level: SortOptions
+  maxLevel: SortOptions
+  zork: SortOptions
+  bwam: SortOptions
+  vibe: SortOptions
+  _sh_: SortOptions
+  currentMusicUrl: SortOptions
+  currentMusicTitle: SortOptions
+}
+
+input RoomSelectorInput {
+  _and: [RoomSelectorInput]
+  _or: [RoomSelectorInput]
+
+}
+
+input RoomSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -1434,17 +1439,17 @@ type Query {
   
   callbacks(input: MultiCallbackInput):  MultiCallbackOutput
   
-  # A single Room document fetched by ID or slug
-  room(input: SingleRoomInput!): SingleRoomOutput
-  
-  # A list of Room documents matching a set of query terms
-  rooms(input: MultiRoomInput):  MultiRoomOutput
-  
   # A single Message document fetched by ID or slug
   message(input: SingleMessageInput!): SingleMessageOutput
   
   # A list of Message documents matching a set of query terms
   messages(input: MultiMessageInput):  MultiMessageOutput
+  
+  # A single Room document fetched by ID or slug
+  room(input: SingleRoomInput!): SingleRoomOutput
+  
+  # A list of Room documents matching a set of query terms
+  rooms(input: MultiRoomInput):  MultiRoomOutput
   
   # A single Handle document fetched by ID or slug
   handle(input: SingleHandleInput!): SingleHandleOutput
@@ -1506,38 +1511,6 @@ type Mutation {
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
 
-  # Mutation for creating new Room documents
-  createRoom(
-  input: CreateRoomInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateRoomDataInput
-) : RoomMutationOutput
-
-  # Mutation for updating a Room document
-  updateRoom(
-  input: UpdateRoomInput,
-  "Deprecated (use 'input' field instead)."
-  selector: RoomSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomDataInput 
-) : RoomMutationOutput
-
-  # Mutation for upserting a Room document
-  upsertRoom(
-  input: UpsertRoomInput,
-  "Deprecated (use 'input' field instead)."
-  selector: RoomSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomDataInput
-) : RoomMutationOutput
-
-  # Mutation for deleting a Room document
-  deleteRoom(
-  input: DeleteRoomInput,
-  "Deprecated (use 'input' field instead)."
-  selector: RoomSelectorUniqueInput
-) : RoomMutationOutput
-
   # Mutation for creating new Message documents
   createMessage(
   input: CreateMessageInput,
@@ -1569,6 +1542,38 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: MessageSelectorUniqueInput
 ) : MessageMutationOutput
+
+  # Mutation for creating new Room documents
+  createRoom(
+  input: CreateRoomInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateRoomDataInput
+) : RoomMutationOutput
+
+  # Mutation for updating a Room document
+  updateRoom(
+  input: UpdateRoomInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateRoomDataInput 
+) : RoomMutationOutput
+
+  # Mutation for upserting a Room document
+  upsertRoom(
+  input: UpsertRoomInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateRoomDataInput
+) : RoomMutationOutput
+
+  # Mutation for deleting a Room document
+  deleteRoom(
+  input: DeleteRoomInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomSelectorUniqueInput
+) : RoomMutationOutput
 
   # Mutation for creating new Handle documents
   createHandle(

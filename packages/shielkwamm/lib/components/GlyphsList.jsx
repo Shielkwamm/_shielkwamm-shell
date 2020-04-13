@@ -6,6 +6,7 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 const GlyphsList = ({ loading, results }) => (
   <React.Fragment>
     <hr></hr>
+    <Components.HeadTags title={"☰☴△☰☰☱☰☰△☴☰"} />
     <h2>☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓‾ |  ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 | △áìéïḱḿí△ △Ńń△  ▵ÖöÓóÒòÔôḱ▵ | Ⅹ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ</h2>
     
   </React.Fragment>

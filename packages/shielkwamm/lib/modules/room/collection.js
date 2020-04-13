@@ -1,6 +1,7 @@
 import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
+import Messages from '../message/collection.js';
 
 const Rooms = createCollection({
   collectionName: 'Rooms',
@@ -14,11 +15,26 @@ const Rooms = createCollection({
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },
-  //callbacks: {
-  //  create: { 
-  //    before: []
-  //  }
-  //},
+  callbacks: {
+    update: { 
+      after: [(document, properties) => { 
+        const data = properties.originalData;
+        if(data._sh_) {
+          Messages.insert({text: document._sh_, roomId: document._id, createdAt: new Date()});
+        }
+        if(data.zork) {
+          Messages.insert({text: document.zork, roomId: document._id, createdAt: new Date()});
+        }
+        if(data.bwam) {
+          Messages.insert({text: document.bwam, roomId: document._id, createdAt: new Date()});
+        }
+        if(data.currentMusicTitle) {
+          Messages.insert({text: `${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date()});
+        }
+        return document;
+      }]
+    }
+  },
   //customFilters: [
   //  {
   //    name: "_withRatings",

@@ -92,6 +92,14 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  vibe: {
+    type: String,
+    optional: false,
+    defaultValue: "↑↑⬤",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   _sh_: { //+△+
     type: String,
     optional: false,
@@ -110,7 +118,7 @@ const schema = {
   },
   currentMusicTitle: {
     type: String,
-    defaultValue: "↑↑⬤ Marble Madness Remix (2009)",
+    defaultValue: "Marble Madness Remix (2009)",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
