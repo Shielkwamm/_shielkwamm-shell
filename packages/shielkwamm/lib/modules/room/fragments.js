@@ -20,5 +20,6 @@ registerFragment(`
      color
      backgroundColor
      linkColor
+     messageDelay
    }
 `);

@@ -21,6 +21,12 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  messageDelay: {
+    type: String,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   color: {
     type: String,
     optional: false,
@@ -143,6 +149,20 @@ const schema = {
   currentMusicTitle: {
     type: String,
     defaultValue: "Marble Madness Remix (2009)",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  djUserId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  cannonUserId: {
+    type: String,
+    optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']

@@ -741,6 +741,7 @@ type Room {
   _id: String 
   createdAt: Date 
   name: String 
+  messageDelay: String 
   color: String 
   backgroundColor: String 
   linkColor: String 
@@ -757,6 +758,8 @@ type Room {
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
+  djUserId: String 
+  cannonUserId: String 
 }
 
 
@@ -824,6 +827,7 @@ input CreateRoomInput {
 
 input CreateRoomDataInput {
   name: String 
+  messageDelay: String 
   color: String 
   backgroundColor: String 
   linkColor: String 
@@ -840,6 +844,8 @@ input CreateRoomDataInput {
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
+  djUserId: String 
+  cannonUserId: String 
 }
 
 input UpdateRoomInput{
@@ -856,6 +862,7 @@ input UpsertRoomInput{
 
 input UpdateRoomDataInput {
   name: String 
+  messageDelay: String 
   color: String 
   backgroundColor: String 
   linkColor: String 
@@ -872,6 +879,8 @@ input UpdateRoomDataInput {
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
+  djUserId: String 
+  cannonUserId: String 
 }
 
 input RoomFilterInput {
@@ -883,6 +892,7 @@ input RoomFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  messageDelay: String_Selector
   color: String_Selector
   backgroundColor: String_Selector
   linkColor: String_Selector
@@ -899,12 +909,15 @@ input RoomFilterInput {
   _sh_: String_Selector
   currentMusicUrl: String_Selector
   currentMusicTitle: String_Selector
+  djUserId: String_Selector
+  cannonUserId: String_Selector
 }
 
 input RoomSortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  messageDelay: SortOptions
   color: SortOptions
   backgroundColor: SortOptions
   linkColor: SortOptions
@@ -921,6 +934,8 @@ input RoomSortInput {
   _sh_: SortOptions
   currentMusicUrl: SortOptions
   currentMusicTitle: SortOptions
+  djUserId: SortOptions
+  cannonUserId: SortOptions
 }
 
 input RoomSelectorInput {
