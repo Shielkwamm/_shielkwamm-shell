@@ -1466,14 +1466,8 @@ type I18n {
   createdAt: Date 
   name: String 
   description: String 
-  up: String 
-  upName: String 
-  down: String 
-  downName: String 
-  left: String 
-  leftName: String 
-  right: String 
-  rightName: String 
+  glyphSet: String 
+  wikiUrl: String 
 }
 
 
@@ -1542,14 +1536,8 @@ input CreateI18nInput {
 input CreateI18nDataInput {
   name: String 
   description: String 
-  up: String 
-  upName: String 
-  down: String 
-  downName: String 
-  left: String 
-  leftName: String 
-  right: String 
-  rightName: String 
+  glyphSet: String 
+  wikiUrl: String 
 }
 
 input UpdateI18nInput{
@@ -1567,14 +1555,8 @@ input UpsertI18nInput{
 input UpdateI18nDataInput {
   name: String 
   description: String 
-  up: String 
-  upName: String 
-  down: String 
-  downName: String 
-  left: String 
-  leftName: String 
-  right: String 
-  rightName: String 
+  glyphSet: String 
+  wikiUrl: String 
 }
 
 input I18nFilterInput {
@@ -1587,14 +1569,8 @@ input I18nFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   description: String_Selector
-  up: String_Selector
-  upName: String_Selector
-  down: String_Selector
-  downName: String_Selector
-  left: String_Selector
-  leftName: String_Selector
-  right: String_Selector
-  rightName: String_Selector
+  glyphSet: String_Selector
+  wikiUrl: String_Selector
 }
 
 input I18nSortInput {
@@ -1602,14 +1578,8 @@ input I18nSortInput {
   createdAt: SortOptions
   name: SortOptions
   description: SortOptions
-  up: SortOptions
-  upName: SortOptions
-  down: SortOptions
-  downName: SortOptions
-  left: SortOptions
-  leftName: SortOptions
-  right: SortOptions
-  rightName: SortOptions
+  glyphSet: SortOptions
+  wikiUrl: SortOptions
 }
 
 input I18nSelectorInput {

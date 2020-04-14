@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Overview = () => (
   <div className="movies-list">
     <h1><Link to="/rooms">Rooms</Link></h1>
+    <h1><Link to="/i18n">i18n</Link></h1>
     <h1><Link to="/handles">Handles</Link></h1>
     <h1><Link to="/parties">Parties</Link></h1>
     <h1><Link to="/markets">Markets</Link></h1>

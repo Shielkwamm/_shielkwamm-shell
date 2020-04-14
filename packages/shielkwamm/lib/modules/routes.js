@@ -17,4 +17,6 @@ addRoute({ name: 'roomMessages', path: '/room/:slug/messages', componentName: "R
 
 addRoute({ name: 'market', path: '/market/:slug', componentName: "Market"});
 
+addRoute({ name: 'i18nsList', path: '/i18n', componentName: "i18nsList"});
+
 addRoute({ name: 'glphysList', path: '/glyphs', componentName: "GlyphsList"})

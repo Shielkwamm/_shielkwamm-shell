@@ -17,7 +17,7 @@ const schema = {
   name: {
     type: String,
     optional: false,
-    defaultValue: "n00b_N00B",
+    defaultValue: "basic",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -25,11 +25,47 @@ const schema = {
   description: {
     type: String,
     optional: true,
-    defaultValue: "Hi I just wrote this.",
+    defaultValue: "The basic glyphs of _sh_.",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  glyphSet: {
+    type: String,
+    optional: false,
+    defaultValue: "☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  wikiUrl: {
+    type: String,
+    optional: false,
+    defaultValue: "https://github.com/Shielkwamm/one_Z-rk/wiki/Glyphs",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  // userId: {
+  //   type: String,
+  //   optional: true,
+  //   canRead: ['guests'],
+  //   resolveAs: {
+  //     fieldName: 'user',
+  //     type: 'User',
+  //     resolver: (movie, args, context) => {
+  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
+  //     },
+  //     addOriginalField: true
+  //   }
+  // },
+  
+};
+
+export default schema;
+
+/*
+
   up: {
     type: String,
     optional: false,
@@ -91,20 +127,4 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  // userId: {
-  //   type: String,
-  //   optional: true,
-  //   canRead: ['guests'],
-  //   resolveAs: {
-  //     fieldName: 'user',
-  //     type: 'User',
-  //     resolver: (movie, args, context) => {
-  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
-  //     },
-  //     addOriginalField: true
-  //   }
-  // },
-  
-};
-
-export default schema;
+  */

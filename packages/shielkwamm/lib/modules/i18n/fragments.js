@@ -5,8 +5,14 @@ registerFragment(`
      _id
      createdAt
      name
+     glyphSet
      description
-     up
+     wikiUrl
+   }
+`);
+
+/*
+up
      upName
      down
      downName
@@ -14,5 +20,4 @@ registerFragment(`
      leftName
      right
      rightName
-   }
-`);
+     */

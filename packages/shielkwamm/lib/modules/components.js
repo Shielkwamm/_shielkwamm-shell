@@ -1,5 +1,7 @@
 import '../components/MainLayout.jsx';
 
+
+import '../components/i18nsList.jsx';
 import '../components/GlyphsList.jsx';
 import '../components/RoomsList.jsx';
 import '../components/RoomHeader.jsx';
