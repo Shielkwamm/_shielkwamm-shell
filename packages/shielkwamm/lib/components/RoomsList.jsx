@@ -6,7 +6,7 @@ const RoomsList = ({ loading, results }) => (
   <div className="movies-list">
     <h2><Link to="/">⏎ </Link>Rooms</h2>
     <hr></hr>
-    {!loading && results.map(room => (
+    {!loading && results && results.map(room => (
       <div  style={{
         color: room.color,
         paddingTop: "1px",

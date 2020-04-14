@@ -11,6 +11,7 @@ const i18nsList = ({ loading, results }) => (
         <h3>{i18n.name}</h3>
         <p>{i18n.description}</p>
         <p>{i18n.glyphSet}</p>
+        <p><a href={i18n.wikiUrl}>Wiki</a></p>
         <hr></hr>
       </div>
     ))}
