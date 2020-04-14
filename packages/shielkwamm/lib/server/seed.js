@@ -1,4 +1,4 @@
-import I18ns from '../../modules/i18n/collection.js';
+import I18ns from '../modules/i18n/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {

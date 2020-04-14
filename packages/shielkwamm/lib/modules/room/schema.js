@@ -153,20 +153,6 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  djUserId: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  cannonUserId: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
   areDJMessagesMuted: {
     type: Boolean,
     optional: true,
@@ -180,7 +166,54 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
-  }
+  },
 };
 
 export default schema;
+
+/*
+i18nIds.$': {
+    //label: "i18nIds",
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    /*resolveAs: {
+      //fieldName: 'i18n',
+      //type: 'I18n',
+      //relation: 'hasMany',
+      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
+      resolver: (handle, args, context) => {
+        //change to graphql query later
+        return context.I18ns.find({_id: {$in: room.i18nIds}}); //find latest aggregate
+      }
+    }
+  },
+  /*i18nIds: {
+    type: Array,
+    optional: true,
+    defaultValue: [],
+    label: "i18n",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    /*control: 'select',
+    options: () => {
+      return [
+        {
+          value: 'object-key',
+          label: 'Market pair in object key',
+        },
+        {
+          value: 'object-array',
+          label: 'Market pair in object value'
+        }
+      ];
+    },
+    resolveAs: {
+      fieldName: 'i18ns',
+      type: '[I18n]',
+      relation: 'hasMany'
+    }
+  },
+  
+  */

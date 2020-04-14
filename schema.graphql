@@ -758,8 +758,6 @@ type Room {
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  djUserId: String 
-  cannonUserId: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
 }
@@ -846,8 +844,6 @@ input CreateRoomDataInput {
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  djUserId: String 
-  cannonUserId: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
 }
@@ -883,8 +879,6 @@ input UpdateRoomDataInput {
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  djUserId: String 
-  cannonUserId: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
 }
@@ -915,8 +909,6 @@ input RoomFilterInput {
   _sh_: String_Selector
   currentMusicUrl: String_Selector
   currentMusicTitle: String_Selector
-  djUserId: String_Selector
-  cannonUserId: String_Selector
   areDJMessagesMuted: Boolean_Selector
   areCannonMessagesMuted: Boolean_Selector
 }
@@ -942,8 +934,6 @@ input RoomSortInput {
   _sh_: SortOptions
   currentMusicUrl: SortOptions
   currentMusicTitle: SortOptions
-  djUserId: SortOptions
-  cannonUserId: SortOptions
   areDJMessagesMuted: SortOptions
   areCannonMessagesMuted: SortOptions
 }
@@ -1596,6 +1586,410 @@ input I18nSelectorUniqueInput {
 }
 
 
+# Type for I18nsRooms
+type I18nsRooms {
+  _id: String 
+  createdAt: Date 
+  i18nId: String 
+  i18n: I18n 
+  roomId: String 
+  room: Room 
+}
+
+
+input DeleteI18nsRoomsInput{
+  filter: I18nsRoomsFilterInput
+  id: String
+}
+
+input SingleI18nsRoomsInput {
+  # filtering
+  filter: I18nsRoomsFilterInput
+  sort: I18nsRoomsSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: I18nsRoomsSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiI18nsRoomsInput {
+
+  # filtering
+  filter: I18nsRoomsFilterInput
+  sort: I18nsRoomsSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleI18nsRoomsOutput{
+  result: I18nsRooms
+}
+
+type  MultiI18nsRoomsOutput{
+  results: [I18nsRooms]
+  totalCount: Int
+}
+
+type I18nsRoomsMutationOutput{
+  data: I18nsRooms
+}
+
+input CreateI18nsRoomsInput {
+  data: CreateI18nsRoomsDataInput!
+}
+
+input CreateI18nsRoomsDataInput {
+  i18nId: String 
+  roomId: String 
+}
+
+input UpdateI18nsRoomsInput{
+  filter: I18nsRoomsFilterInput
+  id: String
+  data: UpdateI18nsRoomsDataInput!
+}
+
+input UpsertI18nsRoomsInput{
+  filter: I18nsRoomsFilterInput
+  id: String
+  data: UpdateI18nsRoomsDataInput!
+}
+
+input UpdateI18nsRoomsDataInput {
+  i18nId: String 
+  roomId: String 
+}
+
+input I18nsRoomsFilterInput {
+  _and: [I18nsRoomsFilterInput]
+  _not: I18nsRoomsFilterInput
+  _or: [I18nsRoomsFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  i18nId: String_Selector
+  roomId: String_Selector
+}
+
+input I18nsRoomsSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  i18nId: SortOptions
+  roomId: SortOptions
+}
+
+input I18nsRoomsSelectorInput {
+  _and: [I18nsRoomsSelectorInput]
+  _or: [I18nsRoomsSelectorInput]
+
+}
+
+input I18nsRoomsSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for RoomsHandles
+type RoomsHandles {
+  _id: String 
+  createdAt: Date 
+  handleId: String 
+  handle: Handle 
+  roomId: String 
+  room: Room 
+  isMod: Boolean 
+  isDJ: Boolean 
+  isCannon: Boolean 
+}
+
+
+input DeleteRoomsHandlesInput{
+  filter: RoomsHandlesFilterInput
+  id: String
+}
+
+input SingleRoomsHandlesInput {
+  # filtering
+  filter: RoomsHandlesFilterInput
+  sort: RoomsHandlesSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: RoomsHandlesSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiRoomsHandlesInput {
+
+  # filtering
+  filter: RoomsHandlesFilterInput
+  sort: RoomsHandlesSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleRoomsHandlesOutput{
+  result: RoomsHandles
+}
+
+type  MultiRoomsHandlesOutput{
+  results: [RoomsHandles]
+  totalCount: Int
+}
+
+type RoomsHandlesMutationOutput{
+  data: RoomsHandles
+}
+
+input CreateRoomsHandlesInput {
+  data: CreateRoomsHandlesDataInput!
+}
+
+input CreateRoomsHandlesDataInput {
+  handleId: String 
+  roomId: String 
+  isMod: Boolean 
+  isDJ: Boolean 
+  isCannon: Boolean 
+}
+
+input UpdateRoomsHandlesInput{
+  filter: RoomsHandlesFilterInput
+  id: String
+  data: UpdateRoomsHandlesDataInput!
+}
+
+input UpsertRoomsHandlesInput{
+  filter: RoomsHandlesFilterInput
+  id: String
+  data: UpdateRoomsHandlesDataInput!
+}
+
+input UpdateRoomsHandlesDataInput {
+  handleId: String 
+  roomId: String 
+  isMod: Boolean 
+  isDJ: Boolean 
+  isCannon: Boolean 
+}
+
+input RoomsHandlesFilterInput {
+  _and: [RoomsHandlesFilterInput]
+  _not: RoomsHandlesFilterInput
+  _or: [RoomsHandlesFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  handleId: String_Selector
+  roomId: String_Selector
+  isMod: Boolean_Selector
+  isDJ: Boolean_Selector
+  isCannon: Boolean_Selector
+}
+
+input RoomsHandlesSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  handleId: SortOptions
+  roomId: SortOptions
+  isMod: SortOptions
+  isDJ: SortOptions
+  isCannon: SortOptions
+}
+
+input RoomsHandlesSelectorInput {
+  _and: [RoomsHandlesSelectorInput]
+  _or: [RoomsHandlesSelectorInput]
+
+}
+
+input RoomsHandlesSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for HandlesParties
+type HandlesParties {
+  _id: String 
+  createdAt: Date 
+  partyId: String 
+  party: Party 
+  handleId: String 
+  handle: Handle 
+  isMod: Boolean 
+}
+
+
+input DeleteHandlesPartiesInput{
+  filter: HandlesPartiesFilterInput
+  id: String
+}
+
+input SingleHandlesPartiesInput {
+  # filtering
+  filter: HandlesPartiesFilterInput
+  sort: HandlesPartiesSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: HandlesPartiesSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiHandlesPartiesInput {
+
+  # filtering
+  filter: HandlesPartiesFilterInput
+  sort: HandlesPartiesSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleHandlesPartiesOutput{
+  result: HandlesParties
+}
+
+type  MultiHandlesPartiesOutput{
+  results: [HandlesParties]
+  totalCount: Int
+}
+
+type HandlesPartiesMutationOutput{
+  data: HandlesParties
+}
+
+input CreateHandlesPartiesInput {
+  data: CreateHandlesPartiesDataInput!
+}
+
+input CreateHandlesPartiesDataInput {
+  partyId: String 
+  handleId: String 
+  isMod: Boolean 
+}
+
+input UpdateHandlesPartiesInput{
+  filter: HandlesPartiesFilterInput
+  id: String
+  data: UpdateHandlesPartiesDataInput!
+}
+
+input UpsertHandlesPartiesInput{
+  filter: HandlesPartiesFilterInput
+  id: String
+  data: UpdateHandlesPartiesDataInput!
+}
+
+input UpdateHandlesPartiesDataInput {
+  partyId: String 
+  handleId: String 
+  isMod: Boolean 
+}
+
+input HandlesPartiesFilterInput {
+  _and: [HandlesPartiesFilterInput]
+  _not: HandlesPartiesFilterInput
+  _or: [HandlesPartiesFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  partyId: String_Selector
+  handleId: String_Selector
+  isMod: Boolean_Selector
+}
+
+input HandlesPartiesSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  partyId: SortOptions
+  handleId: SortOptions
+  isMod: SortOptions
+}
+
+input HandlesPartiesSelectorInput {
+  _and: [HandlesPartiesSelectorInput]
+  _or: [HandlesPartiesSelectorInput]
+
+}
+
+input HandlesPartiesSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -1656,6 +2050,24 @@ type Query {
   
   # A list of I18n documents matching a set of query terms
   i18ns(input: MultiI18nInput):  MultiI18nOutput
+  
+  # A single I18nsRooms document fetched by ID or slug
+  i18nsRooms(input: SingleI18nsRoomsInput!): SingleI18nsRoomsOutput
+  
+  # A list of I18nsRooms documents matching a set of query terms
+  i18nsRoomss(input: MultiI18nsRoomsInput):  MultiI18nsRoomsOutput
+  
+  # A single RoomsHandles document fetched by ID or slug
+  roomsHandles(input: SingleRoomsHandlesInput!): SingleRoomsHandlesOutput
+  
+  # A list of RoomsHandles documents matching a set of query terms
+  roomsHandless(input: MultiRoomsHandlesInput):  MultiRoomsHandlesOutput
+  
+  # A single HandlesParties document fetched by ID or slug
+  handlesParties(input: SingleHandlesPartiesInput!): SingleHandlesPartiesOutput
+  
+  # A list of HandlesParties documents matching a set of query terms
+  handlesPartiess(input: MultiHandlesPartiesInput):  MultiHandlesPartiesOutput
   
 }
   
@@ -1891,6 +2303,102 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: I18nSelectorUniqueInput
 ) : I18nMutationOutput
+
+  # Mutation for creating new I18nsRooms documents
+  createI18nsRooms(
+  input: CreateI18nsRoomsInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateI18nsRoomsDataInput
+) : I18nsRoomsMutationOutput
+
+  # Mutation for updating a I18nsRooms document
+  updateI18nsRooms(
+  input: UpdateI18nsRoomsInput,
+  "Deprecated (use 'input' field instead)."
+  selector: I18nsRoomsSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateI18nsRoomsDataInput 
+) : I18nsRoomsMutationOutput
+
+  # Mutation for upserting a I18nsRooms document
+  upsertI18nsRooms(
+  input: UpsertI18nsRoomsInput,
+  "Deprecated (use 'input' field instead)."
+  selector: I18nsRoomsSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateI18nsRoomsDataInput
+) : I18nsRoomsMutationOutput
+
+  # Mutation for deleting a I18nsRooms document
+  deleteI18nsRooms(
+  input: DeleteI18nsRoomsInput,
+  "Deprecated (use 'input' field instead)."
+  selector: I18nsRoomsSelectorUniqueInput
+) : I18nsRoomsMutationOutput
+
+  # Mutation for creating new RoomsHandles documents
+  createRoomsHandles(
+  input: CreateRoomsHandlesInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateRoomsHandlesDataInput
+) : RoomsHandlesMutationOutput
+
+  # Mutation for updating a RoomsHandles document
+  updateRoomsHandles(
+  input: UpdateRoomsHandlesInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomsHandlesSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateRoomsHandlesDataInput 
+) : RoomsHandlesMutationOutput
+
+  # Mutation for upserting a RoomsHandles document
+  upsertRoomsHandles(
+  input: UpsertRoomsHandlesInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomsHandlesSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateRoomsHandlesDataInput
+) : RoomsHandlesMutationOutput
+
+  # Mutation for deleting a RoomsHandles document
+  deleteRoomsHandles(
+  input: DeleteRoomsHandlesInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomsHandlesSelectorUniqueInput
+) : RoomsHandlesMutationOutput
+
+  # Mutation for creating new HandlesParties documents
+  createHandlesParties(
+  input: CreateHandlesPartiesInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateHandlesPartiesDataInput
+) : HandlesPartiesMutationOutput
+
+  # Mutation for updating a HandlesParties document
+  updateHandlesParties(
+  input: UpdateHandlesPartiesInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandlesPartiesSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandlesPartiesDataInput 
+) : HandlesPartiesMutationOutput
+
+  # Mutation for upserting a HandlesParties document
+  upsertHandlesParties(
+  input: UpsertHandlesPartiesInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandlesPartiesSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandlesPartiesDataInput
+) : HandlesPartiesMutationOutput
+
+  # Mutation for deleting a HandlesParties document
+  deleteHandlesParties(
+  input: DeleteHandlesPartiesInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandlesPartiesSelectorUniqueInput
+) : HandlesPartiesMutationOutput
 
 }
 
