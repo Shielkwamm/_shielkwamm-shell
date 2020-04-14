@@ -760,6 +760,8 @@ type Room {
   currentMusicTitle: String 
   djUserId: String 
   cannonUserId: String 
+  areDJMessagesMuted: Boolean 
+  areCannonMessagesMuted: Boolean 
 }
 
 
@@ -846,6 +848,8 @@ input CreateRoomDataInput {
   currentMusicTitle: String 
   djUserId: String 
   cannonUserId: String 
+  areDJMessagesMuted: Boolean 
+  areCannonMessagesMuted: Boolean 
 }
 
 input UpdateRoomInput{
@@ -881,6 +885,8 @@ input UpdateRoomDataInput {
   currentMusicTitle: String 
   djUserId: String 
   cannonUserId: String 
+  areDJMessagesMuted: Boolean 
+  areCannonMessagesMuted: Boolean 
 }
 
 input RoomFilterInput {
@@ -911,6 +917,8 @@ input RoomFilterInput {
   currentMusicTitle: String_Selector
   djUserId: String_Selector
   cannonUserId: String_Selector
+  areDJMessagesMuted: Boolean_Selector
+  areCannonMessagesMuted: Boolean_Selector
 }
 
 input RoomSortInput {
@@ -936,6 +944,8 @@ input RoomSortInput {
   currentMusicTitle: SortOptions
   djUserId: SortOptions
   cannonUserId: SortOptions
+  areDJMessagesMuted: SortOptions
+  areCannonMessagesMuted: SortOptions
 }
 
 input RoomSelectorInput {

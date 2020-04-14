@@ -28,8 +28,8 @@ const Rooms = createCollection({
         if(data.bwam) {
           Messages.insert({text: document.bwam, roomId: document._id, createdAt: new Date()});
         }
-        if(data.currentMusicTitle) {
-          Messages.insert({text: `⬤: ${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date()});
+        if(data.currentMusicTitle && !document.areMediaMessagesMuted) {
+          Messages.insert({text: `${document.vibe} ${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date()});
         }
         return document;
       }]

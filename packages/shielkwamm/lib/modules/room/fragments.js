@@ -21,5 +21,7 @@ registerFragment(`
      backgroundColor
      linkColor
      messageDelay
+     areDJMessagesMuted
+     areCannonMessagesMuted
    }
 `);

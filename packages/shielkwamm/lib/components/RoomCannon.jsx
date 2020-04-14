@@ -53,9 +53,10 @@ const RoomCannonInner = ({ loading, document }) => (
     ) : (
       <div>
         <Components.RoomHeader room={document}/>
-        <Components.HeadTags title={`Cannon: ${document.name}`}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
+        <Components.HeadTags title={`🔬🔬🔬: ${document.name}`}/>
+        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={['areCannonMessagesMuted']}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["zork"]}/>
+        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
         <hr></hr>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>

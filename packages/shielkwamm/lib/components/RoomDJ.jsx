@@ -9,8 +9,9 @@ const RoomDJInner = ({ loading, document }) => (
       null
     ) : (
       <div>
-        <Components.HeadTags title={`DJ: ${document.name}`}/>
+        <Components.HeadTags title={`⬤⬤⬤: ${document.name}`}/>
         <Components.RoomHeader room={document}/>
+        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["areDJMessagesMuted"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>

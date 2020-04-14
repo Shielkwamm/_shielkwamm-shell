@@ -166,6 +166,20 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  areDJMessagesMuted: {
+    type: Boolean,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  areCannonMessagesMuted: {
+    type: Boolean,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   }
 };
 
