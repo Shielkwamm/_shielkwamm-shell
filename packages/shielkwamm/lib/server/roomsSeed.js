@@ -36,7 +36,7 @@ const roomsSeed = [{
   backgroundColor:"#f1f1f1",
   linkColor: "#bf0a30",
   color: "#002868",
-  slug: "operat0r",
+  slug: "△USA△",
   description: "'merica",
   isActive: false,
   currentExpPoints: 0,

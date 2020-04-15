@@ -23,7 +23,9 @@ const RoomsList = ({ loading, results }) => (
         <div style={{float: "left"}}>
         <p style={{color: room.linkColor}}>handles</p>
         {room.roomHandles.map(rh => (
-          <Components.Handle key={rh._id} handle={rh.handle}/>
+          <React.Fragment>
+            {rh.handle.isActive ? (<Components.Handle key={rh._id} handle={rh.handle}/>) : null }
+          </React.Fragment>
         ))}
         </div>
         <div style={{float: "right"}}>
