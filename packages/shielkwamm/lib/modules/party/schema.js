@@ -44,6 +44,14 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
+  isEsteemed: {
+    type: Boolean,
+    optional: true,
+    defaultValue: false,
+    canRead:['guests'],
+    canUpdate: ['admins'],
+    canCreate: ['admins']
+  }
   // userId: {
   //   type: String,
   //   optional: true,

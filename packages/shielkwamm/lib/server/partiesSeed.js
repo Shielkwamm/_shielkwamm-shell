@@ -4,14 +4,16 @@ import { createMutator } from 'meteor/vulcan:core';
 Meteor.startup(() => {
    if(Parties.find().count() === 0) {
     partiesSeed.forEach(party => {
-      Parties.insert({
+      party.createdAt = new Date();
+      Parties.insert(party);
+        /*{
         name: party.name,
         description: party.description,
         isActive: party.isActive,
         mood: party.mood,
         isEsteemed: party.isEsteemed,
         createdAt: new Date()
-      })  
+      })*/  
     })
    }
 });

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const i18nsList = ({ loading, results }) => (
   <div className="movies-list">
-    <h2><Link to="/">⏎ </Link>i18n</h2>
+    <h2><Link to="/">⏎ </Link>i18n <span style={{float: "right"}}>count [ {results && results.length} / 17 ]</span></h2>
     <hr></hr>
     {!loading && results.map(i18n => (
       <div key={i18n._id}>

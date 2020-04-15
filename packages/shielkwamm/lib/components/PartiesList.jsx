@@ -4,13 +4,22 @@ import { Link } from 'react-router-dom';
 
 const PartiesList = ({ loading, results }) => (
   <div className="movies-list">
-    <h2><Link to="/">⏎</Link>Parties</h2>
+    <h2><Link to="/">⏎ </Link>Parties<span style={{float: "right"}}>count [ {results && results.length} / 50 ]</span></h2>
+    <hr></hr>
+    <h1 style={{textAlign: "center"}}>=== esteemed ===</h1>
+    {!loading && results.map(party => (
+      <div key={party._id}>
+      { party.isEsteemed ? (
+          <h2>{party.isActive? "": "zZz "} {party.mood} {party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span></h2>
+        ): null}
+      </div>
+    ))}
     <hr></hr>
     {!loading && results.map(party => (
       <div key={party._id}>
-      <h1>{party.isActive? "": "zZz "} {party.mood} {party.name}</h1>
-      <p>{party.description}</p>
-      <hr></hr>
+      {!party.isEsteemed ? (
+        <h3>{party.isActive? "": "zZz "} {party.mood} {party.name} - <span style={{fontWeight: "normal"}}>{party.description}</span></h3>
+      ): null}
       </div>
     ))}
   </div>
@@ -19,6 +28,7 @@ const PartiesList = ({ loading, results }) => (
 const options = {
   collectionName: "Parties",
   fragmentName: 'PartiesFragment', // uncomment on #Step11
+  limit: 50
 }
 
 registerComponent({ name: 'PartiesList', component: PartiesList, hocs: [[withMulti2, options]]});

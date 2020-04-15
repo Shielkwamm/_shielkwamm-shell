@@ -8,5 +8,6 @@ registerFragment(`
      mood
      description
      isActive
+     isEsteemed
    }
 `);

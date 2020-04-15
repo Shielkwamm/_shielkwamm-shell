@@ -23,8 +23,5 @@ registerFragment(`
      messageDelay
      areDJMessagesMuted
      areCannonMessagesMuted
-     i18ns {
-       ...I18nsFragment
-     }
    }
 `);

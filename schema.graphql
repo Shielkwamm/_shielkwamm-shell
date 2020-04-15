@@ -1322,6 +1322,7 @@ type Party {
   description: String 
   isActive: Boolean 
   mood: String 
+  isEsteemed: Boolean 
 }
 
 
@@ -1392,6 +1393,7 @@ input CreatePartyDataInput {
   description: String 
   isActive: Boolean 
   mood: String 
+  isEsteemed: Boolean 
 }
 
 input UpdatePartyInput{
@@ -1411,6 +1413,7 @@ input UpdatePartyDataInput {
   description: String 
   isActive: Boolean 
   mood: String 
+  isEsteemed: Boolean 
 }
 
 input PartyFilterInput {
@@ -1425,6 +1428,7 @@ input PartyFilterInput {
   description: String_Selector
   isActive: Boolean_Selector
   mood: String_Selector
+  isEsteemed: Boolean_Selector
 }
 
 input PartySortInput {
@@ -1434,6 +1438,7 @@ input PartySortInput {
   description: SortOptions
   isActive: SortOptions
   mood: SortOptions
+  isEsteemed: SortOptions
 }
 
 input PartySelectorInput {
