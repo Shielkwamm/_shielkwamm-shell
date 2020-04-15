@@ -7,13 +7,14 @@ Meteor.startup(() => {
     i18nsRoomsSeed.forEach(ir => {
      let room = Rooms.findOne({name: ir.roomName});
      if(!room) {
-       console.log("### " + ir.roomName + " not found ")
+       console.log("###ir " + ir.roomName + " not found ", ir)
        return;
      }
      ir.i18ns.forEach(i18n => {
       let i = I18ns.findOne({name: i18n.name})
       if(!i) {
-        console.log("### " + i18n.name + " not found ");
+        console.log("###irc " + i18n.name + " not found ", i18n);
+        return
       }
       I18nRooms.insert({
         i18nId: i._id,

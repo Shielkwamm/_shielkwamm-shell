@@ -47,6 +47,13 @@ const partiesSeed = [{
   isEsteemed: true
 },
 {
+  name: "chillionaires",
+  description: "Chillen on stacks",
+  isActive: false,
+  mood: "$$",
+  isEsteemed: true
+},
+{
   name: "HumansLeague",
   description: "Don't you want me, baby",
   isActive: false,
@@ -72,13 +79,24 @@ const partiesSeed = [{
   mood: "+☴☱"
 },
 {
-  name: "Time",
+  name: "rum",
+  description: "coconut",
+  isActive: false,
+  mood: "☴"
+},
+{
+  name: "time",
   description: "Is of the essense.",
   isActive: true,
   mood: "+**"
 },
 {
-  name: "Yasss",
+  name: "tales",
+  description: "FROM THE CRYPT",
+  isActive: true,
+},
+{
+  name: "yasss",
   description: "the ones with the tall fuzzy hats!",
   isActive: "true",
   mood: "☴☱"
@@ -90,22 +108,64 @@ const partiesSeed = [{
   mood: "+☴ *salutes i18n[en_US]"
 },
 {
-  name: "aaack",
+  name: "aaaack",
   description: "aaaaaaaaaaaaaaaahhh",
   mood: "☴",
   isActive: "true"
 },
 {
-  name: "Dang!",
+  name: "dang!",
   description: "ummmmm",
   isActive: false,
   mood: "?+"
 },
 {
-  name: "Fluxers",
+  name: "cheesy",
+  description: "Tooling",
+  isActive: true,
+  mood: "/o+☴☱++/o"
+},
+{
+  name: "fluxers",
   description: "tips hat",
   isActive: false,
   mood: "☴"
+},
+{
+  name: "saber",
+  description: "Code C0de",
+  isActive: true,
+  mood: "☴"
+},
+{
+  name: "nasaholes",
+  description: "Nasa's Holes",
+  isActive: false,
+  mood: "☱"
+},
+{
+  name: "smileyFaceFlag",
+  description: "Thank you",
+  isActive: false,
+  mood: "☴"
+},
+{
+  name: "burners",
+  description: "flipman",
+  isActive: false,
+  mood: "☴"
+},
+{
+  name: "demBoys",
+  description: "dem Boys",
+  isActive: true,
+  mood: "☴"
+},
+{
+  name: "burps",
+  description: "*burp*",
+  isActive: true,
+  mood: "+/o+_☱"
 },
 {
   name: "stringTheory",
@@ -120,13 +180,13 @@ const partiesSeed = [{
   mood: "-- "
 },
 {
-  name: "Dogs",
+  name: "dogs",
   description: "Heirarchy is good",
   isActive: true,
   mood: "☲"
 },
 {
-  name: "Cats",
+  name: "cats",
   description: "Independant destiny",
   isActive: false,
   mood: "☱"
@@ -136,6 +196,12 @@ const partiesSeed = [{
   description: "⋛ We are the world ☴☲☱☰",
   isActive: true,
   mood: "++☴"
+},
+{
+  name: "sheShes",
+  description: "get back to work",
+  isActive: true,
+  mood: "☴"
 },
 {
   name: "Hallmark",
@@ -168,7 +234,7 @@ const partiesSeed = [{
   mood: "/)☴++"
 },
 {
-  name: "Twizzlers",
+  name: "twizzlers",
   description: "☷☵☰ || +☰☰",
   isActive: true,
   mood: "+"
@@ -204,7 +270,7 @@ const partiesSeed = [{
   mood: "~"
 },
 {
-  name: "seriousMother",
+  name: "mother",
   description: "",
   isActive: false,
   mood: "~"
@@ -220,5 +286,11 @@ const partiesSeed = [{
   description: "",
   isActive: false,
   mood: ""
+},
+{
+  name: "MathLaws",
+  description: "algebra",
+  isActive: true,
+  mood: "++"
 }
 ]

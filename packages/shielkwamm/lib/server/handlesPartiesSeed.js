@@ -5,21 +5,22 @@ import HandleParties from '../modules/handleParty/collection.js'
 
 Meteor.startup(() => {
   if(HandleParties.find().count() === 0) {
-   handlesPartiesSeed.forEach(hp => {
-     let handle = Handles.findOne({name: hp.handleName});
-     if(!handle) {
-       console.log("### " + hp.handleName + " not found ")
-       return;
-     }
-     hp.parties.forEach(party => {
+    handlesPartiesSeed.forEach(hp => {
+    let handle = Handles.findOne({name: hp.handleName});
+    if(!handle) {
+      console.log("###hp handle " +  hp.handleName + " not found ", hp)
+      return;
+    }
+    hp.parties.forEach(party => {
       let p = Parties.findOne({name: party.name})
       if(!p) {
-        console.log("### " + party.name + " not found ");
+        console.log("###hp party " + party.name + " not found ", party);
+        return;
       }
       HandleParties.insert({
         partyId: p._id,
         handleId: handle._id,
-        isMod: party.isMod,
+        isMod: !!party.isMod,
         createdAt: new Date()
       })
      })
@@ -53,12 +54,12 @@ const handlesPartiesSeed = [
 {
   handleName: "Admin",
   parties: [
-    {name: "1deep", isMod: true},
+    {name: "1Deep", isMod: true},
     {name: "### Shielkwamm Council ###"}
   ]
 },
 {
-  handleName: "Chatb0t",
+  handleName: "chatb0t",
   parties: [
     {name: "NaNers"},
     {name: "### Shielkwamm Council ###"}
@@ -104,7 +105,7 @@ const handlesPartiesSeed = [
 {
   handleName: '[legalese]',
   parties: [
-    {name: 'capitalists'}
+    {name: 'Capitalists'}
   ]
 },
 {
@@ -112,8 +113,7 @@ const handlesPartiesSeed = [
   parties: [
     {name: '△ ☴'}, 
     {name: 'eagle', isMod: true},
-    {name: 'clearSails'},
-    {name: '1deep'}
+    {name: 'clearSails'}
   ]
 },
 {
@@ -122,59 +122,297 @@ const handlesPartiesSeed = [
     {name: '△ ☴', isMod: true}, 
     {name: 'NaNers', isMod: true}
   ]
+},
+{
+  handleName: "brassFace",
+  parties: [
+    {name: "seeReal", isMod: true}
+  ]
+},
+{
+  handleName: "Bobafeet",
+  parties: [
+    {name: 'rebelWraith', isMod: true}, 
+  ]
+},
+{
+  handleName: "Warewolf",
+  parties: [
+    {name: 'rebelWraith'}, 
+  ]
+},
+{
+  handleName: "Neobii",
+  parties: [
+    {name: "1Deep"},
+    {name: "rebelWraith"}
+  ]
+},
+{
+  handleName: "Slipurrrrs",
+  parties: [
+    {name: "mother"},
+    {name: "eagle", isMod: true},
+    {name: "clearSails"}
+  ]
+},
+{
+  handleName: "CoolSneakers",
+  parties: [
+    {name: "mother"},
+    {name: "clearSails"}
+  ]
+},
+{
+  handleName: "DragonJamon",
+  parties: [
+    {name: "tales", isMod: true},
+    {name: "rum"}
+  ]
+},
+{
+  handleName: "JohnnyBravo",
+  parties: [
+    {name: "dogs"}
+  ]
+},{
+  handleName: "AquaBarbie",
+  parties: [
+    {name: "time"}
+  ]
+}, {
+  handleName: "MonopolyMouse",
+  parties: [
+    {name: "fluxers"}
+  ]
+},
+{
+  handleName: "Querty101",
+  parties: [
+    {name: "Hallmark", isMod: true}
+  ]
+},
+{
+  handleName: "MississippiBrazos",
+  parties: [
+    {name: "Hallmark", isMod: true}
+  ]
+},
+{
+  handleName: "ItchyMotors",
+  parties: [
+    {name: "fluxers", isMod: true}
+  ]
+},
+{
+  handleName: "Dorthies_dancin_shoes",
+  parties: [
+    {name: "fluxers", isMod: true}
+  ]
+},
+{
+  handleName: "FireHydrantLicker_tH",
+  parties: [
+    {name: "dang!"}
+  ]
+},
+{
+  handleName: "EarlyBirdie",
+  parties: [
+    {name: "mother", isMod: true},
+    {name: "cats"},
+    {name: "clearSails"}
+  ]
+},
+{
+  handleName: "Twoheadedsphaghettisnake666",
+  parties: [
+    {name: "Jesus", isMod: true}
+  ]
+},
+{
+  handleName: "Jiminey_crickets",
+  parties: [
+    {name: "DollyCarson"}
+  ]
+},
+{
+  handleName: "BurpingCactus",
+  parties: [
+    {name:  "burps", isMod: true},
+    {name: "demBoys", isDJ: true},
+    {name: "fluxers"}
+  ]
+},
+{
+  handleName: "Yoshi",
+  parties: [
+    {name: "yasss"},
+    {name: "eE"},
+    {name: "cats"},
+    {name: "demBoys"}
+  ]
+},
+{
+  handleName: "MothPuncher",
+  parties: [
+    {name: "eE", isMod: true}
+  ]
+},
+{
+  handleName: "PinkyPromise",
+  parties: [
+    {name: "eE", isMod: false},
+    {name: "RedditSayin"}
+  ]
+},
+{
+  handleName: "Truss BaVeriphi",
+  parties: [
+    {name: "DollyCarson"}
+  ]
+},
+{
+  handleName: "DrunkFlamingo",
+  parties: [
+    {name: "dang!"}
+  ]
+},
+{
+  handleName: "CheekStream",
+  parties: [
+    {name: "time"},
+    {name: "yasss"}
+  ]
+},
+{
+  handleName: "waterLake",
+  parties: [
+    {name: "aaaack", isMod: true}
+  ]
+},
+{
+  handleName: "The_Event_That_Shant_Be_Named",
+  parties: [
+    {name: "1Deep", isMod: true},
+    {name: "eE"}
+  ]
+},
+{
+  handleName: "MrHanky",
+  parties: [
+    {name: "aaaack", isMod: true},
+    {name: "Jesus", isMod: true},
+    {name: "☲shit"}
+  ]
+},
+{
+  handleName: "SandStorm",
+  parties: [
+    {name: "DollyCarson"}
+  ]
+},
+{
+  handleName: "SpongeDude",
+  parties: [
+    {name: "eagle"},
+    {name: "mother"}
+  ]
+},
+{
+  handleName: "Skeletor",
+  parties: [
+    {name: "DollyCarson"}
+  ]
+},
+{
+  handleName: "Meowth",
+  parties: [
+    {name: "RedditSayin"},
+    {name: "mother", isMod: true},
+    {name: "MathLaws", isMod: true}
+  ]
+},
+{
+  handleName: "Jerry",
+  parties: [
+    {name: 'cheesy'},
+    {name: '☲shit', isMod: true},
+    {name: 'MathLaws'}
+  ]
+},
+{
+  handleName: "Givesnolux",
+  parties: [
+    {name: 'eE'},
+    {name: "yasss"}
+  ]
+},
+{
+  handleName: "Togepikachu",
+  parties: [
+    {name: "cheesy", isConfirmed: false}
+  ]
+},
+{
+  handleName: "aligatorAllison",
+  parties: [
+    {name: "burners", isMod: true}
+  ]
+},
+{
+  handleName: "Bulgaria",
+  parties: [
+    {name: 'stringTheory'}
+  ]
+},
+{
+  handleName: 'GrinchBitch',
+  parties: [
+    {name: '1Deep'}
+  ]
+},
+{
+  handleName: 'pi_Spinner',
+  parties: [
+    {name: "twizzlers"}
+  ]
+},
+{
+  handleName: "aCuteTriangle",
+  parties: [
+    {name: "sheShes"}
+  ]
+},
+{
+  handleName: "marilynMoney",
+  parties: [
+    {name: "smileyFaceFlag", isMod: true}
+  ]
+},
+{
+  handleName: "man",
+  parties: [
+    {name: "dracul"}
+  ]
+},
+{
+  handleName: "NasaShapeUp",
+  parties: [
+    {name: "nasaholes"}
+  ]
+},
+{
+  handleName: "Slimer",
+  parties: [
+    {name: "mother", isMod: true},
+    {name: "saber"}
+  ]
+},
+{
+  handleName: "BrassFace",
+  parties: [
+    {name: "seeReal", isMod: true}
+  ]
 }
 ]
- 
- /*
-### Active Logins ###
-51 out of 66 active logins
-☱＋☴ Bobafeet [rebelWraith]
-☷☷☷+ Warewolf [rebelWraith]
-zZz --Neobii [1deep, rebelWraith]
-- Slipurrrrs_☯ [mother, eagle, clearasil]
-CoolSneakers  [mother, clearasil]
-** DragonJamon [tales, rum]
-JohnnyBravo [dogs]
-+ AquaBarbie_☯ [time]
-?+_m MonopolyMouse [fluxers]
-^ Querty101 [hallmark]
-MississippiBrazos_☯ [hallmark]
-+|| ItchyMotors [fluxers]
-++ Dorthies_dancin_shoes [fluxers]
-|** FireHydrantLicker_tH_☯ [dang!] -- warning: using [eE] might result in undesired consequences
-EarlyBirdie [mother, cats, clearasil] --- traded [eE for cats]
-Twoheadedsphaghettisnake666 [Jesus]
-+ Jiminey_crickets_☯ [DollyCarson] (hand)
-☱* BurpingCactus [burps, demBoys, fluxers]
-+++☷☷☷ Yoshi_☯ [yassss, eE, cats, demBoys]
-?+ MothPuncher_☯ [eE]
-+** Pinkypromise_☯☯ [eE, RedditSayin]
-^+|| Truss BaVeriphi [DollyCarson]
-+ DrunkFlamingo [dang!]
-CheekStream [time, yass] -- revoked [dang!]
-Princess Peach_xx [cats] -- revoked [eE]
-+☱ waterLake__☯ [aaaack]
---☴☴ chOWN
-zZz +⋛ The_Event_That_Shant_Be_Named [1deep, eE]
-*☴☴☴ MrHanky_☯ [aaaack, Jesus, ☲shit]
-aligatorAllison [burners]
--| Bulgaria [stringTheory]
-+|| Jerry_☯ [cheesy, ☲shit, MathLaws]
-+ GrinchBitch [1deep]
-~ Meowth [RedditSayin, mother, MathLaws]
-?/+ B.J.
-?+ Togepikachu [~cheesy]
-?+ Pi Spinner [twizlers]
-*** Skeletor_☯ [DollyCarson]
-SpongeDude [eagle, 1deep, mother]
-~?- aCuteTriangle [sheShes]
-marilynMoney [smileyFaceFlag]
-weatherWonder [environment]
-SandStorm
-snickerd00 [dracul]
-man [dracul]
-Honorary Logins
-+++Givesnolux [eE, yasss]
-NasaShapeUp [nassholes]
-+Slimer: [mother, saber]
-?-brassFace?+: [seeReal]*/

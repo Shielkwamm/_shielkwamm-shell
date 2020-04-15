@@ -19,6 +19,11 @@ const handlesSeed = [
   isActive: "false"
 },
 {
+  name: "MonopolyMouse",
+  mood: "",
+  isActive: false
+},
+{
   name: "Arbitrat0r",
   mood: "||",
   isActive: "true"
@@ -34,9 +39,14 @@ const handlesSeed = [
   isActive: "false"
 },
 {
-  name: "Chatb0t",
+  name: "chatb0t",
   mood: "|*",
   isActive: "true"
+},
+{
+  name: "BabeRuth",
+  mood: "||**",
+  isActive: true
 },
 {
   name: "Eyebrows",
@@ -44,7 +54,7 @@ const handlesSeed = [
   isActive: "true"
 },
 {
-  name: "GavelMIsses",
+  name: "GavelMisses",
   mood: "||||||||||",
   isActive: "true"
 },
@@ -74,6 +84,11 @@ const handlesSeed = [
   mood: "!zZz",
   isActive: true,
   inventory: ['△', '☯']
+},
+{
+  name: "BrassFace",
+  mood: "*puff puff*",
+  isActive: false
 },
 {
   name: "Bobafeet",
@@ -127,11 +142,6 @@ const handlesSeed = [
   mood: "+",
   isActive: true,
   inventory: ['☯']
-},
-{
-  name: "ItchyMotors",
-  mood: "+||",
-  isActive: false,
 },
 {
   name: "ItchyMotors",
@@ -251,7 +261,7 @@ const handlesSeed = [
   mood: "?+"
 },
 {
-  name: "Pi Spinner",
+  name: "pi_Spinner",
   mood: "?+"
 },
 {
@@ -262,7 +272,8 @@ const handlesSeed = [
 },
 {
   name: "SpongeDude",
-  mood: ""
+  mood: "",
+  isActive: true
 },
 {
   name: "aCuteTriangle",
