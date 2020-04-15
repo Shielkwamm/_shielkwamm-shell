@@ -1,3 +1,16 @@
+import Handles from '../modules/handle/collection.js';
+import { createMutator } from 'meteor/vulcan:core';
+
+Meteor.startup(() => {
+  if(Handles.find().count() === 0) {
+   handlesSeed.forEach(handle => {
+     handle.createdAt = new Date();
+     Handles.insert(handle);
+   })
+  }
+});
+
+
 const handlesSeed = [
 //  ### Shielkwamm Council ###  
 {
@@ -29,83 +42,261 @@ const handlesSeed = [
   name: "Eyebrows",
   mood: "++☷☰**",
   isActive: "true"
-}
-]
-
-/*
-
-zZz ?-/|| GrandNagus__☯_☯ [galacticOversight]
-||| Arbitrat0r [NaNers]
-||* Inf0 [NaNers]
-+||◯ Admin [1deep]
-|* Chatb0t [NaNers]
-++☷☰** Eyebrows [galacticOversight, sheShes]
- 
-### HumansLeague ####
-|||||||||| GavelMisses [galacticOversight]
-+++***☱☱☴ BabeRuth [galacticOversight]
-+|* CocoHeHe [MathLaws, RedditSayin]
-zZz ++ EasyOff [chillionaires]
- 
-### Capitalists ###
-[legalese]
- 
-### △ ☴ ###
-+☴☲ △MrPeanut [eagle, clearasil, 1deep]
-!zZz △FishyFishy_☯ [NaNers]
- 
-☴☴☴☴☴☴☴☴ Recruiting Curator, message Admin for # role consideration ☴☴☴☴☴☴☴
- 
-### Active Logins ###
-51 out of 66 active logins
-☱＋☴ Bobafeet [rebelWraith]
-☷☷☷+ Warewolf [rebelWraith]
-zZz --Neobii [1deep, rebelWraith]
-- Slipurrrrs_☯ [mother, eagle, clearasil]
-CoolSneakers  [mother, clearasil]
-** DragonJamon [tales, rum]
-JohnnyBravo [dogs]
-+ AquaBarbie_☯ [time]
-?+_m MonopolyMouse [fluxers]
-^ Querty101 [hallmark]
-MississippiBrazos_☯ [hallmark]
-+|| ItchyMotors [fluxers]
-++ Dorthies_dancin_shoes [fluxers]
-|** FireHydrantLicker_tH_☯ [dang!] -- warning: using [eE] might result in undesired consequences
-EarlyBirdie [mother, cats, clearasil] --- traded [eE for cats]
-Twoheadedsphaghettisnake666 [Jesus]
-+ Jiminey_crickets_☯ [DollyCarson] (hand)
-☱* BurpingCactus [burps, demBoys, fluxers]
-+++☷☷☷ Yoshi_☯ [yassss, eE, cats, demBoys]
-?+ MothPuncher_☯ [eE]
-+** Pinkypromise_☯☯ [eE, RedditSayin]
-^+|| Truss BaVeriphi [DollyCarson]
-+ DrunkFlamingo [dang!]
-CheekStream [time, yass] -- revoked [dang!]
-Princess Peach_xx [cats] -- revoked [eE]
-+☱ waterLake__☯ [aaaack]
---☴☴ chOWN
-zZz +⋛ The_Event_That_Shant_Be_Named [1deep, eE]
-*☴☴☴ MrHanky_☯ [aaaack, Jesus, ☲shit]
-aligatorAllison [burners]
--| Bulgaria [stringTheory]
-+|| Jerry_☯ [cheesy, ☲shit, MathLaws]
-+ GrinchBitch [1deep]
-~ Meowth [RedditSayin, mother, MathLaws]
-?/+ B.J.
-?+ Togepikachu [~cheesy]
-?+ Pi Spinner [twizlers]
-*** Skeletor_☯ [DollyCarson]
-SpongeDude [eagle, 1deep, mother]
-~?- aCuteTriangle [sheShes]
-marilynMoney [smileyFaceFlag]
-weatherWonder [environment]
-SandStorm
-snickerd00 [dracul]
-man [dracul]
-Honorary Logins
-+++Givesnolux [eE, yasss]
-NasaShapeUp [nassholes]
-+Slimer: [mother, saber]
-?-brassFace?+: [seeReal]
-*/
+},
+{
+  name: "GavelMIsses",
+  mood: "||||||||||",
+  isActive: "true"
+},
+{
+  name: "CocoHeHe",
+  mood: "+|*",
+  isActive: false
+},
+{
+  name: "EasyOff",
+  mood: "++",
+  isActive: false,
+},
+{
+  name: "[legalese]",
+  mood: "",
+  isActive: true
+},
+{
+  name: "MrPeanut",
+  mood: "☴",
+  isActive: true,
+  inventory: ['△']
+},
+{
+  name: "FishyFishy",
+  mood: "!zZz",
+  isActive: true,
+  inventory: ['△', '☯']
+},
+{
+  name: "Bobafeet",
+  mood: "☱＋☴",
+  isActive: false,
+},
+{
+  name: "Warewolf",
+  mood: "☷☷☷+",
+  isActive: true,
+},
+{
+  name: "Neobii",
+  mood: "--",
+  isActive: false,
+},
+{
+  name: "Slipurrrrs",
+  mood: '-',
+  inventory: ['☯'],
+  isActive: true
+},
+{
+  name: "CoolSneakers",
+  mood: '',
+  isActive: true
+},
+{
+  name: "DragonJamon",
+  mood: '**',
+  isActive: true
+},
+{
+  name: "JohnnyBravo",
+  mood: "+",
+  isActive: false
+},
+{
+  name: "AquaBarbie",
+  mood: "+",
+  isActive: false,
+  inventory: ['☯']
+},
+{
+  name: "Querty101",
+  mood: "^",
+  isActive: false
+},
+{
+  name: "MississippiBrazos",
+  mood: "+",
+  isActive: true,
+  inventory: ['☯']
+},
+{
+  name: "ItchyMotors",
+  mood: "+||",
+  isActive: false,
+},
+{
+  name: "ItchyMotors",
+  mood: "+||",
+  isActive: false,
+},
+{
+  name: "Dorthies_dancin_shoes",
+  mood: "++",
+  isActive: false
+},
+{
+  name: "FireHydrantLicker_tH",
+  mood: "|**,",
+  inventory: ['☯'],
+  isActive: true
+},
+{
+  name: "EarlyBirdie",
+  mood: "|**,",
+  inventory: ['☯'],
+  isActive: true,
+  note: "traded [eE for cats]"
+},
+{
+  name: "Twoheadedsphaghettisnake666",
+  mood: "",
+  isActive: true,  
+},
+{
+  name: "Jiminey_crickets",
+  mood: "+",
+  isActive: false
+},
+{
+  name: "BurpingCactus",
+  mood: "☱*",
+  isActive: false
+},
+{
+  name: "Yoshi",
+  mood: "+++☷☷☷ ",
+  inventory: ['☯'],
+  isActive: false
+},
+{
+  name: "MothPuncher",
+  mood: "?+ "
+},
+{
+  name: "PinkyPromise",
+  mood: "+**",
+  isActive: true
+},
+{
+  name: "Truss BaVeriphi",
+  mood: "^+||",
+  isActive: true
+},
+{
+  name: "DrunkFlamingo",
+  mood: "+"
+},
+{
+  name: "CheekStream",
+  note: "revoked [dang!]",
+  isActive: true
+},
+{
+  name: "Princess_Peach",
+  note: "revoked [eE]"
+},
+{
+  name: "waterLake",
+  mood: "+☱",
+  isActive: true
+},
+{
+  name: "chOWN",
+  mood: "--☴☴"
+},
+{
+  name: "The_Event_That_Shant_Be_Named",
+  mood: "+⋛ "
+},
+{
+  name: "MrHanky",
+  mood: "*☴☴☴",
+  inventory: ['☯']
+},
+{
+  name: "aligatorAllison"
+},
+{
+  name: "Bulgaria",
+  mood: "-|"
+},
+{
+  name: "Jerry",
+  mood: "+||",
+  inventory: ['☯']
+},
+{
+  name: "GrinchBitch",
+  mood: "+"
+},
+{
+  name: "Meowth",
+  mood: "~"
+},
+{
+  name: "B.J.",
+  mood: "?/+ "
+},
+{
+  name: "Togepikachu",
+  mood: "?+"
+},
+{
+  name: "Pi Spinner",
+  mood: "?+"
+},
+{
+  name: "Skeletor",
+  mood: "***",
+  inventory: ['☯'],
+  isActive: true
+},
+{
+  name: "SpongeDude",
+  mood: ""
+},
+{
+  name: "aCuteTriangle",
+  mood: "~?-"
+},
+{
+  name: "marilynMoney"
+},
+{
+  name: "weatherWonder"
+},
+{
+  name: "SandStorm"
+},
+{
+  name: "man"
+},
+{
+  name: "Givesnolux",
+  mood: "+++",
+  isHonorary: true
+},
+{
+  name: "NasaShapeUp",
+  mood: "",
+  isHonorary: true
+},
+{
+  name: "Slimer",
+  mood: "+",
+  isActive: true
+},
+{
+  name: "brassFace",
+  mood: "?-?+",
+  isActive: true
+}]

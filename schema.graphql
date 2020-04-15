@@ -958,11 +958,11 @@ type Handle {
   createdAt: Date 
   name: String 
   description: String 
-  partiesIds: [String] 
-  partys: [Party] 
+  note: String 
   mood: String 
   isActive: Boolean 
-  parties: String 
+  isHonorary: Boolean 
+  inventory: [String] 
 }
 
 
@@ -1031,10 +1031,11 @@ input CreateHandleInput {
 input CreateHandleDataInput {
   name: String 
   description: String 
-  partiesIds: [String] 
+  note: String 
   mood: String 
   isActive: Boolean 
-  parties: String 
+  isHonorary: Boolean 
+  inventory: [String] 
 }
 
 input UpdateHandleInput{
@@ -1052,10 +1053,11 @@ input UpsertHandleInput{
 input UpdateHandleDataInput {
   name: String 
   description: String 
-  partiesIds: [String] 
+  note: String 
   mood: String 
   isActive: Boolean 
-  parties: String 
+  isHonorary: Boolean 
+  inventory: [String] 
 }
 
 input HandleFilterInput {
@@ -1068,10 +1070,11 @@ input HandleFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   description: String_Selector
-  partiesIds: String_Array_Selector
+  note: String_Selector
   mood: String_Selector
   isActive: Boolean_Selector
-  parties: String_Selector
+  isHonorary: Boolean_Selector
+  inventory: String_Array_Selector
 }
 
 input HandleSortInput {
@@ -1079,10 +1082,11 @@ input HandleSortInput {
   createdAt: SortOptions
   name: SortOptions
   description: SortOptions
-  partiesIds: SortOptions
+  note: SortOptions
   mood: SortOptions
   isActive: SortOptions
-  parties: SortOptions
+  isHonorary: SortOptions
+  inventory: SortOptions
 }
 
 input HandleSelectorInput {

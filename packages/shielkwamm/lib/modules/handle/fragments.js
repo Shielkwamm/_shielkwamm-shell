@@ -4,11 +4,13 @@ registerFragment(`
    fragment HandlesFragment on Handle {
      _id
      createdAt
+     isActive
      name
      mood
-     isActive
+     note
      description
-     parties
+     isHonorary
+     inventory
    }
 `);
 
