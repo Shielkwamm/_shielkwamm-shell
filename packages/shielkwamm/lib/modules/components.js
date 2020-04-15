@@ -5,6 +5,7 @@ import '../components/i18nsList.jsx';
 import '../components/GlyphsList.jsx';
 import '../components/RoomsList.jsx';
 import '../components/RoomHeader.jsx';
+import '../components/Handles.jsx';
 import '../components/ActiveRoom.jsx';
 import '../components/RoomRoom.jsx';
 import '../components/RoomDJ.jsx';

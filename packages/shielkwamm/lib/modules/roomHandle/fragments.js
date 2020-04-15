@@ -16,3 +16,16 @@ registerFragment(`
      isCannon
    }
 `);
+
+registerFragment(`
+   fragment RoomHandlesHandlesFragment on RoomHandle {
+     _id
+     createdAt
+     handleId
+     handle {
+       ...FlatHandlesFragment
+     }
+     isDJ
+     isCannon
+   }
+`);

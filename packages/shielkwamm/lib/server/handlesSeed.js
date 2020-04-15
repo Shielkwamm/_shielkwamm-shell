@@ -5,6 +5,7 @@ Meteor.startup(() => {
   if(Handles.find().count() === 0) {
    handlesSeed.forEach(handle => {
      handle.createdAt = new Date();
+     handle.inventory = handle.inventory || [];
      Handles.insert(handle);
    })
   }
@@ -16,7 +17,7 @@ const handlesSeed = [
 {
   name: "GrandNagus",
   mood: "?-/||",
-  isActive: "false"
+  isActive: false
 },
 {
   name: "MonopolyMouse",
@@ -26,22 +27,22 @@ const handlesSeed = [
 {
   name: "Arbitrat0r",
   mood: "||",
-  isActive: "true"
+  isActive: true
 },
 {
   name: "Inf0rmation",
   mood: "||*",
-  isActive: "true"
+  isActive: true
 },
 {
   name: "Admin",
   mood: "+||◯",
-  isActive: "false"
+  isActive: false
 },
 {
   name: "chatb0t",
   mood: "|*",
-  isActive: "true"
+  isActive: true
 },
 {
   name: "BabeRuth",
@@ -51,12 +52,12 @@ const handlesSeed = [
 {
   name: "Eyebrows",
   mood: "++☷☰**",
-  isActive: "true"
+  isActive: true
 },
 {
   name: "GavelMisses",
   mood: "||||||||||",
-  isActive: "true"
+  isActive: true
 },
 {
   name: "CocoHeHe",

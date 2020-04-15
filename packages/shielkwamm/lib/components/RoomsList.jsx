@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 
 const RoomsList = ({ loading, results }) => (
   <div className="movies-list">
+    <Components.HeadTags title={`Rooms`}/>
     <h2><Link to="/">⏎ </Link>Rooms</h2>
     <hr></hr>
     {!loading && results && results.map(room => (
       <div  style={{
+        overflow: "auto",
         color: room.color,
         paddingTop: "1px",
         paddingLeft: "14px",
@@ -18,14 +20,18 @@ const RoomsList = ({ loading, results }) => (
         <p>{room.vibe} <a style={{color: room.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
         <p>{room.description}</p>
         <hr></hr>
-        <p>handles</p>
+        <div style={{float: "left"}}>
+        <p style={{color: room.linkColor}}>handles</p>
         {room.roomHandles.map(rh => (
-          <p>{rh.handle.name}</p>
+          <Components.Handle key={rh._id} handle={rh.handle}/>
         ))}
-        <p>i18ns</p>
+        </div>
+        <div style={{float: "right"}}>
+        <p style={{color: room.linkColor}}>i18ns</p>
         {room.i18nRooms.map(ih => (
-          <p>{ih.i18n.name}</p>
+          <h3 key={ih._id}>{ih.i18n.name}</h3>
         ))}
+        </div>
       </div>
     ))}
   </div>

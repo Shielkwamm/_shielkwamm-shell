@@ -98,7 +98,7 @@ const partiesSeed = [{
 {
   name: "yasss",
   description: "the ones with the tall fuzzy hats!",
-  isActive: "true",
+  isActive: true,
   mood: "☴☱"
 },
 {
@@ -111,7 +111,7 @@ const partiesSeed = [{
   name: "aaaack",
   description: "aaaaaaaaaaaaaaaahhh",
   mood: "☴",
-  isActive: "true"
+  isActive: true
 },
 {
   name: "dang!",

@@ -2,25 +2,7 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-//import GlyphsList from '../../modules/collection.js';
 
-/*
-const HandlePartyName = ({ party }) => (
-  {handleParties.party.name}
-)
-*/
-
-const PartiesList = ({ handleParties = []}) => (
-  <React.Fragment>
-  { handleParties.length > 0 ? (
-    <span>[ { handleParties.map(handleParty => (<span key={handleParty._id}>{handleParty.party.name}, </span>))} ]</span>
-  ): null }
-  </React.Fragment>
-)
-
-/*handleParties.forEach(handleParty => {
-    <span>{handleParty.party.name}</span>
-  })*/
 
 const HandlesList = ({ loading, results }) => (
   <React.Fragment>
@@ -32,8 +14,8 @@ const HandlesList = ({ loading, results }) => (
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
         {handle.isHonorary ? (
-          <h2>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} <PartiesList handleParties={handle.parties}/><span style={{float: "right"}}>{handle.note}</span></h2> 
-        ): null}
+          <Components.Handle handle={handle}/>
+        ): null}  
       </React.Fragment>
     ))}
     <hr></hr>
@@ -41,7 +23,7 @@ const HandlesList = ({ loading, results }) => (
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
         {!handle.isHonorary && handle.isActive ? (
-        <h3>{handle.mood} {handle.name} <PartiesList handleParties={handle.parties}/> <span style={{float: "right"}}>{handle.note}</span></h3>
+          <Components.Handle handle={handle}/>
        ): null}
       </React.Fragment>
     ))}
@@ -49,7 +31,7 @@ const HandlesList = ({ loading, results }) => (
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
         {!handle.isHonorary && !handle.isActive ? (
-        <h3>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} <PartiesList handleParties={handle.parties}/> <span style={{float: "right"}}>{handle.note}</span></h3>
+          <Components.Handle handle={handle}/>
        ): null}
       </React.Fragment>
     ))}
