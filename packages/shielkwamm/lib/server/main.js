@@ -6,3 +6,4 @@ import './roomsSeed.js';
 import './partiesSeed.js';
 import './handlesSeed.js';
 
+import './handlesPartiesSeed.js';

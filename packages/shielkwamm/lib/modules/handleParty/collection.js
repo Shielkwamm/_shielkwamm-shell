@@ -3,8 +3,8 @@ import schema from './schema.js';
 import './fragments.js';
 
 const HandlesParties = createCollection({
-  collectionName: 'HandlesParties',
-  typeName: 'HandlesParties',
+  collectionName: 'HandleParties',
+  typeName: 'HandleParty',
   schema,
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
   // mutations: yourCustomMutations // null to disable default mutations generation

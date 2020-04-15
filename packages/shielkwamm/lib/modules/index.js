@@ -9,4 +9,4 @@ import './party/collection.js';
 import './i18n/collection.js';
 import './i18nsRooms/collection.js';
 import './roomsHandles/collection.js';
-import './handlesParties/collection.js';
+import './handleParty/collection.js';

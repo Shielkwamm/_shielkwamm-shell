@@ -1,11 +1,13 @@
-# Welcome weary adventurers to ==== Shielkwámḿ ====||
+#### *Welcome weary adventurers to*
 
-[How do you do?](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
+# `==== Shielkwámḿ ====||`
+
+## [What the heck](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
 
 ## Meta
 [art of the game](https://github.com/Shielkwamm/shielkwamm)
 
-## stack
+## Stack
 [vulcanjs](http://vulcanjs.org/)
 
 [react](https://reactjs.org/)

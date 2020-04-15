@@ -11,6 +11,9 @@ registerFragment(`
      description
      isHonorary
      inventory
+     parties {
+       ...HandlesPartiesFragment
+     }
    }
 `);
 

@@ -963,6 +963,7 @@ type Handle {
   isActive: Boolean 
   isHonorary: Boolean 
   inventory: [String] 
+  parties(filterDir: Int = -1, filterColumn: String = "volume24"): [HandleParty] 
 }
 
 
@@ -1075,6 +1076,7 @@ input HandleFilterInput {
   isActive: Boolean_Selector
   isHonorary: Boolean_Selector
   inventory: String_Array_Selector
+  parties: String_Selector
 }
 
 input HandleSortInput {
@@ -1087,6 +1089,7 @@ input HandleSortInput {
   isActive: SortOptions
   isHonorary: SortOptions
   inventory: SortOptions
+  parties: SortOptions
 }
 
 input HandleSelectorInput {
@@ -1866,8 +1869,8 @@ input RoomsHandlesSelectorUniqueInput {
 }
 
 
-# Type for HandlesParties
-type HandlesParties {
+# Type for HandleParties
+type HandleParty {
   _id: String 
   createdAt: Date 
   partyId: String 
@@ -1878,21 +1881,21 @@ type HandlesParties {
 }
 
 
-input DeleteHandlesPartiesInput{
-  filter: HandlesPartiesFilterInput
+input DeleteHandlePartyInput{
+  filter: HandlePartyFilterInput
   id: String
 }
 
-input SingleHandlesPartiesInput {
+input SingleHandlePartyInput {
   # filtering
-  filter: HandlesPartiesFilterInput
-  sort: HandlesPartiesSortInput
+  filter: HandlePartyFilterInput
+  sort: HandlePartySortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: HandlesPartiesSelectorUniqueInput
+  selector: HandlePartySelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -1901,11 +1904,11 @@ input SingleHandlesPartiesInput {
   allowNull: Boolean
 }
 
-input MultiHandlesPartiesInput {
+input MultiHandlePartyInput {
 
   # filtering
-  filter: HandlesPartiesFilterInput
-  sort: HandlesPartiesSortInput
+  filter: HandlePartyFilterInput
+  sort: HandlePartySortInput
   search: String
   offset: Int
   limit: Int
@@ -1923,51 +1926,51 @@ input MultiHandlesPartiesInput {
   
 }
 
-type SingleHandlesPartiesOutput{
-  result: HandlesParties
+type SingleHandlePartyOutput{
+  result: HandleParty
 }
 
-type  MultiHandlesPartiesOutput{
-  results: [HandlesParties]
+type  MultiHandlePartyOutput{
+  results: [HandleParty]
   totalCount: Int
 }
 
-type HandlesPartiesMutationOutput{
-  data: HandlesParties
+type HandlePartyMutationOutput{
+  data: HandleParty
 }
 
-input CreateHandlesPartiesInput {
-  data: CreateHandlesPartiesDataInput!
+input CreateHandlePartyInput {
+  data: CreateHandlePartyDataInput!
 }
 
-input CreateHandlesPartiesDataInput {
+input CreateHandlePartyDataInput {
   partyId: String 
   handleId: String 
   isMod: Boolean 
 }
 
-input UpdateHandlesPartiesInput{
-  filter: HandlesPartiesFilterInput
+input UpdateHandlePartyInput{
+  filter: HandlePartyFilterInput
   id: String
-  data: UpdateHandlesPartiesDataInput!
+  data: UpdateHandlePartyDataInput!
 }
 
-input UpsertHandlesPartiesInput{
-  filter: HandlesPartiesFilterInput
+input UpsertHandlePartyInput{
+  filter: HandlePartyFilterInput
   id: String
-  data: UpdateHandlesPartiesDataInput!
+  data: UpdateHandlePartyDataInput!
 }
 
-input UpdateHandlesPartiesDataInput {
+input UpdateHandlePartyDataInput {
   partyId: String 
   handleId: String 
   isMod: Boolean 
 }
 
-input HandlesPartiesFilterInput {
-  _and: [HandlesPartiesFilterInput]
-  _not: HandlesPartiesFilterInput
-  _or: [HandlesPartiesFilterInput]
+input HandlePartyFilterInput {
+  _and: [HandlePartyFilterInput]
+  _not: HandlePartyFilterInput
+  _or: [HandlePartyFilterInput]
 
 
   _id: String_Selector
@@ -1977,7 +1980,7 @@ input HandlesPartiesFilterInput {
   isMod: Boolean_Selector
 }
 
-input HandlesPartiesSortInput {
+input HandlePartySortInput {
   _id: SortOptions
   createdAt: SortOptions
   partyId: SortOptions
@@ -1985,13 +1988,13 @@ input HandlesPartiesSortInput {
   isMod: SortOptions
 }
 
-input HandlesPartiesSelectorInput {
-  _and: [HandlesPartiesSelectorInput]
-  _or: [HandlesPartiesSelectorInput]
+input HandlePartySelectorInput {
+  _and: [HandlePartySelectorInput]
+  _or: [HandlePartySelectorInput]
 
 }
 
-input HandlesPartiesSelectorUniqueInput {
+input HandlePartySelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -2072,11 +2075,11 @@ type Query {
   # A list of RoomsHandles documents matching a set of query terms
   roomsHandless(input: MultiRoomsHandlesInput):  MultiRoomsHandlesOutput
   
-  # A single HandlesParties document fetched by ID or slug
-  handlesParties(input: SingleHandlesPartiesInput!): SingleHandlesPartiesOutput
+  # A single HandleParty document fetched by ID or slug
+  handleParty(input: SingleHandlePartyInput!): SingleHandlePartyOutput
   
-  # A list of HandlesParties documents matching a set of query terms
-  handlesPartiess(input: MultiHandlesPartiesInput):  MultiHandlesPartiesOutput
+  # A list of HandleParty documents matching a set of query terms
+  handleParties(input: MultiHandlePartyInput):  MultiHandlePartyOutput
   
 }
   
@@ -2377,37 +2380,37 @@ type Mutation {
   selector: RoomsHandlesSelectorUniqueInput
 ) : RoomsHandlesMutationOutput
 
-  # Mutation for creating new HandlesParties documents
-  createHandlesParties(
-  input: CreateHandlesPartiesInput,
+  # Mutation for creating new HandleParty documents
+  createHandleParty(
+  input: CreateHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateHandlesPartiesDataInput
-) : HandlesPartiesMutationOutput
+  data: CreateHandlePartyDataInput
+) : HandlePartyMutationOutput
 
-  # Mutation for updating a HandlesParties document
-  updateHandlesParties(
-  input: UpdateHandlesPartiesInput,
+  # Mutation for updating a HandleParty document
+  updateHandleParty(
+  input: UpdateHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandlesPartiesSelectorUniqueInput,
+  selector: HandlePartySelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateHandlesPartiesDataInput 
-) : HandlesPartiesMutationOutput
+  data: UpdateHandlePartyDataInput 
+) : HandlePartyMutationOutput
 
-  # Mutation for upserting a HandlesParties document
-  upsertHandlesParties(
-  input: UpsertHandlesPartiesInput,
+  # Mutation for upserting a HandleParty document
+  upsertHandleParty(
+  input: UpsertHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandlesPartiesSelectorUniqueInput,
+  selector: HandlePartySelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateHandlesPartiesDataInput
-) : HandlesPartiesMutationOutput
+  data: UpdateHandlePartyDataInput
+) : HandlePartyMutationOutput
 
-  # Mutation for deleting a HandlesParties document
-  deleteHandlesParties(
-  input: DeleteHandlesPartiesInput,
+  # Mutation for deleting a HandleParty document
+  deleteHandleParty(
+  input: DeleteHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandlesPartiesSelectorUniqueInput
-) : HandlesPartiesMutationOutput
+  selector: HandlePartySelectorUniqueInput
+) : HandlePartyMutationOutput
 
 }
 

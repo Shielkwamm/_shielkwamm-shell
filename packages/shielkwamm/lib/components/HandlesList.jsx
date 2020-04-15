@@ -4,6 +4,24 @@ import { Link } from 'react-router-dom';
 
 //import GlyphsList from '../../modules/collection.js';
 
+/*
+const HandlePartyName = ({ party }) => (
+  {handleParties.party.name}
+)
+*/
+
+const PartiesList = ({ handleParties = []}) => (
+  <React.Fragment>
+  { handleParties.length > 0 ? (
+    <span>[ { handleParties.map(handleParty => (<span key={handleParty._id}>{handleParty.party.name}, </span>))} ]</span>
+  ): null }
+  </React.Fragment>
+)
+
+/*handleParties.forEach(handleParty => {
+    <span>{handleParty.party.name}</span>
+  })*/
+
 const HandlesList = ({ loading, results }) => (
   <React.Fragment>
     <Components.HeadTags title={`Handles`}/>
@@ -12,26 +30,26 @@ const HandlesList = ({ loading, results }) => (
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Honorary ===</h1>
     {!loading && results.map(handle => (
-      <React.Fragment>
+      <React.Fragment key={handle._id}>
         {handle.isHonorary ? (
-          <h2>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} </h2>
+          <h2>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} <PartiesList handleParties={handle.parties}/><span style={{float: "right"}}>{handle.note}</span></h2> 
         ): null}
       </React.Fragment>
     ))}
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Active ===</h1>
     {!loading && results.map(handle => (
-      <React.Fragment>
+      <React.Fragment key={handle._id}>
         {!handle.isHonorary && handle.isActive ? (
-        <h3>{handle.mood} {handle.name} <span style={{float: "right"}}>{handle.note}</span></h3>
+        <h3>{handle.mood} {handle.name} <PartiesList handleParties={handle.parties}/> <span style={{float: "right"}}>{handle.note}</span></h3>
        ): null}
       </React.Fragment>
     ))}
     <hr></hr>
     {!loading && results.map(handle => (
-      <React.Fragment>
+      <React.Fragment key={handle._id}>
         {!handle.isHonorary && !handle.isActive ? (
-        <h3>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} <span style={{float: "right"}}>{handle.note}</span></h3>
+        <h3>{handle.isActive? "": "zZz "} {handle.mood} {handle.name} <PartiesList handleParties={handle.parties}/> <span style={{float: "right"}}>{handle.note}</span></h3>
        ): null}
       </React.Fragment>
     ))}

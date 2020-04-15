@@ -76,7 +76,23 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
-  }
+  },
+  parties: {
+    label: "Parties",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'parties',
+      type: '[HandleParty]',
+      relation: 'hasMany',
+      arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
+      resolver: (handle, {filterDir, filterColumn}, context) => {
+        return context.HandleParties.find({handleId: handle._id}).fetch();
+      }
+    }
+  },
   /*
   'partiesIds.$': {
     label: "Parties",
