@@ -8,8 +8,8 @@ registerFragment(`
      glyphSet
      description
      wikiUrl
-     rooms {
-       ...I18nRoomFragment
+     i18nRooms {
+       ...I18nRoomsFragment
      }
    }
 `);

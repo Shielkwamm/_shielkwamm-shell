@@ -180,57 +180,26 @@ const schema = {
       relation: 'hasMany',
       //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
       resolver: (room, {filterDir, filterColumn}, context) => {
-        return context.i18nRooms.find({roomId: room._id}).fetch();
+        return context.I18nRooms.find({roomId: room._id}).fetch();
       }
     }
   },
+  roomHandles: {
+    label: "roomHandles",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'roomHandles',
+      type: '[RoomHandle]',
+      relation: 'hasMany',
+      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
+      resolver: (room, {filterDir, filterColumn}, context) => {
+        return context.RoomHandles.find({roomId: room._id}).fetch();
+      }
+    }
+  }
 };
 
 export default schema;
-
-/*
-i18nIds.$': {
-    //label: "i18nIds",
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-    /*resolveAs: {
-      //fieldName: 'i18n',
-      //type: 'I18n',
-      //relation: 'hasMany',
-      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
-      resolver: (handle, args, context) => {
-        //change to graphql query later
-        return context.I18ns.find({_id: {$in: room.i18nIds}}); //find latest aggregate
-      }
-    }
-  },
-  /*i18nIds: {
-    type: Array,
-    optional: true,
-    defaultValue: [],
-    label: "i18n",
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    /*control: 'select',
-    options: () => {
-      return [
-        {
-          value: 'object-key',
-          label: 'Market pair in object key',
-        },
-        {
-          value: 'object-array',
-          label: 'Market pair in object value'
-        }
-      ];
-    },
-    resolveAs: {
-      fieldName: 'i18ns',
-      type: '[I18n]',
-      relation: 'hasMany'
-    }
-  },
-  
-  */

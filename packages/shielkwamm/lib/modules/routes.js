@@ -6,7 +6,6 @@ addRoute({ name: 'roomRoom', path: '/room/:slug/room', componentName: "RoomRoom"
 addRoute({ name: 'roomDJ', path: '/room/:slug/dj', componentName: "RoomDJ"});
 addRoute({ name: 'roomCannon', path: '/room/:slug/cannon', componentName: "RoomCannon"});
 
-addRoute({ name: 'markets', path: '/markets', componentName: "MarketsList"})
 addRoute({ name: 'handles', path: '/handles', componentName: "HandlesList"});
 addRoute({ name: "parties", path: "/parties", componentName: "PartiesList"});
 addRoute({ name: "historic_sh", path: "/historic_sh_", componentName: "Best_sh_List"})
@@ -14,8 +13,6 @@ addRoute({ name: "historic_sh", path: "/historic_sh_", componentName: "Best_sh_L
 addRoute({ name: 'room', path: '/room/:slug', componentName: "ActiveRoom"})
 //addRoute({ name: 'roomHandles', path: '/room/:slug/handles', componentName: "RoomHandles"})
 addRoute({ name: 'roomMessages', path: '/room/:slug/messages', componentName: "RoomMessages"})
-
-addRoute({ name: 'market', path: '/market/:slug', componentName: "Market"});
 
 addRoute({ name: 'i18nsList', path: '/i18n', componentName: "i18nsList"});
 

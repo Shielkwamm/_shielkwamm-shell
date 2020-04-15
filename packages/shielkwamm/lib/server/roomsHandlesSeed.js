@@ -6,7 +6,7 @@ import RoomHandles from '../modules/roomHandle/collection.js'
 Meteor.startup(() => {
   if(RoomHandles.find().count() === 0) {
     roomsHandlesSeed.forEach(rh => {
-     let handle = Handles.findOne({name: rh.name});
+     let handle = Handles.findOne({name: rh.hanleName});
      if(!handle) {
        console.log("### " + rh.name + " not found ")
        return;

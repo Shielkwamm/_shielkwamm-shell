@@ -12,6 +12,7 @@ const ActiveRoomInner = ({ loading, document }) => (
       <Components.HeadTags title={`${document.name} ▵△${document.currentExpPoints} / ${document.totalExpPoints}△▵  ☸${document.level} / ${document.maxLevel}☸`}/>
         <Components.RoomHeader room={document}/>
         <Components.RoomMessages roomId={document._id} color={document.color} backgroundColor={document.backgroundColor} linkColor={document.linkColor}/>
+        <span>{console.log(document)}</span>
       </div>
     )}
   </React.Fragment>

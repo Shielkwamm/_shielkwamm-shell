@@ -18,13 +18,17 @@ registerFragment(`
      currentMusicTitle
      description
      color
+     isActive
      backgroundColor
      linkColor
      messageDelay
      areDJMessagesMuted
      areCannonMessagesMuted
      i18nRooms {
-       ...RoomI18nFragment
+       ...I18nRoomsFragment
+     }
+     roomHandles {
+       ...RoomHandlesFragment
      }
    }
 `);

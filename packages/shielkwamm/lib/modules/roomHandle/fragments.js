@@ -6,11 +6,11 @@ registerFragment(`
      createdAt
      handleId
      handle {
-       ...HandlesFragment
+       ...FlatHandlesFragment
      }
      roomId
      room {
-       ...RoomsFragment
+       ...FlatRoomsFragment
      }
      isDJ
      isCannon

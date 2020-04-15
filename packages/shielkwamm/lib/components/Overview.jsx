@@ -18,8 +18,5 @@ registerComponent({ name: 'Overview', component: Overview});
 //<Components.Best_sh_List />
 
 /*
-    <Components.RoomsList />
-    <Components.HandlesList />
-    <Components.MarketsList />
     <Components.Best_sh_List />
     */

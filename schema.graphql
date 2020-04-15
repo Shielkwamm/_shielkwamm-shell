@@ -761,6 +761,7 @@ type Room {
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
   i18nRooms: [I18nRoom] 
+  roomHandles: [RoomHandle] 
 }
 
 
@@ -913,6 +914,7 @@ input RoomFilterInput {
   areDJMessagesMuted: Boolean_Selector
   areCannonMessagesMuted: Boolean_Selector
   i18nRooms: String_Selector
+  roomHandles: String_Selector
 }
 
 input RoomSortInput {
@@ -939,6 +941,7 @@ input RoomSortInput {
   areDJMessagesMuted: SortOptions
   areCannonMessagesMuted: SortOptions
   i18nRooms: SortOptions
+  roomHandles: SortOptions
 }
 
 input RoomSelectorInput {
@@ -1102,100 +1105,6 @@ input HandleSelectorInput {
 }
 
 input HandleSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for Markets
-type Market {
-  _id: String 
-  createdAt: Date 
-}
-
-
-input DeleteMarketInput{
-  filter: MarketFilterInput
-  id: String
-}
-
-input SingleMarketInput {
-  # filtering
-  filter: MarketFilterInput
-  sort: MarketSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: MarketSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiMarketInput {
-
-  # filtering
-  filter: MarketFilterInput
-  sort: MarketSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleMarketOutput{
-  result: Market
-}
-
-type  MultiMarketOutput{
-  results: [Market]
-  totalCount: Int
-}
-
-type MarketMutationOutput{
-  data: Market
-}
-
-input MarketFilterInput {
-  _and: [MarketFilterInput]
-  _not: MarketFilterInput
-  _or: [MarketFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-}
-
-input MarketSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-}
-
-input MarketSelectorInput {
-  _and: [MarketSelectorInput]
-  _or: [MarketSelectorInput]
-
-}
-
-input MarketSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -1473,6 +1382,7 @@ type I18n {
   description: String 
   glyphSet: String 
   wikiUrl: String 
+  i18nRooms: [I18nRoom] 
 }
 
 
@@ -1576,6 +1486,7 @@ input I18nFilterInput {
   description: String_Selector
   glyphSet: String_Selector
   wikiUrl: String_Selector
+  i18nRooms: String_Selector
 }
 
 input I18nSortInput {
@@ -1585,6 +1496,7 @@ input I18nSortInput {
   description: SortOptions
   glyphSet: SortOptions
   wikiUrl: SortOptions
+  i18nRooms: SortOptions
 }
 
 input I18nSelectorInput {
@@ -2042,12 +1954,6 @@ type Query {
   # A list of Handle documents matching a set of query terms
   handles(input: MultiHandleInput):  MultiHandleOutput
   
-  # A single Market document fetched by ID or slug
-  market(input: SingleMarketInput!): SingleMarketOutput
-  
-  # A list of Market documents matching a set of query terms
-  markets(input: MultiMarketInput):  MultiMarketOutput
-  
   # A single Sh document fetched by ID or slug
   sh(input: SingleShInput!): SingleShOutput
   
@@ -2215,13 +2121,6 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: HandleSelectorUniqueInput
 ) : HandleMutationOutput
-
-  # Mutation for deleting a Market document
-  deleteMarket(
-  input: DeleteMarketInput,
-  "Deprecated (use 'input' field instead)."
-  selector: MarketSelectorUniqueInput
-) : MarketMutationOutput
 
   # Mutation for creating new Sh documents
   createSh(

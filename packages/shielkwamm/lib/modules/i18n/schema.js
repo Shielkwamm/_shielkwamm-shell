@@ -46,6 +46,22 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  i18nRooms: {
+    label: "i18nRooms",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'i18nRooms',
+      type: '[I18nRoom]',
+      relation: 'hasMany',
+      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
+      resolver: (i18n, {filterDir, filterColumn}, context) => {
+        return context.I18nRooms.find({i18nId: i18n._id}).fetch();
+      }
+    }
+  }
   // userId: {
   //   type: String,
   //   optional: true,
