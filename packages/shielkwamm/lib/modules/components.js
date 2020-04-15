@@ -11,6 +11,7 @@ import '../components/RoomRoom.jsx';
 import '../components/RoomDJ.jsx';
 import '../components/RoomCannon.jsx';
 import '../components/RoomMessages.jsx';
+import '../components/RoomInformation.jsx';
 
 import '../components/HandlesList.jsx';
 import '../components/PartiesList.jsx';
