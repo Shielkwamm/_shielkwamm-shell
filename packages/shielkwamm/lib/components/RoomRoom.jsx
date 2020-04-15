@@ -10,15 +10,15 @@ const RoomRoomInner = ({ loading, document }) => (
     ) : (
       <div>
         <Components.RoomHeader room={document}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["name"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["name"]}/>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["zork"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["zork"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
       </div>
     )}
   </React.Fragment>

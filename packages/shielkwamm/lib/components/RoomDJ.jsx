@@ -11,11 +11,11 @@ const RoomDJInner = ({ loading, document }) => (
       <div>
         <Components.HeadTags title={`⬤⬤⬤: ${document.name}`}/>
         <Components.RoomHeader room={document}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["areDJMessagesMuted"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
-        <Components.SmartForm collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["areDJMessagesMuted"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
       </div>
     )}
   </React.Fragment>
