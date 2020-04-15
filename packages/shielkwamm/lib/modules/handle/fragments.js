@@ -16,6 +16,15 @@ registerFragment(`
      }
    }
 `);
+registerFragment(`
+   fragment FlatHandlesFragment on Handle {
+     _id
+     createdAt
+     isActive
+     name
+     mood
+   }
+`);
 
 //partyIds
 //parties

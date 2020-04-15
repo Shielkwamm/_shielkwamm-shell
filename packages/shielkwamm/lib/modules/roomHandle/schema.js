@@ -22,7 +22,8 @@ const schema = {
     canUpdate: ['admins'],
     resolveAs: {
       fieldName: "handle",//[i18n]
-      type: 'Handle'
+      type: 'Handle',
+      relation: "hasOne"
     }
   },
   roomId: {
@@ -33,7 +34,8 @@ const schema = {
     canUpdate: ['admins'],
     resolveAs: {
       fieldName: 'room',
-      type: 'Room'
+      type: 'Room',
+      relation: "hasOne"
     }
   },
   isMod: {

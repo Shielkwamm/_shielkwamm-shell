@@ -1,7 +1,7 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment RoomsHandlesFragment on RoomsHandle {
+   fragment RoomHandlesFragment on RoomHandle {
      _id
      createdAt
      handleId

@@ -8,7 +8,7 @@ Meteor.startup(() => {
    handlesPartiesSeed.forEach(hp => {
      let handle = Handles.findOne({name: hp.handleName});
      if(!handle) {
-       console.log("### " + handleName + " not found ")
+       console.log("### " + hp.handleName + " not found ")
        return;
      }
      hp.parties.forEach(party => {

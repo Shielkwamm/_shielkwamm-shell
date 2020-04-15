@@ -11,3 +11,10 @@ registerFragment(`
      isEsteemed
    }
 `);
+
+registerFragment(`
+   fragment FlatPartiesFragment on Party {
+     _id
+     name
+   }
+`);

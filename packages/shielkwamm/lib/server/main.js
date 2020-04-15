@@ -7,3 +7,5 @@ import './partiesSeed.js';
 import './handlesSeed.js';
 
 import './handlesPartiesSeed.js';
+import './i18nsRoomsSeed.js';
+import './roomsHandlesSeed.js';

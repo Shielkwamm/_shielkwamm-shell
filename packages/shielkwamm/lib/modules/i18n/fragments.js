@@ -8,6 +8,16 @@ registerFragment(`
      glyphSet
      description
      wikiUrl
+     rooms {
+       ...I18nRoomFragment
+     }
+   }
+`);
+
+registerFragment(`
+   fragment FlatI18nsFragment on I18n {
+     _id
+     name
    }
 `);
 

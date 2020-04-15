@@ -18,6 +18,7 @@ const RoomsList = ({ loading, results }) => (
         <p>{room.vibe} <a style={{color: room.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
         <p>{room.description}</p>
         <hr></hr>
+        <p>{console.log(room.handles)}</p>
       </div>
     ))}
   </div>

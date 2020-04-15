@@ -2,15 +2,15 @@ import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
 
-const RoomsHandles = createCollection({
-  collectionName: 'RoomsHandles',
-  typeName: 'RoomsHandles',
+const I18nRooms = createCollection({
+  collectionName: 'I18nRooms',
+  typeName: 'I18nRoom',
   schema,
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
   // mutations: yourCustomMutations // null to disable default mutations generation
   permissions: {
     canRead: ['members'],
-    canCreate: ['members', 'admins'],
+    canCreate: ['members'],
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },
@@ -40,4 +40,4 @@ const RoomsHandles = createCollection({
 
 
 
-export default RoomsHandles;
+export default I18nRooms;

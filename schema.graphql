@@ -760,6 +760,7 @@ type Room {
   currentMusicTitle: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
+  i18nRooms: [I18nRoom] 
 }
 
 
@@ -911,6 +912,7 @@ input RoomFilterInput {
   currentMusicTitle: String_Selector
   areDJMessagesMuted: Boolean_Selector
   areCannonMessagesMuted: Boolean_Selector
+  i18nRooms: String_Selector
 }
 
 input RoomSortInput {
@@ -936,6 +938,7 @@ input RoomSortInput {
   currentMusicTitle: SortOptions
   areDJMessagesMuted: SortOptions
   areCannonMessagesMuted: SortOptions
+  i18nRooms: SortOptions
 }
 
 input RoomSelectorInput {
@@ -1598,8 +1601,8 @@ input I18nSelectorUniqueInput {
 }
 
 
-# Type for I18nsRooms
-type I18nsRooms {
+# Type for I18nRooms
+type I18nRoom {
   _id: String 
   createdAt: Date 
   i18nId: String 
@@ -1609,21 +1612,21 @@ type I18nsRooms {
 }
 
 
-input DeleteI18nsRoomsInput{
-  filter: I18nsRoomsFilterInput
+input DeleteI18nRoomInput{
+  filter: I18nRoomFilterInput
   id: String
 }
 
-input SingleI18nsRoomsInput {
+input SingleI18nRoomInput {
   # filtering
-  filter: I18nsRoomsFilterInput
-  sort: I18nsRoomsSortInput
+  filter: I18nRoomFilterInput
+  sort: I18nRoomSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: I18nsRoomsSelectorUniqueInput
+  selector: I18nRoomSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -1632,11 +1635,11 @@ input SingleI18nsRoomsInput {
   allowNull: Boolean
 }
 
-input MultiI18nsRoomsInput {
+input MultiI18nRoomInput {
 
   # filtering
-  filter: I18nsRoomsFilterInput
-  sort: I18nsRoomsSortInput
+  filter: I18nRoomFilterInput
+  sort: I18nRoomSortInput
   search: String
   offset: Int
   limit: Int
@@ -1654,49 +1657,49 @@ input MultiI18nsRoomsInput {
   
 }
 
-type SingleI18nsRoomsOutput{
-  result: I18nsRooms
+type SingleI18nRoomOutput{
+  result: I18nRoom
 }
 
-type  MultiI18nsRoomsOutput{
-  results: [I18nsRooms]
+type  MultiI18nRoomOutput{
+  results: [I18nRoom]
   totalCount: Int
 }
 
-type I18nsRoomsMutationOutput{
-  data: I18nsRooms
+type I18nRoomMutationOutput{
+  data: I18nRoom
 }
 
-input CreateI18nsRoomsInput {
-  data: CreateI18nsRoomsDataInput!
+input CreateI18nRoomInput {
+  data: CreateI18nRoomDataInput!
 }
 
-input CreateI18nsRoomsDataInput {
+input CreateI18nRoomDataInput {
   i18nId: String 
   roomId: String 
 }
 
-input UpdateI18nsRoomsInput{
-  filter: I18nsRoomsFilterInput
+input UpdateI18nRoomInput{
+  filter: I18nRoomFilterInput
   id: String
-  data: UpdateI18nsRoomsDataInput!
+  data: UpdateI18nRoomDataInput!
 }
 
-input UpsertI18nsRoomsInput{
-  filter: I18nsRoomsFilterInput
+input UpsertI18nRoomInput{
+  filter: I18nRoomFilterInput
   id: String
-  data: UpdateI18nsRoomsDataInput!
+  data: UpdateI18nRoomDataInput!
 }
 
-input UpdateI18nsRoomsDataInput {
+input UpdateI18nRoomDataInput {
   i18nId: String 
   roomId: String 
 }
 
-input I18nsRoomsFilterInput {
-  _and: [I18nsRoomsFilterInput]
-  _not: I18nsRoomsFilterInput
-  _or: [I18nsRoomsFilterInput]
+input I18nRoomFilterInput {
+  _and: [I18nRoomFilterInput]
+  _not: I18nRoomFilterInput
+  _or: [I18nRoomFilterInput]
 
 
   _id: String_Selector
@@ -1705,20 +1708,20 @@ input I18nsRoomsFilterInput {
   roomId: String_Selector
 }
 
-input I18nsRoomsSortInput {
+input I18nRoomSortInput {
   _id: SortOptions
   createdAt: SortOptions
   i18nId: SortOptions
   roomId: SortOptions
 }
 
-input I18nsRoomsSelectorInput {
-  _and: [I18nsRoomsSelectorInput]
-  _or: [I18nsRoomsSelectorInput]
+input I18nRoomSelectorInput {
+  _and: [I18nRoomSelectorInput]
+  _or: [I18nRoomSelectorInput]
 
 }
 
-input I18nsRoomsSelectorUniqueInput {
+input I18nRoomSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -1726,8 +1729,8 @@ input I18nsRoomsSelectorUniqueInput {
 }
 
 
-# Type for RoomsHandles
-type RoomsHandles {
+# Type for RoomHandles
+type RoomHandle {
   _id: String 
   createdAt: Date 
   handleId: String 
@@ -1740,21 +1743,21 @@ type RoomsHandles {
 }
 
 
-input DeleteRoomsHandlesInput{
-  filter: RoomsHandlesFilterInput
+input DeleteRoomHandleInput{
+  filter: RoomHandleFilterInput
   id: String
 }
 
-input SingleRoomsHandlesInput {
+input SingleRoomHandleInput {
   # filtering
-  filter: RoomsHandlesFilterInput
-  sort: RoomsHandlesSortInput
+  filter: RoomHandleFilterInput
+  sort: RoomHandleSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: RoomsHandlesSelectorUniqueInput
+  selector: RoomHandleSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -1763,11 +1766,11 @@ input SingleRoomsHandlesInput {
   allowNull: Boolean
 }
 
-input MultiRoomsHandlesInput {
+input MultiRoomHandleInput {
 
   # filtering
-  filter: RoomsHandlesFilterInput
-  sort: RoomsHandlesSortInput
+  filter: RoomHandleFilterInput
+  sort: RoomHandleSortInput
   search: String
   offset: Int
   limit: Int
@@ -1785,24 +1788,24 @@ input MultiRoomsHandlesInput {
   
 }
 
-type SingleRoomsHandlesOutput{
-  result: RoomsHandles
+type SingleRoomHandleOutput{
+  result: RoomHandle
 }
 
-type  MultiRoomsHandlesOutput{
-  results: [RoomsHandles]
+type  MultiRoomHandleOutput{
+  results: [RoomHandle]
   totalCount: Int
 }
 
-type RoomsHandlesMutationOutput{
-  data: RoomsHandles
+type RoomHandleMutationOutput{
+  data: RoomHandle
 }
 
-input CreateRoomsHandlesInput {
-  data: CreateRoomsHandlesDataInput!
+input CreateRoomHandleInput {
+  data: CreateRoomHandleDataInput!
 }
 
-input CreateRoomsHandlesDataInput {
+input CreateRoomHandleDataInput {
   handleId: String 
   roomId: String 
   isMod: Boolean 
@@ -1810,19 +1813,19 @@ input CreateRoomsHandlesDataInput {
   isCannon: Boolean 
 }
 
-input UpdateRoomsHandlesInput{
-  filter: RoomsHandlesFilterInput
+input UpdateRoomHandleInput{
+  filter: RoomHandleFilterInput
   id: String
-  data: UpdateRoomsHandlesDataInput!
+  data: UpdateRoomHandleDataInput!
 }
 
-input UpsertRoomsHandlesInput{
-  filter: RoomsHandlesFilterInput
+input UpsertRoomHandleInput{
+  filter: RoomHandleFilterInput
   id: String
-  data: UpdateRoomsHandlesDataInput!
+  data: UpdateRoomHandleDataInput!
 }
 
-input UpdateRoomsHandlesDataInput {
+input UpdateRoomHandleDataInput {
   handleId: String 
   roomId: String 
   isMod: Boolean 
@@ -1830,10 +1833,10 @@ input UpdateRoomsHandlesDataInput {
   isCannon: Boolean 
 }
 
-input RoomsHandlesFilterInput {
-  _and: [RoomsHandlesFilterInput]
-  _not: RoomsHandlesFilterInput
-  _or: [RoomsHandlesFilterInput]
+input RoomHandleFilterInput {
+  _and: [RoomHandleFilterInput]
+  _not: RoomHandleFilterInput
+  _or: [RoomHandleFilterInput]
 
 
   _id: String_Selector
@@ -1845,7 +1848,7 @@ input RoomsHandlesFilterInput {
   isCannon: Boolean_Selector
 }
 
-input RoomsHandlesSortInput {
+input RoomHandleSortInput {
   _id: SortOptions
   createdAt: SortOptions
   handleId: SortOptions
@@ -1855,13 +1858,13 @@ input RoomsHandlesSortInput {
   isCannon: SortOptions
 }
 
-input RoomsHandlesSelectorInput {
-  _and: [RoomsHandlesSelectorInput]
-  _or: [RoomsHandlesSelectorInput]
+input RoomHandleSelectorInput {
+  _and: [RoomHandleSelectorInput]
+  _or: [RoomHandleSelectorInput]
 
 }
 
-input RoomsHandlesSelectorUniqueInput {
+input RoomHandleSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -2063,17 +2066,17 @@ type Query {
   # A list of I18n documents matching a set of query terms
   i18ns(input: MultiI18nInput):  MultiI18nOutput
   
-  # A single I18nsRooms document fetched by ID or slug
-  i18nsRooms(input: SingleI18nsRoomsInput!): SingleI18nsRoomsOutput
+  # A single I18nRoom document fetched by ID or slug
+  i18nRoom(input: SingleI18nRoomInput!): SingleI18nRoomOutput
   
-  # A list of I18nsRooms documents matching a set of query terms
-  i18nsRoomss(input: MultiI18nsRoomsInput):  MultiI18nsRoomsOutput
+  # A list of I18nRoom documents matching a set of query terms
+  i18nRooms(input: MultiI18nRoomInput):  MultiI18nRoomOutput
   
-  # A single RoomsHandles document fetched by ID or slug
-  roomsHandles(input: SingleRoomsHandlesInput!): SingleRoomsHandlesOutput
+  # A single RoomHandle document fetched by ID or slug
+  roomHandle(input: SingleRoomHandleInput!): SingleRoomHandleOutput
   
-  # A list of RoomsHandles documents matching a set of query terms
-  roomsHandless(input: MultiRoomsHandlesInput):  MultiRoomsHandlesOutput
+  # A list of RoomHandle documents matching a set of query terms
+  roomHandles(input: MultiRoomHandleInput):  MultiRoomHandleOutput
   
   # A single HandleParty document fetched by ID or slug
   handleParty(input: SingleHandlePartyInput!): SingleHandlePartyOutput
@@ -2316,69 +2319,69 @@ type Mutation {
   selector: I18nSelectorUniqueInput
 ) : I18nMutationOutput
 
-  # Mutation for creating new I18nsRooms documents
-  createI18nsRooms(
-  input: CreateI18nsRoomsInput,
+  # Mutation for creating new I18nRoom documents
+  createI18nRoom(
+  input: CreateI18nRoomInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateI18nsRoomsDataInput
-) : I18nsRoomsMutationOutput
+  data: CreateI18nRoomDataInput
+) : I18nRoomMutationOutput
 
-  # Mutation for updating a I18nsRooms document
-  updateI18nsRooms(
-  input: UpdateI18nsRoomsInput,
+  # Mutation for updating a I18nRoom document
+  updateI18nRoom(
+  input: UpdateI18nRoomInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nsRoomsSelectorUniqueInput,
+  selector: I18nRoomSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateI18nsRoomsDataInput 
-) : I18nsRoomsMutationOutput
+  data: UpdateI18nRoomDataInput 
+) : I18nRoomMutationOutput
 
-  # Mutation for upserting a I18nsRooms document
-  upsertI18nsRooms(
-  input: UpsertI18nsRoomsInput,
+  # Mutation for upserting a I18nRoom document
+  upsertI18nRoom(
+  input: UpsertI18nRoomInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nsRoomsSelectorUniqueInput,
+  selector: I18nRoomSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateI18nsRoomsDataInput
-) : I18nsRoomsMutationOutput
+  data: UpdateI18nRoomDataInput
+) : I18nRoomMutationOutput
 
-  # Mutation for deleting a I18nsRooms document
-  deleteI18nsRooms(
-  input: DeleteI18nsRoomsInput,
+  # Mutation for deleting a I18nRoom document
+  deleteI18nRoom(
+  input: DeleteI18nRoomInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nsRoomsSelectorUniqueInput
-) : I18nsRoomsMutationOutput
+  selector: I18nRoomSelectorUniqueInput
+) : I18nRoomMutationOutput
 
-  # Mutation for creating new RoomsHandles documents
-  createRoomsHandles(
-  input: CreateRoomsHandlesInput,
+  # Mutation for creating new RoomHandle documents
+  createRoomHandle(
+  input: CreateRoomHandleInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateRoomsHandlesDataInput
-) : RoomsHandlesMutationOutput
+  data: CreateRoomHandleDataInput
+) : RoomHandleMutationOutput
 
-  # Mutation for updating a RoomsHandles document
-  updateRoomsHandles(
-  input: UpdateRoomsHandlesInput,
+  # Mutation for updating a RoomHandle document
+  updateRoomHandle(
+  input: UpdateRoomHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: RoomsHandlesSelectorUniqueInput,
+  selector: RoomHandleSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateRoomsHandlesDataInput 
-) : RoomsHandlesMutationOutput
+  data: UpdateRoomHandleDataInput 
+) : RoomHandleMutationOutput
 
-  # Mutation for upserting a RoomsHandles document
-  upsertRoomsHandles(
-  input: UpsertRoomsHandlesInput,
+  # Mutation for upserting a RoomHandle document
+  upsertRoomHandle(
+  input: UpsertRoomHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: RoomsHandlesSelectorUniqueInput,
+  selector: RoomHandleSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateRoomsHandlesDataInput
-) : RoomsHandlesMutationOutput
+  data: UpdateRoomHandleDataInput
+) : RoomHandleMutationOutput
 
-  # Mutation for deleting a RoomsHandles document
-  deleteRoomsHandles(
-  input: DeleteRoomsHandlesInput,
+  # Mutation for deleting a RoomHandle document
+  deleteRoomHandle(
+  input: DeleteRoomHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: RoomsHandlesSelectorUniqueInput
-) : RoomsHandlesMutationOutput
+  selector: RoomHandleSelectorUniqueInput
+) : RoomHandleMutationOutput
 
   # Mutation for creating new HandleParty documents
   createHandleParty(

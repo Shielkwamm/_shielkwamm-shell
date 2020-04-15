@@ -55,7 +55,8 @@ const schema = {
     canUpdate: ['admins'],
     resolveAs: {
       fieldName: 'handle',
-      type: 'Handle'
+      type: 'Handle',
+      relation: "hasOne"
     }
   },
   isMod: {

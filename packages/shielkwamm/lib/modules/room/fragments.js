@@ -23,5 +23,15 @@ registerFragment(`
      messageDelay
      areDJMessagesMuted
      areCannonMessagesMuted
+     i18nRooms {
+       ...RoomI18nFragment
+     }
+   }
+`);
+
+registerFragment(`
+   fragment FlatRoomsFragment on Room {
+     _id
+     name
    }
 `);

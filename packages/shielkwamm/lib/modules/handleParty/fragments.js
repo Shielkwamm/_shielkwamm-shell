@@ -6,7 +6,10 @@ registerFragment(`
      createdAt
      isMod
      party {
-       ...PartiesFragment
+       ...FlatPartiesFragment
+     }
+     handle {
+       ...FlatHandlesFragment
      }
    }
 `);
