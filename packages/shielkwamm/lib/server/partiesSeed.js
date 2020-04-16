@@ -5,15 +5,9 @@ Meteor.startup(() => {
    if(Parties.find().count() === 0) {
     partiesSeed.forEach(party => {
       party.createdAt = new Date();
+      let colorScheme = ColorSchemes.findOne({name: room.colorScheme});
+      room.colorSchemeId = colorScheme._id;
       Parties.insert(party);
-        /*{
-        name: party.name,
-        description: party.description,
-        isActive: party.isActive,
-        mood: party.mood,
-        isEsteemed: party.isEsteemed,
-        createdAt: new Date()
-      })*/  
     })
    }
 });
@@ -31,14 +25,16 @@ const partiesSeed = [{
   description: "Yup",
   isActive: true,
   mood: "|||",
-  isEsteemed: true
+  isEsteemed: true,
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "Capitalists",
   description: "Watching over the galaxy",
   isActive: true,
   mood: "$$",
-  isEsteemed: true
+  isEsteemed: true,
+  colorScheme: "△USA△"
 },
 {
   name: "△ ☴",
@@ -53,20 +49,23 @@ const partiesSeed = [{
   description: "Chillen on stacks",
   isActive: false,
   mood: "$$",
-  isEsteemed: true
+  isEsteemed: true,
+  colorScheme: "ch@nge"
 },
 {
   name: "HumansLeague",
   description: "Don't you want me, baby",
   isActive: false,
   mood: "|||",
-  isEsteemed: true
+  isEsteemed: true,
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "galacticOversight",
   description: "Watching over the galaxy",
   isActive: true,
-  mood: "__"
+  mood: "__",
+  colorScheme: "△USA△"
 },
 {
   name: "clearSails",
@@ -86,7 +85,8 @@ const partiesSeed = [{
   name: "rum",
   description: "coconut",
   isActive: false,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "time",
@@ -99,42 +99,49 @@ const partiesSeed = [{
   name: "tales",
   description: "FROM THE CRYPT",
   isActive: true,
+  colorScheme: "ch@nge"
 },
 {
   name: "yasss",
   description: "the ones with the tall fuzzy hats!",
   isActive: true,
-  mood: "☴☱"
+  mood: "☴☱",
+  colorScheme: "kakTUz"
 },
 {
   name: 'eagle',
   description: "Bald face",
   isActive: true,
-  mood: "+☴ *salutes i18n[en_US]"
+  mood: "+☴ *salutes i18n[en_US]",
+  colorScheme: "△USA△"
 },
 {
   name: "aaaack",
   description: "aaaaaaaaaaaaaaaahhh",
   mood: "☴",
-  isActive: true
+  isActive: true,
+  colorScheme: "ch@nge"
 },
 {
   name: "dang!",
   description: "ummmmm",
   isActive: false,
-  mood: "?+"
+  mood: "?+",
+  colorScheme: "kakTUz"
 },
 {
   name: "cheesy",
   description: "Tooling",
   isActive: true,
-  mood: "/o+☴☱++/o"
+  mood: "/o+☴☱++/o",
+  colorScheme: "△USA△"
 },
 {
   name: "fluxers",
   description: "tips hat",
   isActive: false,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "saber",
@@ -147,7 +154,8 @@ const partiesSeed = [{
   name: "nasaholes",
   description: "Nasa's Holes",
   isActive: false,
-  mood: "☱"
+  mood: "☱",
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "smileyFaceFlag",
@@ -160,103 +168,121 @@ const partiesSeed = [{
   name: "burners",
   description: "flipman",
   isActive: false,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "ch@nge"
 },
 {
   name: "demBoys",
   description: "dem Boys",
   isActive: true,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "△USA△"
 },
 {
   name: "burps",
   description: "*burp*",
   isActive: true,
-  mood: "+/o+_☱"
+  mood: "+/o+_☱",
+  colorScheme: "kakTUz"
 },
 {
   name: "stringTheory",
   description: "[arg] (tina)",
   isActive: false,
-  mood: "~!☱?-"
+  mood: "~!☱?-",
+  colorScheme: "kakTUz"
 },
 {
   name: "eE",
   description: "Ee 24/7",
   isActive: true,
-  mood: "-- "
+  mood: "-- ",
+  colorScheme: "ch@nge"
 },
 {
   name: "dogs",
   description: "Heirarchy is good",
   isActive: true,
-  mood: "☲"
+  mood: "☲",
+  colorScheme: "△USA△"
 },
 {
   name: "cats",
   description: "Independant destiny",
   isActive: false,
-  mood: "☱"
+  mood: "☱",
+  colorScheme: "kakTUz"
 },
 {
   name: "1Deep",
   description: "⋛ We are the world ☴☲☱☰",
   isActive: true,
-  mood: "++☴"
+  mood: "++☴",
+  colorScheme: "ch@nge"
 },
 {
   name: "Hallmark",
   description: "my favorite stories about US innovation",
   isActive: true,
-  mood: "*☴"
+  mood: "*☴",
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "DollyCarson",
   description: "nuttin' but the bust yolkes",
   isActive: false,
-  mood: "+☴"
+  mood: "+☴",
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "Jesus",
   description: "suseJ",
   isActive: false,
-  mood: "+☲"
+  mood: "+☲",
+  colorScheme: "ch@nge"
 },
 {
   name: "yeast",
   description: "just a spoon full of sugar",
   isActive: true,
-  mood: "+☱"
+  mood: "+☱",
+  colorScheme: "kakTUz"
 },
 {
   name: "sheShe",
   description: "What great ears you have!",
   isActive: true,
-  mood: "/)☴++"
+  mood: "/)☴++",
+  colorScheme: "ch@nge"
 },
 {
   name: "twizzlers",
   description: "☷☵☰ || +☰☰",
   isActive: true,
-  mood: "+"
+  mood: "+",
+  colorScheme: "ch@nge"
 },
 {
   name: "RecyledMaterial",
   description: "T-Rexin'",
   isActive: false,
-  mood: "+**"
+  mood: "+**",
+  colorScheme: "ch@nge"
 },
 {
   name: "☲shit",
   description: "Welcome to earth",
   isActive: true,
-  mood: "+"
+  mood: "+",
+  colorScheme: "=== acktweuli ==="
 },
 {
   name: "RedditSayin",
   description: "≏",
   isActive: true,
   mood: "+≏[-]",
+  colorScheme: "ch@nge"
+  
 },
 {
   name: "shearWater",
@@ -269,7 +295,8 @@ const partiesSeed = [{
   name: "dracul",
   description: "My favorite color is red.",
   isActive: true,
-  mood: "~"
+  mood: "~",
+  colorScheme: "ch@nge"
 },
 {
   name: "mother",
@@ -282,7 +309,8 @@ const partiesSeed = [{
   name: "seeReal",
   description: "",
   isActive: true,
-  mood: "+☴+☴"
+  mood: "+☴+☴",
+  colorScheme: "kakTUz"
 },
 {
   name: "[3blackAndMilds]",
@@ -295,6 +323,7 @@ const partiesSeed = [{
   name: "MathLaws",
   description: "algebra",
   isActive: true,
-  mood: "++"
+  mood: "++",
+  colorScheme: "=== acktweuli ==="
 }
 ]

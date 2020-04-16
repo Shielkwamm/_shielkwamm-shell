@@ -14,6 +14,13 @@ const schema = {
       return new Date();
     }
   },
+  isFeatured: {
+    type: Boolean,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   name: {
     type: String,
     optional: false,

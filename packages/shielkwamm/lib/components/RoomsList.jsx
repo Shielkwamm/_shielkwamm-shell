@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const RoomsList = ({ loading, results }) => (
   <div className="movies-list">
-    {console.log("yo", results)}
     <Components.HeadTags title={`Rooms`}/>
     <h2><Link to="/">⏎ </Link>Rooms</h2>
     <hr></hr>
