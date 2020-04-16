@@ -17,10 +17,10 @@ registerFragment(`
      currentMusicUrl
      currentMusicTitle
      description
-     color
+     colorScheme {
+       ...ColorSchemesFragment
+     }
      isActive
-     backgroundColor
-     linkColor
      messageDelay
      areDJMessagesMuted
      areCannonMessagesMuted
@@ -45,13 +45,13 @@ registerFragment(`
      _sh_
      vibe
      slug
+     colorScheme {
+      ...ColorSchemesFragment
+    }
      currentMusicUrl
      currentMusicTitle
      description
-     color
      isActive
-     backgroundColor
-     linkColor
      messageDelay
      i18nRooms {
       ...I18nRoomsFragment
@@ -75,6 +75,7 @@ registerFragment(`
     i18nRooms {
       _id
       i18n {
+        _id
         glyphSet
       }
     }

@@ -20,6 +20,9 @@ registerFragment(`
     description
     isActive
     isEsteemed
+    colorScheme {
+      ...ColorSchemesFragment
+    }
     handles {
       ...HandlesPartyBadge
     }

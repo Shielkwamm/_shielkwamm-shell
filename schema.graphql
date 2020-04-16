@@ -742,9 +742,6 @@ type Room {
   createdAt: Date 
   name: String 
   messageDelay: String 
-  color: String 
-  backgroundColor: String 
-  linkColor: String 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -760,6 +757,7 @@ type Room {
   currentMusicTitle: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
+  colorSchemeId: ColorScheme 
   i18nRooms: [I18nRoom] 
   roomHandles: [RoomHandle] 
 }
@@ -830,9 +828,6 @@ input CreateRoomInput {
 input CreateRoomDataInput {
   name: String 
   messageDelay: String 
-  color: String 
-  backgroundColor: String 
-  linkColor: String 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -848,6 +843,7 @@ input CreateRoomDataInput {
   currentMusicTitle: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
+  colorSchemeId: String 
 }
 
 input UpdateRoomInput{
@@ -865,9 +861,6 @@ input UpsertRoomInput{
 input UpdateRoomDataInput {
   name: String 
   messageDelay: String 
-  color: String 
-  backgroundColor: String 
-  linkColor: String 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -883,6 +876,7 @@ input UpdateRoomDataInput {
   currentMusicTitle: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
+  colorSchemeId: String 
 }
 
 input RoomFilterInput {
@@ -895,9 +889,6 @@ input RoomFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   messageDelay: String_Selector
-  color: String_Selector
-  backgroundColor: String_Selector
-  linkColor: String_Selector
   slug: String_Selector
   description: String_Selector
   isActive: Boolean_Selector
@@ -913,6 +904,7 @@ input RoomFilterInput {
   currentMusicTitle: String_Selector
   areDJMessagesMuted: Boolean_Selector
   areCannonMessagesMuted: Boolean_Selector
+  colorSchemeId: String_Selector
   i18nRooms: String_Selector
   roomHandles: String_Selector
 }
@@ -922,9 +914,6 @@ input RoomSortInput {
   createdAt: SortOptions
   name: SortOptions
   messageDelay: SortOptions
-  color: SortOptions
-  backgroundColor: SortOptions
-  linkColor: SortOptions
   slug: SortOptions
   description: SortOptions
   isActive: SortOptions
@@ -940,6 +929,7 @@ input RoomSortInput {
   currentMusicTitle: SortOptions
   areDJMessagesMuted: SortOptions
   areCannonMessagesMuted: SortOptions
+  colorSchemeId: SortOptions
   i18nRooms: SortOptions
   roomHandles: SortOptions
 }
@@ -1241,11 +1231,15 @@ type Party {
   _id: String 
   createdAt: Date 
   name: String 
+  colorSchemeId: [ColorScheme] 
   description: String 
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
   handles: [HandleParty] 
+  connectionStatus: String 
+  i18ns: String 
+  partyI18ns: [PartyI18n] 
 }
 
 
@@ -1313,10 +1307,12 @@ input CreatePartyInput {
 
 input CreatePartyDataInput {
   name: String 
+  colorSchemeId: String 
   description: String 
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
+  connectionStatus: String 
 }
 
 input UpdatePartyInput{
@@ -1333,10 +1329,12 @@ input UpsertPartyInput{
 
 input UpdatePartyDataInput {
   name: String 
+  colorSchemeId: String 
   description: String 
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
+  connectionStatus: String 
 }
 
 input PartyFilterInput {
@@ -1348,22 +1346,28 @@ input PartyFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
+  colorSchemeId: String_Selector
   description: String_Selector
   isActive: Boolean_Selector
   mood: String_Selector
   isEsteemed: Boolean_Selector
   handles: String_Selector
+  connectionStatus: String_Selector
+  i18ns: String_Selector
 }
 
 input PartySortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
+  colorSchemeId: SortOptions
   description: SortOptions
   isActive: SortOptions
   mood: SortOptions
   isEsteemed: SortOptions
   handles: SortOptions
+  connectionStatus: SortOptions
+  i18ns: SortOptions
 }
 
 input PartySelectorInput {
@@ -1928,6 +1932,275 @@ input HandlePartySelectorUniqueInput {
 }
 
 
+# Type for PartyI18ns
+type PartyI18n {
+  _id: String 
+  createdAt: Date 
+  partyId: String 
+  party: Party 
+  i18nId: String 
+  i18n: I18n 
+  fluency: String 
+}
+
+
+input DeletePartyI18nInput{
+  filter: PartyI18nFilterInput
+  id: String
+}
+
+input SinglePartyI18nInput {
+  # filtering
+  filter: PartyI18nFilterInput
+  sort: PartyI18nSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: PartyI18nSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiPartyI18nInput {
+
+  # filtering
+  filter: PartyI18nFilterInput
+  sort: PartyI18nSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SinglePartyI18nOutput{
+  result: PartyI18n
+}
+
+type  MultiPartyI18nOutput{
+  results: [PartyI18n]
+  totalCount: Int
+}
+
+type PartyI18nMutationOutput{
+  data: PartyI18n
+}
+
+input CreatePartyI18nInput {
+  data: CreatePartyI18nDataInput!
+}
+
+input CreatePartyI18nDataInput {
+  partyId: String 
+  i18nId: String 
+  fluency: String 
+}
+
+input UpdatePartyI18nInput{
+  filter: PartyI18nFilterInput
+  id: String
+  data: UpdatePartyI18nDataInput!
+}
+
+input UpsertPartyI18nInput{
+  filter: PartyI18nFilterInput
+  id: String
+  data: UpdatePartyI18nDataInput!
+}
+
+input UpdatePartyI18nDataInput {
+  partyId: String 
+  i18nId: String 
+  fluency: String 
+}
+
+input PartyI18nFilterInput {
+  _and: [PartyI18nFilterInput]
+  _not: PartyI18nFilterInput
+  _or: [PartyI18nFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  partyId: String_Selector
+  i18nId: String_Selector
+  fluency: String_Selector
+}
+
+input PartyI18nSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  partyId: SortOptions
+  i18nId: SortOptions
+  fluency: SortOptions
+}
+
+input PartyI18nSelectorInput {
+  _and: [PartyI18nSelectorInput]
+  _or: [PartyI18nSelectorInput]
+
+}
+
+input PartyI18nSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for ColorSchemes
+type ColorScheme {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
+}
+
+
+input DeleteColorSchemeInput{
+  filter: ColorSchemeFilterInput
+  id: String
+}
+
+input SingleColorSchemeInput {
+  # filtering
+  filter: ColorSchemeFilterInput
+  sort: ColorSchemeSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: ColorSchemeSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiColorSchemeInput {
+
+  # filtering
+  filter: ColorSchemeFilterInput
+  sort: ColorSchemeSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleColorSchemeOutput{
+  result: ColorScheme
+}
+
+type  MultiColorSchemeOutput{
+  results: [ColorScheme]
+  totalCount: Int
+}
+
+type ColorSchemeMutationOutput{
+  data: ColorScheme
+}
+
+input CreateColorSchemeInput {
+  data: CreateColorSchemeDataInput!
+}
+
+input CreateColorSchemeDataInput {
+  name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
+}
+
+input UpdateColorSchemeInput{
+  filter: ColorSchemeFilterInput
+  id: String
+  data: UpdateColorSchemeDataInput!
+}
+
+input UpsertColorSchemeInput{
+  filter: ColorSchemeFilterInput
+  id: String
+  data: UpdateColorSchemeDataInput!
+}
+
+input UpdateColorSchemeDataInput {
+  name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
+}
+
+input ColorSchemeFilterInput {
+  _and: [ColorSchemeFilterInput]
+  _not: ColorSchemeFilterInput
+  _or: [ColorSchemeFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  color: String_Selector
+  backgroundColor: String_Selector
+  linkColor: String_Selector
+}
+
+input ColorSchemeSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  color: SortOptions
+  backgroundColor: SortOptions
+  linkColor: SortOptions
+}
+
+input ColorSchemeSelectorInput {
+  _and: [ColorSchemeSelectorInput]
+  _or: [ColorSchemeSelectorInput]
+
+}
+
+input ColorSchemeSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -2000,6 +2273,18 @@ type Query {
   
   # A list of HandleParty documents matching a set of query terms
   handleParties(input: MultiHandlePartyInput):  MultiHandlePartyOutput
+  
+  # A single PartyI18n document fetched by ID or slug
+  partyI18n(input: SinglePartyI18nInput!): SinglePartyI18nOutput
+  
+  # A list of PartyI18n documents matching a set of query terms
+  partyI18ns(input: MultiPartyI18nInput):  MultiPartyI18nOutput
+  
+  # A single ColorScheme document fetched by ID or slug
+  colorScheme(input: SingleColorSchemeInput!): SingleColorSchemeOutput
+  
+  # A list of ColorScheme documents matching a set of query terms
+  colorSchemes(input: MultiColorSchemeInput):  MultiColorSchemeOutput
   
 }
   
@@ -2324,6 +2609,70 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: HandlePartySelectorUniqueInput
 ) : HandlePartyMutationOutput
+
+  # Mutation for creating new PartyI18n documents
+  createPartyI18n(
+  input: CreatePartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreatePartyI18nDataInput
+) : PartyI18nMutationOutput
+
+  # Mutation for updating a PartyI18n document
+  updatePartyI18n(
+  input: UpdatePartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartyI18nSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdatePartyI18nDataInput 
+) : PartyI18nMutationOutput
+
+  # Mutation for upserting a PartyI18n document
+  upsertPartyI18n(
+  input: UpsertPartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartyI18nSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdatePartyI18nDataInput
+) : PartyI18nMutationOutput
+
+  # Mutation for deleting a PartyI18n document
+  deletePartyI18n(
+  input: DeletePartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartyI18nSelectorUniqueInput
+) : PartyI18nMutationOutput
+
+  # Mutation for creating new ColorScheme documents
+  createColorScheme(
+  input: CreateColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateColorSchemeDataInput
+) : ColorSchemeMutationOutput
+
+  # Mutation for updating a ColorScheme document
+  updateColorScheme(
+  input: UpdateColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ColorSchemeSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateColorSchemeDataInput 
+) : ColorSchemeMutationOutput
+
+  # Mutation for upserting a ColorScheme document
+  upsertColorScheme(
+  input: UpsertColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ColorSchemeSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateColorSchemeDataInput
+) : ColorSchemeMutationOutput
+
+  # Mutation for deleting a ColorScheme document
+  deleteColorScheme(
+  input: DeleteColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ColorSchemeSelectorUniqueInput
+) : ColorSchemeMutationOutput
 
 }
 

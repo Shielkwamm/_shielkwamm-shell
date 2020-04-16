@@ -15,7 +15,6 @@ const RoomDJInner = ({ loading, document }) => (
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
       </div>
     )}
   </React.Fragment>

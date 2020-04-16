@@ -28,30 +28,6 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  color: {
-    type: String,
-    optional: false,
-    defaultValue: "#000000",
-    canRead: ['guests'],
-    canUpdate: ['admins'],
-    canCreate: ['admins']
-  },
-  backgroundColor: {
-    type: String,
-    optional: false,
-    defaultValue: "#FFFFFF",
-    canRead: ['guests'],
-    canUpdate: ['admins'],
-    canCreate: ['admins']
-  },
-  linkColor: {
-    type: String,
-    optional: false,
-    defaultValue: "#A1A1A1",
-    canRead: ['guests'],
-    canUpdate: ['admins'],
-    canCreate: ['admins']
-  },
   slug: {
     type: String,
     optional: false,
@@ -167,6 +143,18 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  colorSchemeId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      field: "colorScheme",
+      type: 'ColorScheme',
+      relation: "hasOne"
+    }
   },
   i18nRooms: {
     label: "i18nRooms",

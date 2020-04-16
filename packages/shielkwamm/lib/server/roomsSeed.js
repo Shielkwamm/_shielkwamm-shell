@@ -1,10 +1,13 @@
 import Rooms from '../modules/room/collection.js';
+import ColorSchemes from '../modules/colorScheme/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
    if(Rooms.find().count() === 0) {
     roomsSeed.forEach(room => {
       room.createdAt = new Date();
+      let colorScheme = ColorSchemes.findOne({name: room.colorScheme});
+      room.colorSchemeId = colorScheme._id;
       Rooms.insert(room);
     })
    }
@@ -12,6 +15,7 @@ Meteor.startup(() => {
 
 const roomsSeed = [{
   name: "operat0r",
+  colorScheme: "operat0r",
   messageDelay: 5,
   backgroundColor:"#FFFFFF",
   linkColor: "#A1A1A1",
@@ -32,6 +36,7 @@ const roomsSeed = [{
 },
 {
   name: "△USA△",
+  colorScheme: "△USA△",
   messageDelay: 5,
   backgroundColor:"#f1f1f1",
   linkColor: "#bf0a30",

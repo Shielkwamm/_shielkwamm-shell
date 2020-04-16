@@ -21,6 +21,19 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
+  colorSchemeId: {
+    label: "colorScheme",
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      field: "colorScheme",
+      type: '[ColorScheme]',
+      relation: "hasOne"
+    }
+  },
   description: {
     type: String,
     optional: true,
@@ -67,6 +80,31 @@ const schema = {
       }
     }
   },
+  connectionStatus: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    defaultValue: "~"
+  },
+
+  i18ns: {
+    label: "partyI18ns",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'partyI18ns',
+      type: '[PartyI18n]',
+      relation: 'hasMany',
+      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
+      resolver: (room, {filterDir, filterColumn}, context) => {
+        return context.PartyI18ns.find({partyId: party._id}).fetch();
+      }
+    }
+  }
   // userId: {
   //   type: String,
   //   optional: true,

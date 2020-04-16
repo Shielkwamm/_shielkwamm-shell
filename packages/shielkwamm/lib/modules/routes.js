@@ -14,6 +14,7 @@ addRoute({ name: 'room', path: '/room/:slug', componentName: "ActiveRoom"})
 addRoute({ name: 'roomOperat0r', path: '/room/:slug/operat0r', componentName: "RoomOperat0r"});
 //addRoute({ name: 'roomHandles', path: '/room/:slug/handles', componentName: "RoomHandles"})
 addRoute({ name: 'roomMessages', path: '/room/:slug/messages', componentName: "RoomMessages"})
+addRoute({ name: 'colorSchemesList', path: '/color-schemes', componentName: "ColorSchemesList"})
 
 addRoute({ name: 'i18nsList', path: '/i18n', componentName: "i18nsList"});
 

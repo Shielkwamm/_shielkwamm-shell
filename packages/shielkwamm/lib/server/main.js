@@ -1,6 +1,8 @@
 import '../modules';
 //import './seed';
 
+import './colorSchemesSeed.js';
+
 import './i18nsSeed.js';
 import './roomsSeed.js';
 import './partiesSeed.js';

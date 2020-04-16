@@ -10,6 +10,7 @@ const Overview = () => (
     <h2><Link to="/handles">Handles</Link></h2>
     <h2><Link to="/parties">Parties</Link></h2>
     <h2><Link to="/i18n">i18n</Link></h2>
+    <h2><Link to="/color-schemes">Color</Link></h2>
   </div>
 )
 
