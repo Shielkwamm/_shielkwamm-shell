@@ -28,6 +28,7 @@ const HandlesList = ({ loading, results }) => (
       </React.Fragment>
     ))}
     <hr></hr>
+    <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
         {!handle.isHonorary && !handle.isActive ? (
@@ -40,7 +41,7 @@ const HandlesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Handles",
-  fragmentName: 'HandlesFragment', // uncomment on #Step11
+  fragmentName: 'HandleBadge', // uncomment on #Step11
   limit: 77
 }
 

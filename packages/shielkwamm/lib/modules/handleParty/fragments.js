@@ -13,3 +13,32 @@ registerFragment(`
      }
    }
 `);
+
+registerFragment(`
+  fragment HandlePartiesBadge on HandleParty {
+    _id
+    createdAt
+    isMod
+    connectionStatus
+    party {
+      ...HandleBadgeParties
+    }
+  }
+`);
+
+registerFragment(`
+  fragment HandlesPartyBadge on HandleParty {
+    _id
+    createdAt
+    isMod
+    connectionStatus
+    handle {
+      _id
+      name
+      parties {
+        ...HandlePartiesBadge
+      }
+    }
+  }
+  `
+  );

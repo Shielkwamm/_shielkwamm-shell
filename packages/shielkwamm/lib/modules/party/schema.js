@@ -51,7 +51,22 @@ const schema = {
     canRead:['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
-  }
+  },
+  handles: {
+    label: "Handles",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'handles',
+      type: '[HandleParty]',
+      relation: 'hasMany',
+      resolver: (party, args, context) => {
+        return context.HandleParties.find({partyId: party._id}).fetch();
+      }
+    }
+  },
   // userId: {
   //   type: String,
   //   optional: true,

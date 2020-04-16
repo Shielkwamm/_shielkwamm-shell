@@ -970,6 +970,7 @@ type Handle {
   isHonorary: Boolean 
   inventory: [String] 
   parties(filterDir: Int = -1, filterColumn: String = "volume24"): [HandleParty] 
+  connectionStatus: String 
 }
 
 
@@ -1083,6 +1084,7 @@ input HandleFilterInput {
   isHonorary: Boolean_Selector
   inventory: String_Array_Selector
   parties: String_Selector
+  connectionStatus: String_Selector
 }
 
 input HandleSortInput {
@@ -1096,6 +1098,7 @@ input HandleSortInput {
   isHonorary: SortOptions
   inventory: SortOptions
   parties: SortOptions
+  connectionStatus: SortOptions
 }
 
 input HandleSelectorInput {
@@ -1242,6 +1245,7 @@ type Party {
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
+  handles: [HandleParty] 
 }
 
 
@@ -1348,6 +1352,7 @@ input PartyFilterInput {
   isActive: Boolean_Selector
   mood: String_Selector
   isEsteemed: Boolean_Selector
+  handles: String_Selector
 }
 
 input PartySortInput {
@@ -1358,6 +1363,7 @@ input PartySortInput {
   isActive: SortOptions
   mood: SortOptions
   isEsteemed: SortOptions
+  handles: SortOptions
 }
 
 input PartySelectorInput {
@@ -1792,6 +1798,7 @@ type HandleParty {
   party: Party 
   handleId: String 
   handle: Handle 
+  connectionStatus: String 
   isMod: Boolean 
 }
 
@@ -1861,6 +1868,7 @@ input CreateHandlePartyInput {
 input CreateHandlePartyDataInput {
   partyId: String 
   handleId: String 
+  connectionStatus: String 
   isMod: Boolean 
 }
 
@@ -1879,6 +1887,7 @@ input UpsertHandlePartyInput{
 input UpdateHandlePartyDataInput {
   partyId: String 
   handleId: String 
+  connectionStatus: String 
   isMod: Boolean 
 }
 
@@ -1892,6 +1901,7 @@ input HandlePartyFilterInput {
   createdAt: Date_Selector
   partyId: String_Selector
   handleId: String_Selector
+  connectionStatus: String_Selector
   isMod: Boolean_Selector
 }
 
@@ -1900,6 +1910,7 @@ input HandlePartySortInput {
   createdAt: SortOptions
   partyId: SortOptions
   handleId: SortOptions
+  connectionStatus: SortOptions
   isMod: SortOptions
 }
 

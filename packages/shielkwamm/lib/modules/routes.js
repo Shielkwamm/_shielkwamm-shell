@@ -11,7 +11,7 @@ addRoute({ name: "parties", path: "/parties", componentName: "PartiesList"});
 addRoute({ name: "historic_sh", path: "/historic_sh_", componentName: "Best_sh_List"})
 
 addRoute({ name: 'room', path: '/room/:slug', componentName: "ActiveRoom"})
-addRoute({ name: 'roomInf0rmation', path: '/room/:slug/inf0rmation', componentName: "RoomInformation"});
+addRoute({ name: 'roomOperat0r', path: '/room/:slug/operat0r', componentName: "RoomOperat0r"});
 //addRoute({ name: 'roomHandles', path: '/room/:slug/handles', componentName: "RoomHandles"})
 addRoute({ name: 'roomMessages', path: '/room/:slug/messages', componentName: "RoomMessages"})
 

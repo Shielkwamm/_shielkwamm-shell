@@ -11,11 +11,13 @@ registerFragment(`
      description
      isHonorary
      inventory
+     connectionStatus
      parties {
        ...HandlesPartiesFragment
      }
    }
 `);
+
 registerFragment(`
    fragment FlatHandlesFragment on Handle {
      _id
@@ -23,7 +25,23 @@ registerFragment(`
      isActive
      name
      mood
+     connectionStatus
    }
+`);
+
+registerFragment(`
+  fragment HandleBadge on Handle {
+    _id
+    name
+    isActive
+    isHonorary
+    mood
+    note
+    connectionStatus
+    parties {
+      ...HandlePartiesBadge
+    } 
+  }
 `);
 
 //partyIds

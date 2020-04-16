@@ -63,6 +63,25 @@ registerFragment(`
 `);
 
 registerFragment(`
+  fragment RoomOperat0r on Room {
+    _id
+    roomHandles {
+      _id
+      handle {
+        _id
+        name
+      }
+    }
+    i18nRooms {
+      _id
+      i18n {
+        glyphSet
+      }
+    }
+  }
+`)
+
+registerFragment(`
    fragment FlatRoomsFragment on Room {
      _id
      name

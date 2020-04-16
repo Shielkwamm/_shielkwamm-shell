@@ -25,28 +25,7 @@ const schema = {
       type: "Party",
       relation: 'hasOne'
     },
-    //addOriginalField: true
   },
-  /*party: {
-    label: "Party",
-    type: String,
-    hidden: true,
-    optional: true,
-    canRead: ['guests'],
-    resolveAs: {
-      fieldName: 'party',
-      type: '[Party]',
-      relation: 'hasOne',
-      arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
-      resolver: (handleParty, {filterDir, filterColumn}, context) => {
-        //console.log("handle ", handleParty, context.Parties.findOne({_id: handleParty.partyId}))
-        return context.Parties.find({_id: handleParty.partyId}).fetch();
-      }
-    }
-  },*/
-  /*handle: {
-
-  },*/
   handleId: {
     type: String,
     optional: true,
@@ -58,6 +37,14 @@ const schema = {
       type: 'Handle',
       relation: "hasOne"
     }
+  },
+  connectionStatus: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    defaultValue: "~"
   },
   isMod: {
     type: Boolean,

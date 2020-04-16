@@ -2,6 +2,15 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
+const Party = ({ party }) => (
+  <React.Fragment>
+    <h2>{!!party.isActive? "": "zZz "} {party.mood} {party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span><span style={{float: "right"}}>{party.connectionStatus}</span></h2>
+    {party.handles.map(ph => (
+      <div style={{textAlign: "right"}}><Components.Handle handle={ph.handle}/></div>
+    ))}
+  </React.Fragment>
+)
+
 const PartiesList = ({ loading, results }) => (
   <div className="movies-list">
     <Components.HeadTags title={`Parties`}/>
@@ -11,7 +20,7 @@ const PartiesList = ({ loading, results }) => (
     {!loading && results.map(party => (
       <div key={party._id}>
       {!!party.isEsteemed ? (
-          <h2>{!!party.isActive? "": "zZz "} {party.mood} {party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span></h2>
+        <Party party={party}/>
         ): null}
       </div>
     ))}
@@ -20,15 +29,16 @@ const PartiesList = ({ loading, results }) => (
     {!loading && results.map(party => (
       <React.Fragment key={party._id}>
         {!party.isEsteemed && !!party.isActive ? (
-        <h3>{party.mood} {party.name} <span style={{fontWeight: "normal"}}>{party.description}</span></h3>
+          <Party party={party}/>
        ): null}
       </React.Fragment>
     ))}
     <hr></hr>
+    <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
     {!loading && results.map(party => (
       <div key={party._id}>
       {!party.isEsteemed && !party.isActive? (
-        <h3>{!!party.isActive? "": "zZz "} {party.mood} {party.name} - <span style={{fontWeight: "normal"}}>{party.description}</span></h3>
+        <Party party={party}/>
       ): null}
       </div>
     ))}
@@ -37,7 +47,7 @@ const PartiesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Parties",
-  fragmentName: 'PartiesFragment', // uncomment on #Step11
+  fragmentName: 'PartyBadge', // uncomment on #Step11
   limit: 50
 }
 
