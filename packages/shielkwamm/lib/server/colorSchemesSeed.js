@@ -11,7 +11,7 @@ Meteor.startup(() => {
 });
 
 const colorSchemesSeed = [{
-  name: "operat0r",
+  name: "n00b",
   backgroundColor:"#FFFFFF",
   linkColor: "#A1A1A1",
   color: "#000000",

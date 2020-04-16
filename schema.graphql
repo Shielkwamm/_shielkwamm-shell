@@ -757,7 +757,8 @@ type Room {
   currentMusicTitle: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
-  colorSchemeId: ColorScheme 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
   i18nRooms: [I18nRoom] 
   roomHandles: [RoomHandle] 
 }
@@ -1231,7 +1232,8 @@ type Party {
   _id: String 
   createdAt: Date 
   name: String 
-  colorSchemeId: [ColorScheme] 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
   description: String 
   isActive: Boolean 
   mood: String 

@@ -46,8 +46,8 @@ registerFragment(`
      vibe
      slug
      colorScheme {
-      ...ColorSchemesFragment
-    }
+       ...ColorSchemesFragment
+     }
      currentMusicUrl
      currentMusicTitle
      description

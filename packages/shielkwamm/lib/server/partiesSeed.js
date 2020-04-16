@@ -23,7 +23,8 @@ const partiesSeed = [{
   description: "Absolutely NaNers.",
   isActive: true,
   mood: "++☴☴",
-  isEsteemed: true
+  isEsteemed: true,
+  colorScheme: "n00b"
 },
 {
   name: "### Shielkwamm Council ###",
@@ -44,7 +45,8 @@ const partiesSeed = [{
   description: "*SWiM*",
   isActive: true,
   mood: "SWiMs",
-  isEsteemed: true
+  isEsteemed: true,
+  colorScheme: "n00b"
 },
 {
   name: "chillionaires",
@@ -70,13 +72,15 @@ const partiesSeed = [{
   name: "clearSails",
   description: "💋 hygine",
   isActive: false,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "n00b"
 },
 { 
   name: "rebelWraith",
   description: "*stares*",
   isActive: true,
-  mood: "+☴☱"
+  mood: "+☴☱",
+  colorScheme: "n00b"
 },
 {
   name: "rum",
@@ -88,7 +92,8 @@ const partiesSeed = [{
   name: "time",
   description: "Is of the essense.",
   isActive: true,
-  mood: "+**"
+  mood: "+**",
+  colorScheme: "n00b"
 },
 {
   name: "tales",
@@ -135,7 +140,8 @@ const partiesSeed = [{
   name: "saber",
   description: "Code C0de",
   isActive: true,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "n00b"
 },
 {
   name: "nasaholes",
@@ -147,7 +153,8 @@ const partiesSeed = [{
   name: "smileyFaceFlag",
   description: "Thank you",
   isActive: false,
-  mood: "☴"
+  mood: "☴",
+  colorScheme: "n00b"
 },
 {
   name: "burners",
@@ -196,12 +203,6 @@ const partiesSeed = [{
   description: "⋛ We are the world ☴☲☱☰",
   isActive: true,
   mood: "++☴"
-},
-{
-  name: "sheShes",
-  description: "get back to work",
-  isActive: true,
-  mood: "☴"
 },
 {
   name: "Hallmark",
@@ -261,7 +262,8 @@ const partiesSeed = [{
   name: "shearWater",
   description: "",
   isActive: true,
-  mood: "?_—"
+  mood: "?_—",
+  colorScheme: "n00b"
 },
 {
   name: "dracul",
@@ -273,7 +275,8 @@ const partiesSeed = [{
   name: "mother",
   description: "",
   isActive: false,
-  mood: "~"
+  mood: "~",
+  colorScheme: "n00b"
 },
 {
   name: "seeReal",
@@ -285,7 +288,8 @@ const partiesSeed = [{
   name: "[3blackAndMilds]",
   description: "",
   isActive: false,
-  mood: ""
+  mood: "",
+  colorScheme: "n00b"
 },
 {
   name: "MathLaws",

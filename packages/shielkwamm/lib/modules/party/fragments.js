@@ -9,6 +9,9 @@ registerFragment(`
      description
      isActive
      isEsteemed
+     colorScheme {
+      ...ColorSchemesFragment
+    }
    }
 `);
 

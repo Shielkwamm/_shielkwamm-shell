@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const RoomsList = ({ loading, results }) => (
   <div className="movies-list">
+    {console.log("yo", results)}
     <Components.HeadTags title={`Rooms`}/>
     <h2><Link to="/">⏎ </Link>Rooms</h2>
     <hr></hr>
@@ -14,14 +15,14 @@ const RoomsList = ({ loading, results }) => (
         paddingTop: "1px",
         paddingLeft: "14px",
         paddingRight: "14px",
-        background: room.backgroundColor,
+        background: room.colorScheme.backgroundColor,
       }} key={room._id}>
-        <h1><Link style={{color: room.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} {room._sh_} {room.bwam} </span></h1>
-        <p>{room.vibe} <a style={{color: room.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
+        <h1><Link style={{color: room.colorScheme.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} {room._sh_} {room.bwam} </span></h1>
+        <p>{room.vibe} <a style={{color: room.colorScheme.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
         <p>{room.description}</p>
         <hr></hr>
         <div style={{float: "left"}}>
-        <p style={{color: room.linkColor}}>handles</p>
+        <p style={{color: room.colorScheme.linkColor}}>handles</p>
         {room.roomHandles.map(rh => (
           <React.Fragment>
             {rh.handle.isActive ? (<Components.Handle key={rh._id} handle={rh.handle}/>) : null }
@@ -29,7 +30,7 @@ const RoomsList = ({ loading, results }) => (
         ))}
         </div>
         <div style={{float: "right"}}>
-        <p style={{color: room.linkColor}}>i18ns</p>
+        <p style={{color: room.colorScheme.linkColor}}>i18ns</p>
         {room.i18nRooms.map(ih => (
           <h3 key={ih._id}>{ih.i18n.name}</h3>
         ))}

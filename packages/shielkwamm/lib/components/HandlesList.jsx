@@ -2,8 +2,6 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-
-
 const HandlesList = ({ loading, results }) => (
   <React.Fragment>
     <Components.HeadTags title={`Handles`}/>
@@ -41,7 +39,7 @@ const HandlesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Handles",
-  fragmentName: 'HandleBadge', // uncomment on #Step11
+  fragmentName: 'HandleBadge',
   limit: 77
 }
 

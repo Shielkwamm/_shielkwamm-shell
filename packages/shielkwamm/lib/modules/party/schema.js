@@ -22,15 +22,14 @@ const schema = {
     canCreate: ['admins']
   },
   colorSchemeId: {
-    label: "colorScheme",
     type: String,
     optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      field: "colorScheme",
-      type: '[ColorScheme]',
+      fieldName: "colorScheme",
+      type: 'ColorScheme',
       relation: "hasOne"
     }
   },

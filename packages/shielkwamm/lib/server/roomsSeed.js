@@ -15,7 +15,7 @@ Meteor.startup(() => {
 
 const roomsSeed = [{
   name: "operat0r",
-  colorScheme: "operat0r",
+  colorScheme: "n00b",
   messageDelay: 5,
   backgroundColor:"#FFFFFF",
   linkColor: "#A1A1A1",
