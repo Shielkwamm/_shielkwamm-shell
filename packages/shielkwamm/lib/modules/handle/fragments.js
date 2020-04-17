@@ -37,6 +37,7 @@ registerFragment(`
     isHonorary
     mood
     note
+    inventory
     connectionStatus
     parties {
       ...HandlePartiesBadge

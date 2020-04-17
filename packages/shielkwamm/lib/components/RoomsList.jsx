@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const RoomsList = ({ loading, results }) => (
   <div className="movies-list">
     <Components.HeadTags title={`Rooms`}/>
-    <h2><Link to="/">⏎ </Link>Rooms</h2>
+    <h2><Link to="/">⏎ </Link>Rooms <span style={{float: "right"}}> count [ {results && results.length} / 7 ]</span></h2>
     <hr></hr>
     {!loading && results && results.map(room => (
       <div  style={{
         overflow: "auto",
-        color: room.color,
+        color: room.colorScheme.color,
         paddingTop: "1px",
         paddingLeft: "14px",
         paddingRight: "14px",

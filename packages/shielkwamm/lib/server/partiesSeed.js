@@ -1,12 +1,17 @@
 import Parties from '../modules/party/collection.js';
+import ColorSchemes from '../modules/colorScheme/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
    if(Parties.find().count() === 0) {
     partiesSeed.forEach(party => {
       party.createdAt = new Date();
-      let colorScheme = ColorSchemes.findOne({name: room.colorScheme});
-      room.colorSchemeId = colorScheme._id;
+      let colorScheme = ColorSchemes.findOne({name: party.colorScheme});
+      if(!colorScheme) {
+        console.log("###party " + party.colorScheme + " not found ")
+        return;
+      }
+      party.colorSchemeId = colorScheme._id;
       Parties.insert(party);
     })
    }

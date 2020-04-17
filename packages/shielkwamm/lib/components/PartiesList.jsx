@@ -3,12 +3,12 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
 const Party = ({ party }) => (
-  <React.Fragment>
-    <h2>{!!party.isActive? "": "zZz "} {party.mood} {party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span><span style={{float: "right"}}>{party.connectionStatus}</span></h2>
+  <div  style={{backgroundColor: party.colorScheme.backgroundColor}}>
+    <h2><span style={{color: party.colorScheme.linkColor}}>{!!party.isActive? "": "zZz "} {party.mood}</span> <span style={{color: party.colorScheme.color}}>{party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span></span><span style={{float: "right"}}>{party.connectionStatus}</span></h2>
     {party.handles.map(ph => (
-      <div style={{textAlign: "right"}}><Components.Handle handle={ph.handle}/></div>
+      <div key={ph._id} style={{textAlign: "right", color: party.colorScheme.color}}><Components.Handle handle={ph.handle}/></div>
     ))}
-  </React.Fragment>
+  </div>
 )
 
 const PartiesList = ({ loading, results }) => (
@@ -18,11 +18,11 @@ const PartiesList = ({ loading, results }) => (
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== esteemed ===</h1>
     {!loading && results.map(party => (
-      <div key={party._id}>
+      <React.Fragment key={party._id}>
       {!!party.isEsteemed ? (
         <Party party={party}/>
         ): null}
-      </div>
+      </React.Fragment>
     ))}
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Active ===</h1>
@@ -36,11 +36,11 @@ const PartiesList = ({ loading, results }) => (
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
     {!loading && results.map(party => (
-      <div key={party._id}>
+      <React.Fragment key={party._id}>
       {!party.isEsteemed && !party.isActive? (
         <Party party={party}/>
       ): null}
-      </div>
+      </React.Fragment>
     ))}
   </div>
 );
