@@ -26,6 +26,9 @@ registerFragment(`
      name
      mood
      connectionStatus
+     inventory
+     connectionStatus
+     isHonorary
    }
 `);
 

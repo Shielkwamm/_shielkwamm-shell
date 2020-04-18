@@ -15,7 +15,7 @@ const PartiesList = ({ handleParties = []}) => (
   })*/
 
 const Handle = ({ handle }) => (
-  <h3>{handle.isActive? "": "zZz "} {handle.mood} {handle.name}{handle.inventory? "_" + handle.inventory.join(""): ""} <PartiesList handleParties={handle.parties}/><span style={{float: "right"}}>{handle.note}</span></h3> 
+  <h3>{handle.isActive? "": "zZz "} {handle.mood} {handle.name}{handle.inventory.length > 0? "_" + handle.inventory.join(""): ""} <PartiesList handleParties={handle.parties}/><span style={{float: "right"}}>{handle.note}</span></h3> 
 )
 
 registerComponent({ name: 'Handle', component: Handle});
