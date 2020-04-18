@@ -20,8 +20,12 @@
 [meteor](https://github.com/meteor/meteor)
 
 ## Screen shots
+
+#### Chat Room / operat0r
 ![chat room](https://i.imgur.com/z0cNQIV.png)
 
+#### Rooms list
 ![roomView](https://i.imgur.com/nVAteZ8.png)
 
+#### Color, glyphs, and parties
 ![color](https://i.imgur.com/aAe8tIc.png)
