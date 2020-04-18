@@ -69,7 +69,7 @@ const handlesPartiesSeed = [
   handleName: "Eyebrows",
   parties: [
     {name: "galacticOversight", isMod: true},
-    {name: 'sheShes'},
+    {name: 'sheShe'},
     {name: "### Shielkwamm Council ###", isMod: true}
   ],
 },
@@ -381,7 +381,7 @@ const handlesPartiesSeed = [
 {
   handleName: "aCuteTriangle",
   parties: [
-    {name: "sheShes"}
+    {name: "sheShe"}
   ]
 },
 {

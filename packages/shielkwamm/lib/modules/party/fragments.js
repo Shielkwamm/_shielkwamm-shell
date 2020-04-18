@@ -23,6 +23,9 @@ registerFragment(`
     description
     isActive
     isEsteemed
+    i18ns {
+       ...PartyI18nsFragment
+    }
     colorScheme {
       ...ColorSchemesFragment
     }

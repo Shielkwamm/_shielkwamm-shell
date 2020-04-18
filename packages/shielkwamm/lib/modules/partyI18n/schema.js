@@ -39,7 +39,7 @@ const schema = {
     }
   },
   fluency: {
-    type: String,
+    type: Number,
     optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],

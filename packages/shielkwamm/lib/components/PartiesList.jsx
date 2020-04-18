@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 const Party = ({ party }) => (
   <div  style={{backgroundColor: party.colorScheme.backgroundColor}}>
     <h2><span style={{color: party.colorScheme.linkColor}}>{!!party.isActive? "": "zZz "} {party.mood}</span> <span style={{color: party.colorScheme.color}}>{party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span></span><span style={{float: "right"}}>{party.connectionStatus}</span></h2>
+    {party.i18ns.map(pi => (
+      <span key={pi._id}>{pi.i18n.name}</span>
+    ))}
     {party.handles.map(ph => (
       <div key={ph._id} style={{textAlign: "right", color: party.colorScheme.color}}><Components.Handle handle={ph.handle}/></div>
     ))}

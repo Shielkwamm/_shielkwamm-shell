@@ -95,29 +95,14 @@ const schema = {
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'partyI18ns',
+      fieldName: 'i18ns',
       type: '[PartyI18n]',
       relation: 'hasMany',
-      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
-      resolver: (room, {filterDir, filterColumn}, context) => {
+      resolver: (party, {filterDir, filterColumn}, context) => {
         return context.PartyI18ns.find({partyId: party._id}).fetch();
       }
     }
   }
-  // userId: {
-  //   type: String,
-  //   optional: true,
-  //   canRead: ['guests'],
-  //   resolveAs: {
-  //     fieldName: 'user',
-  //     type: 'User',
-  //     resolver: (movie, args, context) => {
-  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
-  //     },
-  //     addOriginalField: true
-  //   }
-  // },
-  
 };
 
 export default schema;

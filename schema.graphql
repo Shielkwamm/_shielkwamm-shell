@@ -118,52 +118,6 @@ input IntlValueInput{
 }
 directive @intl on FIELD_DEFINITION
 
-  input AuthPasswordInput {
-    email: String
-    password: String
-  }
-  type AuthResult {
-    token: String
-    userId: String
-  }
-  type LogoutResult {
-    userId: String
-  }
-
-  input SignupInput {
-    email: String
-    password: String
-  }
-  type SignupResult {
-    userId: String
-  }
-
-  input SetPasswordInput {
-    newPassword: String
-  }
-
-  #type SetPasswordResult # Will auth user again so we reuse AuthResult atm
-
-  input ResetPasswordInput {
-    token: String
-    newPassword: String
-  }
-  type ResetPasswordResult {
-    userId: String
-  }
-
-  input VerifyEmailInput {
-    token: String
-  }
-  type VerifyEmailResult {
-    userId: String
-  }
-
-  input AuthEmailInput {
-    email: String
-  }
-
-
 # A user object
 type User {
   _id: String 
@@ -1291,8 +1245,7 @@ type Party {
   isEsteemed: Boolean 
   handles: [HandleParty] 
   connectionStatus: String 
-  i18ns: String 
-  partyI18ns: [PartyI18n] 
+  i18ns: [PartyI18n] 
 }
 
 
@@ -1993,7 +1946,7 @@ type PartyI18n {
   party: Party 
   i18nId: String 
   i18n: I18n 
-  fluency: String 
+  fluency: Float 
 }
 
 
@@ -2062,7 +2015,7 @@ input CreatePartyI18nInput {
 input CreatePartyI18nDataInput {
   partyId: String 
   i18nId: String 
-  fluency: String 
+  fluency: Float 
 }
 
 input UpdatePartyI18nInput{
@@ -2080,7 +2033,7 @@ input UpsertPartyI18nInput{
 input UpdatePartyI18nDataInput {
   partyId: String 
   i18nId: String 
-  fluency: String 
+  fluency: Float 
 }
 
 input PartyI18nFilterInput {
@@ -2093,7 +2046,7 @@ input PartyI18nFilterInput {
   createdAt: Date_Selector
   partyId: String_Selector
   i18nId: String_Selector
-  fluency: String_Selector
+  fluency: Float_Selector
 }
 
 input PartyI18nSortInput {
@@ -2343,22 +2296,6 @@ type Query {
   
 
 type Mutation {
-  authenticateWithPassword(input: AuthPasswordInput): AuthResult
-
-  logout: LogoutResult
-
-  signup(input: SignupInput): SignupResult
-
-  setPassword(input: SetPasswordInput): AuthResult
-
-  sendResetPasswordEmail(input: AuthEmailInput): Boolean
-
-  resetPassword(input: ResetPasswordInput): ResetPasswordResult
-
-  sendVerificationEmail(input: AuthEmailInput): Boolean
-
-  verifyEmail(input: VerifyEmailInput): VerifyEmailResult
-
   # Mutation for creating new User documents
   createUser(
   input: CreateUserInput,
