@@ -18,3 +18,10 @@
 [apollo graphQL](https://www.apollographql.com/docs/ios/)
 
 [meteor](https://github.com/meteor/meteor)
+
+## Screen shots
+![chat room](https://i.imgur.com/z0cNQIV.png)
+
+![roomView](https://i.imgur.com/nVAteZ8.png)
+
+![color](https://i.imgur.com/aAe8tIc.png)

@@ -39,16 +39,18 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
     style.margin = "-4px";
     style.padding = "9px";
   }
+  let timeStampF = timeStamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
   return (
     <React.Fragment>
       {_ng_Match ? (
         <p style={style}>{message.text}</p>
       ) : null }
       {!_ng_Match && _zr_Match ? (
-        <p>{timeStamp.toLocaleTimeString()}: <span style={style}>{message.text}</span></p>
+        <p>{timeStampF}: <span style={style}>{message.text}</span></p>
       ) : null }
       {!_zr_Match && !_vb_Match && !_ng_Match ? (
-        <p>{timeStamp.toLocaleTimeString()} {message.text}</p>
+        <p>{timeStampF} {message.text}</p>
       ) : null }
 
       {_vb_Match ? (
