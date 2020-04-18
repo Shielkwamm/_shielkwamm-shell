@@ -8,9 +8,9 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let _vb_ = /^.*⬤.*$/;
   let _ng_ = /^.*🔬.*$/;
   let style = {};
-  let _vb_Match = false;
-  let _zr_Match = false;
-  let _ng_Match = false;
+  let _vb_Match = false;//vibe
+  let _zr_Match = false;//zork
+  let _ng_Match = false;//note
   if(message.text.match(_ng_)){
     style.color = color;
     style.fontSize = "35px";
