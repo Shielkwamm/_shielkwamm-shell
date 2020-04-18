@@ -3,6 +3,7 @@ import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 
 //<h2 onClick={e => {console.log(ir.i18n.glyphSet.split(" "));console.log(e.target.textContent)}} key={ir._id}>{ir.i18n.glyphSet}</h2>
+//.select(); document.execCommand("copy")
 
 const RoomOperat0rInner = ({ loading, document }) => (
   <React.Fragment>
@@ -10,25 +11,26 @@ const RoomOperat0rInner = ({ loading, document }) => (
       null
     ) : (
       <div>
+        <Components.HeadTags title={`operat0r`}/>
         {document.i18nRooms.map( ir => (
           <h2 key={ir.i18n._id}>
             {ir.i18n.glyphSet.split(" ").map((glyph, index) => (
-              <span key={ir.i18n._id + "_" + index}>{glyph} </span>
+              <span onClick={e => {window.document.querySelector("#z" + ir.i18n._id + "_" + index).select(), window.document.execCommand("copy")}} key={ir.i18n._id + "_" + index}>{glyph} <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + ir.i18n._id + "_" + index} defaultValue={glyph}/></span>
             ))}
           </h2>
         ))}
         <hr></hr>
         <h2>△áìéïḱḿí△ △Ńń△ ▵ÖöÓóÒòÔôḱ▵</h2>
         <hr></hr>
-        {document.roomHandles.map( rh => (
-          <h2 key={rh._id}>{rh.handle.name}</h2>
+        {document.roomHandles.map((rh, index) => (
+          <h2 onClick={e => {window.document.querySelector("#z" + rh._id + "_" + index).select();window.document.execCommand("copy")}} key={rh._id}>{rh.handle.name} <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + rh._id + "_" + index} defaultValue={rh.handle.name}/></h2>
         ))}
       </div>
     )}
   </React.Fragment>
 )
 
-//onClick={e => {console.log(e);e.currentTarget.select(); document.execCommand("copy")}}
+
 
 const options = {
   collectionName: "Rooms",
