@@ -2,8 +2,7 @@ import React from 'react';
 import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 
-//<h2 onClick={e => {console.log(ir.i18n.glyphSet.split(" "));console.log(e.target.textContent)}} key={ir._id}>{ir.i18n.glyphSet}</h2>
-//.select(); document.execCommand("copy")
+//## HACKY - hidden input field but using for copy to clip board
 
 const RoomOperat0rInner = ({ loading, document }) => (
   <React.Fragment>
@@ -29,8 +28,6 @@ const RoomOperat0rInner = ({ loading, document }) => (
     )}
   </React.Fragment>
 )
-
-
 
 const options = {
   collectionName: "Rooms",

@@ -11,3 +11,5 @@ import './roomHandle/collection.js';
 import './handleParty/collection.js';
 import './partyI18n/collection.js';
 import './colorScheme/collection.js';
+import './currency/collection.js';
+import './equipment/collection.js';

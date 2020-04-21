@@ -85,6 +85,7 @@ const RoomMessagesInner = ({ loading, results, linkColor, backgroundColor, color
 const options = {
   collectionName: "Messages",
   fragmentName: 'MessagesFragment', // uncomment on #Step11
+  limit: 200
 }
 
 registerComponent({ name: 'RoomMessagesInner', component: RoomMessagesInner, hocs: [[withMulti2, options]]});

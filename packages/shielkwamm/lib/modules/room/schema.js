@@ -29,7 +29,7 @@ const schema = {
     canUpdate: ['admins']
   },
   messageDelay: {
-    type: String,
+    type: Number,
     defaultValue: 2,
     canRead: ['guests'],
     canCreate: ['admins'],

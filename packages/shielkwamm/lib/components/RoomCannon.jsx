@@ -13,7 +13,7 @@ const RoomCannonMessage = ({ message, linkColor }) => {
       {isEditing ? (
         <React.Fragment>
           <p><a onClick={e => setIsEditing(false)} style={{color: linkColor}}>exit</a></p>
-          <Components.SmartForm collectionName='Messages' fields={["text"]} documentId={message._id}/>
+          <Components.SmartForm collectionName='Messages' fields={["text"]} documentId={message._id} successCallback={document => {setIsEditing(false);}}/>
         </React.Fragment>
       ) : (
         <p><a onClick={e => setIsEditing(true)} style={{color: linkColor}}>edit</a> {new Date(message.createdAt).toLocaleTimeString()}: {message.text}</p>
@@ -34,7 +34,7 @@ const RoomCannonMessagesInner = ({ loading, results, linkColor, backgroundColor,
 
 const messagesOptions = {
   collectionName: "Messages",
-  fragmentName: 'MessagesFragment', // uncomment on #Step11
+  fragmentName: 'MessagesFragment',
   pollInterval: .1
 }
 
@@ -68,7 +68,7 @@ const RoomCannonInner = ({ loading, document }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsFragment', // uncomment on #Step11
+  fragmentName: 'RoomsFragment',
 }
 
 registerComponent( {name: 'RoomCannonInner', component: RoomCannonInner, hocs: [[withSingle2, options]]})

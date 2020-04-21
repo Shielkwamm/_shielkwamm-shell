@@ -742,7 +742,7 @@ type Room {
   createdAt: Date 
   isFeatured: Boolean 
   name: String 
-  messageDelay: String 
+  messageDelay: Float 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -830,7 +830,7 @@ input CreateRoomInput {
 input CreateRoomDataInput {
   isFeatured: Boolean 
   name: String 
-  messageDelay: String 
+  messageDelay: Float 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -864,7 +864,7 @@ input UpsertRoomInput{
 input UpdateRoomDataInput {
   isFeatured: Boolean 
   name: String 
-  messageDelay: String 
+  messageDelay: Float 
   slug: String 
   description: String 
   isActive: Boolean 
@@ -893,7 +893,7 @@ input RoomFilterInput {
   createdAt: Date_Selector
   isFeatured: Boolean_Selector
   name: String_Selector
-  messageDelay: String_Selector
+  messageDelay: Float_Selector
   slug: String_Selector
   description: String_Selector
   isActive: Boolean_Selector
@@ -2207,6 +2207,212 @@ input ColorSchemeSelectorUniqueInput {
 }
 
 
+# Type for Currencies
+type Currency {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  glyph: String 
+}
+
+
+input DeleteCurrencyInput{
+  filter: CurrencyFilterInput
+  id: String
+}
+
+input SingleCurrencyInput {
+  # filtering
+  filter: CurrencyFilterInput
+  sort: CurrencySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: CurrencySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiCurrencyInput {
+
+  # filtering
+  filter: CurrencyFilterInput
+  sort: CurrencySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleCurrencyOutput{
+  result: Currency
+}
+
+type  MultiCurrencyOutput{
+  results: [Currency]
+  totalCount: Int
+}
+
+type CurrencyMutationOutput{
+  data: Currency
+}
+
+input CurrencyFilterInput {
+  _and: [CurrencyFilterInput]
+  _not: CurrencyFilterInput
+  _or: [CurrencyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  glyph: String_Selector
+}
+
+input CurrencySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  glyph: SortOptions
+}
+
+input CurrencySelectorInput {
+  _and: [CurrencySelectorInput]
+  _or: [CurrencySelectorInput]
+
+}
+
+input CurrencySelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Equipment
+type Equipment {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  description: String 
+  glyph: String 
+  wikiUrl: String 
+}
+
+
+input DeleteEquipmentInput{
+  filter: EquipmentFilterInput
+  id: String
+}
+
+input SingleEquipmentInput {
+  # filtering
+  filter: EquipmentFilterInput
+  sort: EquipmentSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: EquipmentSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiEquipmentInput {
+
+  # filtering
+  filter: EquipmentFilterInput
+  sort: EquipmentSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleEquipmentOutput{
+  result: Equipment
+}
+
+type  MultiEquipmentOutput{
+  results: [Equipment]
+  totalCount: Int
+}
+
+type EquipmentMutationOutput{
+  data: Equipment
+}
+
+input EquipmentFilterInput {
+  _and: [EquipmentFilterInput]
+  _not: EquipmentFilterInput
+  _or: [EquipmentFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  description: String_Selector
+  glyph: String_Selector
+  wikiUrl: String_Selector
+}
+
+input EquipmentSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  description: SortOptions
+  glyph: SortOptions
+  wikiUrl: SortOptions
+}
+
+input EquipmentSelectorInput {
+  _and: [EquipmentSelectorInput]
+  _or: [EquipmentSelectorInput]
+
+}
+
+input EquipmentSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -2291,6 +2497,18 @@ type Query {
   
   # A list of ColorScheme documents matching a set of query terms
   colorSchemes(input: MultiColorSchemeInput):  MultiColorSchemeOutput
+  
+  # A single Currency document fetched by ID or slug
+  currency(input: SingleCurrencyInput!): SingleCurrencyOutput
+  
+  # A list of Currency documents matching a set of query terms
+  currencies(input: MultiCurrencyInput):  MultiCurrencyOutput
+  
+  # A single Equipment document fetched by ID or slug
+  equipment(input: SingleEquipmentInput!): SingleEquipmentOutput
+  
+  # A list of Equipment documents matching a set of query terms
+  equipments(input: MultiEquipmentInput):  MultiEquipmentOutput
   
 }
   
@@ -2679,6 +2897,20 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: ColorSchemeSelectorUniqueInput
 ) : ColorSchemeMutationOutput
+
+  # Mutation for deleting a Currency document
+  deleteCurrency(
+  input: DeleteCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: CurrencySelectorUniqueInput
+) : CurrencyMutationOutput
+
+  # Mutation for deleting a Equipment document
+  deleteEquipment(
+  input: DeleteEquipmentInput,
+  "Deprecated (use 'input' field instead)."
+  selector: EquipmentSelectorUniqueInput
+) : EquipmentMutationOutput
 
 }
 
