@@ -24,7 +24,7 @@
 
 #### Chat Room / operat0r
 ![chat room](https://i.imgur.com/z0cNQIV.png)
-![over heard at a saloon](https://imgur.com/OnJbbkz)
+![over heard at a saloon](https://i.imgur.com/OnJbbkz.png)
 
 #### Rooms list
 ![roomView](https://i.imgur.com/nVAteZ8.png)
