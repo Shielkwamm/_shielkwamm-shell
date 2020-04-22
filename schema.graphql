@@ -2413,6 +2413,100 @@ input EquipmentSelectorUniqueInput {
 }
 
 
+# Type for Laws
+type Law {
+  _id: String 
+  createdAt: Date 
+}
+
+
+input DeleteLawInput{
+  filter: LawFilterInput
+  id: String
+}
+
+input SingleLawInput {
+  # filtering
+  filter: LawFilterInput
+  sort: LawSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: LawSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiLawInput {
+
+  # filtering
+  filter: LawFilterInput
+  sort: LawSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleLawOutput{
+  result: Law
+}
+
+type  MultiLawOutput{
+  results: [Law]
+  totalCount: Int
+}
+
+type LawMutationOutput{
+  data: Law
+}
+
+input LawFilterInput {
+  _and: [LawFilterInput]
+  _not: LawFilterInput
+  _or: [LawFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+}
+
+input LawSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+}
+
+input LawSelectorInput {
+  _and: [LawSelectorInput]
+  _or: [LawSelectorInput]
+
+}
+
+input LawSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -2509,6 +2603,12 @@ type Query {
   
   # A list of Equipment documents matching a set of query terms
   equipments(input: MultiEquipmentInput):  MultiEquipmentOutput
+  
+  # A single Law document fetched by ID or slug
+  law(input: SingleLawInput!): SingleLawOutput
+  
+  # A list of Law documents matching a set of query terms
+  laws(input: MultiLawInput):  MultiLawOutput
   
 }
   
@@ -2911,6 +3011,13 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: EquipmentSelectorUniqueInput
 ) : EquipmentMutationOutput
+
+  # Mutation for deleting a Law document
+  deleteLaw(
+  input: DeleteLawInput,
+  "Deprecated (use 'input' field instead)."
+  selector: LawSelectorUniqueInput
+) : LawMutationOutput
 
 }
 

@@ -4,6 +4,7 @@
 
 ## [What the heck](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
 ## [Managing Expectations](https://github.com/Shielkwamm/one_Z-rk/projects/1)
+## [Running this thing](https://github.com/Shielkwamm/one_Z-rk/wiki/learning/running.md)
 
 ## Meta
 [art of the game](https://github.com/Shielkwamm/shielkwamm)

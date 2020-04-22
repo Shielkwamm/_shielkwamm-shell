@@ -20,7 +20,7 @@ Meteor.startup(() => {
 const i18nsSeed = [{
   name: "basic_US",
   description: "The basic glyphs of _sh_.",
-  glyphSet: "☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈",
+  glyphSet: "☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑ ↓ ‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈",
   wikiUrl: "https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bbasic_US%5D"
 },
 { 

@@ -4,16 +4,19 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let timeStamp = new Date(message.createdAt);
   let messageRegex = /^.*:.*$/;
-  //let _sh_ = /.*:.*/;
-  //let zorkRegex
+  let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex
   let vibeRegex = /^.*⬤.*$/;
   let noteRegex = /^.*🔬.*$/;
   let style = {};
+  let _sh_Match = message.text.match(_sh_Regex);
   let vibeMatch = message.text.match(vibeRegex);//vibe
   let messageMatch = message.text.match(messageRegex);//zork
   let noteMatch = message.text.match(noteRegex);//note
   let display = "leftHighlighted";
-  if(messageMatch) {
+  if(_sh_Match && _sh_Match[2]) {
+    display = "_sh_";
+  }
+  else if(messageMatch) {
     display = "regular"
   }
   else if(vibeMatch) {
@@ -43,7 +46,7 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
     //style.marginBottom = "-8px";
     style.textAlign = "left";
   }
-  if(display === "alert"){
+  if(display === "alert" || display === "_sh_"){
     style.textAlign = "center";
     style.fontSize = "30px";
     style.verticalAlign = "-6px";
@@ -56,6 +59,9 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
 
   return (
     <React.Fragment>
+      {display === "_sh_" ? (
+        <p style={{textAlign: "center"}}><span style={style}>{_sh_Match[1]}</span> <span style={{fontSize: "90px", color: color, backgroundColor: backgroundColor}}>{_sh_Match[3]}</span> <span style={style}>{_sh_Match[4]}</span></p>
+      ) : null }
       {display === "rightHighlighted" ? (
         <p style={style}>{message.text}</p>
       ) : null }
