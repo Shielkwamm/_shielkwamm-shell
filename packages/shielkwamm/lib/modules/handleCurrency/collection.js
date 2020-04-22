@@ -2,15 +2,15 @@ import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
 
-const Currencies = createCollection({
-  collectionName: 'Currencies',
-  typeName: 'Currency',
+const HandleCurrencies = createCollection({
+  collectionName: 'HandleCurrencies',
+  typeName: 'HandleCurrency',
   schema,
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
   // mutations: yourCustomMutations // null to disable default mutations generation
   permissions: {
-    canRead: ['members', 'admins'],
-    canCreate: ['members', 'admins'],
+    canRead: ['members'],
+    canCreate: ['members'],
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },
@@ -40,4 +40,4 @@ const Currencies = createCollection({
 
 
 
-export default Currencies;
+export default HandleCurrencies;

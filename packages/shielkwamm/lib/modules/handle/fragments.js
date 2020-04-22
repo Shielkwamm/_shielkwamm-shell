@@ -15,8 +15,12 @@ registerFragment(`
      parties {
        ...HandlesPartiesFragment
      }
+     currencies {
+       ...HandleCurrenciesFragment
+     }
    }
 `);
+
 
 registerFragment(`
    fragment FlatHandlesFragment on Handle {

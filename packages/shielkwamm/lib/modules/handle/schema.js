@@ -1,3 +1,26 @@
+import { createSchema } from 'meteor/vulcan:core';
+
+const currencySchema = createSchema({
+  currencyId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'currency',
+      type: '[Currency]',
+      relation: 'hasOne',
+      resolver: (currency, {filterDir, filterColumn}, context) => {
+        return context.Currency.findOne({currencyId: currency});
+      }
+    }
+  },
+  amount: {
+    type: Number,
+    optional: true,
+    canRead: ['guests']
+  }
+})
+
 const schema = {
   // default properties
 
@@ -87,8 +110,7 @@ const schema = {
       fieldName: 'parties',
       type: '[HandleParty]',
       relation: 'hasMany',
-      arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
-      resolver: (handle, {filterDir, filterColumn}, context) => {
+      resolver: (handle, args, context) => {
         return context.HandleParties.find({handleId: handle._id}).fetch();
       }
     }
@@ -99,7 +121,22 @@ const schema = {
     optional: false,
     canRead: ['guests'],
     defaultValue: "~"
-  }
+  },
+  currencies: {
+    label: "Currencies",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'currencies',
+      type: '[HandleCurrency]',
+      relation: 'hasMany',
+      resolver: (handle, args, context) => {
+        return context.HandleCurrencies.find({handleId: handle._id}).fetch();
+      }
+    }
+  },
   
 };
 

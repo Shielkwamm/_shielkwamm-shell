@@ -1,4 +1,6 @@
 import Handles from '../modules/handle/collection.js';
+import Currencies from '../modules/currency/collection.js';
+import HandleCurrencies from '../modules/handleCurrency/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
@@ -6,7 +8,17 @@ Meteor.startup(() => {
    handlesSeed.forEach(handle => {
      handle.createdAt = new Date();
      handle.inventory = handle.inventory || [];
-     Handles.insert(handle);
+     let handleCurrencies = handle.currencies;
+     handle.currencies = [];
+     let handleId = Handles.insert(handle);
+     handleCurrencies && handleCurrencies.forEach(hc => {
+       let currency = Currencies.findOne({glyph: hc.glyph});
+       if(!currency) {
+         console.log("====  Couldn't find currency", hc.glyph)
+         return;
+       }
+       HandleCurrencies.insert({ handleId: handleId, currencyId: currency._id, amount: hc.amount, mood: hc.mood, label: hc.label, createdAt: new Date() })
+     })
    })
   }
 });
@@ -17,7 +29,13 @@ const handlesSeed = [
 {
   name: "GrandNagus",
   mood: "?-/||",
-  isActive: false
+  isActive: false,
+  currencies: [{
+    glyph: "🕑",
+    amount: 2000000,
+    mood: "__[-]🕑[-]<--",
+    label: "#1 Once you have their money, you never give it back."
+  }]
 },
 {
   name: "MonopolyMouse",
@@ -158,7 +176,13 @@ const handlesSeed = [
   name: "FireHydrantLicker_tH",
   mood: "|**,",
   inventory: ['☯'],
-  isActive: true
+  isActive: true,
+  currencies: [{
+    glyph: "👀",
+    amount: 8.0085,
+    mood: "  👀   👀  ",
+    note: "👀  👀👀  👀"
+  }],
 },
 {
   name: "EarlyBirdie",
@@ -287,7 +311,28 @@ const handlesSeed = [
   name: "weatherWonder"
 },
 {
-  name: "SandStorm"
+  name: "SandStorm",
+  currencies: [{
+    glyph: "〠",
+    amount: .00000079999999,
+    mood: "Ω〠Ω",
+    note: "What is this?"
+  },
+  {
+    glyph: "🕑",
+    amount: 2,
+    mood: "++☴",
+    note: "Freebees"
+  }]
+},
+{
+  name: "Goodwill",
+  currencies: [{
+    glyph: "🕑",
+    amount: 200,
+    mood: "+⻌->[☰]",
+    note: "[+]-_🏀🏀 Use respectively, please."
+  }]
 },
 {
   name: "man"

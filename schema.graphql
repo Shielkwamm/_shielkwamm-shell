@@ -965,8 +965,9 @@ type Handle {
   isActive: Boolean 
   isHonorary: Boolean 
   inventory: [String] 
-  parties(filterDir: Int = -1, filterColumn: String = "volume24"): [HandleParty] 
+  parties: [HandleParty] 
   connectionStatus: String 
+  currencies: [HandleCurrency] 
 }
 
 
@@ -1081,6 +1082,7 @@ input HandleFilterInput {
   inventory: String_Array_Selector
   parties: String_Selector
   connectionStatus: String_Selector
+  currencies: String_Selector
 }
 
 input HandleSortInput {
@@ -1095,6 +1097,7 @@ input HandleSortInput {
   inventory: SortOptions
   parties: SortOptions
   connectionStatus: SortOptions
+  currencies: SortOptions
 }
 
 input HandleSelectorInput {
@@ -2276,6 +2279,36 @@ type CurrencyMutationOutput{
   data: Currency
 }
 
+input CreateCurrencyInput {
+  data: CreateCurrencyDataInput!
+}
+
+input CreateCurrencyDataInput {
+  name: String 
+  glyph: String 
+  description: String 
+  ledgerUrl: String 
+}
+
+input UpdateCurrencyInput{
+  filter: CurrencyFilterInput
+  id: String
+  data: UpdateCurrencyDataInput!
+}
+
+input UpsertCurrencyInput{
+  filter: CurrencyFilterInput
+  id: String
+  data: UpdateCurrencyDataInput!
+}
+
+input UpdateCurrencyDataInput {
+  name: String 
+  glyph: String 
+  description: String 
+  ledgerUrl: String 
+}
+
 input CurrencyFilterInput {
   _and: [CurrencyFilterInput]
   _not: CurrencyFilterInput
@@ -2513,6 +2546,134 @@ input LawSelectorUniqueInput {
 }
 
 
+# Type for HandleCurrencies
+type HandleCurrency {
+  _id: String 
+  createdAt: Date 
+  handleId: String 
+  handle: Handle 
+  currencyId: String 
+  currency: Currency 
+}
+
+
+input DeleteHandleCurrencyInput{
+  filter: HandleCurrencyFilterInput
+  id: String
+}
+
+input SingleHandleCurrencyInput {
+  # filtering
+  filter: HandleCurrencyFilterInput
+  sort: HandleCurrencySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: HandleCurrencySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiHandleCurrencyInput {
+
+  # filtering
+  filter: HandleCurrencyFilterInput
+  sort: HandleCurrencySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleHandleCurrencyOutput{
+  result: HandleCurrency
+}
+
+type  MultiHandleCurrencyOutput{
+  results: [HandleCurrency]
+  totalCount: Int
+}
+
+type HandleCurrencyMutationOutput{
+  data: HandleCurrency
+}
+
+input CreateHandleCurrencyInput {
+  data: CreateHandleCurrencyDataInput!
+}
+
+input CreateHandleCurrencyDataInput {
+  handleId: String 
+  currencyId: String 
+}
+
+input UpdateHandleCurrencyInput{
+  filter: HandleCurrencyFilterInput
+  id: String
+  data: UpdateHandleCurrencyDataInput!
+}
+
+input UpsertHandleCurrencyInput{
+  filter: HandleCurrencyFilterInput
+  id: String
+  data: UpdateHandleCurrencyDataInput!
+}
+
+input UpdateHandleCurrencyDataInput {
+  handleId: String 
+  currencyId: String 
+}
+
+input HandleCurrencyFilterInput {
+  _and: [HandleCurrencyFilterInput]
+  _not: HandleCurrencyFilterInput
+  _or: [HandleCurrencyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  handleId: String_Selector
+  currencyId: String_Selector
+}
+
+input HandleCurrencySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  handleId: SortOptions
+  currencyId: SortOptions
+}
+
+input HandleCurrencySelectorInput {
+  _and: [HandleCurrencySelectorInput]
+  _or: [HandleCurrencySelectorInput]
+
+}
+
+input HandleCurrencySelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 
 
 type Query {
@@ -2615,6 +2776,12 @@ type Query {
   
   # A list of Law documents matching a set of query terms
   laws(input: MultiLawInput):  MultiLawOutput
+  
+  # A single HandleCurrency document fetched by ID or slug
+  handleCurrency(input: SingleHandleCurrencyInput!): SingleHandleCurrencyOutput
+  
+  # A list of HandleCurrency documents matching a set of query terms
+  handleCurrencies(input: MultiHandleCurrencyInput):  MultiHandleCurrencyOutput
   
 }
   
@@ -3004,6 +3171,31 @@ type Mutation {
   selector: ColorSchemeSelectorUniqueInput
 ) : ColorSchemeMutationOutput
 
+  # Mutation for creating new Currency documents
+  createCurrency(
+  input: CreateCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateCurrencyDataInput
+) : CurrencyMutationOutput
+
+  # Mutation for updating a Currency document
+  updateCurrency(
+  input: UpdateCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: CurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateCurrencyDataInput 
+) : CurrencyMutationOutput
+
+  # Mutation for upserting a Currency document
+  upsertCurrency(
+  input: UpsertCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: CurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateCurrencyDataInput
+) : CurrencyMutationOutput
+
   # Mutation for deleting a Currency document
   deleteCurrency(
   input: DeleteCurrencyInput,
@@ -3024,6 +3216,38 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: LawSelectorUniqueInput
 ) : LawMutationOutput
+
+  # Mutation for creating new HandleCurrency documents
+  createHandleCurrency(
+  input: CreateHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateHandleCurrencyDataInput
+) : HandleCurrencyMutationOutput
+
+  # Mutation for updating a HandleCurrency document
+  updateHandleCurrency(
+  input: UpdateHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleCurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandleCurrencyDataInput 
+) : HandleCurrencyMutationOutput
+
+  # Mutation for upserting a HandleCurrency document
+  upsertHandleCurrency(
+  input: UpsertHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleCurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandleCurrencyDataInput
+) : HandleCurrencyMutationOutput
+
+  # Mutation for deleting a HandleCurrency document
+  deleteHandleCurrency(
+  input: DeleteHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleCurrencySelectorUniqueInput
+) : HandleCurrencyMutationOutput
 
 }
 

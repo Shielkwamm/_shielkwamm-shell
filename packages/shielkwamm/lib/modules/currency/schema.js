@@ -16,19 +16,27 @@ const schema = {
   },
   name: {
     type: String,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   },
   glyph: {
     type: String,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   },
   description: {
     type: String,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   },
   ledgerUrl: {
     type: String,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   }
   
 };

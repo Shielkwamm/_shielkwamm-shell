@@ -1,7 +1,7 @@
 #### *Welcome weary adventurers to*
 
 # `==== Shielkwámḿ ====||`
-### */^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/*
+### [/^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/](https://github.com/Neobii)
 
 
 ## [What the heck](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
