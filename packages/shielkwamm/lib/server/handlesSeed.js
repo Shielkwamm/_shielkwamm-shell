@@ -53,7 +53,13 @@ const handlesSeed = [
 {
   name: "Arbitrat0r",
   mood: "||",
-  isActive: true
+  isActive: true,
+  currencies: [{
+    glyph: "〠",
+    amount: 1,
+    mood: "〠",
+    note: "I have decided that this forheadkiss should be wet and sloppy."
+  }]
 },
 {
   name: "Inf0rmation",
@@ -63,7 +69,13 @@ const handlesSeed = [
 {
   name: "Admin",
   mood: "+||◯",
-  isActive: false
+  isActive: false,
+  currencies: [{
+    glyph: "🕑",
+    amount: 40,
+    mood: "+◯",
+    note: "Will 🕑 4 🕑"
+  }]
 },
 {
   name: "chatb0t",

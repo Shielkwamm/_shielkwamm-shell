@@ -12,17 +12,23 @@ const RoomOperat0rInner = ({ loading, document }) => (
       <div>
         <Components.HeadTags title={`operat0r`}/>
         {document.i18nRooms.map( ir => (
-          <h2 key={ir.i18n._id}>
+          <h1 key={ir.i18n._id}>
             {ir.i18n.glyphSet.split(" ").map((glyph, index) => (
               <span onClick={e => {window.document.querySelector("#z" + ir.i18n._id + "_" + index).select(), window.document.execCommand("copy")}} key={ir.i18n._id + "_" + index}>{glyph} <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + ir.i18n._id + "_" + index} defaultValue={glyph}/></span>
             ))}
-          </h2>
+          </h1>
         ))}
         <hr></hr>
         <h2>△áìéïḱḿí△ △Ńń△ ▵ÖöÓóÒòÔôḱ▵</h2>
         <hr></hr>
         {document.roomHandles.map((rh, index) => (
-          <h2 onClick={e => {window.document.querySelector("#z" + rh._id + "_" + index).select();window.document.execCommand("copy")}} key={rh._id}>{rh.handle.name} <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + rh._id + "_" + index} defaultValue={rh.handle.name}/></h2>
+          <React.Fragment>
+          <h2 onClick={e => {window.document.querySelector("#z" + rh._id + "_" + index).select();window.document.execCommand("copy")}} key={rh._id}>{rh.handle.name}</h2>
+          <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + rh._id + "_" + index} defaultValue={rh.handle.name}/>
+          {console.log(rh.handle) && rh.handle.currencies && rh.handle.currencies.map( currency => (
+            <p>{currency.currency.glyph} {currency.amount}</p>
+          ))}
+          </React.Fragment>
         ))}
       </div>
     )}

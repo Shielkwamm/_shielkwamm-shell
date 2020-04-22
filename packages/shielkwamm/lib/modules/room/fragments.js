@@ -70,6 +70,18 @@ registerFragment(`
       handle {
         _id
         name
+        inventory
+        mood
+        connectionStatus
+        currencies {
+          _id
+          mood
+          amount
+          note
+          currency {
+            glyph
+          }
+        }
       }
     }
     i18nRooms {
