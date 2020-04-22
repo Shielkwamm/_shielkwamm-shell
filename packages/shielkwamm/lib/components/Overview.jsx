@@ -11,7 +11,9 @@ const Overview = ({ loading, document }) => (
       <Components.Room room={document}/>
     ): <h1>We are experiencing high call volume... please call back...</h1> }
     <hr></hr>
-    <h2 style={{textAlign: "center"}}><Link to="/rooms">Rooms</Link> | <Link to="/handles">Handles</Link> | <Link to="/parties">Parties</Link> | <Link to="/i18n">i18n</Link> | <Link to="/color-schemes">Color</Link> | <a href="https://github.com/Shielkwamm/one_Z-rk/wiki" target="_blank">Wiki</a></h2>
+    <h2 style={{textAlign: "center"}}><Link to="/rooms">Rooms</Link> | <Link to="/handles">Handles</Link> | <Link to="/parties">Parties</Link></h2>
+    <h2 style={{textAlign: "center"}}><Link to="/having-things">Having Things</Link> | <Link to="/things">Things</Link> | <a href="https://github.com/Shielkwamm/one_Z-rk/wiki" target="_blank">Wiki</a></h2>
+    <h2 style={{textAlign: "center"}}><Link to="/i18n">i18n</Link> | <Link to="/color-schemes">Color</Link></h2>
     <hr></hr>
   </div>
 )

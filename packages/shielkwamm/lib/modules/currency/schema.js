@@ -21,6 +21,14 @@ const schema = {
   glyph: {
     type: String,
     canRead: ['guests']
+  },
+  description: {
+    type: String,
+    canRead: ['guests']
+  },
+  ledgerUrl: {
+    type: String,
+    canRead: ['guests']
   }
   
 };

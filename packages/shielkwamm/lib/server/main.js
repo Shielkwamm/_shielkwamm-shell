@@ -3,6 +3,9 @@ import '../modules';
 
 import './colorSchemesSeed.js';
 
+import './currenciesSeed.js';
+import './equipmentsSeed.js';
+
 import './i18nsSeed.js';
 import './roomsSeed.js';
 import './partiesSeed.js';

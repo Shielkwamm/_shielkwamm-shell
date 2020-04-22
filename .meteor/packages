@@ -20,4 +20,4 @@ vulcan:ui-material
 vulcan:debug
 vulcan:forms
 
-# vulcan:backoffice
+vulcan:backoffice

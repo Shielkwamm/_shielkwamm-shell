@@ -2213,6 +2213,8 @@ type Currency {
   createdAt: Date 
   name: String 
   glyph: String 
+  description: String 
+  ledgerUrl: String 
 }
 
 
@@ -2284,6 +2286,8 @@ input CurrencyFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   glyph: String_Selector
+  description: String_Selector
+  ledgerUrl: String_Selector
 }
 
 input CurrencySortInput {
@@ -2291,6 +2295,8 @@ input CurrencySortInput {
   createdAt: SortOptions
   name: SortOptions
   glyph: SortOptions
+  description: SortOptions
+  ledgerUrl: SortOptions
 }
 
 input CurrencySelectorInput {

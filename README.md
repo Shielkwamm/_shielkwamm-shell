@@ -1,13 +1,12 @@
 #### *Welcome weary adventurers to*
 
 # `==== Shielkwámḿ ====||`
+### */^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/*
+
 
 ## [What the heck](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
 ## [Managing Expectations](https://github.com/Shielkwamm/one_Z-rk/projects/1)
 ## [Running this thing](https://github.com/Shielkwamm/one_Z-rk/wiki/learning/running.md)
-
-## Meta
-[art of the game](https://github.com/Shielkwamm/shielkwamm)
 
 ## Stack
 [vulcanjs](http://vulcanjs.org/)
@@ -22,12 +21,11 @@
 
 ## Screen shots
 
-#### Chat Room / operat0r
-![chat room](https://i.imgur.com/z0cNQIV.png)
+### Chat Room
 ![over heard at a saloon](https://i.imgur.com/OnJbbkz.png)
 
-#### Rooms list
+### Rooms list
 ![roomView](https://i.imgur.com/nVAteZ8.png)
 
-#### Color, glyphs, and parties
+### Color, glyphs, and parties
 ![color](https://i.imgur.com/aAe8tIc.png)

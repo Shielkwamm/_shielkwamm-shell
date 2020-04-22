@@ -19,3 +19,5 @@ import '../components/PartiesList.jsx';
 
 import '../components/Overview.jsx'
 import '../components/Best_sh_List.jsx';
+import '../components/HavingThings.jsx';
+import '../components/Things.jsx';
