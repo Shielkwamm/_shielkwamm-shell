@@ -2550,6 +2550,9 @@ input LawSelectorUniqueInput {
 type HandleCurrency {
   _id: String 
   createdAt: Date 
+  amount: Float 
+  mood: String 
+  note: String 
   handleId: String 
   handle: Handle 
   currencyId: String 
@@ -2620,6 +2623,9 @@ input CreateHandleCurrencyInput {
 }
 
 input CreateHandleCurrencyDataInput {
+  amount: Float 
+  mood: String 
+  note: String 
   handleId: String 
   currencyId: String 
 }
@@ -2637,6 +2643,9 @@ input UpsertHandleCurrencyInput{
 }
 
 input UpdateHandleCurrencyDataInput {
+  amount: Float 
+  mood: String 
+  note: String 
   handleId: String 
   currencyId: String 
 }
@@ -2649,6 +2658,9 @@ input HandleCurrencyFilterInput {
 
   _id: String_Selector
   createdAt: Date_Selector
+  amount: Float_Selector
+  mood: String_Selector
+  note: String_Selector
   handleId: String_Selector
   currencyId: String_Selector
 }
@@ -2656,6 +2668,9 @@ input HandleCurrencyFilterInput {
 input HandleCurrencySortInput {
   _id: SortOptions
   createdAt: SortOptions
+  amount: SortOptions
+  mood: SortOptions
+  note: SortOptions
   handleId: SortOptions
   currencyId: SortOptions
 }

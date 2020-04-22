@@ -79,7 +79,7 @@ const i18nsSeed = [{
 },
 {
   name: "~o~_MX",
-  description: "",
+  description: "pues",
   glyphSet: "👶 🎩 🦄",
   wikiUrl: "https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5B~o~_MX%5D"
 }]

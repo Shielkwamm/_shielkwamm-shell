@@ -16,15 +16,25 @@ const schema = {
   },
   amount: {
     type: Number,
-    defaultValue: 0
+    defaultValue: 0,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
   },
   mood: {
-    type: Number,
-    defaultValue: ""
+    type: String,
+    defaultValue: "",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
   },
   note: {
     type: String,
-    defaultValue: ""
+    defaultValue: "",
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
   },
   handleId: {
     type: String,

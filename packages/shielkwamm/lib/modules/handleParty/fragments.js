@@ -38,6 +38,7 @@ registerFragment(`
       parties {
         ...HandlePartiesBadge
       }
+      inventory
     }
   }
   `

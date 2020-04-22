@@ -48,7 +48,10 @@ registerFragment(`
     connectionStatus
     parties {
       ...HandlePartiesBadge
-    } 
+    }
+    currencies {
+      ...HandleCurrenciesFragment
+    }
   }
 `);
 

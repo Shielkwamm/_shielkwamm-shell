@@ -17,7 +17,15 @@ Meteor.startup(() => {
          console.log("====  Couldn't find currency", hc.glyph)
          return;
        }
-       HandleCurrencies.insert({ handleId: handleId, currencyId: currency._id, amount: hc.amount, mood: hc.mood, label: hc.label, createdAt: new Date() })
+       HandleCurrencies.insert({ 
+         handleId: handleId,
+         currencyId: currency._id,
+         amount: hc.amount,
+         mood: hc.mood,
+         note: hc.note,
+         label: hc.label,
+         createdAt: new Date() 
+        })
      })
    })
   }
@@ -34,7 +42,7 @@ const handlesSeed = [
     glyph: "🕑",
     amount: 2000000,
     mood: "__[-]🕑[-]<--",
-    label: "#1 Once you have their money, you never give it back."
+    note: "#1 Once you have their money, you never give it back."
   }]
 },
 {
