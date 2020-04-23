@@ -194,6 +194,28 @@ const schema = {
         return context.RoomHandles.find({roomId: room._id}).fetch();
       }
     }
+  },
+  locationUrl: {
+    type: String,
+    optional: true,
+    canRead: ['guests']
+  },
+  locationName: {
+    type: String,
+    optional: true,
+    canRead: ['guests']
+  },
+  gameStart: {
+    label: "Game start",
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+  },
+  gameEnd: {
+    label: "Game End",
+    type: String,
+    optional: true,
+    canRead: ['guests']
   }
 };
 

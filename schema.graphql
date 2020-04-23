@@ -762,6 +762,10 @@ type Room {
   colorScheme: ColorScheme 
   i18nRooms: [I18nRoom] 
   roomHandles: [RoomHandle] 
+  locationUrl: String 
+  locationName: String 
+  gameStart: String 
+  gameEnd: String 
 }
 
 
@@ -912,6 +916,10 @@ input RoomFilterInput {
   colorSchemeId: String_Selector
   i18nRooms: String_Selector
   roomHandles: String_Selector
+  locationUrl: String_Selector
+  locationName: String_Selector
+  gameStart: String_Selector
+  gameEnd: String_Selector
 }
 
 input RoomSortInput {
@@ -938,6 +946,10 @@ input RoomSortInput {
   colorSchemeId: SortOptions
   i18nRooms: SortOptions
   roomHandles: SortOptions
+  locationUrl: SortOptions
+  locationName: SortOptions
+  gameStart: SortOptions
+  gameEnd: SortOptions
 }
 
 input RoomSelectorInput {
@@ -968,6 +980,7 @@ type Handle {
   parties: [HandleParty] 
   connectionStatus: String 
   currencies: [HandleCurrency] 
+  roomId: String 
 }
 
 
@@ -1083,6 +1096,7 @@ input HandleFilterInput {
   parties: String_Selector
   connectionStatus: String_Selector
   currencies: String_Selector
+  roomId: String_Selector
 }
 
 input HandleSortInput {
@@ -1098,6 +1112,7 @@ input HandleSortInput {
   parties: SortOptions
   connectionStatus: SortOptions
   currencies: SortOptions
+  roomId: SortOptions
 }
 
 input HandleSelectorInput {

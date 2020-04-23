@@ -31,6 +31,12 @@ Meteor.startup(() => {
 
 const handlesPartiesSeed = [
 {
+  handleName: "Mo3a1Mosau4",
+  parties: [
+    {name: "RedditSayin", isMod: true}
+  ]
+},
+{
   handleName: "GrandNagus",
   parties: [
     {name: "galacticOversight", isMod: true},

@@ -1,12 +1,11 @@
 #### *Welcome weary adventurers to*
 
 # `==== Shielkwámḿ ====||`
-### [/^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/](https://github.com/Neobii)
 
-
-## [What the heck](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
+## [What's a ☴?](https://github.com/Shielkwamm/one_Z-rk/wiki/%7C-Spl%C3%A1shP%C3%A1ge-%7C)
+## [Running this thing](https://github.com/Shielkwamm/one_Z-rk/wiki/learning/running)
 ## [Managing Expectations](https://github.com/Shielkwamm/one_Z-rk/projects/1)
-## [Running this thing](https://github.com/Shielkwamm/one_Z-rk/wiki/learning/running.md)
+## [Lean Canvas](https://github.com/Shielkwamm/one_Z-rk/wiki/learning/lean)
 
 ## Stack
 [vulcanjs](http://vulcanjs.org/)
@@ -29,3 +28,6 @@
 
 ### Color, glyphs, and parties
 ![color](https://i.imgur.com/aAe8tIc.png)
+
+### [/^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/]()
+*RegEx by [Neobii](https://github.com/Neobii)*

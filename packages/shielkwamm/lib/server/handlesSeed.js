@@ -269,6 +269,11 @@ const handlesSeed = [
   mood: "--☴☴"
 },
 {
+  name: "Mo3a1Mosau4",
+  connectionStatus: "~",
+  mood: "_+☴+"
+},
+{
   name: "The_Event_That_Shant_Be_Named",
   mood: "+⋛ "
 },
@@ -352,10 +357,16 @@ const handlesSeed = [
     amount: 200,
     mood: "+⻌->[☰]",
     note: "[+]-_🏀🏀 Use respectively, please."
+  },
+  {
+    glyph: "+👀",
+    amount: 16,
+    mood: "+",
+    node: "from gat0rz"
   }]
 },
 {
-  name: "man"
+  name: "guy"
 },
 {
   name: "Givesnolux",

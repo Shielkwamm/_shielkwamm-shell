@@ -39,5 +39,11 @@ const colorSchemesSeed = [{
   backgroundColor: "#FBCE3A",
   linkColor: "#C9595F",
   color: "#372F2F"
+},
+{
+  name: "stillL1f3",
+  backgroundColor: "#976366",
+  linkColor: "#D0B863",
+  color: "#83A279"
 }
 ]

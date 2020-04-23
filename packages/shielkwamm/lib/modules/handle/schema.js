@@ -1,26 +1,3 @@
-import { createSchema } from 'meteor/vulcan:core';
-
-const currencySchema = createSchema({
-  currencyId: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-    resolveAs: {
-      fieldName: 'currency',
-      type: '[Currency]',
-      relation: 'hasOne',
-      resolver: (currency, {filterDir, filterColumn}, context) => {
-        return context.Currency.findOne({currencyId: currency});
-      }
-    }
-  },
-  amount: {
-    type: Number,
-    optional: true,
-    canRead: ['guests']
-  }
-})
-
 const schema = {
   // default properties
 
@@ -137,7 +114,13 @@ const schema = {
       }
     }
   },
-  
+  roomId: {
+    label: "Is this handle bound to a single room?",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests']
+  },
 };
 
 export default schema;
