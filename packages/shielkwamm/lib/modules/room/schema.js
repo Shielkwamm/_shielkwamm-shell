@@ -50,42 +50,17 @@ const schema = {
     canUpdate: ['admins'],
     input: 'textarea'
   },
+  connectionStatus: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+  },
   isActive: {
     type: Boolean,
     optional: true,
     defaultValue: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  currentExpPoints: {
-    type: String,
-    optional: false,
-    defaultValue: "0",
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  totalExpPoints: {
-    type: String,
-    optional: false,
-    defaultValue: "50",
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  level: {
-    type: String,
-    optional: false,
-    defaultValue: "0",
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  maxLevel: {
-    type: String,
-    optional: false,
-    defaultValue: "5",
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -137,20 +112,6 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  areDJMessagesMuted: {
-    type: Boolean,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
-  areCannonMessagesMuted: {
-    type: Boolean,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins']
-  },
   colorSchemeId: {
     type: String,
     optional: true,
@@ -195,21 +156,60 @@ const schema = {
       }
     }
   },
-  locationUrl: {
-    type: String,
+  //modPanels
+  areDJMessagesMuted: {
+    type: Boolean,
     optional: true,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   },
-  locationName: {
-    type: String,
+  areCannonMessagesMuted: {
+    type: Boolean,
     optional: true,
-    canRead: ['guests']
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  //Game Mechanics
+  currentExpPoints: {
+    type: String,
+    optional: false,
+    defaultValue: "0",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  totalExpPoints: {
+    type: String,
+    optional: false,
+    defaultValue: "50",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  level: {
+    type: String,
+    optional: false,
+    defaultValue: "0",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  maxLevel: {
+    type: String,
+    optional: false,
+    defaultValue: "5",
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
   },
   gameStart: {
     label: "Game start",
     type: String,
     optional: true,
     canRead: ['guests'],
+    defaultValue: new Date()
   },
   gameEnd: {
     label: "Game End",

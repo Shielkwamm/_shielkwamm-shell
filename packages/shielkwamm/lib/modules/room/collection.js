@@ -28,8 +28,15 @@ const Rooms = createCollection({
         if(data.bwam) {
           Messages.insert({text: document.bwam, roomId: document._id, createdAt: new Date()});
         }
+        if(data.vibe) {
+          let lastVibeMessage = Messages.find({roomId: document._id, type: "vibe"}, {sort: {createdAt: -1}, limit: 1}).fetch();
+          lastVibeMessage = lastVibeMessage[0];
+          if(lastVibeMessage) {
+            Messages.update({_id: lastVibeMessage._id}, {$set: {text: document.vibe + " " + document.currentMusicTitle}});
+          }
+        }
         if(data.currentMusicTitle && !document.areMediaMessagesMuted) {
-          Messages.insert({text: `${document.vibe} ${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date()});
+          Messages.insert({text: `${document.vibe} ${data.currentMusicTitle}`, roomId: document._id, createdAt: new Date(), type: "vibe"});
         }
         return document;
       }]

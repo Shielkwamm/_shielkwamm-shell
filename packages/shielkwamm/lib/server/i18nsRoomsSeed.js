@@ -35,6 +35,7 @@ const i18nsRoomsSeed = [
   i18ns: [
     {name: "basic_US"},
     {name: "female_FM"},
+    {name: "money_$$"},
     {name: "appropriate_HI"}
   ]
 },
@@ -42,6 +43,7 @@ const i18nsRoomsSeed = [
   roomName: "operat0r",
   i18ns: [
     {name: "basic_US"},
-    {name: "admin_ME"}
+    {name: "admin_ME"},
+    {name: "money_$$"},
   ]
 }]

@@ -6,5 +6,6 @@ registerFragment(`
      createdAt
      text
      roomId
+     type
    }
 `);

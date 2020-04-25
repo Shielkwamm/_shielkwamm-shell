@@ -382,5 +382,10 @@ const partiesSeed = [{
   mood: "++",
   colorScheme: "=== acktweuli ===",
   i18ns: ['math_LE']
+},
+{
+  name: "graveDanger",
+  description: "beauty",
+  colorScheme: "=== acktweuli ===",
 }
 ]

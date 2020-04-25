@@ -14,30 +14,42 @@ const Messages = createCollection({
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },
-  //callbacks: {
-  //  create: { 
-  //    before: []
-  //  }
-  //},
-  //customFilters: [
-  //  {
-  //    name: "_withRatings",
-  //    argument: "average: Int",
-  //    filter: ({ input, context, filterArguments }) => {
-  //      const { average } = filterArguments;
-  //      const { Reviews } = context;
-  //      // get all movies that have an average review score of X stars 
-  //      const xStarReviewsMoviesIds = getMoviesByScore(average);
-  //      return {
-  //        selector: { _id: { $in: xStarReviewsMoviesIds } },
-  //        options: {}
-  //      }
-  //    }
-  //  }
-  //]
-
+  callbacks: {
+    create: { //before doesn't work ??
+      after: [(document, properties) => { 
+        let messageType = extractMessageType(document.text);
+        Messages.update({_id: document._id}, {$set: {type: messageType}})
+      }],
+    },
+    update: {
+      after: [(document, properties) => {
+        let messageType = extractMessageType(document.text);
+        Messages.update({_id: document._id}, {$set: {type: messageType}})
+      }],
+    }
+  },
 });
 
-
+function extractMessageType(text) {
+  console.log(text)
+  // don't forget to view as 3 parts of _sh_ #i18n game
+  let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex
+  if(text.match(_sh_Regex)){
+    return "_sh_";
+  }
+  let vibeRegex = /^.*⬤.*$/;
+  if(text.match(vibeRegex)) {
+    return "vibe";
+  }
+  let noteRegex = /^.*🔬.*$/;//maybe not need?
+  if(text.match(noteRegex))  {
+    return "note";
+  }
+  let zorkRegex = /^[^:]+$/;
+  if(text.match(zorkRegex)){
+    return "zork";
+  }
+  return "message";
+}
 
 export default Messages;

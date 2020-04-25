@@ -50,7 +50,7 @@ const i18nsSeed = [{
 {
   name: "admin_ME",
   description: "Stuffz",
-  glyphSet: "🖌 🌍 🍕 🏀",
+  glyphSet: "🖌 🌍 🍕 🏀 🦠",
   wikiUrl: "https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Badmin_Me%5D"
 },
 {
@@ -62,7 +62,7 @@ const i18nsSeed = [{
 {
   name: "appropriate_HI",
   description: "appropriated",
-  glyphSet: "⻌ 了 ‾ ☸ ⚔ ᅘ ☑ ☕ 🦄 🍦 🌍",
+  glyphSet: "⻌ 了 ‾ ☸ ⚔ ᅘ ☑ ☕ 🦄 🍦 🌍 ☯",
   wikiUrl: "https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bappropriate_HI%5D"
 },
 {

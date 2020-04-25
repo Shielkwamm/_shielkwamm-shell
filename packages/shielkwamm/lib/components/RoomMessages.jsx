@@ -3,29 +3,22 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 
 const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let timeStamp = new Date(message.createdAt);
-  let messageRegex = /^.*:.*$/;
-  let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex
-  let vibeRegex = /^.*⬤.*$/;
-  let noteRegex = /^.*🔬.*$/;
   let style = {};
-  let _sh_Match = message.text.match(_sh_Regex);
-  let vibeMatch = message.text.match(vibeRegex);//vibe
-  let messageMatch = message.text.match(messageRegex);//zork
-  let noteMatch = message.text.match(noteRegex);//note
+  //console.log(message);
   let display = "leftHighlighted";
-  if(_sh_Match && _sh_Match[2]) {
+  if(message.type === "_sh_") {
     display = "_sh_";
   }
-  else if(messageMatch) {
+  else if(message.type === "message") {
     display = "regular"
   }
-  else if(vibeMatch) {
+  else if(message.type === "vibe") {
     display = "alert";
   }
-  else if(noteMatch) {
+  else if(message.type === "cannon") {
     display = "rightHighlighted";
   }
-  else {
+  else if(message.type === "zork") {
     display = "leftHighlighted";
   }
   style.margin = 0;

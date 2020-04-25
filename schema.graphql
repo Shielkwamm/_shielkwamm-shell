@@ -616,6 +616,7 @@ type Message {
   createdAt: Date 
   text: String 
   roomId: String 
+  type: String 
 }
 
 
@@ -684,6 +685,7 @@ input CreateMessageInput {
 input CreateMessageDataInput {
   text: String 
   roomId: String 
+  type: String 
 }
 
 input UpdateMessageInput{
@@ -701,6 +703,7 @@ input UpsertMessageInput{
 input UpdateMessageDataInput {
   text: String 
   roomId: String 
+  type: String 
 }
 
 input MessageFilterInput {
@@ -713,6 +716,7 @@ input MessageFilterInput {
   createdAt: Date_Selector
   text: String_Selector
   roomId: String_Selector
+  type: String_Selector
 }
 
 input MessageSortInput {
@@ -720,6 +724,7 @@ input MessageSortInput {
   createdAt: SortOptions
   text: SortOptions
   roomId: SortOptions
+  type: SortOptions
 }
 
 input MessageSelectorInput {
@@ -745,25 +750,24 @@ type Room {
   messageDelay: Float 
   slug: String 
   description: String 
+  connectionStatus: String 
   isActive: Boolean 
-  currentExpPoints: String 
-  totalExpPoints: String 
-  level: String 
-  maxLevel: String 
   zork: String 
   bwam: String 
   vibe: String 
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
-  areDJMessagesMuted: Boolean 
-  areCannonMessagesMuted: Boolean 
   colorSchemeId: String 
   colorScheme: ColorScheme 
   i18nRooms: [I18nRoom] 
   roomHandles: [RoomHandle] 
-  locationUrl: String 
-  locationName: String 
+  areDJMessagesMuted: Boolean 
+  areCannonMessagesMuted: Boolean 
+  currentExpPoints: String 
+  totalExpPoints: String 
+  level: String 
+  maxLevel: String 
   gameStart: String 
   gameEnd: String 
 }
@@ -837,20 +841,21 @@ input CreateRoomDataInput {
   messageDelay: Float 
   slug: String 
   description: String 
+  connectionStatus: String 
   isActive: Boolean 
-  currentExpPoints: String 
-  totalExpPoints: String 
-  level: String 
-  maxLevel: String 
   zork: String 
   bwam: String 
   vibe: String 
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
+  colorSchemeId: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
-  colorSchemeId: String 
+  currentExpPoints: String 
+  totalExpPoints: String 
+  level: String 
+  maxLevel: String 
 }
 
 input UpdateRoomInput{
@@ -871,20 +876,21 @@ input UpdateRoomDataInput {
   messageDelay: Float 
   slug: String 
   description: String 
+  connectionStatus: String 
   isActive: Boolean 
-  currentExpPoints: String 
-  totalExpPoints: String 
-  level: String 
-  maxLevel: String 
   zork: String 
   bwam: String 
   vibe: String 
   _sh_: String 
   currentMusicUrl: String 
   currentMusicTitle: String 
+  colorSchemeId: String 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
-  colorSchemeId: String 
+  currentExpPoints: String 
+  totalExpPoints: String 
+  level: String 
+  maxLevel: String 
 }
 
 input RoomFilterInput {
@@ -900,24 +906,23 @@ input RoomFilterInput {
   messageDelay: Float_Selector
   slug: String_Selector
   description: String_Selector
+  connectionStatus: String_Selector
   isActive: Boolean_Selector
-  currentExpPoints: String_Selector
-  totalExpPoints: String_Selector
-  level: String_Selector
-  maxLevel: String_Selector
   zork: String_Selector
   bwam: String_Selector
   vibe: String_Selector
   _sh_: String_Selector
   currentMusicUrl: String_Selector
   currentMusicTitle: String_Selector
-  areDJMessagesMuted: Boolean_Selector
-  areCannonMessagesMuted: Boolean_Selector
   colorSchemeId: String_Selector
   i18nRooms: String_Selector
   roomHandles: String_Selector
-  locationUrl: String_Selector
-  locationName: String_Selector
+  areDJMessagesMuted: Boolean_Selector
+  areCannonMessagesMuted: Boolean_Selector
+  currentExpPoints: String_Selector
+  totalExpPoints: String_Selector
+  level: String_Selector
+  maxLevel: String_Selector
   gameStart: String_Selector
   gameEnd: String_Selector
 }
@@ -930,24 +935,23 @@ input RoomSortInput {
   messageDelay: SortOptions
   slug: SortOptions
   description: SortOptions
+  connectionStatus: SortOptions
   isActive: SortOptions
-  currentExpPoints: SortOptions
-  totalExpPoints: SortOptions
-  level: SortOptions
-  maxLevel: SortOptions
   zork: SortOptions
   bwam: SortOptions
   vibe: SortOptions
   _sh_: SortOptions
   currentMusicUrl: SortOptions
   currentMusicTitle: SortOptions
-  areDJMessagesMuted: SortOptions
-  areCannonMessagesMuted: SortOptions
   colorSchemeId: SortOptions
   i18nRooms: SortOptions
   roomHandles: SortOptions
-  locationUrl: SortOptions
-  locationName: SortOptions
+  areDJMessagesMuted: SortOptions
+  areCannonMessagesMuted: SortOptions
+  currentExpPoints: SortOptions
+  totalExpPoints: SortOptions
+  level: SortOptions
+  maxLevel: SortOptions
   gameStart: SortOptions
   gameEnd: SortOptions
 }

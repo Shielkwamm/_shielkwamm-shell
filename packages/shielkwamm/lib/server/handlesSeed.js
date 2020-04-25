@@ -46,6 +46,11 @@ const handlesSeed = [
   }]
 },
 {
+  name: "theQuinceler",
+  mood: "[+]◯[-]",
+  currentStatus: "~"
+},
+{
   name: "MonopolyMouse",
   mood: "",
   isActive: false
@@ -377,6 +382,10 @@ const handlesSeed = [
   name: "NasaShapeUp",
   mood: "",
   isHonorary: true
+},
+{
+  name: "maMan",
+  mood: "",
 },
 {
   name: "Slimer",

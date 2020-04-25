@@ -27,6 +27,35 @@ const schema = {
     canRead: ['admins'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  type: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    defaultValue: "message",
+    options: [
+    {
+      label: "Vibe",
+      value: "vibe"
+    },
+    {
+      label: "Note",
+      value: "note"
+    },
+    {
+      label: "Money",
+      value: "money"
+    },
+    {
+      label: "Zork",
+      value: "zork"
+    },
+    /*{
+      label: "Expectations",
+      value: "expecations"
+    }*/]
   }
   // userId: {
   //   type: String,

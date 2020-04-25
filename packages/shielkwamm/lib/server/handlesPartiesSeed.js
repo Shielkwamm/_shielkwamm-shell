@@ -260,6 +260,12 @@ const handlesPartiesSeed = [
   ]
 },
 {
+  handleName: "guy",
+  parties: [
+    {name: "dracul"}
+  ]
+},
+{
   handleName: "MothPuncher",
   parties: [
     {name: "eE", isMod: true}
@@ -269,7 +275,8 @@ const handlesPartiesSeed = [
   handleName: "PinkyPromise",
   parties: [
     {name: "eE", isMod: false},
-    {name: "RedditSayin"}
+    {name: "RedditSayin"},
+    {name: "graveDanger"}
   ]
 },
 {
@@ -394,12 +401,6 @@ const handlesPartiesSeed = [
   handleName: "marilynMoney",
   parties: [
     {name: "smileyFaceFlag", isMod: true}
-  ]
-},
-{
-  handleName: "man",
-  parties: [
-    {name: "dracul"}
   ]
 },
 {
