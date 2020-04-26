@@ -118,6 +118,52 @@ input IntlValueInput{
 }
 directive @intl on FIELD_DEFINITION
 
+  input AuthPasswordInput {
+    email: String
+    password: String
+  }
+  type AuthResult {
+    token: String
+    userId: String
+  }
+  type LogoutResult {
+    userId: String
+  }
+
+  input SignupInput {
+    email: String
+    password: String
+  }
+  type SignupResult {
+    userId: String
+  }
+
+  input SetPasswordInput {
+    newPassword: String
+  }
+
+  #type SetPasswordResult # Will auth user again so we reuse AuthResult atm
+
+  input ResetPasswordInput {
+    token: String
+    newPassword: String
+  }
+  type ResetPasswordResult {
+    userId: String
+  }
+
+  input VerifyEmailInput {
+    token: String
+  }
+  type VerifyEmailResult {
+    userId: String
+  }
+
+  input AuthEmailInput {
+    email: String
+  }
+
+
 # A user object
 type User {
   _id: String 
@@ -2836,6 +2882,22 @@ type Query {
   
 
 type Mutation {
+  authenticateWithPassword(input: AuthPasswordInput): AuthResult
+
+  logout: LogoutResult
+
+  signup(input: SignupInput): SignupResult
+
+  setPassword(input: SetPasswordInput): AuthResult
+
+  sendResetPasswordEmail(input: AuthEmailInput): Boolean
+
+  resetPassword(input: ResetPasswordInput): ResetPasswordResult
+
+  sendVerificationEmail(input: AuthEmailInput): Boolean
+
+  verifyEmail(input: VerifyEmailInput): VerifyEmailResult
+
   # Mutation for creating new User documents
   createUser(
   input: CreateUserInput,

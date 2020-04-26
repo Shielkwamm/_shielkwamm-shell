@@ -8,11 +8,12 @@ vulcan:i18n-en-us@=1.14.1
 
 ############ Accounts Packages ############
 vulcan:accounts
-accounts-password@1.5.1
+accounts-password@1.6.0
 # accounts-twitter
 # accounts-facebook
 
 shielkwamm
+typescript@3.7.6              # Enable TypeScript syntax in .ts and .tsx modules
 
 # Uncomment to generate an admin area on /backoffice available to users of role "admin"
 

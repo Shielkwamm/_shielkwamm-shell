@@ -2,7 +2,7 @@ import React from 'react';
 import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 const ActiveRoomInner = ({ loading, document }) => (
   <React.Fragment>
