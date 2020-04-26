@@ -49,11 +49,11 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
     style.padding = "9px";
   }
   let timeStampF = timeStamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
+  //<p style={{textAlign: "center"}}><span style={style}>{_sh_Match[1]}</span> <span style={{fontSize: "90px", color: color, backgroundColor: backgroundColor}}>{_sh_Match[3]}</span> <span style={style}>{_sh_Match[4]}</span></p>
   return (
     <React.Fragment>
       {display === "_sh_" ? (
-        <p style={{textAlign: "center"}}><span style={style}>{_sh_Match[1]}</span> <span style={{fontSize: "90px", color: color, backgroundColor: backgroundColor}}>{_sh_Match[3]}</span> <span style={style}>{_sh_Match[4]}</span></p>
+        <p>yo</p>
       ) : null }
       {display === "rightHighlighted" ? (
         <p style={style}>{message.text}</p>

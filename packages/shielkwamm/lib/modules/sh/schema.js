@@ -1,6 +1,4 @@
 const schema = {
-  // default properties
-
   _id: {
     type: String,
     optional: true,
@@ -14,27 +12,36 @@ const schema = {
       return new Date();
     }
   },
+  salutation: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  leftBumper: {
+    type: String,
+    optional: false,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
   text: {
     type: String,
     optional: false,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
+  },
+  rightBumper: {
+    type: String,
+    optional: false,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admin']
   }
-  // userId: {
-  //   type: String,
-  //   optional: true,
-  //   canRead: ['guests'],
-  //   resolveAs: {
-  //     fieldName: 'user',
-  //     type: 'User',
-  //     resolver: (movie, args, context) => {
-  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
-  //     },
-  //     addOriginalField: true
-  //   }
-  // },
-  
 };
 
 export default schema;
+
+///^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/

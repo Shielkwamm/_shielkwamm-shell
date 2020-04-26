@@ -610,6 +610,142 @@ input CallbackSelectorUniqueInput {
 }
 
 
+# Type for Shs
+type Sh {
+  _id: String 
+  createdAt: Date 
+  salutation: String 
+  leftBumper: String 
+  text: String 
+  rightBumper: String 
+}
+
+
+input DeleteShInput{
+  filter: ShFilterInput
+  id: String
+}
+
+input SingleShInput {
+  # filtering
+  filter: ShFilterInput
+  sort: ShSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: ShSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiShInput {
+
+  # filtering
+  filter: ShFilterInput
+  sort: ShSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleShOutput{
+  result: Sh
+}
+
+type  MultiShOutput{
+  results: [Sh]
+  totalCount: Int
+}
+
+type ShMutationOutput{
+  data: Sh
+}
+
+input CreateShInput {
+  data: CreateShDataInput!
+}
+
+input CreateShDataInput {
+  salutation: String 
+  leftBumper: String 
+  text: String 
+  rightBumper: String 
+}
+
+input UpdateShInput{
+  filter: ShFilterInput
+  id: String
+  data: UpdateShDataInput!
+}
+
+input UpsertShInput{
+  filter: ShFilterInput
+  id: String
+  data: UpdateShDataInput!
+}
+
+input UpdateShDataInput {
+  salutation: String 
+  leftBumper: String 
+  text: String 
+  rightBumper: String 
+}
+
+input ShFilterInput {
+  _and: [ShFilterInput]
+  _not: ShFilterInput
+  _or: [ShFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  salutation: String_Selector
+  leftBumper: String_Selector
+  text: String_Selector
+  rightBumper: String_Selector
+}
+
+input ShSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  salutation: SortOptions
+  leftBumper: SortOptions
+  text: SortOptions
+  rightBumper: SortOptions
+}
+
+input ShSelectorInput {
+  _and: [ShSelectorInput]
+  _or: [ShSelectorInput]
+
+}
+
+input ShSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 # Type for Messages
 type Message {
   _id: String 
@@ -1126,127 +1262,6 @@ input HandleSelectorInput {
 }
 
 input HandleSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for ShS
-type Sh {
-  _id: String 
-  createdAt: Date 
-  text: String 
-}
-
-
-input DeleteShInput{
-  filter: ShFilterInput
-  id: String
-}
-
-input SingleShInput {
-  # filtering
-  filter: ShFilterInput
-  sort: ShSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: ShSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiShInput {
-
-  # filtering
-  filter: ShFilterInput
-  sort: ShSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleShOutput{
-  result: Sh
-}
-
-type  MultiShOutput{
-  results: [Sh]
-  totalCount: Int
-}
-
-type ShMutationOutput{
-  data: Sh
-}
-
-input CreateShInput {
-  data: CreateShDataInput!
-}
-
-input CreateShDataInput {
-  text: String 
-}
-
-input UpdateShInput{
-  filter: ShFilterInput
-  id: String
-  data: UpdateShDataInput!
-}
-
-input UpsertShInput{
-  filter: ShFilterInput
-  id: String
-  data: UpdateShDataInput!
-}
-
-input UpdateShDataInput {
-  text: String 
-}
-
-input ShFilterInput {
-  _and: [ShFilterInput]
-  _not: ShFilterInput
-  _or: [ShFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  text: String_Selector
-}
-
-input ShSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  text: SortOptions
-}
-
-input ShSelectorInput {
-  _and: [ShSelectorInput]
-  _or: [ShSelectorInput]
-
-}
-
-input ShSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -2727,6 +2742,12 @@ type Query {
   
   callbacks(input: MultiCallbackInput):  MultiCallbackOutput
   
+  # A single Sh document fetched by ID or slug
+  sh(input: SingleShInput!): SingleShOutput
+  
+  # A list of Sh documents matching a set of query terms
+  shes(input: MultiShInput):  MultiShOutput
+  
   # A single Message document fetched by ID or slug
   message(input: SingleMessageInput!): SingleMessageOutput
   
@@ -2744,12 +2765,6 @@ type Query {
   
   # A list of Handle documents matching a set of query terms
   handles(input: MultiHandleInput):  MultiHandleOutput
-  
-  # A single Sh document fetched by ID or slug
-  sh(input: SingleShInput!): SingleShOutput
-  
-  # A list of Sh documents matching a set of query terms
-  shes(input: MultiShInput):  MultiShOutput
   
   # A single Party document fetched by ID or slug
   party(input: SinglePartyInput!): SinglePartyOutput
@@ -2853,6 +2868,38 @@ type Mutation {
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
 
+  # Mutation for creating new Sh documents
+  createSh(
+  input: CreateShInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateShDataInput
+) : ShMutationOutput
+
+  # Mutation for updating a Sh document
+  updateSh(
+  input: UpdateShInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ShSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateShDataInput 
+) : ShMutationOutput
+
+  # Mutation for upserting a Sh document
+  upsertSh(
+  input: UpsertShInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ShSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateShDataInput
+) : ShMutationOutput
+
+  # Mutation for deleting a Sh document
+  deleteSh(
+  input: DeleteShInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ShSelectorUniqueInput
+) : ShMutationOutput
+
   # Mutation for creating new Message documents
   createMessage(
   input: CreateMessageInput,
@@ -2948,38 +2995,6 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: HandleSelectorUniqueInput
 ) : HandleMutationOutput
-
-  # Mutation for creating new Sh documents
-  createSh(
-  input: CreateShInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateShDataInput
-) : ShMutationOutput
-
-  # Mutation for updating a Sh document
-  updateSh(
-  input: UpdateShInput,
-  "Deprecated (use 'input' field instead)."
-  selector: ShSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateShDataInput 
-) : ShMutationOutput
-
-  # Mutation for upserting a Sh document
-  upsertSh(
-  input: UpsertShInput,
-  "Deprecated (use 'input' field instead)."
-  selector: ShSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateShDataInput
-) : ShMutationOutput
-
-  # Mutation for deleting a Sh document
-  deleteSh(
-  input: DeleteShInput,
-  "Deprecated (use 'input' field instead)."
-  selector: ShSelectorUniqueInput
-) : ShMutationOutput
 
   # Mutation for creating new Party documents
   createParty(

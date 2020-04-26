@@ -52,6 +52,10 @@ const schema = {
       label: "Zork",
       value: "zork"
     },
+    {
+      label: "_sh_",
+      value: "_sh_"
+    }
     /*{
       label: "Expectations",
       value: "expecations"

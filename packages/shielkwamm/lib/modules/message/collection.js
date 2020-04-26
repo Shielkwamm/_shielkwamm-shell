@@ -1,6 +1,7 @@
 import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
+import Shs from '../sh/collection.js';
 
 const Messages = createCollection({
   collectionName: 'Messages',
@@ -31,10 +32,10 @@ const Messages = createCollection({
 });
 
 function extractMessageType(text) {
-  console.log(text)
   // don't forget to view as 3 parts of _sh_ #i18n game
-  let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex
+  let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
   if(text.match(_sh_Regex)){
+    
     return "_sh_";
   }
   let vibeRegex = /^.*⬤.*$/;
