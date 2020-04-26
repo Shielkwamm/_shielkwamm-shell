@@ -17,7 +17,7 @@ const Best_sh_List = ({ loading, results }) => (
 );
 
 const options = {
-  collectionName: "ShS",
+  collectionName: "Shs",
   fragmentName: 'best_sh_', // uncomment on #Step11
 }
 
