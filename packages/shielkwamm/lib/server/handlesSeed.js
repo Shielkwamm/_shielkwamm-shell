@@ -396,4 +396,9 @@ const handlesSeed = [
   name: "brassFace",
   mood: "?-?+",
   isActive: true
+},
+{
+  name: "iMadeEmacs", //*access denied* *access denied* *access denied* *#root: echo "woot" >> .bashrc*"
+  mood: "++☴",
+  isActive: true
 }]

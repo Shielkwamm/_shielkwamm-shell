@@ -60,21 +60,19 @@ const schema = {
       label: "Expectations",
       value: "expecations"
     }*/]
-  }
-  // userId: {
-  //   type: String,
-  //   optional: true,
-  //   canRead: ['guests'],
-  //   resolveAs: {
-  //     fieldName: 'user',
-  //     type: 'User',
-  //     resolver: (movie, args, context) => {
-  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
-  //     },
-  //     addOriginalField: true
-  //   }
-  // },
-  
+  },
+  shId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      fieldName: "_sh_",
+      type: 'Sh',
+      relation: "hasOne"
+    }
+  },
 };
 
 export default schema;

@@ -753,6 +753,8 @@ type Message {
   text: String 
   roomId: String 
   type: String 
+  shId: String 
+  _sh_: Sh 
 }
 
 
@@ -822,6 +824,7 @@ input CreateMessageDataInput {
   text: String 
   roomId: String 
   type: String 
+  shId: String 
 }
 
 input UpdateMessageInput{
@@ -840,6 +843,7 @@ input UpdateMessageDataInput {
   text: String 
   roomId: String 
   type: String 
+  shId: String 
 }
 
 input MessageFilterInput {
@@ -853,6 +857,7 @@ input MessageFilterInput {
   text: String_Selector
   roomId: String_Selector
   type: String_Selector
+  shId: String_Selector
 }
 
 input MessageSortInput {
@@ -861,6 +866,7 @@ input MessageSortInput {
   text: SortOptions
   roomId: SortOptions
   type: SortOptions
+  shId: SortOptions
 }
 
 input MessageSelectorInput {

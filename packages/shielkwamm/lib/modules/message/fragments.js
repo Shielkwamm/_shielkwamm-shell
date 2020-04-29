@@ -7,5 +7,8 @@ registerFragment(`
      text
      roomId
      type
+     _sh_ {
+       ...best_sh_
+     }
    }
 `);

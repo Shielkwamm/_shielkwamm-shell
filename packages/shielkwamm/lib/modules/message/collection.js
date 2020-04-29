@@ -18,39 +18,48 @@ const Messages = createCollection({
   callbacks: {
     create: { //before doesn't work ??
       after: [(document, properties) => { 
-        let messageType = extractMessageType(document.text);
-        Messages.update({_id: document._id}, {$set: {type: messageType}})
+        let messageObj = processMessage(document);
+        Messages.update({_id: document._id}, {$set: messageObj})
       }],
     },
     update: {
       after: [(document, properties) => {
-        let messageType = extractMessageType(document.text);
-        Messages.update({_id: document._id}, {$set: {type: messageType}})
+        let messageObj = processMessage(document);
+        Messages.update({_id: document._id}, {$set: messageObj})
       }],
     }
   },
 });
 
-function extractMessageType(text) {
-  // don't forget to view as 3 parts of _sh_ #i18n game
+function processMessage(message) {
   let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
+  let text = message.text;
   if(text.match(_sh_Regex)){
-    
-    return "_sh_";
+    let res = text.match(_sh_Regex)
+    shObj = {leftBumper: res[1], text: res[3], rightBumper: res[4]}
+    let shId;
+    if(message.shId) {
+      Shs.update({_id: message.shId}, {$set: shObj})
+      shId = message.shId;
+    }
+    else {
+      shId = Shs.insert(shObj);
+    }
+    return {type: "_sh_", shId: shId};
   }
   let vibeRegex = /^.*⬤.*$/;
   if(text.match(vibeRegex)) {
-    return "vibe";
+    return {type: "vibe"};
   }
   let noteRegex = /^.*🔬.*$/;//maybe not need?
   if(text.match(noteRegex))  {
-    return "note";
+    return {type: "note"};
   }
   let zorkRegex = /^[^:]+$/;
   if(text.match(zorkRegex)){
-    return "zork";
+    return {type: "zork"};
   }
-  return "message";
+  return {type: "message"};
 }
 
 export default Messages;
