@@ -1,6 +1,7 @@
 import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
+import Handles from '../handle/collection.js'
 
 const RoomHandles = createCollection({
   collectionName: 'RoomHandles',
@@ -14,11 +15,18 @@ const RoomHandles = createCollection({
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
   },
-  //callbacks: {
-  //  create: { 
-  //    before: []
-  //  }
-  //},
+  create: {
+    after: [(document, properties) => {
+      let handle = Handles.findOne({_id: document.handleId});
+      Messages.insert({roomId: document.roomId, text: `${handle.name} joined`, createdAt: new Date()})
+    }],
+  },
+  delete: {
+    after: [(document, properties) => {
+      let handle = Handles.findOne({_id: document.handleId});
+      Messages.insert({roomId: document.roomId, text: `${handle.name} left`, createdAt: new Date()})
+    }],
+  }
   //customFilters: [
   //  {
   //    name: "_withRatings",

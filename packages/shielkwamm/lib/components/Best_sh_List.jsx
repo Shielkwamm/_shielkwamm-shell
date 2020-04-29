@@ -9,7 +9,7 @@ const Best_sh_List = ({ loading, results }) => {
       <hr></hr>
       {!loading && results.map(_sh_ => (
         <React.Fragment key={_sh_._id}>
-        <p style={{textAlign: "center", fontSize: "30px", verticalAlign: "-6px"}}><span style={{background: _sh_.colorScheme.backgroundColor, color: _sh_.colorScheme.linkColor}}>{_sh_.leftBumper}</span> <span style={{fontSize: "90px", color: _sh_.colorScheme.color, backgroundColor: _sh_.colorScheme.backgroundColor}}>{_sh_.text}</span> <span style={{background: _sh_.colorScheme.backgroundColor, color: _sh_.colorScheme.linkColor}}>{_sh_.rightBumper}</span></p>
+        <Components.Sh sh={sh}/>
         <hr></hr>
         </React.Fragment>
       ))}  

@@ -39,6 +39,7 @@ function processMessage(message) {
   if(text.match(_sh_Regex)){
     let res = text.match(_sh_Regex)
     shObj = {leftBumper: res[1], text: res[3], rightBumper: res[4], colorSchemeId: room.colorSchemeId}
+    shObj.createdAt = new Date();
     let shId;
     if(message.shId) {
       Shs.update({_id: message.shId}, {$set: shObj})

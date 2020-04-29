@@ -52,7 +52,7 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   return (
     <React.Fragment>
       {display === "_sh_" && message._sh_? (
-        <p style={{textAlign: "center"}}><span style={style}>{message._sh_.leftBumper}</span> <span style={{fontSize: "90px", color: color, backgroundColor: backgroundColor}}>{message._sh_.text}</span> <span style={style}>{message._sh_.rightBumper}</span></p>
+        <Components.Sh sh={message._sh_}/>
       ) : null }
       {display === "rightHighlighted" ? (
         <p style={style}>{message.text}</p>

@@ -21,3 +21,6 @@ import '../components/Overview.jsx'
 import '../components/Best_sh_List.jsx';
 import '../components/HavingThings.jsx';
 import '../components/Things.jsx';
+
+import '../components/LatestSh.jsx';
+import '../components/Sh.jsx';

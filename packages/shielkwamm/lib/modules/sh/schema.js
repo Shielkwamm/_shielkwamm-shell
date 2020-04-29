@@ -8,6 +8,8 @@ const schema = {
     type: Date,
     optional: true,
     canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
     onCreate: ({ newDocument, currentUser}) => {
       return new Date();
     }

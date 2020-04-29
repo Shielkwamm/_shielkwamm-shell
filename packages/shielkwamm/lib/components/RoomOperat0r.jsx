@@ -25,7 +25,7 @@ const RoomOperat0rInner = ({ loading, document }) => (
           <React.Fragment>
           <h2 onClick={e => {window.document.querySelector("#z" + rh._id + "_" + index).select();window.document.execCommand("copy")}} key={rh._id}>{rh.handle.name}</h2>
           <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + rh._id + "_" + index} defaultValue={rh.handle.name}/>
-          {console.log(rh.handle) && rh.handle.currencies && rh.handle.currencies.map( currency => (
+          {rh.handle.currencies.map( currency => (
             <p>{currency.currency.glyph} {currency.amount}</p>
           ))}
           </React.Fragment>
@@ -34,7 +34,7 @@ const RoomOperat0rInner = ({ loading, document }) => (
     )}
   </React.Fragment>
 )
-
+//console.log(rh.handle) && rh.handle.currencies && 
 const options = {
   collectionName: "Rooms",
   fragmentName: 'RoomOperat0r',

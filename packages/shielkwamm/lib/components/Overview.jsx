@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Overview = ({ loading, document }) => (
   <div className="movies-list">
-    <Components.HeadTags title={"==== Shielkwámḿ ====||"}/>
     <p style={{paddingLeft: "16px"}}><i>Welcome weary adventurers to...</i></p>
-    <h1 style={{textAlign: "center", fontSize: "50px"}}> ==== Shielkwámḿ ====||</h1>
+    <Components.LatestSh/>
+    <hr></hr>
     {!loading && document? (
       <Components.Room room={document}/>
     ): <h1>We are experiencing high call volume... please call back...</h1> }
