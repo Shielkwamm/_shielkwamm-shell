@@ -46,6 +46,14 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
+  altColor: {
+    type: String,
+    optional: false,
+    defaultValue: "#A1A1A1",
+    canRead: ['guests'],
+    canUpdate: ['admins'],
+    canCreate: ['admins']
+  }
   // userId: {
   //   type: String,
   //   optional: true,

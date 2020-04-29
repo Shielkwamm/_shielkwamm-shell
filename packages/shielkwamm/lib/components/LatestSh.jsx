@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 
 const LatestSh = ({ loading, document }) => (
   <React.Fragment>
-    {!loading ? (
+    {!loading && document ? (
       <React.Fragment>
         <Components.HeadTags title={document.leftBumper + " " + document.text + " " + document.rightBumper}/>
         <Components.Sh sh={document}/>
       </React.Fragment>
     ) : null}
+    {!loading && !document ? (
+      <h1 style={{textAlign: "center"}}>=== Shielkwȃmm ===</h1>
+    ): null}
   </React.Fragment>
 )
 

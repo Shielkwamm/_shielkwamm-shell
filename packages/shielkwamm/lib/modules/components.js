@@ -10,6 +10,7 @@ import '../components/Handles.jsx';
 import '../components/ActiveRoom.jsx';
 import '../components/RoomRoom.jsx';
 import '../components/RoomDJ.jsx';
+import '../components/Room.jsx';
 import '../components/RoomCannon.jsx';
 import '../components/RoomMessages.jsx';
 import '../components/RoomOperat0r.jsx';
@@ -25,3 +26,4 @@ import '../components/Things.jsx';
 
 import '../components/LatestSh.jsx';
 import '../components/Sh.jsx';
+import '../components/RoomCurrencies.jsx'

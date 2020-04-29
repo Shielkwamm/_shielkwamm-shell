@@ -1,6 +1,36 @@
-const schema = {
-  // default properties
+/*import { createSchema } from 'meteor/vulcan:core';
 
+const roomCurrenciesSchema = createSchema({
+  name: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+  },
+  amount: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+  },
+  glyph: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+  }
+})*/
+
+/*import { addGraphQLSchema } from 'meteor/vulcan:core';
+
+const roomCurrencies = `
+  input RoomCurrency {
+    total: Number
+    glyph: String
+    name: String
+  }
+`;
+addGraphQLSchema(roomCurrencies); 
+import { addGraphQLResolvers, addGraphQLQuery } */
+
+const schema = {
   _id: {
     type: String,
     optional: true,
@@ -134,8 +164,7 @@ const schema = {
       fieldName: 'i18nRooms',
       type: '[I18nRoom]',
       relation: 'hasMany',
-      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
-      resolver: (room, {filterDir, filterColumn}, context) => {
+      resolver: (room, args, context) => {
         return context.I18nRooms.find({roomId: room._id}).fetch();
       }
     }
@@ -150,12 +179,31 @@ const schema = {
       fieldName: 'roomHandles',
       type: '[RoomHandle]',
       relation: 'hasMany',
-      //arguments: 'filterDir: Int = -1, filterColumn: String = "volume24"',
-      resolver: (room, {filterDir, filterColumn}, context) => {
+      resolver: (room, args, context) => {
         return context.RoomHandles.find({roomId: room._id}).fetch();
       }
     }
   },
+  //currency
+  /*"currencyTotals.$": {
+    type: roomCurrenciesSchema,
+    resolveAs: {
+      fieldName: 'currencyTotals',
+      //type: 'Array',
+      resolver: (room, args, context) => {
+        console.log(room);
+        return {}
+      }
+    }
+  },
+  currencyTotals: {
+    type: Array,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+  },*/
   //modPanels
   areDJMessagesMuted: {
     type: Boolean,

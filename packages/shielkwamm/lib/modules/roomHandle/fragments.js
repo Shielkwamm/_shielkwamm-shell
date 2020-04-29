@@ -7,6 +7,14 @@ registerFragment(`
      handleId
      handle {
        ...FlatHandlesFragment
+       currencies {
+         _id
+         amount
+         currency {
+           name
+           glyph
+         }
+       }
      }
      roomId
      room {
@@ -24,6 +32,14 @@ registerFragment(`
      handleId
      handle {
        ...FlatHandlesFragment
+       currencies {
+         _id
+         amount
+         currency {
+           name
+           glyph
+         }
+       }
      }
      isDJ
      isCannon

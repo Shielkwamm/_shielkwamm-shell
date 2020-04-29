@@ -13,6 +13,7 @@ const ColorSchemesList = ({ loading, results }) => (
         <div style={{height: "55px", backgroundColor: colorScheme.color}}></div>
         <div style={{height: "55px", backgroundColor: colorScheme.backgroundColor}}></div>
         <div style={{height: "55px", backgroundColor: colorScheme.linkColor}}></div>
+        <div style={{height: "55px", backgroundColor: colorScheme.altColor}}></div>
       </div>  
       )
     )}

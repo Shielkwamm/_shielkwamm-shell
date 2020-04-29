@@ -2130,6 +2130,7 @@ type ColorScheme {
   color: String 
   backgroundColor: String 
   linkColor: String 
+  altColor: String 
 }
 
 
@@ -2200,6 +2201,7 @@ input CreateColorSchemeDataInput {
   color: String 
   backgroundColor: String 
   linkColor: String 
+  altColor: String 
 }
 
 input UpdateColorSchemeInput{
@@ -2219,6 +2221,7 @@ input UpdateColorSchemeDataInput {
   color: String 
   backgroundColor: String 
   linkColor: String 
+  altColor: String 
 }
 
 input ColorSchemeFilterInput {
@@ -2233,6 +2236,7 @@ input ColorSchemeFilterInput {
   color: String_Selector
   backgroundColor: String_Selector
   linkColor: String_Selector
+  altColor: String_Selector
 }
 
 input ColorSchemeSortInput {
@@ -2242,6 +2246,7 @@ input ColorSchemeSortInput {
   color: SortOptions
   backgroundColor: SortOptions
   linkColor: SortOptions
+  altColor: SortOptions
 }
 
 input ColorSchemeSelectorInput {

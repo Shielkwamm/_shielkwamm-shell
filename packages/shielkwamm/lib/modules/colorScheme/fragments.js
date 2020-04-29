@@ -6,6 +6,7 @@ registerFragment(`
      createdAt
      backgroundColor
      linkColor
+     altColor
      color
      name
    }
