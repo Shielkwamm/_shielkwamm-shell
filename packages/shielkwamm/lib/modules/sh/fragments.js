@@ -8,5 +8,8 @@ registerFragment(`
      leftBumper
      text
      rightBumper
+     colorScheme {
+      ...ColorSchemesFragment
+     }
    }
 `);

@@ -618,6 +618,8 @@ type Sh {
   leftBumper: String 
   text: String 
   rightBumper: String 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
 }
 
 
@@ -688,6 +690,7 @@ input CreateShDataInput {
   leftBumper: String 
   text: String 
   rightBumper: String 
+  colorSchemeId: String 
 }
 
 input UpdateShInput{
@@ -707,6 +710,7 @@ input UpdateShDataInput {
   leftBumper: String 
   text: String 
   rightBumper: String 
+  colorSchemeId: String 
 }
 
 input ShFilterInput {
@@ -721,6 +725,7 @@ input ShFilterInput {
   leftBumper: String_Selector
   text: String_Selector
   rightBumper: String_Selector
+  colorSchemeId: String_Selector
 }
 
 input ShSortInput {
@@ -730,6 +735,7 @@ input ShSortInput {
   leftBumper: SortOptions
   text: SortOptions
   rightBumper: SortOptions
+  colorSchemeId: SortOptions
 }
 
 input ShSelectorInput {

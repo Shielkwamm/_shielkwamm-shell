@@ -22,3 +22,5 @@ addRoute({ name: 'glphysList', path: '/glyphs', componentName: "GlyphsList"})
 
 addRoute({ name: 'havingThings', path: '/having-things', componentName: "HavingThings"})
 addRoute({ name: 'things', path: '/things', componentName: "Things"})
+
+addRoute({ name: "shList", path: '/best_sh_', componentName: "Best_sh_List"})

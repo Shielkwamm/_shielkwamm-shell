@@ -38,8 +38,20 @@ const schema = {
     optional: false,
     canRead: ['guests'],
     canCreate: ['admins'],
-    canUpdate: ['admin']
-  }
+    canUpdate: ['admins']
+  },
+  colorSchemeId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      fieldName: "colorScheme",
+      type: 'ColorScheme',
+      relation: "hasOne"
+    }
+  },
 };
 
 export default schema;

@@ -2,6 +2,7 @@ import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
 import Shs from '../sh/collection.js';
+import Rooms from '../room/collection.js';
 
 const Messages = createCollection({
   collectionName: 'Messages',
@@ -34,9 +35,10 @@ const Messages = createCollection({
 function processMessage(message) {
   let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
   let text = message.text;
+  let room = Rooms.findOne({_id: message.roomId});
   if(text.match(_sh_Regex)){
     let res = text.match(_sh_Regex)
-    shObj = {leftBumper: res[1], text: res[3], rightBumper: res[4]}
+    shObj = {leftBumper: res[1], text: res[3], rightBumper: res[4], colorSchemeId: room.colorSchemeId}
     let shId;
     if(message.shId) {
       Shs.update({_id: message.shId}, {$set: shObj})
