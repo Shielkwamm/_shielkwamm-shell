@@ -3,22 +3,6 @@ import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 
-const Party = ({ party }) => (
-  <Grid item xs={12}>
-    <h2><span style={{color: party.colorScheme.linkColor}}>{!!party.isActive? "": "zZz "} {party.mood}</span> <span style={{color: party.colorScheme.color}}>{party.name}- <span style={{fontWeight: "normal"}}>{party.description}</span></span><span style={{float: "right"}}>{party.connectionStatus}</span></h2>
-    <Grid item xs={6} style={{color: party.colorScheme.linkColor, float: "left"}}>
-    {party.i18ns.map(pi => (
-      <div key={pi._id}> {pi.i18n.name}</div>
-    ))}
-    </Grid>
-    <Grid item xs={6} style={{color: party.colorScheme.color, float: "right"}}>
-    {party.handles.map(ph => (
-      <div key={ph._id} style={{textAlign: "right"}}><Components.Handle handle={ph.handle}/></div>
-    ))}
-    </Grid>
-  </Grid>
-)
-
 const PartiesList = ({ loading, results }) => (
   <div className="movies-list">
     <Components.HeadTags title={`Parties`}/>
@@ -29,10 +13,10 @@ const PartiesList = ({ loading, results }) => (
     <hr></hr>
     </div>
     {!loading && results.map(party => (
-      <React.Fragment>
+      <React.Fragment key={party._id + "es"}>
         {!!party.isEsteemed ? (
-          <Grid container spacing={3} key={party._id} style={{backgroundColor: party.colorScheme.backgroundColor}}>
-            <Party party={party}/>
+          <Grid container spacing={3} style={{backgroundColor: party.colorScheme.backgroundColor}}>
+            <Components.Party party={party}/>
           </Grid>
         ): null }
         </React.Fragment>
@@ -41,10 +25,10 @@ const PartiesList = ({ loading, results }) => (
     <h1 style={{textAlign: "center"}}>=== Active ===</h1>
     <hr></hr>
     {!loading && results.map(party => (
-      <React.Fragment>
+      <React.Fragment key={party._id + "ac"} >
         {!party.isEsteemed && !!party.isActive ? (
-          <Grid container spacing={3} key={party._id}  style={{backgroundColor: party.colorScheme.backgroundColor}}>
-          <Party party={party}/>
+          <Grid container spacing={3} style={{backgroundColor: party.colorScheme.backgroundColor}}>
+          <Components.Party party={party}/>
           </Grid>
        ): null}
        </React.Fragment>
@@ -53,10 +37,10 @@ const PartiesList = ({ loading, results }) => (
     <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
     <hr></hr>
     {!loading && results.map(party => (
-      <React.Fragment>
+      <React.Fragment  key={party._id + "in"} >
       {!party.isEsteemed && !party.isActive? (
-        <Grid container spacing={3} key={party._id} style={{backgroundColor: party.colorScheme.backgroundColor}}>
-        <Party party={party}/>
+        <Grid container spacing={3}style={{backgroundColor: party.colorScheme.backgroundColor}}>
+        <Components.Party party={party}/>
         </Grid>
       ): null}
       </React.Fragment>

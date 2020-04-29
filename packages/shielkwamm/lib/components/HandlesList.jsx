@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HandleCurrencies = ({ currencies }) => (
   <React.Fragment>
     {currencies && currencies.map(currency => (
-      <p style={{marginLeft: "50px"}}>{currency.currency.glyph} [{currency.currency.name}] {currency.amount} {currency.mood}<span style={{float:"right"}}>{currency.note}</span></p> 
+      <p key={currency._id} style={{marginLeft: "50px"}}>{currency.currency.glyph} [{currency.currency.name}] {currency.amount} {currency.mood}<span style={{float:"right"}}>{currency.note}</span></p> 
     ))}
   </React.Fragment>
 )

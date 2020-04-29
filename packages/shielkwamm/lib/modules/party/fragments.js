@@ -32,9 +32,6 @@ registerFragment(`
     handles {
       ...HandlesPartyBadge
     }
-    currencies {
-      ...HandleCurrenciesFragment
-    }
   }
 `)
 

@@ -8,7 +8,7 @@ const RoomsList = ({ loading, results }) => (
     <h2><Link to="/">⏎ </Link>Rooms <span style={{float: "right"}}> count [ {results && results.length} / 7 ]</span></h2>
     <hr></hr>
     {!loading && results && results.map(room => (
-      <Components.Room room={room}/>
+      <Components.Room key={room._id} room={room}/>
     ))}
   </div>
 );
@@ -28,7 +28,7 @@ const Room = ({ room }) => (
     paddingLeft: "14px",
     paddingRight: "14px",
     background: room.colorScheme.backgroundColor,
-  }} key={room._id}>
+  }}>
     <h1><Link style={{color: room.colorScheme.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} {room._sh_} {room.bwam} </span></h1>
     <p>{room.vibe} <a style={{color: room.colorScheme.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
     <p>{room.description}</p>
@@ -36,7 +36,7 @@ const Room = ({ room }) => (
     <div style={{float: "left"}}>
     <p style={{color: room.colorScheme.linkColor}}>handles</p>
     {room.roomHandles.map(rh => (
-      <React.Fragment>
+      <React.Fragment key={rh._id}>
         {rh.handle.isActive ? (<Components.Handle key={rh._id} handle={rh.handle}/>) : null }
       </React.Fragment>
     ))}

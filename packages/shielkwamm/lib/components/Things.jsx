@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const EquipmentList = ({ loading, results }) => (
   <React.Fragment>
     {!loading && results.map(equipment => (
-      <React.Fragment>
+      <React.Fragment key={equipment._id}>
       <h2>{equipment.glyph} {equipment.name}</h2>
       <p><a href={equipment.wikiUrl}>wiki</a></p>
       <p>{equipment.description}</p>

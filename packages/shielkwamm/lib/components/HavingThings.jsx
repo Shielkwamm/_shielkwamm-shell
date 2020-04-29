@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const CurrenciesList = ({ loading, results }) => (
   <React.Fragment>
     {!loading && results.map(currency => (
-      <React.Fragment>
+      <React.Fragment key={currency._id}>
       <h2>{currency.glyph} {currency.name}</h2>
       <p><a href={currency.ledgerUrl}>ledger</a></p>
       <p>{currency.description}</p>

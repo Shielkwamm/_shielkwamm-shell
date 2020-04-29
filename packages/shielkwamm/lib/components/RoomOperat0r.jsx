@@ -22,11 +22,11 @@ const RoomOperat0rInner = ({ loading, document }) => (
         <h2>△áìéïḱḿí△ △Ńń△ ▵ÖöÓóÒòÔôḱ▵</h2>
         <hr></hr>
         {document.roomHandles.map((rh, index) => (
-          <React.Fragment>
-          <h2 onClick={e => {window.document.querySelector("#z" + rh._id + "_" + index).select();window.document.execCommand("copy")}} key={rh._id}>{rh.handle.name}</h2>
+          <React.Fragment key={rh._id}>
+          <h2 onClick={e => {window.document.querySelector("#z" + rh._id + "_" + index).select();window.document.execCommand("copy")}}>{rh.handle.name}</h2>
           <input style={{position: "absolute", top: "-200px", left: "-200px"}} id={"z" + rh._id + "_" + index} defaultValue={rh.handle.name}/>
           {rh.handle.currencies.map( currency => (
-            <p>{currency.currency.glyph} {currency.amount}</p>
+            <p key={currency._id}>{currency.currency.glyph} {currency.amount}</p>
           ))}
           </React.Fragment>
         ))}

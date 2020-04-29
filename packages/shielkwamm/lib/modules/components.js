@@ -16,6 +16,7 @@ import '../components/RoomOperat0r.jsx';
 
 import '../components/HandlesList.jsx';
 import '../components/PartiesList.jsx';
+import '../components/Party.jsx';
 
 import '../components/Overview.jsx'
 import '../components/Best_sh_List.jsx';
