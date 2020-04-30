@@ -8,5 +8,15 @@ registerFragment(`
      glyph
      description
      ledgerUrl
+     handles {
+       _id
+       amount
+       mood
+       note
+      handle {
+        _id
+        name
+      }
+     }
    }
 `);

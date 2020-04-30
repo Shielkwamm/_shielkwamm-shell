@@ -37,7 +37,22 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
-  }
+  },
+  handles: {
+    label: "Handles",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'handles',
+      type: '[HandleCurrency]',
+      relation: 'hasMany',
+      resolver: (currency, args, context) => {
+        return context.HandleCurrencies.find({currencyId: currency._id}).fetch();
+      }
+    }
+  },
   
 };
 

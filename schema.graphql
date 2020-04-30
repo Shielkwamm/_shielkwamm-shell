@@ -2317,6 +2317,7 @@ type Currency {
   glyph: String 
   description: String 
   ledgerUrl: String 
+  handles: [HandleCurrency] 
 }
 
 
@@ -2420,6 +2421,7 @@ input CurrencyFilterInput {
   glyph: String_Selector
   description: String_Selector
   ledgerUrl: String_Selector
+  handles: String_Selector
 }
 
 input CurrencySortInput {
@@ -2429,6 +2431,7 @@ input CurrencySortInput {
   glyph: SortOptions
   description: SortOptions
   ledgerUrl: SortOptions
+  handles: SortOptions
 }
 
 input CurrencySelectorInput {
