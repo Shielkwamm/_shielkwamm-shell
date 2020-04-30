@@ -33,7 +33,7 @@ const Messages = createCollection({
 });
 
 function processMessage(message) {
-  let _sh_Regex = /^((=.{0,1}){3})\s(.{4,15})\s((=.{0,1}){3})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
+  let _sh_Regex = /^((=.{0,1}){4})\s(.{4,15})\s((=.{0,1}){4})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
   let text = message.text;
   let room = Rooms.findOne({_id: message.roomId});
   if(text.match(_sh_Regex)){

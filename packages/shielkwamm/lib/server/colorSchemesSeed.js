@@ -51,5 +51,12 @@ const colorSchemesSeed = [{
   linkColor: "#D0B863",
   color: "#83A279",
   altColor: "#FFC98B"
+},
+{
+  name: "imagination",
+  backgroundColor: "rgb(226, 238, 245)",
+  linkColor: "rgb(207, 129, 208)",
+  color: "rgb(99, 197, 131)",
+  altColor: "#B8D8BC"
 }
 ]

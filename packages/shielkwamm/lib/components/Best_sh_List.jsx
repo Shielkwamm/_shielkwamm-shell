@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const Best_sh_List = ({ loading, results }) => {
   return (
     <div className="movies-list">
-      <h2 style={{textAlign: "right"}}>△ Historic</h2>
+      <h2><Link to="/">⏎ </Link><span style={{float: "right"}}>△ Historic</span></h2>
       <hr></hr>
-      {!loading && results.map(_sh_ => (
-        <React.Fragment key={_sh_._id}>
+      {!loading && results.map(sh => (
+        <React.Fragment key={sh._id}>
         <Components.Sh sh={sh}/>
         <hr></hr>
         </React.Fragment>

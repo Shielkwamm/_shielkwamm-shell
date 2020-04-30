@@ -6,13 +6,6 @@ Meteor.startup(() => {
     i18nsSeed.forEach(i18n => {
       i18n.createdAt = new Date();
       I18ns.insert(i18n);
-        /*{
-        name: i18n.name,
-        description: i18n.description,
-        glyphSet: i18n.glyphSet,
-        wikiUrl: i18n.wikiUrl,
-        createdAt: new Date()
-      })*/  
     })
    }
 });

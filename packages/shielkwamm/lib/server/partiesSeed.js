@@ -387,5 +387,10 @@ const partiesSeed = [{
   name: "graveDanger",
   description: "beauty",
   colorScheme: "=== acktweuli ===",
+},
+{
+  name: "sha6",
+  description: "👀_👀",
+  colorScheme: "=== acktweuli ==="
 }
 ]
