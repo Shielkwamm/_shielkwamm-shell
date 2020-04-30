@@ -27,3 +27,5 @@ import '../components/Things.jsx';
 import '../components/LatestSh.jsx';
 import '../components/Sh.jsx';
 import '../components/RoomCurrencies.jsx'
+
+import '../components/HandlePartiesList.jsx';

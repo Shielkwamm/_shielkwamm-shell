@@ -12,7 +12,7 @@ const Room = ({ room }) => (
     paddingRight: "14px",
     background: room.colorScheme.backgroundColor,
   }}>
-    <h1><Link style={{color: room.colorScheme.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} {room._sh_} <span style={{color: room.colorScheme.linkColor}}> {room.bwam} </span></span></h1>
+    <h1><Link style={{color: room.colorScheme.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} <span style={{color: room.colorScheme.linkColor}}>{room._sh_}</span> <span style={{color: room.colorScheme.altColor}}> {room.bwam} </span></span></h1>
     <p>{room.vibe} <a style={{color: room.colorScheme.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
     <p>{room.description}</p>
     <hr></hr>
@@ -27,7 +27,7 @@ const Room = ({ room }) => (
     <p style={{color: room.colorScheme.linkColor}}>handles</p>
     {room.roomHandles.map(rh => (
       <React.Fragment key={rh._id}>
-        {rh.handle.isActive ? (<Components.Handle key={rh._id} handle={rh.handle}/>) : null }
+        {rh.handle.isActive ? (<Components.Handle colorScheme={room.colorScheme} key={rh._id} handle={rh.handle}/>) : null }
       </React.Fragment>
     ))}
     </Grid>
