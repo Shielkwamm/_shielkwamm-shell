@@ -253,7 +253,7 @@ const handlesSeed = [
 },
 {
   name: "CoolSneakers",
-  mood: '',
+  mood: '↑‾ ',
   isActive: true,
   inventory: ['☯'],
   parties: [
@@ -615,6 +615,17 @@ const handlesSeed = [
   isHonorary: true,
   parties: [
     {name: "nasaholes"}
+  ]
+},
+{
+  name: "hab1b145_✡",
+  mood: "☴++",
+  currencies: [{
+    glyph: "👀",
+    amount: 33,
+    mood: "[+]",
+    note: "Happy Birthday?"
+  },
   ]
 },
 {

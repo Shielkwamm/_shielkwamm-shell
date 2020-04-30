@@ -1,16 +1,16 @@
 import React from 'react';
-import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
+import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const LatestSh = ({ loading, document }) => (
+const LatestSh = ({ loading, results }) => (
   <React.Fragment>
-    {!loading && document ? (
-      <React.Fragment>
-        <Components.HeadTags title={document.leftBumper + " " + document.text + " " + document.rightBumper}/>
-        <Components.Sh sh={document}/>
+    {!loading && results.map( sh => (
+      <React.Fragment key={sh._id}>
+        <Components.HeadTags title={sh.leftBumper + " " + sh.text + " " + sh.rightBumper}/>
+        <Components.Sh sh={sh}/>
       </React.Fragment>
-    ) : null}
-    {!loading && !document ? (
+    ))}
+    {!loading && results.length === 0 ? (
       <h1 style={{textAlign: "center"}}>=== Shielkwȃmm ===</h1>
     ): null}
   </React.Fragment>
@@ -19,7 +19,7 @@ const LatestSh = ({ loading, document }) => (
 const options = {
   collectionName: "Shs",
   fragmentName: 'best_sh_',
-  input: {sort: {createdAt: "desc"}}
+  input: {sort: {createdAt: "desc"}, limit: 1}
 }
 
-registerComponent({ name: 'LatestSh', component: LatestSh, hocs: [[withSingle2, options]]});
+registerComponent({ name: 'LatestSh', component: LatestSh, hocs: [[withMulti2, options]]});

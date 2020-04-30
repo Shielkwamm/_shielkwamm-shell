@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const RoomRoomInner = ({ loading, document }) => (
   <React.Fragment>
-    {loading ? (
+    {loading && !document ? (
       null
     ) : (
-      <div>
+      <React.Fragment>
         <Components.RoomHeader room={document}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["name"]}/>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
@@ -18,8 +18,7 @@ const RoomRoomInner = ({ loading, document }) => (
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["color", "backgroundColor", "linkColor"]}/>
-      </div>
+      </React.Fragment>
     )}
   </React.Fragment>
 )
