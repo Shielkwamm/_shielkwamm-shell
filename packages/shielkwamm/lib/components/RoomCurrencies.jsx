@@ -23,7 +23,7 @@ const RoomCurrencies = ({ room }) => {
   return (
     <React.Fragment>
     {currenciesList.map(cl => (
-      <p key={cl.name}>{cl.glyph} {cl.name}: {cl.amount}</p>
+      <p key={cl.name}><span style={{color: room.colorScheme.linkColor}}>{cl.glyph}</span>  {cl.name}: <span style={{color: room.colorScheme.linkColor}}>{cl.amount}</span></p>
     ))}
     </React.Fragment>
   )
