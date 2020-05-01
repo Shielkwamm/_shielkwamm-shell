@@ -29,5 +29,5 @@
 ### Color, glyphs, and parties
 ![color](https://i.imgur.com/aAe8tIc.png)
 
-### /^((=.{0,1}){4})\s(.{4,15})\s((=.{0,1}){4})/
+### /^((=.{0,1}){4})\s(.{4,20})\s((=.{0,1}){4})/
 *RegEx by [Neobii](https://github.com/Neobii)*

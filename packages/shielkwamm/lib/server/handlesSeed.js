@@ -418,11 +418,12 @@ const handlesSeed = [
   ]
 },
 {
-  name: "CheekStream",
-  note: "revoked [dang!]",
+  name: "jetFlow",
+  note: "",
   isActive: true,
   parties: [
-    {name: "time"}
+    {name: "time"},
+    {name: "onBránd", isMod: true}
   ]
 },
 {

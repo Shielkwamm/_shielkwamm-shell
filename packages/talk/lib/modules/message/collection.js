@@ -1,8 +1,9 @@
 import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
-import Shs from '../sh/collection.js';
-import Rooms from '../room/collection.js';
+import { getCollection } from 'meteor/vulcan:lib';
+//import Shs from '../sh/collection.js';
+//import Rooms from '../room/collection.js';
 
 const Messages = createCollection({
   collectionName: 'Messages',
@@ -33,20 +34,20 @@ const Messages = createCollection({
 });
 
 function processMessage(message) {
-  let _sh_Regex = /^((=.{0,1}){4})\s(.{4,15})\s((=.{0,1}){4})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
+  let _sh_Regex = /^((=.{0,1}){4})\s(.{4,20})\s((=.{0,1}){4})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
   let text = message.text;
-  let room = Rooms.findOne({_id: message.roomId});
+  let room = getCollection("Rooms").findOne({_id: message.roomId});
   if(text.match(_sh_Regex)){
     let res = text.match(_sh_Regex)
     shObj = {leftBumper: res[1], text: res[3], rightBumper: res[4], colorSchemeId: room.colorSchemeId}
     shObj.createdAt = new Date();
     let shId;
     if(message.shId) {
-      Shs.update({_id: message.shId}, {$set: shObj})
+      getCollection("Shs").update({_id: message.shId}, {$set: shObj})
       shId = message.shId;
     }
     else {
-      shId = Shs.insert(shObj);
+      shId = getCollection("Shs").insert(shObj);
     }
     return {type: "_sh_", shId: shId};
   }

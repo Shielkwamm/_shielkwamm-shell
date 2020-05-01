@@ -656,6 +656,147 @@ input CallbackSelectorUniqueInput {
 }
 
 
+# Type for ColorSchemes
+type ColorScheme {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
+  altColor: String 
+}
+
+
+input DeleteColorSchemeInput{
+  filter: ColorSchemeFilterInput
+  id: String
+}
+
+input SingleColorSchemeInput {
+  # filtering
+  filter: ColorSchemeFilterInput
+  sort: ColorSchemeSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: ColorSchemeSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiColorSchemeInput {
+
+  # filtering
+  filter: ColorSchemeFilterInput
+  sort: ColorSchemeSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleColorSchemeOutput{
+  result: ColorScheme
+}
+
+type  MultiColorSchemeOutput{
+  results: [ColorScheme]
+  totalCount: Int
+}
+
+type ColorSchemeMutationOutput{
+  data: ColorScheme
+}
+
+input CreateColorSchemeInput {
+  data: CreateColorSchemeDataInput!
+}
+
+input CreateColorSchemeDataInput {
+  name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
+  altColor: String 
+}
+
+input UpdateColorSchemeInput{
+  filter: ColorSchemeFilterInput
+  id: String
+  data: UpdateColorSchemeDataInput!
+}
+
+input UpsertColorSchemeInput{
+  filter: ColorSchemeFilterInput
+  id: String
+  data: UpdateColorSchemeDataInput!
+}
+
+input UpdateColorSchemeDataInput {
+  name: String 
+  color: String 
+  backgroundColor: String 
+  linkColor: String 
+  altColor: String 
+}
+
+input ColorSchemeFilterInput {
+  _and: [ColorSchemeFilterInput]
+  _not: ColorSchemeFilterInput
+  _or: [ColorSchemeFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  color: String_Selector
+  backgroundColor: String_Selector
+  linkColor: String_Selector
+  altColor: String_Selector
+}
+
+input ColorSchemeSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  color: SortOptions
+  backgroundColor: SortOptions
+  linkColor: SortOptions
+  altColor: SortOptions
+}
+
+input ColorSchemeSelectorInput {
+  _and: [ColorSchemeSelectorInput]
+  _or: [ColorSchemeSelectorInput]
+
+}
+
+input ColorSchemeSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
 # Type for Shs
 type Sh {
   _id: String 
@@ -793,6 +934,1019 @@ input ShSelectorInput {
 }
 
 input ShSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for I18ns
+type I18n {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  description: String 
+  glyphSet: String 
+  wikiUrl: String 
+  i18nRooms: [I18nRoom] 
+}
+
+
+input DeleteI18nInput{
+  filter: I18nFilterInput
+  id: String
+}
+
+input SingleI18nInput {
+  # filtering
+  filter: I18nFilterInput
+  sort: I18nSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: I18nSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiI18nInput {
+
+  # filtering
+  filter: I18nFilterInput
+  sort: I18nSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleI18nOutput{
+  result: I18n
+}
+
+type  MultiI18nOutput{
+  results: [I18n]
+  totalCount: Int
+}
+
+type I18nMutationOutput{
+  data: I18n
+}
+
+input CreateI18nInput {
+  data: CreateI18nDataInput!
+}
+
+input CreateI18nDataInput {
+  name: String 
+  description: String 
+  glyphSet: String 
+  wikiUrl: String 
+}
+
+input UpdateI18nInput{
+  filter: I18nFilterInput
+  id: String
+  data: UpdateI18nDataInput!
+}
+
+input UpsertI18nInput{
+  filter: I18nFilterInput
+  id: String
+  data: UpdateI18nDataInput!
+}
+
+input UpdateI18nDataInput {
+  name: String 
+  description: String 
+  glyphSet: String 
+  wikiUrl: String 
+}
+
+input I18nFilterInput {
+  _and: [I18nFilterInput]
+  _not: I18nFilterInput
+  _or: [I18nFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  description: String_Selector
+  glyphSet: String_Selector
+  wikiUrl: String_Selector
+  i18nRooms: String_Selector
+}
+
+input I18nSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  description: SortOptions
+  glyphSet: SortOptions
+  wikiUrl: SortOptions
+  i18nRooms: SortOptions
+}
+
+input I18nSelectorInput {
+  _and: [I18nSelectorInput]
+  _or: [I18nSelectorInput]
+
+}
+
+input I18nSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Handles
+type Handle {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  description: String 
+  note: String 
+  mood: String 
+  isActive: Boolean 
+  isHonorary: Boolean 
+  inventory: [String] 
+  parties: [HandleParty] 
+  connectionStatus: String 
+  currencies: [HandleCurrency] 
+  roomId: String 
+}
+
+
+input DeleteHandleInput{
+  filter: HandleFilterInput
+  id: String
+}
+
+input SingleHandleInput {
+  # filtering
+  filter: HandleFilterInput
+  sort: HandleSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: HandleSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiHandleInput {
+
+  # filtering
+  filter: HandleFilterInput
+  sort: HandleSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleHandleOutput{
+  result: Handle
+}
+
+type  MultiHandleOutput{
+  results: [Handle]
+  totalCount: Int
+}
+
+type HandleMutationOutput{
+  data: Handle
+}
+
+input CreateHandleInput {
+  data: CreateHandleDataInput!
+}
+
+input CreateHandleDataInput {
+  name: String 
+  description: String 
+  note: String 
+  mood: String 
+  isActive: Boolean 
+  isHonorary: Boolean 
+  inventory: [String] 
+}
+
+input UpdateHandleInput{
+  filter: HandleFilterInput
+  id: String
+  data: UpdateHandleDataInput!
+}
+
+input UpsertHandleInput{
+  filter: HandleFilterInput
+  id: String
+  data: UpdateHandleDataInput!
+}
+
+input UpdateHandleDataInput {
+  name: String 
+  description: String 
+  note: String 
+  mood: String 
+  isActive: Boolean 
+  isHonorary: Boolean 
+  inventory: [String] 
+}
+
+input HandleFilterInput {
+  _and: [HandleFilterInput]
+  _not: HandleFilterInput
+  _or: [HandleFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  description: String_Selector
+  note: String_Selector
+  mood: String_Selector
+  isActive: Boolean_Selector
+  isHonorary: Boolean_Selector
+  inventory: String_Array_Selector
+  parties: String_Selector
+  connectionStatus: String_Selector
+  currencies: String_Selector
+  roomId: String_Selector
+}
+
+input HandleSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  description: SortOptions
+  note: SortOptions
+  mood: SortOptions
+  isActive: SortOptions
+  isHonorary: SortOptions
+  inventory: SortOptions
+  parties: SortOptions
+  connectionStatus: SortOptions
+  currencies: SortOptions
+  roomId: SortOptions
+}
+
+input HandleSelectorInput {
+  _and: [HandleSelectorInput]
+  _or: [HandleSelectorInput]
+
+}
+
+input HandleSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Parties
+type Party {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
+  description: String 
+  isActive: Boolean 
+  mood: String 
+  isEsteemed: Boolean 
+  handles: [HandleParty] 
+  connectionStatus: String 
+  i18ns: [PartyI18n] 
+}
+
+
+input DeletePartyInput{
+  filter: PartyFilterInput
+  id: String
+}
+
+input SinglePartyInput {
+  # filtering
+  filter: PartyFilterInput
+  sort: PartySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: PartySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiPartyInput {
+
+  # filtering
+  filter: PartyFilterInput
+  sort: PartySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SinglePartyOutput{
+  result: Party
+}
+
+type  MultiPartyOutput{
+  results: [Party]
+  totalCount: Int
+}
+
+type PartyMutationOutput{
+  data: Party
+}
+
+input CreatePartyInput {
+  data: CreatePartyDataInput!
+}
+
+input CreatePartyDataInput {
+  name: String 
+  colorSchemeId: String 
+  description: String 
+  isActive: Boolean 
+  mood: String 
+  isEsteemed: Boolean 
+  connectionStatus: String 
+}
+
+input UpdatePartyInput{
+  filter: PartyFilterInput
+  id: String
+  data: UpdatePartyDataInput!
+}
+
+input UpsertPartyInput{
+  filter: PartyFilterInput
+  id: String
+  data: UpdatePartyDataInput!
+}
+
+input UpdatePartyDataInput {
+  name: String 
+  colorSchemeId: String 
+  description: String 
+  isActive: Boolean 
+  mood: String 
+  isEsteemed: Boolean 
+  connectionStatus: String 
+}
+
+input PartyFilterInput {
+  _and: [PartyFilterInput]
+  _not: PartyFilterInput
+  _or: [PartyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  colorSchemeId: String_Selector
+  description: String_Selector
+  isActive: Boolean_Selector
+  mood: String_Selector
+  isEsteemed: Boolean_Selector
+  handles: String_Selector
+  connectionStatus: String_Selector
+  i18ns: String_Selector
+}
+
+input PartySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  colorSchemeId: SortOptions
+  description: SortOptions
+  isActive: SortOptions
+  mood: SortOptions
+  isEsteemed: SortOptions
+  handles: SortOptions
+  connectionStatus: SortOptions
+  i18ns: SortOptions
+}
+
+input PartySelectorInput {
+  _and: [PartySelectorInput]
+  _or: [PartySelectorInput]
+
+}
+
+input PartySelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for HandleParties
+type HandleParty {
+  _id: String 
+  createdAt: Date 
+  partyId: String 
+  party: Party 
+  handleId: String 
+  handle: Handle 
+  connectionStatus: String 
+  isMod: Boolean 
+}
+
+
+input DeleteHandlePartyInput{
+  filter: HandlePartyFilterInput
+  id: String
+}
+
+input SingleHandlePartyInput {
+  # filtering
+  filter: HandlePartyFilterInput
+  sort: HandlePartySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: HandlePartySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiHandlePartyInput {
+
+  # filtering
+  filter: HandlePartyFilterInput
+  sort: HandlePartySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleHandlePartyOutput{
+  result: HandleParty
+}
+
+type  MultiHandlePartyOutput{
+  results: [HandleParty]
+  totalCount: Int
+}
+
+type HandlePartyMutationOutput{
+  data: HandleParty
+}
+
+input CreateHandlePartyInput {
+  data: CreateHandlePartyDataInput!
+}
+
+input CreateHandlePartyDataInput {
+  partyId: String 
+  handleId: String 
+  connectionStatus: String 
+  isMod: Boolean 
+}
+
+input UpdateHandlePartyInput{
+  filter: HandlePartyFilterInput
+  id: String
+  data: UpdateHandlePartyDataInput!
+}
+
+input UpsertHandlePartyInput{
+  filter: HandlePartyFilterInput
+  id: String
+  data: UpdateHandlePartyDataInput!
+}
+
+input UpdateHandlePartyDataInput {
+  partyId: String 
+  handleId: String 
+  connectionStatus: String 
+  isMod: Boolean 
+}
+
+input HandlePartyFilterInput {
+  _and: [HandlePartyFilterInput]
+  _not: HandlePartyFilterInput
+  _or: [HandlePartyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  partyId: String_Selector
+  handleId: String_Selector
+  connectionStatus: String_Selector
+  isMod: Boolean_Selector
+}
+
+input HandlePartySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  partyId: SortOptions
+  handleId: SortOptions
+  connectionStatus: SortOptions
+  isMod: SortOptions
+}
+
+input HandlePartySelectorInput {
+  _and: [HandlePartySelectorInput]
+  _or: [HandlePartySelectorInput]
+
+}
+
+input HandlePartySelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for PartyI18ns
+type PartyI18n {
+  _id: String 
+  createdAt: Date 
+  partyId: String 
+  party: Party 
+  i18nId: String 
+  i18n: I18n 
+  fluency: Float 
+}
+
+
+input DeletePartyI18nInput{
+  filter: PartyI18nFilterInput
+  id: String
+}
+
+input SinglePartyI18nInput {
+  # filtering
+  filter: PartyI18nFilterInput
+  sort: PartyI18nSortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: PartyI18nSelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiPartyI18nInput {
+
+  # filtering
+  filter: PartyI18nFilterInput
+  sort: PartyI18nSortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SinglePartyI18nOutput{
+  result: PartyI18n
+}
+
+type  MultiPartyI18nOutput{
+  results: [PartyI18n]
+  totalCount: Int
+}
+
+type PartyI18nMutationOutput{
+  data: PartyI18n
+}
+
+input CreatePartyI18nInput {
+  data: CreatePartyI18nDataInput!
+}
+
+input CreatePartyI18nDataInput {
+  partyId: String 
+  i18nId: String 
+  fluency: Float 
+}
+
+input UpdatePartyI18nInput{
+  filter: PartyI18nFilterInput
+  id: String
+  data: UpdatePartyI18nDataInput!
+}
+
+input UpsertPartyI18nInput{
+  filter: PartyI18nFilterInput
+  id: String
+  data: UpdatePartyI18nDataInput!
+}
+
+input UpdatePartyI18nDataInput {
+  partyId: String 
+  i18nId: String 
+  fluency: Float 
+}
+
+input PartyI18nFilterInput {
+  _and: [PartyI18nFilterInput]
+  _not: PartyI18nFilterInput
+  _or: [PartyI18nFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  partyId: String_Selector
+  i18nId: String_Selector
+  fluency: Float_Selector
+}
+
+input PartyI18nSortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  partyId: SortOptions
+  i18nId: SortOptions
+  fluency: SortOptions
+}
+
+input PartyI18nSelectorInput {
+  _and: [PartyI18nSelectorInput]
+  _or: [PartyI18nSelectorInput]
+
+}
+
+input PartyI18nSelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for Currencies
+type Currency {
+  _id: String 
+  createdAt: Date 
+  name: String 
+  glyph: String 
+  description: String 
+  ledgerUrl: String 
+  handles: [HandleCurrency] 
+}
+
+
+input DeleteCurrencyInput{
+  filter: CurrencyFilterInput
+  id: String
+}
+
+input SingleCurrencyInput {
+  # filtering
+  filter: CurrencyFilterInput
+  sort: CurrencySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: CurrencySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiCurrencyInput {
+
+  # filtering
+  filter: CurrencyFilterInput
+  sort: CurrencySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleCurrencyOutput{
+  result: Currency
+}
+
+type  MultiCurrencyOutput{
+  results: [Currency]
+  totalCount: Int
+}
+
+type CurrencyMutationOutput{
+  data: Currency
+}
+
+input CreateCurrencyInput {
+  data: CreateCurrencyDataInput!
+}
+
+input CreateCurrencyDataInput {
+  name: String 
+  glyph: String 
+  description: String 
+  ledgerUrl: String 
+}
+
+input UpdateCurrencyInput{
+  filter: CurrencyFilterInput
+  id: String
+  data: UpdateCurrencyDataInput!
+}
+
+input UpsertCurrencyInput{
+  filter: CurrencyFilterInput
+  id: String
+  data: UpdateCurrencyDataInput!
+}
+
+input UpdateCurrencyDataInput {
+  name: String 
+  glyph: String 
+  description: String 
+  ledgerUrl: String 
+}
+
+input CurrencyFilterInput {
+  _and: [CurrencyFilterInput]
+  _not: CurrencyFilterInput
+  _or: [CurrencyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  name: String_Selector
+  glyph: String_Selector
+  description: String_Selector
+  ledgerUrl: String_Selector
+  handles: String_Selector
+}
+
+input CurrencySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  name: SortOptions
+  glyph: SortOptions
+  description: SortOptions
+  ledgerUrl: SortOptions
+  handles: SortOptions
+}
+
+input CurrencySelectorInput {
+  _and: [CurrencySelectorInput]
+  _or: [CurrencySelectorInput]
+
+}
+
+input CurrencySelectorUniqueInput {
+  _id: String
+  documentId: String # OpenCRUD backwards compatibility
+  slug: String
+
+}
+
+
+# Type for HandleCurrencies
+type HandleCurrency {
+  _id: String 
+  createdAt: Date 
+  amount: Float 
+  mood: String 
+  note: String 
+  handleId: String 
+  handle: Handle 
+  currencyId: String 
+  currency: Currency 
+}
+
+
+input DeleteHandleCurrencyInput{
+  filter: HandleCurrencyFilterInput
+  id: String
+}
+
+input SingleHandleCurrencyInput {
+  # filtering
+  filter: HandleCurrencyFilterInput
+  sort: HandleCurrencySortInput
+  search: String
+  id: String
+
+  # backwards-compatibility
+  "Deprecated (use 'filter/id' fields instead)."
+  selector: HandleCurrencySelectorUniqueInput
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Return null instead of throwing MissingDocumentError
+  allowNull: Boolean
+}
+
+input MultiHandleCurrencyInput {
+
+  # filtering
+  filter: HandleCurrencyFilterInput
+  sort: HandleCurrencySortInput
+  search: String
+  offset: Int
+  limit: Int
+
+  # backwards-compatibility
+  # A JSON object that contains the query terms used to fetch data
+  "Deprecated (use 'filter/id' fields instead)."
+  terms: JSON
+
+  # options (backwards-compatibility)
+  # Whether to enable caching for this query
+  enableCache: Boolean
+  # Whether to calculate totalCount for this query
+  enableTotal: Boolean
+  
+}
+
+type SingleHandleCurrencyOutput{
+  result: HandleCurrency
+}
+
+type  MultiHandleCurrencyOutput{
+  results: [HandleCurrency]
+  totalCount: Int
+}
+
+type HandleCurrencyMutationOutput{
+  data: HandleCurrency
+}
+
+input CreateHandleCurrencyInput {
+  data: CreateHandleCurrencyDataInput!
+}
+
+input CreateHandleCurrencyDataInput {
+  amount: Float 
+  mood: String 
+  note: String 
+  handleId: String 
+  currencyId: String 
+}
+
+input UpdateHandleCurrencyInput{
+  filter: HandleCurrencyFilterInput
+  id: String
+  data: UpdateHandleCurrencyDataInput!
+}
+
+input UpsertHandleCurrencyInput{
+  filter: HandleCurrencyFilterInput
+  id: String
+  data: UpdateHandleCurrencyDataInput!
+}
+
+input UpdateHandleCurrencyDataInput {
+  amount: Float 
+  mood: String 
+  note: String 
+  handleId: String 
+  currencyId: String 
+}
+
+input HandleCurrencyFilterInput {
+  _and: [HandleCurrencyFilterInput]
+  _not: HandleCurrencyFilterInput
+  _or: [HandleCurrencyFilterInput]
+
+
+  _id: String_Selector
+  createdAt: Date_Selector
+  amount: Float_Selector
+  mood: String_Selector
+  note: String_Selector
+  handleId: String_Selector
+  currencyId: String_Selector
+}
+
+input HandleCurrencySortInput {
+  _id: SortOptions
+  createdAt: SortOptions
+  amount: SortOptions
+  mood: SortOptions
+  note: SortOptions
+  handleId: SortOptions
+  currencyId: SortOptions
+}
+
+input HandleCurrencySelectorInput {
+  _and: [HandleCurrencySelectorInput]
+  _or: [HandleCurrencySelectorInput]
+
+}
+
+input HandleCurrencySelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -1166,466 +2320,6 @@ input RoomSelectorUniqueInput {
 }
 
 
-# Type for Handles
-type Handle {
-  _id: String 
-  createdAt: Date 
-  name: String 
-  description: String 
-  note: String 
-  mood: String 
-  isActive: Boolean 
-  isHonorary: Boolean 
-  inventory: [String] 
-  parties: [HandleParty] 
-  connectionStatus: String 
-  currencies: [HandleCurrency] 
-  roomId: String 
-}
-
-
-input DeleteHandleInput{
-  filter: HandleFilterInput
-  id: String
-}
-
-input SingleHandleInput {
-  # filtering
-  filter: HandleFilterInput
-  sort: HandleSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: HandleSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiHandleInput {
-
-  # filtering
-  filter: HandleFilterInput
-  sort: HandleSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleHandleOutput{
-  result: Handle
-}
-
-type  MultiHandleOutput{
-  results: [Handle]
-  totalCount: Int
-}
-
-type HandleMutationOutput{
-  data: Handle
-}
-
-input CreateHandleInput {
-  data: CreateHandleDataInput!
-}
-
-input CreateHandleDataInput {
-  name: String 
-  description: String 
-  note: String 
-  mood: String 
-  isActive: Boolean 
-  isHonorary: Boolean 
-  inventory: [String] 
-}
-
-input UpdateHandleInput{
-  filter: HandleFilterInput
-  id: String
-  data: UpdateHandleDataInput!
-}
-
-input UpsertHandleInput{
-  filter: HandleFilterInput
-  id: String
-  data: UpdateHandleDataInput!
-}
-
-input UpdateHandleDataInput {
-  name: String 
-  description: String 
-  note: String 
-  mood: String 
-  isActive: Boolean 
-  isHonorary: Boolean 
-  inventory: [String] 
-}
-
-input HandleFilterInput {
-  _and: [HandleFilterInput]
-  _not: HandleFilterInput
-  _or: [HandleFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  name: String_Selector
-  description: String_Selector
-  note: String_Selector
-  mood: String_Selector
-  isActive: Boolean_Selector
-  isHonorary: Boolean_Selector
-  inventory: String_Array_Selector
-  parties: String_Selector
-  connectionStatus: String_Selector
-  currencies: String_Selector
-  roomId: String_Selector
-}
-
-input HandleSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  name: SortOptions
-  description: SortOptions
-  note: SortOptions
-  mood: SortOptions
-  isActive: SortOptions
-  isHonorary: SortOptions
-  inventory: SortOptions
-  parties: SortOptions
-  connectionStatus: SortOptions
-  currencies: SortOptions
-  roomId: SortOptions
-}
-
-input HandleSelectorInput {
-  _and: [HandleSelectorInput]
-  _or: [HandleSelectorInput]
-
-}
-
-input HandleSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for Parties
-type Party {
-  _id: String 
-  createdAt: Date 
-  name: String 
-  colorSchemeId: String 
-  colorScheme: ColorScheme 
-  description: String 
-  isActive: Boolean 
-  mood: String 
-  isEsteemed: Boolean 
-  handles: [HandleParty] 
-  connectionStatus: String 
-  i18ns: [PartyI18n] 
-}
-
-
-input DeletePartyInput{
-  filter: PartyFilterInput
-  id: String
-}
-
-input SinglePartyInput {
-  # filtering
-  filter: PartyFilterInput
-  sort: PartySortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: PartySelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiPartyInput {
-
-  # filtering
-  filter: PartyFilterInput
-  sort: PartySortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SinglePartyOutput{
-  result: Party
-}
-
-type  MultiPartyOutput{
-  results: [Party]
-  totalCount: Int
-}
-
-type PartyMutationOutput{
-  data: Party
-}
-
-input CreatePartyInput {
-  data: CreatePartyDataInput!
-}
-
-input CreatePartyDataInput {
-  name: String 
-  colorSchemeId: String 
-  description: String 
-  isActive: Boolean 
-  mood: String 
-  isEsteemed: Boolean 
-  connectionStatus: String 
-}
-
-input UpdatePartyInput{
-  filter: PartyFilterInput
-  id: String
-  data: UpdatePartyDataInput!
-}
-
-input UpsertPartyInput{
-  filter: PartyFilterInput
-  id: String
-  data: UpdatePartyDataInput!
-}
-
-input UpdatePartyDataInput {
-  name: String 
-  colorSchemeId: String 
-  description: String 
-  isActive: Boolean 
-  mood: String 
-  isEsteemed: Boolean 
-  connectionStatus: String 
-}
-
-input PartyFilterInput {
-  _and: [PartyFilterInput]
-  _not: PartyFilterInput
-  _or: [PartyFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  name: String_Selector
-  colorSchemeId: String_Selector
-  description: String_Selector
-  isActive: Boolean_Selector
-  mood: String_Selector
-  isEsteemed: Boolean_Selector
-  handles: String_Selector
-  connectionStatus: String_Selector
-  i18ns: String_Selector
-}
-
-input PartySortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  name: SortOptions
-  colorSchemeId: SortOptions
-  description: SortOptions
-  isActive: SortOptions
-  mood: SortOptions
-  isEsteemed: SortOptions
-  handles: SortOptions
-  connectionStatus: SortOptions
-  i18ns: SortOptions
-}
-
-input PartySelectorInput {
-  _and: [PartySelectorInput]
-  _or: [PartySelectorInput]
-
-}
-
-input PartySelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for I18ns
-type I18n {
-  _id: String 
-  createdAt: Date 
-  name: String 
-  description: String 
-  glyphSet: String 
-  wikiUrl: String 
-  i18nRooms: [I18nRoom] 
-}
-
-
-input DeleteI18nInput{
-  filter: I18nFilterInput
-  id: String
-}
-
-input SingleI18nInput {
-  # filtering
-  filter: I18nFilterInput
-  sort: I18nSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: I18nSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiI18nInput {
-
-  # filtering
-  filter: I18nFilterInput
-  sort: I18nSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleI18nOutput{
-  result: I18n
-}
-
-type  MultiI18nOutput{
-  results: [I18n]
-  totalCount: Int
-}
-
-type I18nMutationOutput{
-  data: I18n
-}
-
-input CreateI18nInput {
-  data: CreateI18nDataInput!
-}
-
-input CreateI18nDataInput {
-  name: String 
-  description: String 
-  glyphSet: String 
-  wikiUrl: String 
-}
-
-input UpdateI18nInput{
-  filter: I18nFilterInput
-  id: String
-  data: UpdateI18nDataInput!
-}
-
-input UpsertI18nInput{
-  filter: I18nFilterInput
-  id: String
-  data: UpdateI18nDataInput!
-}
-
-input UpdateI18nDataInput {
-  name: String 
-  description: String 
-  glyphSet: String 
-  wikiUrl: String 
-}
-
-input I18nFilterInput {
-  _and: [I18nFilterInput]
-  _not: I18nFilterInput
-  _or: [I18nFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  name: String_Selector
-  description: String_Selector
-  glyphSet: String_Selector
-  wikiUrl: String_Selector
-  i18nRooms: String_Selector
-}
-
-input I18nSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  name: SortOptions
-  description: SortOptions
-  glyphSet: SortOptions
-  wikiUrl: SortOptions
-  i18nRooms: SortOptions
-}
-
-input I18nSelectorInput {
-  _and: [I18nSelectorInput]
-  _or: [I18nSelectorInput]
-
-}
-
-input I18nSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
 # Type for I18nRooms
 type I18nRoom {
   _id: String 
@@ -1897,557 +2591,6 @@ input RoomHandleSelectorUniqueInput {
 }
 
 
-# Type for HandleParties
-type HandleParty {
-  _id: String 
-  createdAt: Date 
-  partyId: String 
-  party: Party 
-  handleId: String 
-  handle: Handle 
-  connectionStatus: String 
-  isMod: Boolean 
-}
-
-
-input DeleteHandlePartyInput{
-  filter: HandlePartyFilterInput
-  id: String
-}
-
-input SingleHandlePartyInput {
-  # filtering
-  filter: HandlePartyFilterInput
-  sort: HandlePartySortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: HandlePartySelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiHandlePartyInput {
-
-  # filtering
-  filter: HandlePartyFilterInput
-  sort: HandlePartySortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleHandlePartyOutput{
-  result: HandleParty
-}
-
-type  MultiHandlePartyOutput{
-  results: [HandleParty]
-  totalCount: Int
-}
-
-type HandlePartyMutationOutput{
-  data: HandleParty
-}
-
-input CreateHandlePartyInput {
-  data: CreateHandlePartyDataInput!
-}
-
-input CreateHandlePartyDataInput {
-  partyId: String 
-  handleId: String 
-  connectionStatus: String 
-  isMod: Boolean 
-}
-
-input UpdateHandlePartyInput{
-  filter: HandlePartyFilterInput
-  id: String
-  data: UpdateHandlePartyDataInput!
-}
-
-input UpsertHandlePartyInput{
-  filter: HandlePartyFilterInput
-  id: String
-  data: UpdateHandlePartyDataInput!
-}
-
-input UpdateHandlePartyDataInput {
-  partyId: String 
-  handleId: String 
-  connectionStatus: String 
-  isMod: Boolean 
-}
-
-input HandlePartyFilterInput {
-  _and: [HandlePartyFilterInput]
-  _not: HandlePartyFilterInput
-  _or: [HandlePartyFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  partyId: String_Selector
-  handleId: String_Selector
-  connectionStatus: String_Selector
-  isMod: Boolean_Selector
-}
-
-input HandlePartySortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  partyId: SortOptions
-  handleId: SortOptions
-  connectionStatus: SortOptions
-  isMod: SortOptions
-}
-
-input HandlePartySelectorInput {
-  _and: [HandlePartySelectorInput]
-  _or: [HandlePartySelectorInput]
-
-}
-
-input HandlePartySelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for PartyI18ns
-type PartyI18n {
-  _id: String 
-  createdAt: Date 
-  partyId: String 
-  party: Party 
-  i18nId: String 
-  i18n: I18n 
-  fluency: Float 
-}
-
-
-input DeletePartyI18nInput{
-  filter: PartyI18nFilterInput
-  id: String
-}
-
-input SinglePartyI18nInput {
-  # filtering
-  filter: PartyI18nFilterInput
-  sort: PartyI18nSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: PartyI18nSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiPartyI18nInput {
-
-  # filtering
-  filter: PartyI18nFilterInput
-  sort: PartyI18nSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SinglePartyI18nOutput{
-  result: PartyI18n
-}
-
-type  MultiPartyI18nOutput{
-  results: [PartyI18n]
-  totalCount: Int
-}
-
-type PartyI18nMutationOutput{
-  data: PartyI18n
-}
-
-input CreatePartyI18nInput {
-  data: CreatePartyI18nDataInput!
-}
-
-input CreatePartyI18nDataInput {
-  partyId: String 
-  i18nId: String 
-  fluency: Float 
-}
-
-input UpdatePartyI18nInput{
-  filter: PartyI18nFilterInput
-  id: String
-  data: UpdatePartyI18nDataInput!
-}
-
-input UpsertPartyI18nInput{
-  filter: PartyI18nFilterInput
-  id: String
-  data: UpdatePartyI18nDataInput!
-}
-
-input UpdatePartyI18nDataInput {
-  partyId: String 
-  i18nId: String 
-  fluency: Float 
-}
-
-input PartyI18nFilterInput {
-  _and: [PartyI18nFilterInput]
-  _not: PartyI18nFilterInput
-  _or: [PartyI18nFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  partyId: String_Selector
-  i18nId: String_Selector
-  fluency: Float_Selector
-}
-
-input PartyI18nSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  partyId: SortOptions
-  i18nId: SortOptions
-  fluency: SortOptions
-}
-
-input PartyI18nSelectorInput {
-  _and: [PartyI18nSelectorInput]
-  _or: [PartyI18nSelectorInput]
-
-}
-
-input PartyI18nSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for ColorSchemes
-type ColorScheme {
-  _id: String 
-  createdAt: Date 
-  name: String 
-  color: String 
-  backgroundColor: String 
-  linkColor: String 
-  altColor: String 
-}
-
-
-input DeleteColorSchemeInput{
-  filter: ColorSchemeFilterInput
-  id: String
-}
-
-input SingleColorSchemeInput {
-  # filtering
-  filter: ColorSchemeFilterInput
-  sort: ColorSchemeSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: ColorSchemeSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiColorSchemeInput {
-
-  # filtering
-  filter: ColorSchemeFilterInput
-  sort: ColorSchemeSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleColorSchemeOutput{
-  result: ColorScheme
-}
-
-type  MultiColorSchemeOutput{
-  results: [ColorScheme]
-  totalCount: Int
-}
-
-type ColorSchemeMutationOutput{
-  data: ColorScheme
-}
-
-input CreateColorSchemeInput {
-  data: CreateColorSchemeDataInput!
-}
-
-input CreateColorSchemeDataInput {
-  name: String 
-  color: String 
-  backgroundColor: String 
-  linkColor: String 
-  altColor: String 
-}
-
-input UpdateColorSchemeInput{
-  filter: ColorSchemeFilterInput
-  id: String
-  data: UpdateColorSchemeDataInput!
-}
-
-input UpsertColorSchemeInput{
-  filter: ColorSchemeFilterInput
-  id: String
-  data: UpdateColorSchemeDataInput!
-}
-
-input UpdateColorSchemeDataInput {
-  name: String 
-  color: String 
-  backgroundColor: String 
-  linkColor: String 
-  altColor: String 
-}
-
-input ColorSchemeFilterInput {
-  _and: [ColorSchemeFilterInput]
-  _not: ColorSchemeFilterInput
-  _or: [ColorSchemeFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  name: String_Selector
-  color: String_Selector
-  backgroundColor: String_Selector
-  linkColor: String_Selector
-  altColor: String_Selector
-}
-
-input ColorSchemeSortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  name: SortOptions
-  color: SortOptions
-  backgroundColor: SortOptions
-  linkColor: SortOptions
-  altColor: SortOptions
-}
-
-input ColorSchemeSelectorInput {
-  _and: [ColorSchemeSelectorInput]
-  _or: [ColorSchemeSelectorInput]
-
-}
-
-input ColorSchemeSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for Currencies
-type Currency {
-  _id: String 
-  createdAt: Date 
-  name: String 
-  glyph: String 
-  description: String 
-  ledgerUrl: String 
-  handles: [HandleCurrency] 
-}
-
-
-input DeleteCurrencyInput{
-  filter: CurrencyFilterInput
-  id: String
-}
-
-input SingleCurrencyInput {
-  # filtering
-  filter: CurrencyFilterInput
-  sort: CurrencySortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: CurrencySelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiCurrencyInput {
-
-  # filtering
-  filter: CurrencyFilterInput
-  sort: CurrencySortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleCurrencyOutput{
-  result: Currency
-}
-
-type  MultiCurrencyOutput{
-  results: [Currency]
-  totalCount: Int
-}
-
-type CurrencyMutationOutput{
-  data: Currency
-}
-
-input CreateCurrencyInput {
-  data: CreateCurrencyDataInput!
-}
-
-input CreateCurrencyDataInput {
-  name: String 
-  glyph: String 
-  description: String 
-  ledgerUrl: String 
-}
-
-input UpdateCurrencyInput{
-  filter: CurrencyFilterInput
-  id: String
-  data: UpdateCurrencyDataInput!
-}
-
-input UpsertCurrencyInput{
-  filter: CurrencyFilterInput
-  id: String
-  data: UpdateCurrencyDataInput!
-}
-
-input UpdateCurrencyDataInput {
-  name: String 
-  glyph: String 
-  description: String 
-  ledgerUrl: String 
-}
-
-input CurrencyFilterInput {
-  _and: [CurrencyFilterInput]
-  _not: CurrencyFilterInput
-  _or: [CurrencyFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  name: String_Selector
-  glyph: String_Selector
-  description: String_Selector
-  ledgerUrl: String_Selector
-  handles: String_Selector
-}
-
-input CurrencySortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  name: SortOptions
-  glyph: SortOptions
-  description: SortOptions
-  ledgerUrl: SortOptions
-  handles: SortOptions
-}
-
-input CurrencySelectorInput {
-  _and: [CurrencySelectorInput]
-  _or: [CurrencySelectorInput]
-
-}
-
-input CurrencySelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
 # Type for Equipment
 type Equipment {
   _id: String 
@@ -2648,149 +2791,6 @@ input LawSelectorUniqueInput {
 }
 
 
-# Type for HandleCurrencies
-type HandleCurrency {
-  _id: String 
-  createdAt: Date 
-  amount: Float 
-  mood: String 
-  note: String 
-  handleId: String 
-  handle: Handle 
-  currencyId: String 
-  currency: Currency 
-}
-
-
-input DeleteHandleCurrencyInput{
-  filter: HandleCurrencyFilterInput
-  id: String
-}
-
-input SingleHandleCurrencyInput {
-  # filtering
-  filter: HandleCurrencyFilterInput
-  sort: HandleCurrencySortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
-  selector: HandleCurrencySelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-}
-
-input MultiHandleCurrencyInput {
-
-  # filtering
-  filter: HandleCurrencyFilterInput
-  sort: HandleCurrencySortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  
-}
-
-type SingleHandleCurrencyOutput{
-  result: HandleCurrency
-}
-
-type  MultiHandleCurrencyOutput{
-  results: [HandleCurrency]
-  totalCount: Int
-}
-
-type HandleCurrencyMutationOutput{
-  data: HandleCurrency
-}
-
-input CreateHandleCurrencyInput {
-  data: CreateHandleCurrencyDataInput!
-}
-
-input CreateHandleCurrencyDataInput {
-  amount: Float 
-  mood: String 
-  note: String 
-  handleId: String 
-  currencyId: String 
-}
-
-input UpdateHandleCurrencyInput{
-  filter: HandleCurrencyFilterInput
-  id: String
-  data: UpdateHandleCurrencyDataInput!
-}
-
-input UpsertHandleCurrencyInput{
-  filter: HandleCurrencyFilterInput
-  id: String
-  data: UpdateHandleCurrencyDataInput!
-}
-
-input UpdateHandleCurrencyDataInput {
-  amount: Float 
-  mood: String 
-  note: String 
-  handleId: String 
-  currencyId: String 
-}
-
-input HandleCurrencyFilterInput {
-  _and: [HandleCurrencyFilterInput]
-  _not: HandleCurrencyFilterInput
-  _or: [HandleCurrencyFilterInput]
-
-
-  _id: String_Selector
-  createdAt: Date_Selector
-  amount: Float_Selector
-  mood: String_Selector
-  note: String_Selector
-  handleId: String_Selector
-  currencyId: String_Selector
-}
-
-input HandleCurrencySortInput {
-  _id: SortOptions
-  createdAt: SortOptions
-  amount: SortOptions
-  mood: SortOptions
-  note: SortOptions
-  handleId: SortOptions
-  currencyId: SortOptions
-}
-
-input HandleCurrencySelectorInput {
-  _and: [HandleCurrencySelectorInput]
-  _or: [HandleCurrencySelectorInput]
-
-}
-
-input HandleCurrencySelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
 
 
 type Query {
@@ -2810,23 +2810,23 @@ type Query {
   
   callbacks(input: MultiCallbackInput):  MultiCallbackOutput
   
+  # A single ColorScheme document fetched by ID or slug
+  colorScheme(input: SingleColorSchemeInput!): SingleColorSchemeOutput
+  
+  # A list of ColorScheme documents matching a set of query terms
+  colorSchemes(input: MultiColorSchemeInput):  MultiColorSchemeOutput
+  
   # A single Sh document fetched by ID or slug
   sh(input: SingleShInput!): SingleShOutput
   
   # A list of Sh documents matching a set of query terms
   shes(input: MultiShInput):  MultiShOutput
   
-  # A single Message document fetched by ID or slug
-  message(input: SingleMessageInput!): SingleMessageOutput
+  # A single I18n document fetched by ID or slug
+  i18n(input: SingleI18nInput!): SingleI18nOutput
   
-  # A list of Message documents matching a set of query terms
-  messages(input: MultiMessageInput):  MultiMessageOutput
-  
-  # A single Room document fetched by ID or slug
-  room(input: SingleRoomInput!): SingleRoomOutput
-  
-  # A list of Room documents matching a set of query terms
-  rooms(input: MultiRoomInput):  MultiRoomOutput
+  # A list of I18n documents matching a set of query terms
+  i18ns(input: MultiI18nInput):  MultiI18nOutput
   
   # A single Handle document fetched by ID or slug
   handle(input: SingleHandleInput!): SingleHandleOutput
@@ -2840,11 +2840,41 @@ type Query {
   # A list of Party documents matching a set of query terms
   parties(input: MultiPartyInput):  MultiPartyOutput
   
-  # A single I18n document fetched by ID or slug
-  i18n(input: SingleI18nInput!): SingleI18nOutput
+  # A single HandleParty document fetched by ID or slug
+  handleParty(input: SingleHandlePartyInput!): SingleHandlePartyOutput
   
-  # A list of I18n documents matching a set of query terms
-  i18ns(input: MultiI18nInput):  MultiI18nOutput
+  # A list of HandleParty documents matching a set of query terms
+  handleParties(input: MultiHandlePartyInput):  MultiHandlePartyOutput
+  
+  # A single PartyI18n document fetched by ID or slug
+  partyI18n(input: SinglePartyI18nInput!): SinglePartyI18nOutput
+  
+  # A list of PartyI18n documents matching a set of query terms
+  partyI18ns(input: MultiPartyI18nInput):  MultiPartyI18nOutput
+  
+  # A single Currency document fetched by ID or slug
+  currency(input: SingleCurrencyInput!): SingleCurrencyOutput
+  
+  # A list of Currency documents matching a set of query terms
+  currencies(input: MultiCurrencyInput):  MultiCurrencyOutput
+  
+  # A single HandleCurrency document fetched by ID or slug
+  handleCurrency(input: SingleHandleCurrencyInput!): SingleHandleCurrencyOutput
+  
+  # A list of HandleCurrency documents matching a set of query terms
+  handleCurrencies(input: MultiHandleCurrencyInput):  MultiHandleCurrencyOutput
+  
+  # A single Message document fetched by ID or slug
+  message(input: SingleMessageInput!): SingleMessageOutput
+  
+  # A list of Message documents matching a set of query terms
+  messages(input: MultiMessageInput):  MultiMessageOutput
+  
+  # A single Room document fetched by ID or slug
+  room(input: SingleRoomInput!): SingleRoomOutput
+  
+  # A list of Room documents matching a set of query terms
+  rooms(input: MultiRoomInput):  MultiRoomOutput
   
   # A single I18nRoom document fetched by ID or slug
   i18nRoom(input: SingleI18nRoomInput!): SingleI18nRoomOutput
@@ -2858,30 +2888,6 @@ type Query {
   # A list of RoomHandle documents matching a set of query terms
   roomHandles(input: MultiRoomHandleInput):  MultiRoomHandleOutput
   
-  # A single HandleParty document fetched by ID or slug
-  handleParty(input: SingleHandlePartyInput!): SingleHandlePartyOutput
-  
-  # A list of HandleParty documents matching a set of query terms
-  handleParties(input: MultiHandlePartyInput):  MultiHandlePartyOutput
-  
-  # A single PartyI18n document fetched by ID or slug
-  partyI18n(input: SinglePartyI18nInput!): SinglePartyI18nOutput
-  
-  # A list of PartyI18n documents matching a set of query terms
-  partyI18ns(input: MultiPartyI18nInput):  MultiPartyI18nOutput
-  
-  # A single ColorScheme document fetched by ID or slug
-  colorScheme(input: SingleColorSchemeInput!): SingleColorSchemeOutput
-  
-  # A list of ColorScheme documents matching a set of query terms
-  colorSchemes(input: MultiColorSchemeInput):  MultiColorSchemeOutput
-  
-  # A single Currency document fetched by ID or slug
-  currency(input: SingleCurrencyInput!): SingleCurrencyOutput
-  
-  # A list of Currency documents matching a set of query terms
-  currencies(input: MultiCurrencyInput):  MultiCurrencyOutput
-  
   # A single Equipment document fetched by ID or slug
   equipment(input: SingleEquipmentInput!): SingleEquipmentOutput
   
@@ -2893,12 +2899,6 @@ type Query {
   
   # A list of Law documents matching a set of query terms
   laws(input: MultiLawInput):  MultiLawOutput
-  
-  # A single HandleCurrency document fetched by ID or slug
-  handleCurrency(input: SingleHandleCurrencyInput!): SingleHandleCurrencyOutput
-  
-  # A list of HandleCurrency documents matching a set of query terms
-  handleCurrencies(input: MultiHandleCurrencyInput):  MultiHandleCurrencyOutput
   
 }
   
@@ -2952,6 +2952,38 @@ type Mutation {
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
 
+  # Mutation for creating new ColorScheme documents
+  createColorScheme(
+  input: CreateColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateColorSchemeDataInput
+) : ColorSchemeMutationOutput
+
+  # Mutation for updating a ColorScheme document
+  updateColorScheme(
+  input: UpdateColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ColorSchemeSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateColorSchemeDataInput 
+) : ColorSchemeMutationOutput
+
+  # Mutation for upserting a ColorScheme document
+  upsertColorScheme(
+  input: UpsertColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ColorSchemeSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateColorSchemeDataInput
+) : ColorSchemeMutationOutput
+
+  # Mutation for deleting a ColorScheme document
+  deleteColorScheme(
+  input: DeleteColorSchemeInput,
+  "Deprecated (use 'input' field instead)."
+  selector: ColorSchemeSelectorUniqueInput
+) : ColorSchemeMutationOutput
+
   # Mutation for creating new Sh documents
   createSh(
   input: CreateShInput,
@@ -2984,69 +3016,37 @@ type Mutation {
   selector: ShSelectorUniqueInput
 ) : ShMutationOutput
 
-  # Mutation for creating new Message documents
-  createMessage(
-  input: CreateMessageInput,
+  # Mutation for creating new I18n documents
+  createI18n(
+  input: CreateI18nInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateMessageDataInput
-) : MessageMutationOutput
+  data: CreateI18nDataInput
+) : I18nMutationOutput
 
-  # Mutation for updating a Message document
-  updateMessage(
-  input: UpdateMessageInput,
+  # Mutation for updating a I18n document
+  updateI18n(
+  input: UpdateI18nInput,
   "Deprecated (use 'input' field instead)."
-  selector: MessageSelectorUniqueInput,
+  selector: I18nSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateMessageDataInput 
-) : MessageMutationOutput
+  data: UpdateI18nDataInput 
+) : I18nMutationOutput
 
-  # Mutation for upserting a Message document
-  upsertMessage(
-  input: UpsertMessageInput,
+  # Mutation for upserting a I18n document
+  upsertI18n(
+  input: UpsertI18nInput,
   "Deprecated (use 'input' field instead)."
-  selector: MessageSelectorUniqueInput,
+  selector: I18nSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateMessageDataInput
-) : MessageMutationOutput
+  data: UpdateI18nDataInput
+) : I18nMutationOutput
 
-  # Mutation for deleting a Message document
-  deleteMessage(
-  input: DeleteMessageInput,
+  # Mutation for deleting a I18n document
+  deleteI18n(
+  input: DeleteI18nInput,
   "Deprecated (use 'input' field instead)."
-  selector: MessageSelectorUniqueInput
-) : MessageMutationOutput
-
-  # Mutation for creating new Room documents
-  createRoom(
-  input: CreateRoomInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateRoomDataInput
-) : RoomMutationOutput
-
-  # Mutation for updating a Room document
-  updateRoom(
-  input: UpdateRoomInput,
-  "Deprecated (use 'input' field instead)."
-  selector: RoomSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomDataInput 
-) : RoomMutationOutput
-
-  # Mutation for upserting a Room document
-  upsertRoom(
-  input: UpsertRoomInput,
-  "Deprecated (use 'input' field instead)."
-  selector: RoomSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomDataInput
-) : RoomMutationOutput
-
-  # Mutation for deleting a Room document
-  deleteRoom(
-  input: DeleteRoomInput,
-  "Deprecated (use 'input' field instead)."
-  selector: RoomSelectorUniqueInput
-) : RoomMutationOutput
+  selector: I18nSelectorUniqueInput
+) : I18nMutationOutput
 
   # Mutation for creating new Handle documents
   createHandle(
@@ -3112,37 +3112,197 @@ type Mutation {
   selector: PartySelectorUniqueInput
 ) : PartyMutationOutput
 
-  # Mutation for creating new I18n documents
-  createI18n(
-  input: CreateI18nInput,
+  # Mutation for creating new HandleParty documents
+  createHandleParty(
+  input: CreateHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateI18nDataInput
-) : I18nMutationOutput
+  data: CreateHandlePartyDataInput
+) : HandlePartyMutationOutput
 
-  # Mutation for updating a I18n document
-  updateI18n(
-  input: UpdateI18nInput,
+  # Mutation for updating a HandleParty document
+  updateHandleParty(
+  input: UpdateHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nSelectorUniqueInput,
+  selector: HandlePartySelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateI18nDataInput 
-) : I18nMutationOutput
+  data: UpdateHandlePartyDataInput 
+) : HandlePartyMutationOutput
 
-  # Mutation for upserting a I18n document
-  upsertI18n(
-  input: UpsertI18nInput,
+  # Mutation for upserting a HandleParty document
+  upsertHandleParty(
+  input: UpsertHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nSelectorUniqueInput,
+  selector: HandlePartySelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateI18nDataInput
-) : I18nMutationOutput
+  data: UpdateHandlePartyDataInput
+) : HandlePartyMutationOutput
 
-  # Mutation for deleting a I18n document
-  deleteI18n(
-  input: DeleteI18nInput,
+  # Mutation for deleting a HandleParty document
+  deleteHandleParty(
+  input: DeleteHandlePartyInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nSelectorUniqueInput
-) : I18nMutationOutput
+  selector: HandlePartySelectorUniqueInput
+) : HandlePartyMutationOutput
+
+  # Mutation for creating new PartyI18n documents
+  createPartyI18n(
+  input: CreatePartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreatePartyI18nDataInput
+) : PartyI18nMutationOutput
+
+  # Mutation for updating a PartyI18n document
+  updatePartyI18n(
+  input: UpdatePartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartyI18nSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdatePartyI18nDataInput 
+) : PartyI18nMutationOutput
+
+  # Mutation for upserting a PartyI18n document
+  upsertPartyI18n(
+  input: UpsertPartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartyI18nSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdatePartyI18nDataInput
+) : PartyI18nMutationOutput
+
+  # Mutation for deleting a PartyI18n document
+  deletePartyI18n(
+  input: DeletePartyI18nInput,
+  "Deprecated (use 'input' field instead)."
+  selector: PartyI18nSelectorUniqueInput
+) : PartyI18nMutationOutput
+
+  # Mutation for creating new Currency documents
+  createCurrency(
+  input: CreateCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateCurrencyDataInput
+) : CurrencyMutationOutput
+
+  # Mutation for updating a Currency document
+  updateCurrency(
+  input: UpdateCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: CurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateCurrencyDataInput 
+) : CurrencyMutationOutput
+
+  # Mutation for upserting a Currency document
+  upsertCurrency(
+  input: UpsertCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: CurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateCurrencyDataInput
+) : CurrencyMutationOutput
+
+  # Mutation for deleting a Currency document
+  deleteCurrency(
+  input: DeleteCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: CurrencySelectorUniqueInput
+) : CurrencyMutationOutput
+
+  # Mutation for creating new HandleCurrency documents
+  createHandleCurrency(
+  input: CreateHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateHandleCurrencyDataInput
+) : HandleCurrencyMutationOutput
+
+  # Mutation for updating a HandleCurrency document
+  updateHandleCurrency(
+  input: UpdateHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleCurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandleCurrencyDataInput 
+) : HandleCurrencyMutationOutput
+
+  # Mutation for upserting a HandleCurrency document
+  upsertHandleCurrency(
+  input: UpsertHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleCurrencySelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateHandleCurrencyDataInput
+) : HandleCurrencyMutationOutput
+
+  # Mutation for deleting a HandleCurrency document
+  deleteHandleCurrency(
+  input: DeleteHandleCurrencyInput,
+  "Deprecated (use 'input' field instead)."
+  selector: HandleCurrencySelectorUniqueInput
+) : HandleCurrencyMutationOutput
+
+  # Mutation for creating new Message documents
+  createMessage(
+  input: CreateMessageInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateMessageDataInput
+) : MessageMutationOutput
+
+  # Mutation for updating a Message document
+  updateMessage(
+  input: UpdateMessageInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MessageSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateMessageDataInput 
+) : MessageMutationOutput
+
+  # Mutation for upserting a Message document
+  upsertMessage(
+  input: UpsertMessageInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MessageSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateMessageDataInput
+) : MessageMutationOutput
+
+  # Mutation for deleting a Message document
+  deleteMessage(
+  input: DeleteMessageInput,
+  "Deprecated (use 'input' field instead)."
+  selector: MessageSelectorUniqueInput
+) : MessageMutationOutput
+
+  # Mutation for creating new Room documents
+  createRoom(
+  input: CreateRoomInput,
+  "Deprecated (use 'input' field instead)."
+  data: CreateRoomDataInput
+) : RoomMutationOutput
+
+  # Mutation for updating a Room document
+  updateRoom(
+  input: UpdateRoomInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateRoomDataInput 
+) : RoomMutationOutput
+
+  # Mutation for upserting a Room document
+  upsertRoom(
+  input: UpsertRoomInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomSelectorUniqueInput,
+  "Deprecated (use 'input' field instead)."
+  data: UpdateRoomDataInput
+) : RoomMutationOutput
+
+  # Mutation for deleting a Room document
+  deleteRoom(
+  input: DeleteRoomInput,
+  "Deprecated (use 'input' field instead)."
+  selector: RoomSelectorUniqueInput
+) : RoomMutationOutput
 
   # Mutation for creating new I18nRoom documents
   createI18nRoom(
@@ -3208,134 +3368,6 @@ type Mutation {
   selector: RoomHandleSelectorUniqueInput
 ) : RoomHandleMutationOutput
 
-  # Mutation for creating new HandleParty documents
-  createHandleParty(
-  input: CreateHandlePartyInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateHandlePartyDataInput
-) : HandlePartyMutationOutput
-
-  # Mutation for updating a HandleParty document
-  updateHandleParty(
-  input: UpdateHandlePartyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: HandlePartySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateHandlePartyDataInput 
-) : HandlePartyMutationOutput
-
-  # Mutation for upserting a HandleParty document
-  upsertHandleParty(
-  input: UpsertHandlePartyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: HandlePartySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateHandlePartyDataInput
-) : HandlePartyMutationOutput
-
-  # Mutation for deleting a HandleParty document
-  deleteHandleParty(
-  input: DeleteHandlePartyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: HandlePartySelectorUniqueInput
-) : HandlePartyMutationOutput
-
-  # Mutation for creating new PartyI18n documents
-  createPartyI18n(
-  input: CreatePartyI18nInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreatePartyI18nDataInput
-) : PartyI18nMutationOutput
-
-  # Mutation for updating a PartyI18n document
-  updatePartyI18n(
-  input: UpdatePartyI18nInput,
-  "Deprecated (use 'input' field instead)."
-  selector: PartyI18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdatePartyI18nDataInput 
-) : PartyI18nMutationOutput
-
-  # Mutation for upserting a PartyI18n document
-  upsertPartyI18n(
-  input: UpsertPartyI18nInput,
-  "Deprecated (use 'input' field instead)."
-  selector: PartyI18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdatePartyI18nDataInput
-) : PartyI18nMutationOutput
-
-  # Mutation for deleting a PartyI18n document
-  deletePartyI18n(
-  input: DeletePartyI18nInput,
-  "Deprecated (use 'input' field instead)."
-  selector: PartyI18nSelectorUniqueInput
-) : PartyI18nMutationOutput
-
-  # Mutation for creating new ColorScheme documents
-  createColorScheme(
-  input: CreateColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateColorSchemeDataInput
-) : ColorSchemeMutationOutput
-
-  # Mutation for updating a ColorScheme document
-  updateColorScheme(
-  input: UpdateColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
-  selector: ColorSchemeSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateColorSchemeDataInput 
-) : ColorSchemeMutationOutput
-
-  # Mutation for upserting a ColorScheme document
-  upsertColorScheme(
-  input: UpsertColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
-  selector: ColorSchemeSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateColorSchemeDataInput
-) : ColorSchemeMutationOutput
-
-  # Mutation for deleting a ColorScheme document
-  deleteColorScheme(
-  input: DeleteColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
-  selector: ColorSchemeSelectorUniqueInput
-) : ColorSchemeMutationOutput
-
-  # Mutation for creating new Currency documents
-  createCurrency(
-  input: CreateCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateCurrencyDataInput
-) : CurrencyMutationOutput
-
-  # Mutation for updating a Currency document
-  updateCurrency(
-  input: UpdateCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: CurrencySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateCurrencyDataInput 
-) : CurrencyMutationOutput
-
-  # Mutation for upserting a Currency document
-  upsertCurrency(
-  input: UpsertCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: CurrencySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateCurrencyDataInput
-) : CurrencyMutationOutput
-
-  # Mutation for deleting a Currency document
-  deleteCurrency(
-  input: DeleteCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: CurrencySelectorUniqueInput
-) : CurrencyMutationOutput
-
   # Mutation for deleting a Equipment document
   deleteEquipment(
   input: DeleteEquipmentInput,
@@ -3349,38 +3381,6 @@ type Mutation {
   "Deprecated (use 'input' field instead)."
   selector: LawSelectorUniqueInput
 ) : LawMutationOutput
-
-  # Mutation for creating new HandleCurrency documents
-  createHandleCurrency(
-  input: CreateHandleCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  data: CreateHandleCurrencyDataInput
-) : HandleCurrencyMutationOutput
-
-  # Mutation for updating a HandleCurrency document
-  updateHandleCurrency(
-  input: UpdateHandleCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: HandleCurrencySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateHandleCurrencyDataInput 
-) : HandleCurrencyMutationOutput
-
-  # Mutation for upserting a HandleCurrency document
-  upsertHandleCurrency(
-  input: UpsertHandleCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: HandleCurrencySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateHandleCurrencyDataInput
-) : HandleCurrencyMutationOutput
-
-  # Mutation for deleting a HandleCurrency document
-  deleteHandleCurrency(
-  input: DeleteHandleCurrencyInput,
-  "Deprecated (use 'input' field instead)."
-  selector: HandleCurrencySelectorUniqueInput
-) : HandleCurrencyMutationOutput
 
 }
 

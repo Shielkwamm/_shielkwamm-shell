@@ -1,7 +1,7 @@
 import { createCollection } from 'meteor/vulcan:core';
+import { getCollection } from 'meteor/vulcan:lib';
 import schema from './schema.js';
 import './fragments.js';
-import Handles from '../handle/collection.js'
 
 const RoomHandles = createCollection({
   collectionName: 'RoomHandles',
@@ -17,13 +17,13 @@ const RoomHandles = createCollection({
   },
   create: {
     after: [(document, properties) => {
-      let handle = Handles.findOne({_id: document.handleId});
+      let handle = getCollection("Handles").findOne({_id: document.handleId});
       Messages.insert({roomId: document.roomId, text: `${handle.name} joined`, createdAt: new Date()})
     }],
   },
   delete: {
     after: [(document, properties) => {
-      let handle = Handles.findOne({_id: document.handleId});
+      let handle = getCollection("Handles").findOne({_id: document.handleId});
       Messages.insert({roomId: document.roomId, text: `${handle.name} left`, createdAt: new Date()})
     }],
   }

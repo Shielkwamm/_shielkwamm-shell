@@ -36,6 +36,14 @@ const partiesSeed = [{
   i18ns: ['romNom_US', 'admin_ME', 'agile_JP', 'math_LE', 'done_WK']
 },
 {
+  name: "onBránd",
+  description: "",
+  isActive: true,
+  mood: "☴",
+  colorScheme: "=== acktweuli ===",
+  i18ns: ['done_WK']
+},
+{
   name: "### Shielkwamm Council ###",
   description: "Yup",
   isActive: true,

@@ -18,8 +18,6 @@ addRoute({ name: 'colorSchemesList', path: '/color-schemes', componentName: "Col
 
 addRoute({ name: 'i18nsList', path: '/i18n', componentName: "i18nsList"});
 
-addRoute({ name: 'glphysList', path: '/glyphs', componentName: "GlyphsList"})
-
 addRoute({ name: 'havingThings', path: '/having-things', componentName: "HavingThings"})
 addRoute({ name: 'things', path: '/things', componentName: "Things"})
 

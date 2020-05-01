@@ -1,17 +1,4 @@
 import './routes';
 import './components';
-import './room/collection.js';
-import './message/collection.js';
-import './handle/collection.js';
-import './sh/collection.js';
-import './party/collection.js';
-import './i18n/collection.js';
-import './i18nRoom/collection.js';
-import './roomHandle/collection.js';
-import './handleParty/collection.js';
-import './partyI18n/collection.js';
-import './colorScheme/collection.js';
-import './currency/collection.js';
 import './equipment/collection.js';
 import './law/collection.js';
-import './handleCurrency/collection.js';

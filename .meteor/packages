@@ -12,12 +12,26 @@ accounts-password@1.6.0
 # accounts-twitter
 # accounts-facebook
 
-shielkwamm
-
-# Uncomment to generate an admin area on /backoffice available to users of role "admin"
-
 vulcan:ui-material
 vulcan:debug
 vulcan:forms
+
+# when in doubt live aethetically
+color-schemes 
+
+# Use your words
+lexicon
+
+# I think there for I am
+garden 
+
+# It helps
+having-things
+
+# marble madness
+talk 
+
+# _sh
+shielkwamm
 
 vulcan:backoffice
