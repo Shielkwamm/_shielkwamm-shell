@@ -7,51 +7,53 @@ const PartiesList = ({ loading, results }) => (
   <div className="movies-list">
     <Components.HeadTags title={`Parties`}/>
     <h2><Link to="/">⏎ </Link>Parties<span style={{float: "right"}}>count [ {results && results.length} / 50 ]</span></h2>
-    <div>
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== esteemed ===</h1>
-    <hr></hr>
-    </div>
+    <Grid container spacing={3} style={{padding: "0 20px 20px 20px"}}>
     {!loading && results.map(party => (
       <React.Fragment key={party._id + "es"}>
         {!!party.isEsteemed ? (
-          <Grid container spacing={3} style={{backgroundColor: party.colorScheme.backgroundColor}}>
+          <Grid item md={6} sm={12}>
             <Components.Party party={party}/>
           </Grid>
         ): null }
         </React.Fragment>
     ))}
+    </Grid>
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Active ===</h1>
-    <hr></hr>
+    <Grid container spacing={3} style={{padding: "0 20px 20px 20px"}}>
     {!loading && results.map(party => (
-      <React.Fragment key={party._id + "ac"} >
+      <React.Fragment key={party._id + "ac"}>
         {!party.isEsteemed && !!party.isActive ? (
-          <Grid container spacing={3} style={{backgroundColor: party.colorScheme.backgroundColor}}>
-          <Components.Party party={party}/>
+          <Grid item md={6} sm={12}>
+            <Components.Party party={party}/>
           </Grid>
        ): null}
        </React.Fragment>
     ))}
+    </Grid>
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
-    <hr></hr>
+    <Grid container spacing={3} style={{padding: "0 20px 20px 20px"}}>
     {!loading && results.map(party => (
       <React.Fragment  key={party._id + "in"} >
       {!party.isEsteemed && !party.isActive? (
-        <Grid container spacing={3}style={{backgroundColor: party.colorScheme.backgroundColor}}>
-        <Components.Party party={party}/>
+        <Grid item md={6} sm={12}>
+          <Components.Party party={party}/>
         </Grid>
       ): null}
       </React.Fragment>
     ))}
+    </Grid>
   </div>
 );
 
 const options = {
   collectionName: "Parties",
   fragmentName: 'PartiesList',
-  limit: 50
+  limit: 50,
+  input: {sort: {isActive: "desc"}}
 }
 
 registerComponent({ name: 'PartiesList', component: PartiesList, hocs: [[withMulti2, options]]});

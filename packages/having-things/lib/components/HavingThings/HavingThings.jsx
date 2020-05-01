@@ -43,7 +43,7 @@ registerComponent({ name: "CurrenciesList", component: CurrenciesList, hocs: [[w
 const HavingThings = () => (
   <React.Fragment>
     <Components.HeadTags title={"Having Things"} />
-    <Link to="/">⏎ </Link>Having Things
+    <h2><Link to="/">⏎ </Link>Having Things</h2>
     <hr></hr>
     <Components.CurrenciesList/>
   </React.Fragment>

@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 const HistoricShsList = ({ loading, results }) => {
   return (
     <div className="movies-list">
-      <h2><Link to="/">⏎ </Link><span style={{float: "right"}}>△ Historic</span></h2>
+      <h2><Link to="/">⏎</Link> △ Historic △</h2>
       <hr></hr>
       {!loading && results.map(sh => (
         <React.Fragment key={sh._id}>
         <Components.Sh sh={sh}/>
-        <hr></hr>
         </React.Fragment>
       ))}  
     </div>

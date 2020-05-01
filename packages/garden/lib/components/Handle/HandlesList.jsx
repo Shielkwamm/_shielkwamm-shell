@@ -1,6 +1,7 @@
 import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 
 const HandleCurrencies = ({ handleCurrencies }) => (
   <React.Fragment>
@@ -30,29 +31,38 @@ const HandlesList = ({ loading, results }) => (
       </React.Fragment>
     ))}
     <hr></hr>
+    <Grid container spacing={10}>
+      <Grid item md={6} xs={12}>
     <h1 style={{textAlign: "center"}}>=== Active ===</h1>
+    <Grid container spacing={2}>
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
         {!handle.isHonorary && handle.isActive ? (
-          <React.Fragment>
+          <Grid item xs={12} sm={12} md={6}>
           <Components.Handle handle={handle}/>
           <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
-          </React.Fragment>
+          </Grid>
        ): null}
       </React.Fragment>
     ))}
-    <hr></hr>
+    </Grid>
+    </Grid>
+    <Grid item md={6} xs={12}>
     <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
+    <Grid container spacing={2}>
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
         {!handle.isHonorary && !handle.isActive ? (
-          <React.Fragment>
-          <Components.Handle handle={handle}/>
+          <Grid item xs={12} sm={12} md={6}>
+          <Components.Handle handle={handle} isShowingZzZs={false}/>
           <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
-          </React.Fragment>
+          </Grid>
        ): null}
       </React.Fragment>
     ))}
+    </Grid>
+    </Grid>
+    </Grid>
   </React.Fragment>
 );
 
