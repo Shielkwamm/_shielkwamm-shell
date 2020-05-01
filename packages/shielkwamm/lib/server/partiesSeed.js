@@ -1,10 +1,12 @@
-import Parties from '../modules/party/collection.js';
-import ColorSchemes from '../modules/colorScheme/collection.js';
+import { getCollection } from 'meteor/vulcan:lib';
 import { createMutator } from 'meteor/vulcan:core';
-import I18ns from '../modules/i18n/collection.js';
-import PartyI18ns from '../modules/partyI18n/collection.js'
 
 Meteor.startup(() => {
+  const Parties = getCollection("Parties");
+  const ColorSchemes = getCollection("ColorSchemes");
+  const I18ns = getCollection("I18ns");
+  const PartiesI18ns = getCollection("PartiesI18ns");
+
    if(Parties.find().count() === 0) {
     partiesSeed.forEach(party => {
       party.createdAt = new Date();
@@ -17,10 +19,10 @@ Meteor.startup(() => {
       let partyId = Parties.insert(party);
       //m2m
       let basic = I18ns.findOne({name: "basic_US"});
-      PartyI18ns.insert({i18nId: basic._id, partyId: partyId})
+      PartiesI18ns.insert({i18nId: basic._id, partyId: partyId})
       let i18ns = I18ns.find({name: {$in: party.i18ns}});
       i18ns.forEach(i18n => {
-        PartyI18ns.insert({i18nId: i18n._id, partyId: partyId, createdAt: new Date(), fluency: 0})
+        PartiesI18ns.insert({i18nId: i18n._id, partyId: partyId, createdAt: new Date(), fluency: 0})
       })
     })
    }

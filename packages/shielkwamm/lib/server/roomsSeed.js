@@ -1,12 +1,13 @@
-import Rooms from '../modules/room/collection.js';
-import ColorSchemes from '../modules/colorScheme/collection.js';
-import Handles from '../modules/handle/collection.js';
-import RoomHandles from '../modules/roomHandle/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
-import I18nRooms from '../modules/i18nRoom/collection.js';
-import I18ns from '../modules/i18n/collection.js';
+import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  const Rooms = getCollection("Rooms")
+  const ColorSchemes = getCollection("ColorSchemes")
+  const Handles = getCollection("Handles");
+  const RoomsHandles = getCollection("RoomsHandles");
+  const RoomsI18ns = getCollection("RoomsI18ns");
+  const I18ns = getCollection("I18ns")
    if(Rooms.find().count() === 0) {
     roomsSeed.forEach(room => {
       room.createdAt = new Date();
@@ -20,7 +21,7 @@ Meteor.startup(() => {
           console.log("###irc " + ir.name + " not found ");
           return;
         }
-        I18nRooms.insert({
+        RoomsI18ns.insert({
           i18nId: i._id,
           roomId: roomId,
           createdAt: new Date()
@@ -35,7 +36,7 @@ Meteor.startup(() => {
         return;
       }
      
-      RoomHandles.insert({
+      RoomsHandles.insert({
         roomId: roomId,
         handleId: handle._id,
         isMod: !!h.isMod,

@@ -21,7 +21,7 @@ registerFragment(`
 registerFragment(`
   fragment PartiesList on Party {
     ...PartyBase
-    partyColorScheme {
+    colorScheme {
       ...ColorSchemeBase
     }
     partyI18ns {

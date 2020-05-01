@@ -148,7 +148,7 @@ const schema = {
       type: '[RoomHandle]',
       relation: 'hasMany',
       resolver: (room, args, context) => {
-        return context.RoomHandles.find({roomId: room._id}).fetch();
+        return context.RoomsHandles.find({roomId: room._id}).fetch();
       }
     }
   },

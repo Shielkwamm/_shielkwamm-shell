@@ -82,7 +82,7 @@ const RoomMessagesInner = ({ loading, results, linkColor, backgroundColor, color
 
 const options = {
   collectionName: "Messages",
-  fragmentName: 'MessagesFragment', // uncomment on #Step11
+  fragmentName: 'MessagesList', // uncomment on #Step11
   limit: 200
 }
 

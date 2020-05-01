@@ -1,7 +1,8 @@
-import I18ns from '../modules/i18n/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
+import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  const I18ns = getCollection("I18ns");
    if(I18ns.find().count() === 0) {
     i18nsSeed.forEach(i18n => {
       i18n.createdAt = new Date();

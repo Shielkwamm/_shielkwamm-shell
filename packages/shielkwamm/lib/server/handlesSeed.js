@@ -1,11 +1,13 @@
-import Handles from '../modules/handle/collection.js';
-import Currencies from '../modules/currency/collection.js';
-import HandleCurrencies from '../modules/handleCurrency/collection.js';
+import { getCollection } from 'meteor/vulcan:lib';
 import { createMutator } from 'meteor/vulcan:core';
-import Parties from '../modules/party/collection.js';
-import HandleParties from '../modules/handleParty/collection.js'
 
 Meteor.startup(() => {
+  const Handles = getCollection("Handles");
+  const Currencies = getCollection("Currencies")
+  const CurrenciesHandles = getCollection("CurrenciesHandles");
+  const Parties = getCollection("Parties");
+  const PartiesHandles = getCollection("PartiesHandles");
+
   if(Handles.find().count() === 0) {
     handlesSeed.forEach(handle => {
       handle.createdAt = new Date();
@@ -22,7 +24,7 @@ Meteor.startup(() => {
           console.log("###hp party " + party.name + " not found ", party);
           return;
         }
-        HandleParties.insert({
+        PartiesHandles.insert({
           partyId: p._id,
           handleId: handleId,
           isMod: !!party.isMod,
@@ -37,7 +39,7 @@ Meteor.startup(() => {
          console.log("====  Couldn't find currency", hc.glyph)
          return;
        }
-       HandleCurrencies.insert({ 
+       CurrenciesHandles.insert({ 
          handleId: handleId,
          currencyId: currency._id,
          amount: hc.amount,

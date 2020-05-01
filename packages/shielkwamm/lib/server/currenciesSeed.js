@@ -1,7 +1,8 @@
-import Currencies from '../modules/currency/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
+import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  const Currencies = getCollection("Currencies");
   if(Currencies.find().count() === 0) {
    currenciesSeed.forEach(currency => {
      currency.createdAt = new Date();

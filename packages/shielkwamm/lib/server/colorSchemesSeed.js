@@ -1,7 +1,8 @@
-import ColorSchemes from '../modules/colorScheme/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
+import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  const ColorSchemes = getCollection("ColorSchemes");
    if(ColorSchemes.find().count() === 0) {
     colorSchemesSeed.forEach(colorScheme => {
       colorScheme.createdAt = new Date();

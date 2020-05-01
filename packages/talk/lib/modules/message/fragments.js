@@ -7,8 +7,14 @@ registerFragment(`
      text
      roomId
      type
-     sh {
-       ...ShBest
-     }
    }
 `);
+
+registerFragment(`
+   fragment MessagesList on Message {
+     ...MessageBase
+     sh {
+      ...ShBest
+    }
+   }
+`)
