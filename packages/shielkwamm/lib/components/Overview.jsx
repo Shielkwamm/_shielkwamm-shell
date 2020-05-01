@@ -13,7 +13,7 @@ const Overview = ({ loading, document }) => (
     <hr></hr>
     <h2 style={{textAlign: "center"}}><Link to="/rooms">Rooms</Link> | <Link to="/handles">Handles</Link> | <Link to="/parties">Parties</Link></h2>
     <h2 style={{textAlign: "center"}}><Link to="/having-things">Having Things</Link> | <Link to="/things">Things</Link> | <a href="https://github.com/Shielkwamm/one_Z-rk/wiki" target="_blank">Wiki</a></h2>
-    <h2 style={{textAlign: "center"}}><Link to="/best_sh_">_sh_</Link> | <Link to="/i18n">i18n</Link> | <Link to="/color-schemes">Color</Link></h2>
+    <h2 style={{textAlign: "center"}}><Link to="/historic-sh">_sh_</Link> | <Link to="/i18n">i18n</Link> | <Link to="/color-schemes">Color</Link></h2>
     <hr></hr>
   </div>
 )

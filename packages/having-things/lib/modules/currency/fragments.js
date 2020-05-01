@@ -18,7 +18,7 @@ registerFragment(`
 `);
 
 registerFragment(`
-   fragment CurrencyList on Currency {
+   fragment CurrenciesList on Currency {
      ...CurrencyBase
      currencyHandles {
       ...CurrencyHandlesBase

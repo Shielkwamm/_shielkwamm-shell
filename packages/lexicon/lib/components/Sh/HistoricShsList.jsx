@@ -2,7 +2,7 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const Best_sh_List = ({ loading, results }) => {
+const HistoricShsList = ({ loading, results }) => {
   return (
     <div className="movies-list">
       <h2><Link to="/">⏎ </Link><span style={{float: "right"}}>△ Historic</span></h2>
@@ -19,7 +19,7 @@ const Best_sh_List = ({ loading, results }) => {
 
 const options = {
   collectionName: "Shs",
-  fragmentName: 'best_sh_', // uncomment on #Step11
+  fragmentName: 'ShBest', // uncomment on #Step11
 }
 
-registerComponent({ name: 'Best_sh_List', component: Best_sh_List, hocs: [[withMulti2, options]]});
+registerComponent({ name: 'HistoricShsList', component: HistoricShsList, hocs: [[withMulti2, options]]});
