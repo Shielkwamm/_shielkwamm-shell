@@ -48,7 +48,7 @@ registerFragment(`
 // especial
 
 registerFragment(`
-  fragment RoomOperat0r on Room {
+  fragment RoomOperator on Room {
     _id
     roomHandles {
       _id
@@ -58,7 +58,7 @@ registerFragment(`
         inventory
         mood
         connectionStatus
-        currencies {
+        handleCurrencies {
           _id
           mood
           amount
@@ -69,7 +69,7 @@ registerFragment(`
         }
       }
     }
-    i18nRooms {
+    roomI18ns {
       _id
       i18n {
         _id

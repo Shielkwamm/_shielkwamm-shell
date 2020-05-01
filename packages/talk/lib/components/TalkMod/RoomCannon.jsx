@@ -34,7 +34,7 @@ const RoomCannonMessagesInner = ({ loading, results, linkColor, backgroundColor,
 
 const messagesOptions = {
   collectionName: "Messages",
-  fragmentName: 'RoomMessagesBase',
+  fragmentName: 'MessagesList',
   pollInterval: .1
 }
 
@@ -48,9 +48,7 @@ registerComponent({ name: 'RoomCannonMessages', component: RoomCannonMessages});
 
 const RoomCannonInner = ({ loading, document }) => (
   <React.Fragment>
-    {loading ? (
-      null
-    ) : (
+    {!loading && document ? (
       <div>
         <Components.RoomHeader room={document}/>
         <Components.HeadTags title={`🔬🔬🔬: ${document.name}`}/>
@@ -62,13 +60,13 @@ const RoomCannonInner = ({ loading, document }) => (
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
         <Components.RoomCannonMessages roomId={document._id} linkColor={document.linkColor} color={document.color} backgroundColor={document.color}/>
       </div>
-    )}
+    ): null}
   </React.Fragment>
 )
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsFragment',
+  fragmentName: 'RoomsList',
 }
 
 registerComponent( {name: 'RoomCannonInner', component: RoomCannonInner, hocs: [[withSingle2, options]]})

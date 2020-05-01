@@ -7,7 +7,7 @@ const CurrencyHandles = ({ currencyHandles }) => {
   return (
     <React.Fragment>
   {currencyHandles.map( currencyHandle => (
-    <React.Fragment key={handle._id}>
+    <React.Fragment key={currencyHandle._id}>
     <h4 style={{textAlign: "right"}}>{currencyHandle.note}</h4>
     <p style={{textAlign: "right"}}>{currencyHandle.handle.name}: {currencyHandle.mood} {currencyHandle.amount}</p>
     </React.Fragment>

@@ -51,8 +51,8 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let timeStampF = timeStamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
   return (
     <React.Fragment>
-      {display === "_sh_" && message._sh_? (
-        <Components.Sh sh={message._sh_}/>
+      {display === "_sh_" && message.sh? (
+        <Components.Sh sh={message.sh}/>
       ) : null }
       {display === "rightHighlighted" ? (
         <p style={style}>{message.text}</p>

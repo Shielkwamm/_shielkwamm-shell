@@ -10,7 +10,6 @@ const RoomDJInner = ({ loading, document }) => (
     ) : (
       <div>
         <Components.HeadTags title={`⬤⬤⬤: ${document.name}`}/>
-        <Components.RoomHeader room={document}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["areDJMessagesMuted"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
@@ -22,9 +21,9 @@ const RoomDJInner = ({ loading, document }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsBase', // uncomment on #Step11
+  fragmentName: 'RoomBase',
 }
-
+//<Components.RoomHeader room={document}/>
 registerComponent( {name: 'RoomDJInner', component: RoomDJInner, hocs: [[withSingle2, options]]})
 
 const RoomDJ = ({ match }) => (

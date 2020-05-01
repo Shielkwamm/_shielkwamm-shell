@@ -3,11 +3,9 @@ import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
-const RoomRoomInner = ({ loading, document }) => (
+const RoomModInner = ({ loading, document }) => (
   <React.Fragment>
-    {loading && !document ? (
-      null
-    ) : (
+    {!loading && document ? (
       <React.Fragment>
         <Components.RoomHeader room={document}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["name"]}/>
@@ -19,19 +17,19 @@ const RoomRoomInner = ({ loading, document }) => (
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
       </React.Fragment>
-    )}
+    ): null}
   </React.Fragment>
 )
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsBase', // uncomment on #Step11
+  fragmentName: 'RoomsList',
 }
 
-registerComponent( {name: 'RoomRoomInner', component: RoomRoomInner, hocs: [[withSingle2, options]]})
+registerComponent( {name: 'RoomModInner', component: RoomModInner, hocs: [[withSingle2, options]]})
 
-const RoomRoom = ({ match }) => (
-  <Components.RoomRoomInner input={{selector: {slug: match.params.slug}}}/>
+const RoomMod = ({ match }) => (
+  <Components.RoomModInner input={{selector: {slug: match.params.slug}}}/>
 );
 
-registerComponent({ name: 'RoomRoom', component: RoomRoom, hocs: [withRouter]});
+registerComponent({ name: 'RoomMod', component: RoomMod, hocs: [withRouter]});

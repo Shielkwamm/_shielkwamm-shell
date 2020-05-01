@@ -20,9 +20,7 @@ addRoute({ name: "historicShsList", path: '/historic-sh', componentName: "Histor
 
 
 ///talk mod
-/*
-addRoute({ name: 'roomRoom', path: '/room/:slug/room', componentName: "RoomRoom"});
+addRoute({ name: 'roomMod', path: '/room/:slug/mod', componentName: "RoomMod"});
 addRoute({ name: 'roomDJ', path: '/room/:slug/dj', componentName: "RoomDJ"});
 addRoute({ name: 'roomCannon', path: '/room/:slug/cannon', componentName: "RoomCannon"});
-addRoute({ name: 'roomOperat0r', path: '/room/:slug/operat0r', componentName: "RoomOperat0r"});
-*/
+addRoute({ name: 'roomOperator', path: '/room/:slug/operator', componentName: "RoomOperator"});
