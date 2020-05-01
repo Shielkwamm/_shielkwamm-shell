@@ -949,7 +949,7 @@ type I18n {
   description: String 
   glyphSet: String 
   wikiUrl: String 
-  i18nRooms: [I18nRoom] 
+  i18nRooms: [RoomI18n] 
 }
 
 
@@ -1091,9 +1091,9 @@ type Handle {
   isActive: Boolean 
   isHonorary: Boolean 
   inventory: [String] 
-  parties: [HandleParty] 
+  handleParties: [PartyHandle] 
   connectionStatus: String 
-  currencies: [HandleCurrency] 
+  handleCurrencies: [CurrencyHandle] 
   roomId: String 
 }
 
@@ -1207,9 +1207,9 @@ input HandleFilterInput {
   isActive: Boolean_Selector
   isHonorary: Boolean_Selector
   inventory: String_Array_Selector
-  parties: String_Selector
+  handleParties: String_Selector
   connectionStatus: String_Selector
-  currencies: String_Selector
+  handleCurrencies: String_Selector
   roomId: String_Selector
 }
 
@@ -1223,9 +1223,9 @@ input HandleSortInput {
   isActive: SortOptions
   isHonorary: SortOptions
   inventory: SortOptions
-  parties: SortOptions
+  handleParties: SortOptions
   connectionStatus: SortOptions
-  currencies: SortOptions
+  handleCurrencies: SortOptions
   roomId: SortOptions
 }
 
@@ -1254,9 +1254,9 @@ type Party {
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
-  handles: [HandleParty] 
+  partyHandles: [PartyHandle] 
   connectionStatus: String 
-  i18ns: [PartyI18n] 
+  partyI18ns: [PartyI18n] 
 }
 
 
@@ -1368,9 +1368,9 @@ input PartyFilterInput {
   isActive: Boolean_Selector
   mood: String_Selector
   isEsteemed: Boolean_Selector
-  handles: String_Selector
+  partyHandles: String_Selector
   connectionStatus: String_Selector
-  i18ns: String_Selector
+  partyI18ns: String_Selector
 }
 
 input PartySortInput {
@@ -1382,9 +1382,9 @@ input PartySortInput {
   isActive: SortOptions
   mood: SortOptions
   isEsteemed: SortOptions
-  handles: SortOptions
+  partyHandles: SortOptions
   connectionStatus: SortOptions
-  i18ns: SortOptions
+  partyI18ns: SortOptions
 }
 
 input PartySelectorInput {
@@ -1401,8 +1401,8 @@ input PartySelectorUniqueInput {
 }
 
 
-# Type for HandleParties
-type HandleParty {
+# Type for PartiesHandles
+type PartyHandle {
   _id: String 
   createdAt: Date 
   partyId: String 
@@ -1414,21 +1414,21 @@ type HandleParty {
 }
 
 
-input DeleteHandlePartyInput{
-  filter: HandlePartyFilterInput
+input DeletePartyHandleInput{
+  filter: PartyHandleFilterInput
   id: String
 }
 
-input SingleHandlePartyInput {
+input SinglePartyHandleInput {
   # filtering
-  filter: HandlePartyFilterInput
-  sort: HandlePartySortInput
+  filter: PartyHandleFilterInput
+  sort: PartyHandleSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: HandlePartySelectorUniqueInput
+  selector: PartyHandleSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -1437,11 +1437,11 @@ input SingleHandlePartyInput {
   allowNull: Boolean
 }
 
-input MultiHandlePartyInput {
+input MultiPartyHandleInput {
 
   # filtering
-  filter: HandlePartyFilterInput
-  sort: HandlePartySortInput
+  filter: PartyHandleFilterInput
+  sort: PartyHandleSortInput
   search: String
   offset: Int
   limit: Int
@@ -1459,53 +1459,53 @@ input MultiHandlePartyInput {
   
 }
 
-type SingleHandlePartyOutput{
-  result: HandleParty
+type SinglePartyHandleOutput{
+  result: PartyHandle
 }
 
-type  MultiHandlePartyOutput{
-  results: [HandleParty]
+type  MultiPartyHandleOutput{
+  results: [PartyHandle]
   totalCount: Int
 }
 
-type HandlePartyMutationOutput{
-  data: HandleParty
+type PartyHandleMutationOutput{
+  data: PartyHandle
 }
 
-input CreateHandlePartyInput {
-  data: CreateHandlePartyDataInput!
+input CreatePartyHandleInput {
+  data: CreatePartyHandleDataInput!
 }
 
-input CreateHandlePartyDataInput {
+input CreatePartyHandleDataInput {
   partyId: String 
   handleId: String 
   connectionStatus: String 
   isMod: Boolean 
 }
 
-input UpdateHandlePartyInput{
-  filter: HandlePartyFilterInput
+input UpdatePartyHandleInput{
+  filter: PartyHandleFilterInput
   id: String
-  data: UpdateHandlePartyDataInput!
+  data: UpdatePartyHandleDataInput!
 }
 
-input UpsertHandlePartyInput{
-  filter: HandlePartyFilterInput
+input UpsertPartyHandleInput{
+  filter: PartyHandleFilterInput
   id: String
-  data: UpdateHandlePartyDataInput!
+  data: UpdatePartyHandleDataInput!
 }
 
-input UpdateHandlePartyDataInput {
+input UpdatePartyHandleDataInput {
   partyId: String 
   handleId: String 
   connectionStatus: String 
   isMod: Boolean 
 }
 
-input HandlePartyFilterInput {
-  _and: [HandlePartyFilterInput]
-  _not: HandlePartyFilterInput
-  _or: [HandlePartyFilterInput]
+input PartyHandleFilterInput {
+  _and: [PartyHandleFilterInput]
+  _not: PartyHandleFilterInput
+  _or: [PartyHandleFilterInput]
 
 
   _id: String_Selector
@@ -1516,7 +1516,7 @@ input HandlePartyFilterInput {
   isMod: Boolean_Selector
 }
 
-input HandlePartySortInput {
+input PartyHandleSortInput {
   _id: SortOptions
   createdAt: SortOptions
   partyId: SortOptions
@@ -1525,13 +1525,13 @@ input HandlePartySortInput {
   isMod: SortOptions
 }
 
-input HandlePartySelectorInput {
-  _and: [HandlePartySelectorInput]
-  _or: [HandlePartySelectorInput]
+input PartyHandleSelectorInput {
+  _and: [PartyHandleSelectorInput]
+  _or: [PartyHandleSelectorInput]
 
 }
 
-input HandlePartySelectorUniqueInput {
+input PartyHandleSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -1539,7 +1539,7 @@ input HandlePartySelectorUniqueInput {
 }
 
 
-# Type for PartyI18ns
+# Type for PartiesI18ns
 type PartyI18n {
   _id: String 
   createdAt: Date 
@@ -1680,7 +1680,7 @@ type Currency {
   glyph: String 
   description: String 
   ledgerUrl: String 
-  handles: [HandleCurrency] 
+  currencyHandles: [CurrencyHandle] 
 }
 
 
@@ -1784,7 +1784,7 @@ input CurrencyFilterInput {
   glyph: String_Selector
   description: String_Selector
   ledgerUrl: String_Selector
-  handles: String_Selector
+  currencyHandles: String_Selector
 }
 
 input CurrencySortInput {
@@ -1794,7 +1794,7 @@ input CurrencySortInput {
   glyph: SortOptions
   description: SortOptions
   ledgerUrl: SortOptions
-  handles: SortOptions
+  currencyHandles: SortOptions
 }
 
 input CurrencySelectorInput {
@@ -1811,8 +1811,8 @@ input CurrencySelectorUniqueInput {
 }
 
 
-# Type for HandleCurrencies
-type HandleCurrency {
+# Type for CurrenciesHandles
+type CurrencyHandle {
   _id: String 
   createdAt: Date 
   amount: Float 
@@ -1825,21 +1825,21 @@ type HandleCurrency {
 }
 
 
-input DeleteHandleCurrencyInput{
-  filter: HandleCurrencyFilterInput
+input DeleteCurrencyHandleInput{
+  filter: CurrencyHandleFilterInput
   id: String
 }
 
-input SingleHandleCurrencyInput {
+input SingleCurrencyHandleInput {
   # filtering
-  filter: HandleCurrencyFilterInput
-  sort: HandleCurrencySortInput
+  filter: CurrencyHandleFilterInput
+  sort: CurrencyHandleSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: HandleCurrencySelectorUniqueInput
+  selector: CurrencyHandleSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -1848,11 +1848,11 @@ input SingleHandleCurrencyInput {
   allowNull: Boolean
 }
 
-input MultiHandleCurrencyInput {
+input MultiCurrencyHandleInput {
 
   # filtering
-  filter: HandleCurrencyFilterInput
-  sort: HandleCurrencySortInput
+  filter: CurrencyHandleFilterInput
+  sort: CurrencyHandleSortInput
   search: String
   offset: Int
   limit: Int
@@ -1870,24 +1870,24 @@ input MultiHandleCurrencyInput {
   
 }
 
-type SingleHandleCurrencyOutput{
-  result: HandleCurrency
+type SingleCurrencyHandleOutput{
+  result: CurrencyHandle
 }
 
-type  MultiHandleCurrencyOutput{
-  results: [HandleCurrency]
+type  MultiCurrencyHandleOutput{
+  results: [CurrencyHandle]
   totalCount: Int
 }
 
-type HandleCurrencyMutationOutput{
-  data: HandleCurrency
+type CurrencyHandleMutationOutput{
+  data: CurrencyHandle
 }
 
-input CreateHandleCurrencyInput {
-  data: CreateHandleCurrencyDataInput!
+input CreateCurrencyHandleInput {
+  data: CreateCurrencyHandleDataInput!
 }
 
-input CreateHandleCurrencyDataInput {
+input CreateCurrencyHandleDataInput {
   amount: Float 
   mood: String 
   note: String 
@@ -1895,19 +1895,19 @@ input CreateHandleCurrencyDataInput {
   currencyId: String 
 }
 
-input UpdateHandleCurrencyInput{
-  filter: HandleCurrencyFilterInput
+input UpdateCurrencyHandleInput{
+  filter: CurrencyHandleFilterInput
   id: String
-  data: UpdateHandleCurrencyDataInput!
+  data: UpdateCurrencyHandleDataInput!
 }
 
-input UpsertHandleCurrencyInput{
-  filter: HandleCurrencyFilterInput
+input UpsertCurrencyHandleInput{
+  filter: CurrencyHandleFilterInput
   id: String
-  data: UpdateHandleCurrencyDataInput!
+  data: UpdateCurrencyHandleDataInput!
 }
 
-input UpdateHandleCurrencyDataInput {
+input UpdateCurrencyHandleDataInput {
   amount: Float 
   mood: String 
   note: String 
@@ -1915,10 +1915,10 @@ input UpdateHandleCurrencyDataInput {
   currencyId: String 
 }
 
-input HandleCurrencyFilterInput {
-  _and: [HandleCurrencyFilterInput]
-  _not: HandleCurrencyFilterInput
-  _or: [HandleCurrencyFilterInput]
+input CurrencyHandleFilterInput {
+  _and: [CurrencyHandleFilterInput]
+  _not: CurrencyHandleFilterInput
+  _or: [CurrencyHandleFilterInput]
 
 
   _id: String_Selector
@@ -1930,7 +1930,7 @@ input HandleCurrencyFilterInput {
   currencyId: String_Selector
 }
 
-input HandleCurrencySortInput {
+input CurrencyHandleSortInput {
   _id: SortOptions
   createdAt: SortOptions
   amount: SortOptions
@@ -1940,13 +1940,13 @@ input HandleCurrencySortInput {
   currencyId: SortOptions
 }
 
-input HandleCurrencySelectorInput {
-  _and: [HandleCurrencySelectorInput]
-  _or: [HandleCurrencySelectorInput]
+input CurrencyHandleSelectorInput {
+  _and: [CurrencyHandleSelectorInput]
+  _or: [CurrencyHandleSelectorInput]
 
 }
 
-input HandleCurrencySelectorUniqueInput {
+input CurrencyHandleSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -1962,7 +1962,7 @@ type Message {
   roomId: String 
   type: String 
   shId: String 
-  _sh_: Sh 
+  sh: Sh 
 }
 
 
@@ -2110,7 +2110,7 @@ type Room {
   currentMusicTitle: String 
   colorSchemeId: String 
   colorScheme: ColorScheme 
-  i18nRooms: [I18nRoom] 
+  roomI18ns: [RoomI18n] 
   roomHandles: [RoomHandle] 
   areDJMessagesMuted: Boolean 
   areCannonMessagesMuted: Boolean 
@@ -2265,7 +2265,7 @@ input RoomFilterInput {
   currentMusicUrl: String_Selector
   currentMusicTitle: String_Selector
   colorSchemeId: String_Selector
-  i18nRooms: String_Selector
+  roomI18ns: String_Selector
   roomHandles: String_Selector
   areDJMessagesMuted: Boolean_Selector
   areCannonMessagesMuted: Boolean_Selector
@@ -2294,7 +2294,7 @@ input RoomSortInput {
   currentMusicUrl: SortOptions
   currentMusicTitle: SortOptions
   colorSchemeId: SortOptions
-  i18nRooms: SortOptions
+  roomI18ns: SortOptions
   roomHandles: SortOptions
   areDJMessagesMuted: SortOptions
   areCannonMessagesMuted: SortOptions
@@ -2320,8 +2320,8 @@ input RoomSelectorUniqueInput {
 }
 
 
-# Type for I18nRooms
-type I18nRoom {
+# Type for RoomsI18ns
+type RoomI18n {
   _id: String 
   createdAt: Date 
   i18nId: String 
@@ -2331,21 +2331,21 @@ type I18nRoom {
 }
 
 
-input DeleteI18nRoomInput{
-  filter: I18nRoomFilterInput
+input DeleteRoomI18nInput{
+  filter: RoomI18nFilterInput
   id: String
 }
 
-input SingleI18nRoomInput {
+input SingleRoomI18nInput {
   # filtering
-  filter: I18nRoomFilterInput
-  sort: I18nRoomSortInput
+  filter: RoomI18nFilterInput
+  sort: RoomI18nSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: I18nRoomSelectorUniqueInput
+  selector: RoomI18nSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -2354,11 +2354,11 @@ input SingleI18nRoomInput {
   allowNull: Boolean
 }
 
-input MultiI18nRoomInput {
+input MultiRoomI18nInput {
 
   # filtering
-  filter: I18nRoomFilterInput
-  sort: I18nRoomSortInput
+  filter: RoomI18nFilterInput
+  sort: RoomI18nSortInput
   search: String
   offset: Int
   limit: Int
@@ -2376,49 +2376,49 @@ input MultiI18nRoomInput {
   
 }
 
-type SingleI18nRoomOutput{
-  result: I18nRoom
+type SingleRoomI18nOutput{
+  result: RoomI18n
 }
 
-type  MultiI18nRoomOutput{
-  results: [I18nRoom]
+type  MultiRoomI18nOutput{
+  results: [RoomI18n]
   totalCount: Int
 }
 
-type I18nRoomMutationOutput{
-  data: I18nRoom
+type RoomI18nMutationOutput{
+  data: RoomI18n
 }
 
-input CreateI18nRoomInput {
-  data: CreateI18nRoomDataInput!
+input CreateRoomI18nInput {
+  data: CreateRoomI18nDataInput!
 }
 
-input CreateI18nRoomDataInput {
+input CreateRoomI18nDataInput {
   i18nId: String 
   roomId: String 
 }
 
-input UpdateI18nRoomInput{
-  filter: I18nRoomFilterInput
+input UpdateRoomI18nInput{
+  filter: RoomI18nFilterInput
   id: String
-  data: UpdateI18nRoomDataInput!
+  data: UpdateRoomI18nDataInput!
 }
 
-input UpsertI18nRoomInput{
-  filter: I18nRoomFilterInput
+input UpsertRoomI18nInput{
+  filter: RoomI18nFilterInput
   id: String
-  data: UpdateI18nRoomDataInput!
+  data: UpdateRoomI18nDataInput!
 }
 
-input UpdateI18nRoomDataInput {
+input UpdateRoomI18nDataInput {
   i18nId: String 
   roomId: String 
 }
 
-input I18nRoomFilterInput {
-  _and: [I18nRoomFilterInput]
-  _not: I18nRoomFilterInput
-  _or: [I18nRoomFilterInput]
+input RoomI18nFilterInput {
+  _and: [RoomI18nFilterInput]
+  _not: RoomI18nFilterInput
+  _or: [RoomI18nFilterInput]
 
 
   _id: String_Selector
@@ -2427,20 +2427,20 @@ input I18nRoomFilterInput {
   roomId: String_Selector
 }
 
-input I18nRoomSortInput {
+input RoomI18nSortInput {
   _id: SortOptions
   createdAt: SortOptions
   i18nId: SortOptions
   roomId: SortOptions
 }
 
-input I18nRoomSelectorInput {
-  _and: [I18nRoomSelectorInput]
-  _or: [I18nRoomSelectorInput]
+input RoomI18nSelectorInput {
+  _and: [RoomI18nSelectorInput]
+  _or: [RoomI18nSelectorInput]
 
 }
 
-input I18nRoomSelectorUniqueInput {
+input RoomI18nSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -2448,7 +2448,7 @@ input I18nRoomSelectorUniqueInput {
 }
 
 
-# Type for RoomHandles
+# Type for RoomsHandles
 type RoomHandle {
   _id: String 
   createdAt: Date 
@@ -2840,11 +2840,11 @@ type Query {
   # A list of Party documents matching a set of query terms
   parties(input: MultiPartyInput):  MultiPartyOutput
   
-  # A single HandleParty document fetched by ID or slug
-  handleParty(input: SingleHandlePartyInput!): SingleHandlePartyOutput
+  # A single PartyHandle document fetched by ID or slug
+  partyHandle(input: SinglePartyHandleInput!): SinglePartyHandleOutput
   
-  # A list of HandleParty documents matching a set of query terms
-  handleParties(input: MultiHandlePartyInput):  MultiHandlePartyOutput
+  # A list of PartyHandle documents matching a set of query terms
+  partyHandles(input: MultiPartyHandleInput):  MultiPartyHandleOutput
   
   # A single PartyI18n document fetched by ID or slug
   partyI18n(input: SinglePartyI18nInput!): SinglePartyI18nOutput
@@ -2858,11 +2858,11 @@ type Query {
   # A list of Currency documents matching a set of query terms
   currencies(input: MultiCurrencyInput):  MultiCurrencyOutput
   
-  # A single HandleCurrency document fetched by ID or slug
-  handleCurrency(input: SingleHandleCurrencyInput!): SingleHandleCurrencyOutput
+  # A single CurrencyHandle document fetched by ID or slug
+  currencyHandle(input: SingleCurrencyHandleInput!): SingleCurrencyHandleOutput
   
-  # A list of HandleCurrency documents matching a set of query terms
-  handleCurrencies(input: MultiHandleCurrencyInput):  MultiHandleCurrencyOutput
+  # A list of CurrencyHandle documents matching a set of query terms
+  currencyHandles(input: MultiCurrencyHandleInput):  MultiCurrencyHandleOutput
   
   # A single Message document fetched by ID or slug
   message(input: SingleMessageInput!): SingleMessageOutput
@@ -2876,11 +2876,11 @@ type Query {
   # A list of Room documents matching a set of query terms
   rooms(input: MultiRoomInput):  MultiRoomOutput
   
-  # A single I18nRoom document fetched by ID or slug
-  i18nRoom(input: SingleI18nRoomInput!): SingleI18nRoomOutput
+  # A single RoomI18n document fetched by ID or slug
+  roomI18n(input: SingleRoomI18nInput!): SingleRoomI18nOutput
   
-  # A list of I18nRoom documents matching a set of query terms
-  i18nRooms(input: MultiI18nRoomInput):  MultiI18nRoomOutput
+  # A list of RoomI18n documents matching a set of query terms
+  roomI18ns(input: MultiRoomI18nInput):  MultiRoomI18nOutput
   
   # A single RoomHandle document fetched by ID or slug
   roomHandle(input: SingleRoomHandleInput!): SingleRoomHandleOutput
@@ -3112,37 +3112,37 @@ type Mutation {
   selector: PartySelectorUniqueInput
 ) : PartyMutationOutput
 
-  # Mutation for creating new HandleParty documents
-  createHandleParty(
-  input: CreateHandlePartyInput,
+  # Mutation for creating new PartyHandle documents
+  createPartyHandle(
+  input: CreatePartyHandleInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateHandlePartyDataInput
-) : HandlePartyMutationOutput
+  data: CreatePartyHandleDataInput
+) : PartyHandleMutationOutput
 
-  # Mutation for updating a HandleParty document
-  updateHandleParty(
-  input: UpdateHandlePartyInput,
+  # Mutation for updating a PartyHandle document
+  updatePartyHandle(
+  input: UpdatePartyHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandlePartySelectorUniqueInput,
+  selector: PartyHandleSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateHandlePartyDataInput 
-) : HandlePartyMutationOutput
+  data: UpdatePartyHandleDataInput 
+) : PartyHandleMutationOutput
 
-  # Mutation for upserting a HandleParty document
-  upsertHandleParty(
-  input: UpsertHandlePartyInput,
+  # Mutation for upserting a PartyHandle document
+  upsertPartyHandle(
+  input: UpsertPartyHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandlePartySelectorUniqueInput,
+  selector: PartyHandleSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateHandlePartyDataInput
-) : HandlePartyMutationOutput
+  data: UpdatePartyHandleDataInput
+) : PartyHandleMutationOutput
 
-  # Mutation for deleting a HandleParty document
-  deleteHandleParty(
-  input: DeleteHandlePartyInput,
+  # Mutation for deleting a PartyHandle document
+  deletePartyHandle(
+  input: DeletePartyHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandlePartySelectorUniqueInput
-) : HandlePartyMutationOutput
+  selector: PartyHandleSelectorUniqueInput
+) : PartyHandleMutationOutput
 
   # Mutation for creating new PartyI18n documents
   createPartyI18n(
@@ -3208,37 +3208,37 @@ type Mutation {
   selector: CurrencySelectorUniqueInput
 ) : CurrencyMutationOutput
 
-  # Mutation for creating new HandleCurrency documents
-  createHandleCurrency(
-  input: CreateHandleCurrencyInput,
+  # Mutation for creating new CurrencyHandle documents
+  createCurrencyHandle(
+  input: CreateCurrencyHandleInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateHandleCurrencyDataInput
-) : HandleCurrencyMutationOutput
+  data: CreateCurrencyHandleDataInput
+) : CurrencyHandleMutationOutput
 
-  # Mutation for updating a HandleCurrency document
-  updateHandleCurrency(
-  input: UpdateHandleCurrencyInput,
+  # Mutation for updating a CurrencyHandle document
+  updateCurrencyHandle(
+  input: UpdateCurrencyHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandleCurrencySelectorUniqueInput,
+  selector: CurrencyHandleSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateHandleCurrencyDataInput 
-) : HandleCurrencyMutationOutput
+  data: UpdateCurrencyHandleDataInput 
+) : CurrencyHandleMutationOutput
 
-  # Mutation for upserting a HandleCurrency document
-  upsertHandleCurrency(
-  input: UpsertHandleCurrencyInput,
+  # Mutation for upserting a CurrencyHandle document
+  upsertCurrencyHandle(
+  input: UpsertCurrencyHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandleCurrencySelectorUniqueInput,
+  selector: CurrencyHandleSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateHandleCurrencyDataInput
-) : HandleCurrencyMutationOutput
+  data: UpdateCurrencyHandleDataInput
+) : CurrencyHandleMutationOutput
 
-  # Mutation for deleting a HandleCurrency document
-  deleteHandleCurrency(
-  input: DeleteHandleCurrencyInput,
+  # Mutation for deleting a CurrencyHandle document
+  deleteCurrencyHandle(
+  input: DeleteCurrencyHandleInput,
   "Deprecated (use 'input' field instead)."
-  selector: HandleCurrencySelectorUniqueInput
-) : HandleCurrencyMutationOutput
+  selector: CurrencyHandleSelectorUniqueInput
+) : CurrencyHandleMutationOutput
 
   # Mutation for creating new Message documents
   createMessage(
@@ -3304,37 +3304,37 @@ type Mutation {
   selector: RoomSelectorUniqueInput
 ) : RoomMutationOutput
 
-  # Mutation for creating new I18nRoom documents
-  createI18nRoom(
-  input: CreateI18nRoomInput,
+  # Mutation for creating new RoomI18n documents
+  createRoomI18n(
+  input: CreateRoomI18nInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateI18nRoomDataInput
-) : I18nRoomMutationOutput
+  data: CreateRoomI18nDataInput
+) : RoomI18nMutationOutput
 
-  # Mutation for updating a I18nRoom document
-  updateI18nRoom(
-  input: UpdateI18nRoomInput,
+  # Mutation for updating a RoomI18n document
+  updateRoomI18n(
+  input: UpdateRoomI18nInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nRoomSelectorUniqueInput,
+  selector: RoomI18nSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateI18nRoomDataInput 
-) : I18nRoomMutationOutput
+  data: UpdateRoomI18nDataInput 
+) : RoomI18nMutationOutput
 
-  # Mutation for upserting a I18nRoom document
-  upsertI18nRoom(
-  input: UpsertI18nRoomInput,
+  # Mutation for upserting a RoomI18n document
+  upsertRoomI18n(
+  input: UpsertRoomI18nInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nRoomSelectorUniqueInput,
+  selector: RoomI18nSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateI18nRoomDataInput
-) : I18nRoomMutationOutput
+  data: UpdateRoomI18nDataInput
+) : RoomI18nMutationOutput
 
-  # Mutation for deleting a I18nRoom document
-  deleteI18nRoom(
-  input: DeleteI18nRoomInput,
+  # Mutation for deleting a RoomI18n document
+  deleteRoomI18n(
+  input: DeleteRoomI18nInput,
   "Deprecated (use 'input' field instead)."
-  selector: I18nRoomSelectorUniqueInput
-) : I18nRoomMutationOutput
+  selector: RoomI18nSelectorUniqueInput
+) : RoomI18nMutationOutput
 
   # Mutation for creating new RoomHandle documents
   createRoomHandle(

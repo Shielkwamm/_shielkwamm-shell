@@ -68,7 +68,7 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "_sh_",
+      fieldName: "sh",
       type: 'Sh',
       relation: "hasOne"
     }

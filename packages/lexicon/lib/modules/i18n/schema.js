@@ -47,17 +47,17 @@ const schema = {
     canUpdate: ['admins']
   },
   i18nRooms: {
-    label: "i18nRooms",
+    label: "I18n Rooms",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
       fieldName: 'i18nRooms',
-      type: '[I18nRoom]',
+      type: '[RoomI18n]',
       relation: 'hasMany',
       resolver: (i18n, args, context) => {
-        return context.I18nRooms.find({i18nId: i18n._id}).fetch();
+        return context.RoomsI18ns.find({i18nId: i18n._id}).fetch();
       }
     }
   }

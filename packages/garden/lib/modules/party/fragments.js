@@ -1,53 +1,34 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment PartiesFragment on Party {
-     _id
-     createdAt
-     name
-     mood
-     description
-     isActive
-     isEsteemed
-     colorScheme {
-      ...ColorSchemesFragment
-    }
-   }
-`);
-
-registerFragment(`
-  fragment PartyBadge on Party {
+  fragment PartySimple on Party {
     _id
     name
-    mood
-    description
-    isActive
-    isEsteemed
-    i18ns {
-       ...PartyI18nsFragment
-    }
-    colorScheme {
-      ...ColorSchemesFragment
-    }
-    handles {
-      ...HandlesPartyBadge
-    }
   }
 `)
 
 registerFragment(`
-   fragment FlatPartiesFragment on Party {
-     _id
-     name
+   fragment PartyBase on Party {
+     ...PartySimple
+     createdAt
+     mood
+     description
+     isActive
+     isEsteemed
    }
 `);
 
-// handle badge
-
 registerFragment(`
-  fragment HandleBadgeParties on Party {
-    _id
-    name
-    isEsteemed
-  }
-`);
+  fragment PartiesList on Party {
+    ...PartyBase
+    partyColorScheme {
+      ...ColorSchemeBase
+    }
+    partyI18ns {
+      ...PartyI18nsBase
+    }
+    partyHandles {
+      ...PartyHandlesBase
+    }
+  }`
+);

@@ -6,7 +6,9 @@ import '../components/Room/RoomsList.jsx';
 import '../components/Talk/RoomHeader.jsx';
 import '../components/Talk/RoomMessages.jsx';
 
+/*
 import '../components/TalkMod/RoomRoom.jsx';
 import '../components/TalkMod/RoomDJ.jsx';
 import '../components/TalkMod/RoomCannon.jsx';
 import '../components/TalkMod/RoomOperat0r.jsx';
+*/

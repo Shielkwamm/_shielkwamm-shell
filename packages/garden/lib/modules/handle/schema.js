@@ -77,18 +77,18 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  parties: {
-    label: "Parties",
+  handleParties: {
+    label: "Handle Parties",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'parties',
-      type: '[HandleParty]',
+      fieldName: 'handleParties',
+      type: '[PartyHandle]',
       relation: 'hasMany',
       resolver: (handle, args, context) => {
-        return context.HandleParties.find({handleId: handle._id}).fetch();
+        return context.PartiesHandles.find({handleId: handle._id}).fetch();
       }
     }
   },
@@ -99,18 +99,18 @@ const schema = {
     canRead: ['guests'],
     defaultValue: "~"
   },
-  currencies: {
-    label: "Currencies",
+  handleCurrencies: {
+    label: "Handle Currencies",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'currencies',
-      type: '[HandleCurrency]',
+      fieldName: 'handleCurrencies',
+      type: '[CurrencyHandle]',
       relation: 'hasMany',
       resolver: (handle, args, context) => {
-        return context.HandleCurrencies.find({handleId: handle._id}).fetch();
+        return context.CurrenciesHandles.find({handleId: handle._id}).fetch();
       }
     }
   },

@@ -3,8 +3,8 @@ import { getCollection } from 'meteor/vulcan:lib';
 import schema from './schema.js';
 import './fragments.js';
 
-const RoomHandles = createCollection({
-  collectionName: 'RoomHandles',
+const RoomsHandles = createCollection({
+  collectionName: 'RoomsHandles',
   typeName: 'RoomHandle',
   schema,
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
@@ -48,4 +48,4 @@ const RoomHandles = createCollection({
 
 
 
-export default RoomHandles;
+export default RoomsHandles;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const i18nsList = ({ loading, results }) => (
+const I18nsList = ({ loading, results }) => (
   <div className="movies-list">
     <Components.HeadTags title={`i18n`}/>
     <h2><Link to="/">⏎ </Link>i18n <span style={{float: "right"}}>count [ {results && results.length} / 17 ]</span></h2>
@@ -19,8 +19,8 @@ const i18nsList = ({ loading, results }) => (
 );
 
 const options = {
-  collectionName: "i18ns",
-  fragmentName: 'I18nsFragment', // uncomment on #Step11
+  collectionName: "I18ns",
+  fragmentName: 'I18nsList',
 }
 
-registerComponent({ name: 'i18nsList', component: i18nsList, hocs: [[withMulti2, options]]});
+registerComponent({ name: 'I18nsList', component: I18nsList, hocs: [[withMulti2, options]]});

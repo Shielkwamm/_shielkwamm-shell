@@ -15,7 +15,7 @@ const RoomsList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsFragment', // uncomment on #Step11
+  fragmentName: 'RoomsList', // uncomment on #Step11
 }
 
 registerComponent({ name: 'RoomsList', component: RoomsList, hocs: [[withMulti2, options]]});

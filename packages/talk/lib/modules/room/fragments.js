@@ -1,66 +1,51 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment RoomsFragment on Room {
-     _id
-     createdAt
-     name
-     level
-     maxLevel
-     currentExpPoints
-     totalExpPoints
-     zork
-     bwam
-     _sh_
-     vibe
-     slug
-     currentMusicUrl
-     currentMusicTitle
-     description
-     colorScheme {
-       ...ColorSchemesFragment
-     }
-     isActive
-     messageDelay
-     areDJMessagesMuted
-     areCannonMessagesMuted
-     i18nRooms {
-       ...I18nRoomsFragment
-     }
-     roomHandles {
-       ...RoomHandlesFragment
-     }
-   }
-`);
+  fragment RoomSimple on Room {
+    _id
+    name
+    slug
+  }`
+)
 
 registerFragment(`
-  fragment RoomsListFragment on Room {
-    name
-     level
-     maxLevel
-     currentExpPoints
-     totalExpPoints
-     zork
-     bwam
-     _sh_
-     vibe
-     slug
-     colorScheme {
-       ...ColorSchemesFragment
-     }
-     currentMusicUrl
-     currentMusicTitle
-     description
-     isActive
-     messageDelay
-     i18nRooms {
-      ...I18nRoomsFragment
+  fragment RoomBase on Room {
+    ...RoomSimple
+    createdAt
+    level
+    maxLevel
+    currentExpPoints
+    totalExpPoints
+    zork
+    bwam
+    _sh_
+    vibe
+    currentMusicUrl
+    currentMusicTitle
+    description
+    isActive
+    messageDelay
+    areDJMessagesMuted
+    areCannonMessagesMuted
+  }
+`)
+
+registerFragment(`
+  fragment RoomsList on Room {
+    ...RoomBase
+    colorScheme {
+      ...ColorSchemeBase
+    }
+    roomI18ns {
+      ...RoomI18nsBase
     }
     roomHandles {
-      ...RoomHandlesHandlesFragment
+      ...RoomHandlesWithCurrenciesBase
     }
-}
-`);
+  }
+`)
+
+// especial
 
 registerFragment(`
   fragment RoomOperat0r on Room {
@@ -93,10 +78,3 @@ registerFragment(`
     }
   }
 `)
-
-registerFragment(`
-   fragment FlatRoomsFragment on Room {
-     _id
-     name
-   }
-`);

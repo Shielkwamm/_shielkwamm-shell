@@ -16,7 +16,7 @@ addRoute({ name: 'roomOperat0r', path: '/room/:slug/operat0r', componentName: "R
 addRoute({ name: 'roomMessages', path: '/room/:slug/messages', componentName: "RoomMessages"})
 addRoute({ name: 'colorSchemesList', path: '/color-schemes', componentName: "ColorSchemesList"})
 
-addRoute({ name: 'i18nsList', path: '/i18n', componentName: "i18nsList"});
+addRoute({ name: 'i18nsList', path: '/i18n', componentName: "I18nsList"});
 
 addRoute({ name: 'havingThings', path: '/having-things', componentName: "HavingThings"})
 addRoute({ name: 'things', path: '/things', componentName: "Things"})

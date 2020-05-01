@@ -22,7 +22,7 @@ const RoomDJInner = ({ loading, document }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsFragment', // uncomment on #Step11
+  fragmentName: 'RoomsBase', // uncomment on #Step11
 }
 
 registerComponent( {name: 'RoomDJInner', component: RoomDJInner, hocs: [[withSingle2, options]]})

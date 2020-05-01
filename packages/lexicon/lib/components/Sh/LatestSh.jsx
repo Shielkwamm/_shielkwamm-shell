@@ -1,6 +1,5 @@
 import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
-import { Link } from 'react-router-dom';
 
 const LatestSh = ({ loading, results }) => (
   <React.Fragment>
@@ -18,7 +17,7 @@ const LatestSh = ({ loading, results }) => (
 
 const options = {
   collectionName: "Shs",
-  fragmentName: 'best_sh_',
+  fragmentName: 'ShBest',
   input: {sort: {createdAt: "desc"}, limit: 1}
 }
 

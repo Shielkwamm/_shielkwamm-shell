@@ -25,7 +25,7 @@ const RoomRoomInner = ({ loading, document }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsFragment', // uncomment on #Step11
+  fragmentName: 'RoomsBase', // uncomment on #Step11
 }
 
 registerComponent( {name: 'RoomRoomInner', component: RoomRoomInner, hocs: [[withSingle2, options]]})

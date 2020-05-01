@@ -1,7 +1,7 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment ColorSchemesFragment on ColorScheme {
+   fragment ColorSchemeBase on ColorScheme {
      _id
      createdAt
      backgroundColor
@@ -11,3 +11,9 @@ registerFragment(`
      name
    }
 `);
+
+registerFragment(`
+  fragment ColorSchemesList on ColorScheme {
+    ...ColorSchemeBase
+  }
+`)

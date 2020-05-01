@@ -50,7 +50,7 @@ const PartiesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Parties",
-  fragmentName: 'PartyBadge', // uncomment on #Step11
+  fragmentName: 'PartiesList',
   limit: 50
 }
 

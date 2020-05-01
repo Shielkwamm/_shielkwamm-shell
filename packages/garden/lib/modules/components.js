@@ -1,4 +1,4 @@
-import '../components/Handle/Handles.jsx';
+import '../components/Handle/Handle.jsx';
 import '../components/Handle/HandlesList.jsx';
 import '../components/Handle/HandlePartiesList.jsx';
 

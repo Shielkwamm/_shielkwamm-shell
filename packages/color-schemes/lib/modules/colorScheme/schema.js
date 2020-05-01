@@ -1,5 +1,4 @@
 const schema = {
-  // default properties
 
   _id: {
     type: String,
@@ -53,21 +52,7 @@ const schema = {
     canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
-  }
-  // userId: {
-  //   type: String,
-  //   optional: true,
-  //   canRead: ['guests'],
-  //   resolveAs: {
-  //     fieldName: 'user',
-  //     type: 'User',
-  //     resolver: (movie, args, context) => {
-  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
-  //     },
-  //     addOriginalField: true
-  //   }
-  // },
-  
+  }  
 };
 
 export default schema;

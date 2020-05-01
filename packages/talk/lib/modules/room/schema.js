@@ -1,35 +1,3 @@
-/*import { createSchema } from 'meteor/vulcan:core';
-
-const roomCurrenciesSchema = createSchema({
-  name: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-  },
-  amount: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-  },
-  glyph: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-  }
-})*/
-
-/*import { addGraphQLSchema } from 'meteor/vulcan:core';
-
-const roomCurrencies = `
-  input RoomCurrency {
-    total: Number
-    glyph: String
-    name: String
-  }
-`;
-addGraphQLSchema(roomCurrencies); 
-import { addGraphQLResolvers, addGraphQLQuery } */
-
 const schema = {
   _id: {
     type: String,
@@ -154,23 +122,23 @@ const schema = {
       relation: "hasOne"
     }
   },
-  i18nRooms: {
-    label: "i18nRooms",
+  roomI18ns: {
+    label: "Room I18ns",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'i18nRooms',
-      type: '[I18nRoom]',
+      fieldName: 'roomI18ns',
+      type: '[RoomI18n]',
       relation: 'hasMany',
       resolver: (room, args, context) => {
-        return context.I18nRooms.find({roomId: room._id}).fetch();
+        return context.RoomsI18ns.find({roomId: room._id}).fetch();
       }
     }
   },
   roomHandles: {
-    label: "roomHandles",
+    label: "Room Handles",
     type: String,
     hidden: true,
     optional: true,
@@ -184,27 +152,6 @@ const schema = {
       }
     }
   },
-  //currency
-  /*"currencyTotals.$": {
-    type: roomCurrenciesSchema,
-    resolveAs: {
-      fieldName: 'currencyTotals',
-      //type: 'Array',
-      resolver: (room, args, context) => {
-        console.log(room);
-        return {}
-      }
-    }
-  },
-  currencyTotals: {
-    type: Array,
-    hidden: true,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-  },*/
-  //modPanels
   areDJMessagesMuted: {
     type: Boolean,
     optional: true,

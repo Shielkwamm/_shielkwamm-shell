@@ -38,18 +38,18 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  handles: {
+  currencyHandles: {
     label: "Handles",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'handles',
-      type: '[HandleCurrency]',
+      fieldName: 'currencyHandles',
+      type: '[CurrencyHandle]',
       relation: 'hasMany',
       resolver: (currency, args, context) => {
-        return context.HandleCurrencies.find({currencyId: currency._id}).fetch();
+        return context.CurrenciesHandles.find({currencyId: currency._id}).fetch();
       }
     }
   },

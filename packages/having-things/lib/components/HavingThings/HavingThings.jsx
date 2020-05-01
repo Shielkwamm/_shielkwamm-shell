@@ -2,14 +2,14 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const CurrencyHandles = ({ handles }) => {
+const CurrencyHandles = ({ currencyHandles }) => {
 
   return (
     <React.Fragment>
-  {handles.map( handle => (
+  {currencyHandles.map( currencyHandle => (
     <React.Fragment key={handle._id}>
-    <h4 style={{textAlign: "right"}}>{handle.note}</h4>
-    <p style={{textAlign: "right"}}>{handle.handle.name}: {handle.mood} {handle.amount}</p>
+    <h4 style={{textAlign: "right"}}>{currencyHandle.note}</h4>
+    <p style={{textAlign: "right"}}>{currencyHandle.handle.name}: {currencyHandle.mood} {currencyHandle.amount}</p>
     </React.Fragment>
   ))}
   </React.Fragment>
@@ -25,7 +25,7 @@ const CurrenciesList = ({ loading, results }) => (
       <h2>{currency.glyph} {currency.name}</h2>
       <p><a href={currency.ledgerUrl}>ledger</a></p>
       <p>{currency.description}</p>
-      <CurrencyHandles handles={currency.handles}/>
+      <CurrencyHandles currencyHandles={currency.currencyHandles}/>
       </React.Fragment>
       )
     )}
@@ -34,7 +34,7 @@ const CurrenciesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Currencies",
-  fragmentName: 'CurrenciesFragment',
+  fragmentName: 'CurrenciesList',
   limit: 11
 }
 

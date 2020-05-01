@@ -2,9 +2,9 @@ import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
 
-const HandlesParties = createCollection({
-  collectionName: 'HandleParties',
-  typeName: 'HandleParty',
+const CurrenciesHandles = createCollection({
+  collectionName: 'CurrenciesHandles',
+  typeName: 'CurrencyHandle',
   schema,
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
   // mutations: yourCustomMutations // null to disable default mutations generation
@@ -40,4 +40,4 @@ const HandlesParties = createCollection({
 
 
 
-export default HandlesParties;
+export default CurrenciesHandles;

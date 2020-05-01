@@ -34,7 +34,7 @@ const RoomCannonMessagesInner = ({ loading, results, linkColor, backgroundColor,
 
 const messagesOptions = {
   collectionName: "Messages",
-  fragmentName: 'MessagesFragment',
+  fragmentName: 'RoomMessagesBase',
   pollInterval: .1
 }
 

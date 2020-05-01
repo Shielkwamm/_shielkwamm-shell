@@ -2,10 +2,10 @@ import React from 'react';
 import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const HandleCurrencies = ({ currencies }) => (
+const HandleCurrencies = ({ handleCurrencies }) => (
   <React.Fragment>
-    {currencies && currencies.map(currency => (
-      <p key={currency._id} style={{marginLeft: "50px"}}>{currency.currency.glyph} [{currency.currency.name}] {currency.amount} {currency.mood}<span style={{float:"right"}}>{currency.note}</span></p> 
+    {handleCurrencies && handleCurrencies.map(handleCurrency => (
+      <p key={handleCurrency._id} style={{marginLeft: "50px"}}>{handleCurrency.currency.glyph} [{handleCurrency.currency.name}] {handleCurrency.amount} {handleCurrency.mood}<span style={{float:"right"}}>{handleCurrency.note}</span></p> 
     ))}
   </React.Fragment>
 )
@@ -24,7 +24,7 @@ const HandlesList = ({ loading, results }) => (
         {handle.isHonorary ? (
           <React.Fragment>
             <Components.Handle handle={handle}/>
-            <Components.HandleCurrencies currencies={handle.currencies}/>
+            <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
           </React.Fragment>
         ): null}  
       </React.Fragment>
@@ -36,7 +36,7 @@ const HandlesList = ({ loading, results }) => (
         {!handle.isHonorary && handle.isActive ? (
           <React.Fragment>
           <Components.Handle handle={handle}/>
-          <Components.HandleCurrencies currencies={handle.currencies}/>
+          <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
           </React.Fragment>
        ): null}
       </React.Fragment>
@@ -48,7 +48,7 @@ const HandlesList = ({ loading, results }) => (
         {!handle.isHonorary && !handle.isActive ? (
           <React.Fragment>
           <Components.Handle handle={handle}/>
-          <Components.HandleCurrencies currencies={handle.currencies}/>
+          <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
           </React.Fragment>
        ): null}
       </React.Fragment>
@@ -58,7 +58,7 @@ const HandlesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "Handles",
-  fragmentName: 'HandleBadge',
+  fragmentName: 'HandlesList',
   limit: 77
 }
 

@@ -64,18 +64,18 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
-  handles: {
+  partyHandles: {
     label: "Handles",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'handles',
-      type: '[HandleParty]',
+      fieldName: 'partyHandles',
+      type: '[PartyHandle]',
       relation: 'hasMany',
       resolver: (party, args, context) => {
-        return context.HandleParties.find({partyId: party._id}).fetch();
+        return context.PartiesHandles.find({partyId: party._id}).fetch();
       }
     }
   },
@@ -88,18 +88,18 @@ const schema = {
     defaultValue: "~"
   },
 
-  i18ns: {
-    label: "partyI18ns",
+  partyI18ns: {
+    label: "Party I18ns",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
     resolveAs: {
-      fieldName: 'i18ns',
+      fieldName: 'partyI18ns',
       type: '[PartyI18n]',
       relation: 'hasMany',
-      resolver: (party, {filterDir, filterColumn}, context) => {
-        return context.PartyI18ns.find({partyId: party._id}).fetch();
+      resolver: (party, args, context) => {
+        return context.PartiesI18ns.find({partyId: party._id}).fetch();
       }
     }
   }

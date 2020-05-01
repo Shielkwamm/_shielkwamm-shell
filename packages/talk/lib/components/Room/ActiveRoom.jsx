@@ -19,7 +19,7 @@ const ActiveRoomInner = ({ loading, document }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsFragment',
+  fragmentName: 'RoomsList',
 }
 
 registerComponent( {name: 'ActiveRoomInner', component: ActiveRoomInner, hocs: [[withSingle2, options]]})

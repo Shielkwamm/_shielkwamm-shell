@@ -2,8 +2,8 @@ import { createCollection } from 'meteor/vulcan:core';
 import schema from './schema.js';
 import './fragments.js';
 
-const PartyI18ns = createCollection({
-  collectionName: 'PartyI18ns',
+const PartiesI18ns = createCollection({
+  collectionName: 'PartiesI18ns',
   typeName: 'PartyI18n',
   schema,
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
@@ -40,4 +40,4 @@ const PartyI18ns = createCollection({
 
 
 
-export default PartyI18ns;
+export default PartiesI18ns;

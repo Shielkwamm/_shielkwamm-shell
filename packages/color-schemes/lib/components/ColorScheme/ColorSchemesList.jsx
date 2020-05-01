@@ -22,7 +22,7 @@ const ColorSchemesList = ({ loading, results }) => (
 
 const options = {
   collectionName: "ColorSchemes",
-  fragmentName: 'ColorSchemesFragment',
+  fragmentName: 'ColorSchemesList',
   limit: 11
 }
 

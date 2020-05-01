@@ -4,11 +4,11 @@ import { Components, registerComponent} from 'meteor/vulcan:core';
 const RoomCurrencies = ({ room }) => {
   //get all currencies
   const currenciesList = []
-  room.roomHandles.forEach(rh => {
-    rh.handle.currencies.forEach( currency => {
-      let amount = currency.amount;
-      let name = currency.currency.name;
-      let glyph = currency.currency.glyph;
+  room.roomHandles.forEach(roomHandle => {
+    roomHandle.handle.handleCurrencies.forEach( handleCurrencies => {
+      let amount = handleCurrencies.amount;
+      let name = handleCurrencies.currency.name;
+      let glyph = handleCurrencies.currency.glyph;
       let foundIndex;
       let currentC = currenciesList.find( ( cl, index ) => {foundIndex = index; return cl.name === name});
       if(currentC) {

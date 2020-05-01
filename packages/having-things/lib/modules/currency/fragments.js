@@ -1,22 +1,36 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment CurrenciesFragment on Currency {
-     _id
+  fragment CurrencySimple on Currency {
+    _id
+    name
+  }`
+)
+
+registerFragment(`
+   fragment CurrencyBase on Currency {
+     ...CurrencySimple
      createdAt
-     name
      glyph
      description
      ledgerUrl
-     handles {
-       _id
-       amount
-       mood
-       note
-      handle {
-        _id
-        name
-      }
-     }
    }
 `);
+
+registerFragment(`
+   fragment CurrencyList on Currency {
+     ...CurrencyBase
+     currencyHandles {
+      ...CurrencyHandlesBase
+    }
+   }
+`)
+
+registerFragment(`
+   fragment HandleWithCurrencies on Handle {
+     ...HandleBase
+     handleCurrencies {
+       ...HandleCurrenciesBase
+     }
+   }
+`)

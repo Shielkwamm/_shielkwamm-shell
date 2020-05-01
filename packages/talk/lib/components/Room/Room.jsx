@@ -25,9 +25,9 @@ const Room = ({ room }) => (
     
     <Grid item xs={4}>
     <p style={{color: room.colorScheme.linkColor}}>handles</p>
-    {room.roomHandles.map(rh => (
-      <React.Fragment key={rh._id}>
-        {rh.handle.isActive ? (<Components.Handle colorScheme={room.colorScheme} key={rh._id} handle={rh.handle}/>) : null }
+    {room.roomHandles.map(roomHandle => (
+      <React.Fragment key={roomHandle._id}>
+        {roomHandle.handle.isActive ? (<Components.Handle colorScheme={room.colorScheme} key={roomHandle._id} handle={roomHandle.handle}/>) : null }
       </React.Fragment>
     ))}
     </Grid>
@@ -36,8 +36,8 @@ const Room = ({ room }) => (
     </Grid>
     <Grid style={{textAlign: "right"}} item xs={4}>
     <p style={{color: room.colorScheme.linkColor}}>i18ns</p>
-    {room.i18nRooms.map(ih => (
-      <h3 key={ih._id}>{ih.i18n.name}</h3>
+    {room.roomI18ns.map(roomI18n => (
+      <h3 key={roomI18n._id}>{roomI18n.i18n.name}</h3>
     ))}
     </Grid>
     </Grid>

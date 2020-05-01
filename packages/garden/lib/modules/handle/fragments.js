@@ -1,59 +1,52 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment HandlesFragment on Handle {
-     _id
-     createdAt
-     isActive
+  fragment HandleSimple on Handle {
+    _id     
      name
-     mood
-     note
-     description
-     isHonorary
-     inventory
-     connectionStatus
-     parties {
-       ...HandlesPartiesFragment
-     }
-     currencies {
-       ...HandleCurrenciesFragment
-     }
-   }
-`);
-
+  }`
+)
 
 registerFragment(`
-   fragment FlatHandlesFragment on Handle {
-     _id
-     createdAt
-     isActive
-     name
-     mood
-     connectionStatus
-     inventory
-     connectionStatus
-     isHonorary
-   }
-`);
-
-registerFragment(`
-  fragment HandleBadge on Handle {
-    _id
-    name
+  fragment HandleBase on Handle {
+    ...HandleSimple
+    createdAt
     isActive
-    isHonorary
     mood
     note
+    description
+    isHonorary
+    connectionStatus 
     inventory
-    connectionStatus
-    parties {
-      ...HandlePartiesBadge
-    }
-    currencies {
-      ...HandleCurrenciesFragment
-    }
-  }
+  }`
+)
+
+registerFragment(`
+   fragment HandlesList on Handle {
+     ...HandleBase
+     handleParties {
+       ...HandlePartiesBase
+     }
+     handleCurrencies {
+       ...HandleCurrenciesBase
+     }
+   }
 `);
 
-//partyIds
-//parties
+registerFragment(`
+  fragment HandleWithCurrenciesBase on Handle {
+     ...HandleBase
+     handleCurrencies {
+      _id
+      createdAt
+      mood
+      note
+      amount
+      currency {
+        _id
+        name
+        glyph
+      }
+    }
+  }
+`)

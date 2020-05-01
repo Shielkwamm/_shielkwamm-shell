@@ -20,7 +20,7 @@ const Overview = ({ loading, document }) => (
 
 const options = {
   collectionName: "Rooms",
-  fragmentName: 'RoomsListFragment',
+  fragmentName: 'RoomsList',
   input: {filter: {isFeatured: {_eq: true}}}
 }
 

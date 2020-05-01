@@ -1,15 +1,21 @@
 import { registerFragment } from 'meteor/vulcan:core';
 
 registerFragment(`
-   fragment best_sh_ on Sh {
-     _id
+  fragment ShBase on Sh {
+    _id
      createdAt
      salutation
      leftBumper
      text
      rightBumper
-     colorScheme {
-      ...ColorSchemesFragment
+  }`
+);
+
+registerFragment(`
+  fragment ShBest on Sh {
+    ...ShBase
+    colorScheme {
+      ...ColorSchemeBase
      }
-   }
-`);
+  }
+`)
