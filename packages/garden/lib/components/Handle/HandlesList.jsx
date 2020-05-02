@@ -20,49 +20,7 @@ const HandlesList = ({ loading, results }) => (
     <p>~unconfirmed, !inbound, []spammy</p>
     <hr></hr>
     <h1 style={{textAlign: "center"}}>=== Honorary ===</h1>
-    {!loading && results.map(handle => (
-      <React.Fragment key={handle._id}>
-        {handle.isHonorary ? (
-          <React.Fragment>
-            <Components.Handle handle={handle}/>
-            <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
-          </React.Fragment>
-        ): null}  
-      </React.Fragment>
-    ))}
-    <hr></hr>
-    <Grid container spacing={10}>
-      <Grid item md={6} xs={12}>
-    <h1 style={{textAlign: "center"}}>=== Active ===</h1>
-    <Grid container spacing={2}>
-    {!loading && results.map(handle => (
-      <React.Fragment key={handle._id}>
-        {!handle.isHonorary && handle.isActive ? (
-          <Grid item xs={12} sm={12} md={6}>
-          <Components.Handle handle={handle}/>
-          <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
-          </Grid>
-       ): null}
-      </React.Fragment>
-    ))}
-    </Grid>
-    </Grid>
-    <Grid item md={6} xs={12}>
-    <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
-    <Grid container spacing={2}>
-    {!loading && results.map(handle => (
-      <React.Fragment key={handle._id}>
-        {!handle.isHonorary && !handle.isActive ? (
-          <Grid item xs={12} sm={12} md={6}>
-          <Components.Handle handle={handle} isShowingZzZs={false}/>
-          <Components.HandleCurrencies handleCurrencies={handle.handleCurrencies}/>
-          </Grid>
-       ): null}
-      </React.Fragment>
-    ))}
-    </Grid>
-    </Grid>
-    </Grid>
+    
   </React.Fragment>
 );
 
@@ -81,3 +39,11 @@ registerComponent({ name: 'HandlesList', component: HandlesList, hocs: [[withMul
     <p>[lolliebombs]</p>
 
     */
+   /*
+
+const options = {
+  collectionName: "Shs",
+  fragmentName: 'ShBest',
+  input: {sort: {createdAt: "desc"}, limit: 1}
+}
+*/

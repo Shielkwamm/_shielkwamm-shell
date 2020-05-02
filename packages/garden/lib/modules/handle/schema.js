@@ -107,10 +107,10 @@ const schema = {
     canRead: ['guests'],
     resolveAs: {
       fieldName: 'handleCurrencies',
-      type: '[CurrencyHandle]',
+      type: '[CurrencyActor]',
       relation: 'hasMany',
       resolver: (handle, args, context) => {
-        return context.CurrenciesHandles.find({handleId: handle._id}).fetch();
+        return context.CurrenciesActors.find({handleId: handle._id}).fetch();
       }
     }
   },

@@ -27,9 +27,7 @@ registerFragment(`
      handleParties {
        ...HandlePartiesBase
      }
-     handleCurrencies {
-       ...HandleCurrenciesBase
-     }
+     
    }
 `);
 

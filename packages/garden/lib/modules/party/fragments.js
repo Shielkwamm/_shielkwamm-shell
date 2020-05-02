@@ -32,3 +32,21 @@ registerFragment(`
     }
   }`
 );
+
+registerFragment(`
+  fragment PartyWithCurrenciesBase on Party {
+     ...PartyBase
+     partyCurrencies {
+      _id
+      createdAt
+      mood
+      note
+      amount
+      currency {
+        _id
+        name
+        glyph
+      }
+    }
+  }
+`)

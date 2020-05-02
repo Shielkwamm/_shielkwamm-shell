@@ -17,3 +17,22 @@ registerFragment(`
     ...ColorSchemeBase
   }
 `)
+
+
+registerFragment(`
+  fragment ColorSchemeWithCurrenciesBase on ColorScheme {
+     ...ColorSchemeBase
+     colorSchemeCurrencies {
+      _id
+      createdAt
+      mood
+      note
+      amount
+      currency {
+        _id
+        name
+        glyph
+      }
+    }
+  }
+`)

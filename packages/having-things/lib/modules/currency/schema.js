@@ -38,6 +38,21 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
+  currencyActors: {
+    label: "Currency Actors",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'currencyActors',
+      type: '[CurrencyActor]',
+      relation: 'hasMany',
+      resolver: (currency, args, context) => {
+        return context.CurrenciesActors.find({currencyId: currency._id}).fetch();
+      }
+    }
+  },
   currencyHandles: {
     label: "Handles",
     type: String,
@@ -46,14 +61,55 @@ const schema = {
     canRead: ['guests'],
     resolveAs: {
       fieldName: 'currencyHandles',
-      type: '[CurrencyHandle]',
+      type: '[CurrencyActor]',
       relation: 'hasMany',
       resolver: (currency, args, context) => {
-        return context.CurrenciesHandles.find({currencyId: currency._id}).fetch();
+        return context.CurrenciesActors.find({currencyId: currency._id, handleId: {$exists: true}}).fetch();
       }
     }
   },
-  
+  currencyParties: {
+    label: "Parties",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'currencyParties',
+      type: '[CurrencyActor]',
+      relation: 'hasMany',
+      resolver: (currency, args, context) => {
+        return context.CurrenciesActors.find({currencyId: currency._id, partyId: {$exists: true}}).fetch();
+      }
+    }
+  },
+  currencyColorSchemes: {
+    label: "ColorSchemes",
+    type: String,
+    hidden: true,
+    optional: true,
+    canRead: ['guests'],
+    resolveAs: {
+      fieldName: 'currencyColorSchemes',
+      type: '[CurrencyActor]',
+      relation: 'hasMany',
+      resolver: (currency, args, context) => {
+        return context.CurrenciesActors.find({currencyId: currency._id, colorSchemeId: {$exists: true}}).fetch();
+      }
+    }
+  },
+  colorSchemeId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      fieldName: "colorScheme",
+      type: 'ColorScheme',
+      relation: "hasOne"
+    }
+  },
 };
 
 export default schema;

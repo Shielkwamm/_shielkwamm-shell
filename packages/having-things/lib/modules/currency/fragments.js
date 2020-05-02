@@ -18,10 +18,19 @@ registerFragment(`
 `);
 
 registerFragment(`
-   fragment CurrenciesList on Currency {
+  fragment CurrenciesList on Currency {
      ...CurrencyBase
-     currencyHandles {
+    currencyHandles {
       ...CurrencyHandlesBase
+    }
+    currencyParties {
+      ...CurrencyPartiesBase
+    }
+    currencyColorSchemes {
+      ...CurrencyColorSchemesBase
+    }
+    colorScheme {
+      ...ColorSchemeBase
     }
    }
 `)
@@ -31,6 +40,24 @@ registerFragment(`
      ...HandleBase
      handleCurrencies {
        ...HandleCurrenciesBase
+     }
+   }
+`)
+
+registerFragment(`
+   fragment PartyWithCurrencies on Party {
+     ...PartyBase
+     partyCurrencies {
+       ...PartyCurrenciesBase
+     }
+   }
+`)
+
+registerFragment(`
+   fragment ColorSchemeWithCurrencies on ColorScheme {
+     ...ColorSchemeBase
+     colorSchemeCurrencies {
+       ...ColorSchemeCurrenciesBase
      }
    }
 `)

@@ -4,7 +4,7 @@ import { createMutator } from 'meteor/vulcan:core';
 Meteor.startup(() => {
   const Handles = getCollection("Handles");
   const Currencies = getCollection("Currencies")
-  const CurrenciesHandles = getCollection("CurrenciesHandles");
+  const CurrenciesActors = getCollection("CurrenciesActors");
   const Parties = getCollection("Parties");
   const PartiesHandles = getCollection("PartiesHandles");
 
@@ -39,7 +39,7 @@ Meteor.startup(() => {
          console.log("====  Couldn't find currency", hc.glyph)
          return;
        }
-       CurrenciesHandles.insert({ 
+       CurrenciesActors.insert({ 
          handleId: handleId,
          currencyId: currency._id,
          amount: hc.amount,

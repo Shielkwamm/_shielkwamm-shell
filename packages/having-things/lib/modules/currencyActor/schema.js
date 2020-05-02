@@ -48,6 +48,30 @@ const schema = {
       relation: "hasOne"
     }
   },
+  partyId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      fieldName: 'party',
+      type: 'Party',
+      relation: "hasOne"
+    }
+  },
+  colorSchemeId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      fieldName: 'colorScheme',
+      type: 'ColorScheme',
+      relation: "hasOne"
+    }
+  },
   currencyId: {
     type: String,
     optional: true,
@@ -60,20 +84,6 @@ const schema = {
       relation: "hasOne"
     }
   },
-  
-  // userId: {
-  //   type: String,
-  //   optional: true,
-  //   canRead: ['guests'],
-  //   resolveAs: {
-  //     fieldName: 'user',
-  //     type: 'User',
-  //     resolver: (movie, args, context) => {
-  //       return context.Users.findOne({ _id: movie.userId }, { fields: context.Users.getViewableFields(context.currentUser, context.Users) });
-  //     },
-  //     addOriginalField: true
-  //   }
-  // },
   
 };
 

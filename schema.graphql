@@ -665,6 +665,7 @@ type ColorScheme {
   backgroundColor: String 
   linkColor: String 
   altColor: String 
+  colorSchemeCurrencies: [CurrencyActor] 
 }
 
 
@@ -771,6 +772,7 @@ input ColorSchemeFilterInput {
   backgroundColor: String_Selector
   linkColor: String_Selector
   altColor: String_Selector
+  colorSchemeCurrencies: String_Selector
 }
 
 input ColorSchemeSortInput {
@@ -781,6 +783,7 @@ input ColorSchemeSortInput {
   backgroundColor: SortOptions
   linkColor: SortOptions
   altColor: SortOptions
+  colorSchemeCurrencies: SortOptions
 }
 
 input ColorSchemeSelectorInput {
@@ -1093,7 +1096,7 @@ type Handle {
   inventory: [String] 
   handleParties: [PartyHandle] 
   connectionStatus: String 
-  handleCurrencies: [CurrencyHandle] 
+  handleCurrencies: [CurrencyActor] 
   roomId: String 
 }
 
@@ -1248,14 +1251,16 @@ type Party {
   _id: String 
   createdAt: Date 
   name: String 
-  colorSchemeId: String 
-  colorScheme: ColorScheme 
   description: String 
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
-  partyHandles: [PartyHandle] 
   connectionStatus: String 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
+  partyHandles: [PartyHandle] 
+  partyCurrencies: String 
+  handleCurrencies: [CurrencyActor] 
   partyI18ns: [PartyI18n] 
 }
 
@@ -1324,12 +1329,12 @@ input CreatePartyInput {
 
 input CreatePartyDataInput {
   name: String 
-  colorSchemeId: String 
   description: String 
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
   connectionStatus: String 
+  colorSchemeId: String 
 }
 
 input UpdatePartyInput{
@@ -1346,12 +1351,12 @@ input UpsertPartyInput{
 
 input UpdatePartyDataInput {
   name: String 
-  colorSchemeId: String 
   description: String 
   isActive: Boolean 
   mood: String 
   isEsteemed: Boolean 
   connectionStatus: String 
+  colorSchemeId: String 
 }
 
 input PartyFilterInput {
@@ -1363,13 +1368,14 @@ input PartyFilterInput {
   _id: String_Selector
   createdAt: Date_Selector
   name: String_Selector
-  colorSchemeId: String_Selector
   description: String_Selector
   isActive: Boolean_Selector
   mood: String_Selector
   isEsteemed: Boolean_Selector
-  partyHandles: String_Selector
   connectionStatus: String_Selector
+  colorSchemeId: String_Selector
+  partyHandles: String_Selector
+  partyCurrencies: String_Selector
   partyI18ns: String_Selector
 }
 
@@ -1377,13 +1383,14 @@ input PartySortInput {
   _id: SortOptions
   createdAt: SortOptions
   name: SortOptions
-  colorSchemeId: SortOptions
   description: SortOptions
   isActive: SortOptions
   mood: SortOptions
   isEsteemed: SortOptions
-  partyHandles: SortOptions
   connectionStatus: SortOptions
+  colorSchemeId: SortOptions
+  partyHandles: SortOptions
+  partyCurrencies: SortOptions
   partyI18ns: SortOptions
 }
 
@@ -1680,7 +1687,12 @@ type Currency {
   glyph: String 
   description: String 
   ledgerUrl: String 
-  currencyHandles: [CurrencyHandle] 
+  currencyActors: [CurrencyActor] 
+  currencyHandles: [CurrencyActor] 
+  currencyParties: [CurrencyActor] 
+  currencyColorSchemes: [CurrencyActor] 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
 }
 
 
@@ -1751,6 +1763,7 @@ input CreateCurrencyDataInput {
   glyph: String 
   description: String 
   ledgerUrl: String 
+  colorSchemeId: String 
 }
 
 input UpdateCurrencyInput{
@@ -1770,6 +1783,7 @@ input UpdateCurrencyDataInput {
   glyph: String 
   description: String 
   ledgerUrl: String 
+  colorSchemeId: String 
 }
 
 input CurrencyFilterInput {
@@ -1784,7 +1798,11 @@ input CurrencyFilterInput {
   glyph: String_Selector
   description: String_Selector
   ledgerUrl: String_Selector
+  currencyActors: String_Selector
   currencyHandles: String_Selector
+  currencyParties: String_Selector
+  currencyColorSchemes: String_Selector
+  colorSchemeId: String_Selector
 }
 
 input CurrencySortInput {
@@ -1794,7 +1812,11 @@ input CurrencySortInput {
   glyph: SortOptions
   description: SortOptions
   ledgerUrl: SortOptions
+  currencyActors: SortOptions
   currencyHandles: SortOptions
+  currencyParties: SortOptions
+  currencyColorSchemes: SortOptions
+  colorSchemeId: SortOptions
 }
 
 input CurrencySelectorInput {
@@ -1811,8 +1833,8 @@ input CurrencySelectorUniqueInput {
 }
 
 
-# Type for CurrenciesHandles
-type CurrencyHandle {
+# Type for CurrenciesActors
+type CurrencyActor {
   _id: String 
   createdAt: Date 
   amount: Float 
@@ -1820,26 +1842,30 @@ type CurrencyHandle {
   note: String 
   handleId: String 
   handle: Handle 
+  partyId: String 
+  party: Party 
+  colorSchemeId: String 
+  colorScheme: ColorScheme 
   currencyId: String 
   currency: Currency 
 }
 
 
-input DeleteCurrencyHandleInput{
-  filter: CurrencyHandleFilterInput
+input DeleteCurrencyActorInput{
+  filter: CurrencyActorFilterInput
   id: String
 }
 
-input SingleCurrencyHandleInput {
+input SingleCurrencyActorInput {
   # filtering
-  filter: CurrencyHandleFilterInput
-  sort: CurrencyHandleSortInput
+  filter: CurrencyActorFilterInput
+  sort: CurrencyActorSortInput
   search: String
   id: String
 
   # backwards-compatibility
   "Deprecated (use 'filter/id' fields instead)."
-  selector: CurrencyHandleSelectorUniqueInput
+  selector: CurrencyActorSelectorUniqueInput
 
   # options (backwards-compatibility)
   # Whether to enable caching for this query
@@ -1848,11 +1874,11 @@ input SingleCurrencyHandleInput {
   allowNull: Boolean
 }
 
-input MultiCurrencyHandleInput {
+input MultiCurrencyActorInput {
 
   # filtering
-  filter: CurrencyHandleFilterInput
-  sort: CurrencyHandleSortInput
+  filter: CurrencyActorFilterInput
+  sort: CurrencyActorSortInput
   search: String
   offset: Int
   limit: Int
@@ -1870,55 +1896,59 @@ input MultiCurrencyHandleInput {
   
 }
 
-type SingleCurrencyHandleOutput{
-  result: CurrencyHandle
+type SingleCurrencyActorOutput{
+  result: CurrencyActor
 }
 
-type  MultiCurrencyHandleOutput{
-  results: [CurrencyHandle]
+type  MultiCurrencyActorOutput{
+  results: [CurrencyActor]
   totalCount: Int
 }
 
-type CurrencyHandleMutationOutput{
-  data: CurrencyHandle
+type CurrencyActorMutationOutput{
+  data: CurrencyActor
 }
 
-input CreateCurrencyHandleInput {
-  data: CreateCurrencyHandleDataInput!
+input CreateCurrencyActorInput {
+  data: CreateCurrencyActorDataInput!
 }
 
-input CreateCurrencyHandleDataInput {
+input CreateCurrencyActorDataInput {
   amount: Float 
   mood: String 
   note: String 
   handleId: String 
+  partyId: String 
+  colorSchemeId: String 
   currencyId: String 
 }
 
-input UpdateCurrencyHandleInput{
-  filter: CurrencyHandleFilterInput
+input UpdateCurrencyActorInput{
+  filter: CurrencyActorFilterInput
   id: String
-  data: UpdateCurrencyHandleDataInput!
+  data: UpdateCurrencyActorDataInput!
 }
 
-input UpsertCurrencyHandleInput{
-  filter: CurrencyHandleFilterInput
+input UpsertCurrencyActorInput{
+  filter: CurrencyActorFilterInput
   id: String
-  data: UpdateCurrencyHandleDataInput!
+  data: UpdateCurrencyActorDataInput!
 }
 
-input UpdateCurrencyHandleDataInput {
+input UpdateCurrencyActorDataInput {
   amount: Float 
   mood: String 
   note: String 
   handleId: String 
+  partyId: String 
+  colorSchemeId: String 
   currencyId: String 
 }
 
-input CurrencyHandleFilterInput {
-  _and: [CurrencyHandleFilterInput]
-  _not: CurrencyHandleFilterInput
-  _or: [CurrencyHandleFilterInput]
+input CurrencyActorFilterInput {
+  _and: [CurrencyActorFilterInput]
+  _not: CurrencyActorFilterInput
+  _or: [CurrencyActorFilterInput]
 
 
   _id: String_Selector
@@ -1927,26 +1957,30 @@ input CurrencyHandleFilterInput {
   mood: String_Selector
   note: String_Selector
   handleId: String_Selector
+  partyId: String_Selector
+  colorSchemeId: String_Selector
   currencyId: String_Selector
 }
 
-input CurrencyHandleSortInput {
+input CurrencyActorSortInput {
   _id: SortOptions
   createdAt: SortOptions
   amount: SortOptions
   mood: SortOptions
   note: SortOptions
   handleId: SortOptions
+  partyId: SortOptions
+  colorSchemeId: SortOptions
   currencyId: SortOptions
 }
 
-input CurrencyHandleSelectorInput {
-  _and: [CurrencyHandleSelectorInput]
-  _or: [CurrencyHandleSelectorInput]
+input CurrencyActorSelectorInput {
+  _and: [CurrencyActorSelectorInput]
+  _or: [CurrencyActorSelectorInput]
 
 }
 
-input CurrencyHandleSelectorUniqueInput {
+input CurrencyActorSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -2858,11 +2892,11 @@ type Query {
   # A list of Currency documents matching a set of query terms
   currencies(input: MultiCurrencyInput):  MultiCurrencyOutput
   
-  # A single CurrencyHandle document fetched by ID or slug
-  currencyHandle(input: SingleCurrencyHandleInput!): SingleCurrencyHandleOutput
+  # A single CurrencyActor document fetched by ID or slug
+  currencyActor(input: SingleCurrencyActorInput!): SingleCurrencyActorOutput
   
-  # A list of CurrencyHandle documents matching a set of query terms
-  currencyHandles(input: MultiCurrencyHandleInput):  MultiCurrencyHandleOutput
+  # A list of CurrencyActor documents matching a set of query terms
+  currencyActors(input: MultiCurrencyActorInput):  MultiCurrencyActorOutput
   
   # A single Message document fetched by ID or slug
   message(input: SingleMessageInput!): SingleMessageOutput
@@ -3208,37 +3242,37 @@ type Mutation {
   selector: CurrencySelectorUniqueInput
 ) : CurrencyMutationOutput
 
-  # Mutation for creating new CurrencyHandle documents
-  createCurrencyHandle(
-  input: CreateCurrencyHandleInput,
+  # Mutation for creating new CurrencyActor documents
+  createCurrencyActor(
+  input: CreateCurrencyActorInput,
   "Deprecated (use 'input' field instead)."
-  data: CreateCurrencyHandleDataInput
-) : CurrencyHandleMutationOutput
+  data: CreateCurrencyActorDataInput
+) : CurrencyActorMutationOutput
 
-  # Mutation for updating a CurrencyHandle document
-  updateCurrencyHandle(
-  input: UpdateCurrencyHandleInput,
+  # Mutation for updating a CurrencyActor document
+  updateCurrencyActor(
+  input: UpdateCurrencyActorInput,
   "Deprecated (use 'input' field instead)."
-  selector: CurrencyHandleSelectorUniqueInput,
+  selector: CurrencyActorSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateCurrencyHandleDataInput 
-) : CurrencyHandleMutationOutput
+  data: UpdateCurrencyActorDataInput 
+) : CurrencyActorMutationOutput
 
-  # Mutation for upserting a CurrencyHandle document
-  upsertCurrencyHandle(
-  input: UpsertCurrencyHandleInput,
+  # Mutation for upserting a CurrencyActor document
+  upsertCurrencyActor(
+  input: UpsertCurrencyActorInput,
   "Deprecated (use 'input' field instead)."
-  selector: CurrencyHandleSelectorUniqueInput,
+  selector: CurrencyActorSelectorUniqueInput,
   "Deprecated (use 'input' field instead)."
-  data: UpdateCurrencyHandleDataInput
-) : CurrencyHandleMutationOutput
+  data: UpdateCurrencyActorDataInput
+) : CurrencyActorMutationOutput
 
-  # Mutation for deleting a CurrencyHandle document
-  deleteCurrencyHandle(
-  input: DeleteCurrencyHandleInput,
+  # Mutation for deleting a CurrencyActor document
+  deleteCurrencyActor(
+  input: DeleteCurrencyActorInput,
   "Deprecated (use 'input' field instead)."
-  selector: CurrencyHandleSelectorUniqueInput
-) : CurrencyHandleMutationOutput
+  selector: CurrencyActorSelectorUniqueInput
+) : CurrencyActorMutationOutput
 
   # Mutation for creating new Message documents
   createMessage(

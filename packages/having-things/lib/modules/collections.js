@@ -1,2 +1,2 @@
 import './currency/collection.js';
-import './currencyHandle/collection.js';
+import './currencyActor/collection.js';

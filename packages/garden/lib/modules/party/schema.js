@@ -21,18 +21,6 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
-  colorSchemeId: {
-    type: String,
-    optional: true,
-    canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    resolveAs: {
-      fieldName: "colorScheme",
-      type: 'ColorScheme',
-      relation: "hasOne"
-    }
-  },
   description: {
     type: String,
     optional: true,
@@ -64,8 +52,28 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
+  connectionStatus: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    defaultValue: "~"
+  },
+  colorSchemeId: {
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins'],
+    resolveAs: {
+      fieldName: "colorScheme",
+      type: 'ColorScheme',
+      relation: "hasOne"
+    }
+  },
   partyHandles: {
-    label: "Handles",
+    label: "Party Handles",
     type: String,
     hidden: true,
     optional: true,
@@ -79,13 +87,20 @@ const schema = {
       }
     }
   },
-  connectionStatus: {
+  partyCurrencies: {
+    label: "Party Currencies",
     type: String,
+    hidden: true,
     optional: true,
     canRead: ['guests'],
-    canCreate: ['admins'],
-    canUpdate: ['admins'],
-    defaultValue: "~"
+    resolveAs: {
+      fieldName: 'handleCurrencies',
+      type: '[CurrencyActor]',
+      relation: 'hasMany',
+      resolver: (party, args, context) => {
+        return context.CurrenciesActors.find({partyId: party._id}).fetch();
+      }
+    }
   },
 
   partyI18ns: {
