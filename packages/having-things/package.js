@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'having-things',
+  name: 'shielkwamm:having-things',
 });
 
 Package.onUse((api) => {

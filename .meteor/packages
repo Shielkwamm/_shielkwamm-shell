@@ -17,21 +17,21 @@ vulcan:debug
 vulcan:forms
 
 # when in doubt live aethetically
-color-schemes 
+shielkwamm:color-schemes
 
 # Use your words
-lexicon
+shielkwamm:lexicon
 
 # I think there for I am
-garden 
+shielkwamm:garden
 
 # It helps
-having-things
+shielkwamm:having-things
 
 # marble madness
-talk 
+shielkwamm:talk
 
 # _sh
-shielkwamm
+shielkwamm:shielkwamm
 
 vulcan:backoffice

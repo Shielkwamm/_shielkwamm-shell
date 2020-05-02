@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'garden',
+  name: 'shielkwamm:garden',
 });
 
 Package.onUse((api) => {

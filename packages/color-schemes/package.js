@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'color-schemes',
+  name: 'shielkwamm:color-schemes',
 });
 
 Package.onUse((api) => {

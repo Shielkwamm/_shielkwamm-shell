@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'talk',
+  name: 'shielkwamm:talk',
 });
 
 Package.onUse((api) => {

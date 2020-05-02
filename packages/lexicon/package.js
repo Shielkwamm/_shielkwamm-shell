@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'lexicon',
+  name: 'shielkwamm:lexicon',
 });
 
 Package.onUse((api) => {

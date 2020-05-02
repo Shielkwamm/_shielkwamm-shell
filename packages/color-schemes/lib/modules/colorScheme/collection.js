@@ -38,6 +38,4 @@ const ColorSchemes = createCollection({
 
 });
 
-
-
 export default ColorSchemes;
