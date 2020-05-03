@@ -130,8 +130,8 @@ const roomsSeed = [{
   bwam: "?+◯☯?+",
   vibe: "↑↑⬤",
   _sh_: "+△",
-  currentMusicUrl: "https://www.youtube.com/watch?v=iMH49ieL4es",
-  currentMusicTitle: "Katamari Damacy Soundtrack - 01 - Katamari on the Rocks",
+  currentMusicUrl: "https://www.youtube.com/embed/lwJ1i5lCw0M?start=218",
+  currentMusicTitle: "Hatsune Miku",
   handles: [
     {name: "Arbitrat0r"},
     {name: "Inf0rmation"},
