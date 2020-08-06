@@ -24,7 +24,7 @@ input String_Selector {
 
 input String_Array_Selector {
   _in: [String!]
-  # _contains: String_Selector
+  _contains: String
   # _contains_all: [String_Selector]
 }
 
@@ -163,6 +163,13 @@ directive @intl on FIELD_DEFINITION
     email: String
   }
 
+type EmailResponse {
+  from: String
+  to: String
+  subject: String
+  success: JSON
+  error: String
+}
 
 # A user object
 type User {
@@ -179,11 +186,11 @@ type User {
   emailHash: String 
   avatarUrl: String 
   slug: String 
-  twitterUsername: String 
   groups: [String] 
   pageUrl: String 
   pagePath: String 
   editUrl: String 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -208,6 +215,8 @@ input SingleUserInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiUserInput {
@@ -229,6 +238,8 @@ input MultiUserInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -247,6 +258,8 @@ type UserMutationOutput{
 
 input CreateUserInput {
   data: CreateUserDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateUserDataInput {
@@ -256,7 +269,6 @@ input CreateUserDataInput {
   profile: JSON 
   displayName: String 
   email: String 
-  twitterUsername: String 
   groups: [String] 
 }
 
@@ -264,12 +276,16 @@ input UpdateUserInput{
   filter: UserFilterInput
   id: String
   data: UpdateUserDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertUserInput{
   filter: UserFilterInput
   id: String
   data: UpdateUserDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateUserDataInput {
@@ -278,7 +294,6 @@ input UpdateUserDataInput {
   locale: String 
   displayName: String 
   email: String 
-  twitterUsername: String 
   groups: [String] 
 }
 
@@ -300,7 +315,6 @@ input UserFilterInput {
   emailHash: String_Selector
   avatarUrl: String_Selector
   slug: String_Selector
-  twitterUsername: String_Selector
   groups: String_Array_Selector
   pageUrl: String_Selector
   pagePath: String_Selector
@@ -320,7 +334,6 @@ input UserSortInput {
   emailHash: SortOptions
   avatarUrl: SortOptions
   slug: SortOptions
-  twitterUsername: SortOptions
   groups: SortOptions
   pageUrl: SortOptions
   pagePath: SortOptions
@@ -346,7 +359,7 @@ type Email {
   name: String 
   template: String 
   subject: String 
-  path: String 
+  testPath: String 
 }
 
 
@@ -371,6 +384,8 @@ input SingleEmailInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiEmailInput {
@@ -392,6 +407,8 @@ input MultiEmailInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -417,14 +434,14 @@ input EmailFilterInput {
   name: String_Selector
   template: String_Selector
   subject: String_Selector
-  path: String_Selector
+  testPath: String_Selector
 }
 
 input EmailSortInput {
   name: SortOptions
   template: SortOptions
   subject: SortOptions
-  path: SortOptions
+  testPath: SortOptions
 }
 
 input EmailSelectorInput {
@@ -472,6 +489,8 @@ input SingleSettingInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiSettingInput {
@@ -493,6 +512,8 @@ input MultiSettingInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -578,6 +599,8 @@ input SingleCallbackInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiCallbackInput {
@@ -599,6 +622,8 @@ input MultiCallbackInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -666,6 +691,7 @@ type ColorScheme {
   linkColor: String 
   altColor: String 
   colorSchemeCurrencies: [CurrencyActor] 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -690,6 +716,8 @@ input SingleColorSchemeInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiColorSchemeInput {
@@ -711,6 +739,8 @@ input MultiColorSchemeInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -729,6 +759,8 @@ type ColorSchemeMutationOutput{
 
 input CreateColorSchemeInput {
   data: CreateColorSchemeDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateColorSchemeDataInput {
@@ -743,12 +775,16 @@ input UpdateColorSchemeInput{
   filter: ColorSchemeFilterInput
   id: String
   data: UpdateColorSchemeDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertColorSchemeInput{
   filter: ColorSchemeFilterInput
   id: String
   data: UpdateColorSchemeDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateColorSchemeDataInput {
@@ -810,6 +846,7 @@ type Sh {
   rightBumper: String 
   colorSchemeId: String 
   colorScheme: ColorScheme 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -834,6 +871,8 @@ input SingleShInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiShInput {
@@ -855,6 +894,8 @@ input MultiShInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -873,6 +914,8 @@ type ShMutationOutput{
 
 input CreateShInput {
   data: CreateShDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateShDataInput {
@@ -888,12 +931,16 @@ input UpdateShInput{
   filter: ShFilterInput
   id: String
   data: UpdateShDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertShInput{
   filter: ShFilterInput
   id: String
   data: UpdateShDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateShDataInput {
@@ -953,6 +1000,7 @@ type I18n {
   glyphSet: String 
   wikiUrl: String 
   i18nRooms: [RoomI18n] 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -977,6 +1025,8 @@ input SingleI18nInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiI18nInput {
@@ -998,6 +1048,8 @@ input MultiI18nInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1016,6 +1068,8 @@ type I18nMutationOutput{
 
 input CreateI18nInput {
   data: CreateI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateI18nDataInput {
@@ -1029,12 +1083,16 @@ input UpdateI18nInput{
   filter: I18nFilterInput
   id: String
   data: UpdateI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertI18nInput{
   filter: I18nFilterInput
   id: String
   data: UpdateI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateI18nDataInput {
@@ -1098,6 +1156,7 @@ type Handle {
   connectionStatus: String 
   handleCurrencies: [CurrencyActor] 
   roomId: String 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -1122,6 +1181,8 @@ input SingleHandleInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiHandleInput {
@@ -1143,6 +1204,8 @@ input MultiHandleInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1161,6 +1224,8 @@ type HandleMutationOutput{
 
 input CreateHandleInput {
   data: CreateHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateHandleDataInput {
@@ -1177,12 +1242,16 @@ input UpdateHandleInput{
   filter: HandleFilterInput
   id: String
   data: UpdateHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertHandleInput{
   filter: HandleFilterInput
   id: String
   data: UpdateHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateHandleDataInput {
@@ -1262,6 +1331,7 @@ type Party {
   partyCurrencies: String 
   handleCurrencies: [CurrencyActor] 
   partyI18ns: [PartyI18n] 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -1286,6 +1356,8 @@ input SinglePartyInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiPartyInput {
@@ -1307,6 +1379,8 @@ input MultiPartyInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1325,6 +1399,8 @@ type PartyMutationOutput{
 
 input CreatePartyInput {
   data: CreatePartyDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreatePartyDataInput {
@@ -1341,12 +1417,16 @@ input UpdatePartyInput{
   filter: PartyFilterInput
   id: String
   data: UpdatePartyDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertPartyInput{
   filter: PartyFilterInput
   id: String
   data: UpdatePartyDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdatePartyDataInput {
@@ -1418,6 +1498,7 @@ type PartyHandle {
   handle: Handle 
   connectionStatus: String 
   isMod: Boolean 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -1442,6 +1523,8 @@ input SinglePartyHandleInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiPartyHandleInput {
@@ -1463,6 +1546,8 @@ input MultiPartyHandleInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1481,6 +1566,8 @@ type PartyHandleMutationOutput{
 
 input CreatePartyHandleInput {
   data: CreatePartyHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreatePartyHandleDataInput {
@@ -1494,12 +1581,16 @@ input UpdatePartyHandleInput{
   filter: PartyHandleFilterInput
   id: String
   data: UpdatePartyHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertPartyHandleInput{
   filter: PartyHandleFilterInput
   id: String
   data: UpdatePartyHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdatePartyHandleDataInput {
@@ -1555,6 +1646,7 @@ type PartyI18n {
   i18nId: String 
   i18n: I18n 
   fluency: Float 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -1579,6 +1671,8 @@ input SinglePartyI18nInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiPartyI18nInput {
@@ -1600,6 +1694,8 @@ input MultiPartyI18nInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1618,6 +1714,8 @@ type PartyI18nMutationOutput{
 
 input CreatePartyI18nInput {
   data: CreatePartyI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreatePartyI18nDataInput {
@@ -1630,12 +1728,16 @@ input UpdatePartyI18nInput{
   filter: PartyI18nFilterInput
   id: String
   data: UpdatePartyI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertPartyI18nInput{
   filter: PartyI18nFilterInput
   id: String
   data: UpdatePartyI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdatePartyI18nDataInput {
@@ -1693,6 +1795,7 @@ type Currency {
   currencyColorSchemes: [CurrencyActor] 
   colorSchemeId: String 
   colorScheme: ColorScheme 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -1717,6 +1820,8 @@ input SingleCurrencyInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiCurrencyInput {
@@ -1738,6 +1843,8 @@ input MultiCurrencyInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1756,6 +1863,8 @@ type CurrencyMutationOutput{
 
 input CreateCurrencyInput {
   data: CreateCurrencyDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateCurrencyDataInput {
@@ -1770,12 +1879,16 @@ input UpdateCurrencyInput{
   filter: CurrencyFilterInput
   id: String
   data: UpdateCurrencyDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertCurrencyInput{
   filter: CurrencyFilterInput
   id: String
   data: UpdateCurrencyDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateCurrencyDataInput {
@@ -1848,6 +1961,7 @@ type CurrencyActor {
   colorScheme: ColorScheme 
   currencyId: String 
   currency: Currency 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -1872,6 +1986,8 @@ input SingleCurrencyActorInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiCurrencyActorInput {
@@ -1893,6 +2009,8 @@ input MultiCurrencyActorInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -1911,6 +2029,8 @@ type CurrencyActorMutationOutput{
 
 input CreateCurrencyActorInput {
   data: CreateCurrencyActorDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateCurrencyActorDataInput {
@@ -1927,12 +2047,16 @@ input UpdateCurrencyActorInput{
   filter: CurrencyActorFilterInput
   id: String
   data: UpdateCurrencyActorDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertCurrencyActorInput{
   filter: CurrencyActorFilterInput
   id: String
   data: UpdateCurrencyActorDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateCurrencyActorDataInput {
@@ -1997,6 +2121,7 @@ type Message {
   type: String 
   shId: String 
   sh: Sh 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -2021,6 +2146,8 @@ input SingleMessageInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiMessageInput {
@@ -2042,6 +2169,8 @@ input MultiMessageInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -2060,6 +2189,8 @@ type MessageMutationOutput{
 
 input CreateMessageInput {
   data: CreateMessageDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateMessageDataInput {
@@ -2073,12 +2204,16 @@ input UpdateMessageInput{
   filter: MessageFilterInput
   id: String
   data: UpdateMessageDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertMessageInput{
   filter: MessageFilterInput
   id: String
   data: UpdateMessageDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateMessageDataInput {
@@ -2154,6 +2289,7 @@ type Room {
   maxLevel: String 
   gameStart: String 
   gameEnd: String 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -2178,6 +2314,8 @@ input SingleRoomInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiRoomInput {
@@ -2199,6 +2337,8 @@ input MultiRoomInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -2217,6 +2357,8 @@ type RoomMutationOutput{
 
 input CreateRoomInput {
   data: CreateRoomDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateRoomDataInput {
@@ -2246,12 +2388,16 @@ input UpdateRoomInput{
   filter: RoomFilterInput
   id: String
   data: UpdateRoomDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertRoomInput{
   filter: RoomFilterInput
   id: String
   data: UpdateRoomDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateRoomDataInput {
@@ -2362,6 +2508,7 @@ type RoomI18n {
   i18n: I18n 
   roomId: String 
   room: Room 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -2386,6 +2533,8 @@ input SingleRoomI18nInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiRoomI18nInput {
@@ -2407,6 +2556,8 @@ input MultiRoomI18nInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -2425,6 +2576,8 @@ type RoomI18nMutationOutput{
 
 input CreateRoomI18nInput {
   data: CreateRoomI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateRoomI18nDataInput {
@@ -2436,12 +2589,16 @@ input UpdateRoomI18nInput{
   filter: RoomI18nFilterInput
   id: String
   data: UpdateRoomI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertRoomI18nInput{
   filter: RoomI18nFilterInput
   id: String
   data: UpdateRoomI18nDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateRoomI18nDataInput {
@@ -2493,6 +2650,7 @@ type RoomHandle {
   isMod: Boolean 
   isDJ: Boolean 
   isCannon: Boolean 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -2517,6 +2675,8 @@ input SingleRoomHandleInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiRoomHandleInput {
@@ -2538,6 +2698,8 @@ input MultiRoomHandleInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -2556,6 +2718,8 @@ type RoomHandleMutationOutput{
 
 input CreateRoomHandleInput {
   data: CreateRoomHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input CreateRoomHandleDataInput {
@@ -2570,12 +2734,16 @@ input UpdateRoomHandleInput{
   filter: RoomHandleFilterInput
   id: String
   data: UpdateRoomHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpsertRoomHandleInput{
   filter: RoomHandleFilterInput
   id: String
   data: UpdateRoomHandleDataInput!
+  # An identifier to name the mutation's execution context
+  contextName: String
 }
 
 input UpdateRoomHandleDataInput {
@@ -2633,6 +2801,7 @@ type Equipment {
   description: String 
   glyph: String 
   wikiUrl: String 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -2657,6 +2826,8 @@ input SingleEquipmentInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiEquipmentInput {
@@ -2678,6 +2849,8 @@ input MultiEquipmentInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -2735,6 +2908,7 @@ input EquipmentSelectorUniqueInput {
 type Law {
   _id: String 
   createdAt: Date 
+  createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
 
@@ -2759,6 +2933,8 @@ input SingleLawInput {
   enableCache: Boolean
   # Return null instead of throwing MissingDocumentError
   allowNull: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
 }
 
 input MultiLawInput {
@@ -2780,6 +2956,8 @@ input MultiLawInput {
   enableCache: Boolean
   # Whether to calculate totalCount for this query
   enableTotal: Boolean
+  # An identifier to name the query's execution context
+  contextName: String
   
 }
 
@@ -2831,6 +3009,8 @@ type Query {
   siteData: Site
   
   currentUser: User
+  
+  getDatabaseObject(id: String): JSON
   
   # A single User document fetched by ID or slug
   user(input: SingleUserInput!): SingleUserOutput
@@ -2953,6 +3133,8 @@ type Mutation {
   sendVerificationEmail(input: AuthEmailInput): Boolean
 
   verifyEmail(input: VerifyEmailInput): VerifyEmailResult
+
+  testEmail(emailName: String) : EmailResponse
 
   # Mutation for creating new User documents
   createUser(
