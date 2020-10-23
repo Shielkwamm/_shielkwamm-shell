@@ -1,8 +1,14 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Components, useMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const HistoricShsList = ({ loading, results }) => {
+const options = {
+  collectionName: "Shs",
+  fragmentName: 'ShBest', // uncomment on #Step11
+}
+
+export const HistoricShsList = () => {
+  const { loading, results } = useMulti2(options);
   return (
     <div className="movies-list">
       <h2><Link to="/">⏎</Link> △ Historic △</h2>
@@ -15,10 +21,3 @@ const HistoricShsList = ({ loading, results }) => {
     </div>
   )
 };
-
-const options = {
-  collectionName: "Shs",
-  fragmentName: 'ShBest', // uncomment on #Step11
-}
-
-registerComponent({ name: 'HistoricShsList', component: HistoricShsList, hocs: [[withMulti2, options]]});

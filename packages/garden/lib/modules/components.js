@@ -1,7 +1,7 @@
-import '../components/Handle/Handle.jsx';
-import '../components/Handle/HandlesList.jsx';
-import '../components/Handle/HandlePartiesList.jsx';
+export * from '../components/Handle/Handle.jsx';
+export * from '../components/Handle/HandlesList.jsx';
+export * from '../components/Handle/HandlePartiesList.jsx';
 
-import '../components/Party/PartiesList.jsx';
-import '../components/Party/Party.jsx';
-import '../components/Party/PartyHandle.jsx';
+export * from '../components/Party/PartiesList.jsx';
+export * from '../components/Party/Party.jsx';
+export * from '../components/Party/PartyHandle.jsx';

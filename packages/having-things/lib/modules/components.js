@@ -1,2 +1,2 @@
-import '../components/HavingThings/HavingThings.jsx';
-import '../components/HavingThings/Things.jsx';
+export * from '../components/HavingThings/HavingThings.jsx';
+export * from '../components/HavingThings/Things.jsx';

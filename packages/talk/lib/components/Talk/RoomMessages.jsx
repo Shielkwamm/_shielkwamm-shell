@@ -1,12 +1,12 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { useMulti2 } from 'meteor/vulcan:core';
 
-const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
+export const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let timeStamp = new Date(message.createdAt);
   let style = {};
   //console.log(message);
-  let display = "leftHighlighted";
-  if(message.type === "_sh_") {
+  let display = 'leftHighlighted';
+  if(message.type === '_sh_') {
     display = "_sh_";
   }
   else if(message.type === "message") {
@@ -52,7 +52,7 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   return (
     <React.Fragment>
       {display === "_sh_" && message.sh? (
-        <Components.Sh sh={message.sh}/>
+        <Sh sh={message.sh}/>
       ) : null }
       {display === "rightHighlighted" ? (
         <p style={style}>{message.text}</p>
@@ -70,7 +70,14 @@ const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   )
 }
 
-const RoomMessagesInner = ({ loading, results, linkColor, backgroundColor, color }) => (
+export const RoomMessagesInner = ({ linkColor, backgroundColor, color }) => {
+  const options = {
+    collectionName: 'Messages',
+    fragmentName: 'MessagesList', // uncomment on #Step11
+    limit: 200
+  }
+  const { results, loading } = useMulti2(options);
+  return (
   <React.Fragment>
   {!loading && results.map(message =>
     <div key={message._id}>
@@ -78,18 +85,9 @@ const RoomMessagesInner = ({ loading, results, linkColor, backgroundColor, color
     </div>
   )}
   </React.Fragment>
-)
-
-const options = {
-  collectionName: "Messages",
-  fragmentName: 'MessagesList', // uncomment on #Step11
-  limit: 200
+  )
 }
 
-registerComponent({ name: 'RoomMessagesInner', component: RoomMessagesInner, hocs: [[withMulti2, options]]});
-
-const RoomMessages = ({ roomId, linkColor, backgroundColor, color }) => (
-  <Components.RoomMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
+export const RoomMessages = ({ roomId, linkColor, backgroundColor, color }) => (
+  <RoomMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
 );
-
-registerComponent({ name: 'RoomMessages', component: RoomMessages});

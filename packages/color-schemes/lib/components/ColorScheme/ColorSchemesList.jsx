@@ -1,8 +1,17 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Components, registerComponent, useMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const ColorSchemesList = ({ loading, results }) => (
+const options = {
+  collectionName: "ColorSchemes",
+  fragmentName: 'ColorSchemesList',
+  limit: 11
+}
+
+export const ColorSchemesList = () => {
+  const { results, loading } = useMulti2(options)
+
+  return (
   <React.Fragment>
     <Components.HeadTags title={"Color Schemes"} />
     <h2><Link to="/">⏎ </Link>Color Schemes <span style={{float: "right"}}>count [ {results && results.length} / 11 ]</span></h2>
@@ -18,12 +27,5 @@ const ColorSchemesList = ({ loading, results }) => (
       )
     )}
   </React.Fragment>
-);
-
-const options = {
-  collectionName: "ColorSchemes",
-  fragmentName: 'ColorSchemesList',
-  limit: 11
-}
-
-registerComponent({ name: 'ColorSchemesList', component: ColorSchemesList, hocs: [[withMulti2, options]] });
+  )
+};

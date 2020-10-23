@@ -1,1 +1,1 @@
-import '../components/ColorScheme/ColorSchemesList.jsx';
+export * from '../components/ColorScheme/ColorSchemesList.jsx'

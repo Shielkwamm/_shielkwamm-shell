@@ -1,4 +1,4 @@
-import '../modules';
+export * from '../modules';
 //import './seed';
 
 import './colorSchemesSeed.js';

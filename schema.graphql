@@ -207,7 +207,7 @@ input SingleUserInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: UserSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -230,7 +230,7 @@ input MultiUserInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -240,7 +240,7 @@ input MultiUserInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleUserOutput{
@@ -376,7 +376,7 @@ input SingleEmailInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: EmailSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -399,7 +399,7 @@ input MultiEmailInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -409,7 +409,7 @@ input MultiEmailInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleEmailOutput{
@@ -481,7 +481,7 @@ input SingleSettingInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: SettingSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -504,7 +504,7 @@ input MultiSettingInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -514,7 +514,7 @@ input MultiSettingInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleSettingOutput{
@@ -591,7 +591,7 @@ input SingleCallbackInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: CallbackSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -614,7 +614,7 @@ input MultiCallbackInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -624,7 +624,7 @@ input MultiCallbackInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleCallbackOutput{
@@ -690,7 +690,6 @@ type ColorScheme {
   backgroundColor: String 
   linkColor: String 
   altColor: String 
-  colorSchemeCurrencies: [CurrencyActor] 
   createdAtFormatted(format: String = "YYYY/MM/DD"): String 
 }
 
@@ -708,7 +707,7 @@ input SingleColorSchemeInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: ColorSchemeSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -731,7 +730,7 @@ input MultiColorSchemeInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -741,7 +740,7 @@ input MultiColorSchemeInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleColorSchemeOutput{
@@ -808,7 +807,6 @@ input ColorSchemeFilterInput {
   backgroundColor: String_Selector
   linkColor: String_Selector
   altColor: String_Selector
-  colorSchemeCurrencies: String_Selector
 }
 
 input ColorSchemeSortInput {
@@ -819,7 +817,6 @@ input ColorSchemeSortInput {
   backgroundColor: SortOptions
   linkColor: SortOptions
   altColor: SortOptions
-  colorSchemeCurrencies: SortOptions
 }
 
 input ColorSchemeSelectorInput {
@@ -863,7 +860,7 @@ input SingleShInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: ShSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -886,7 +883,7 @@ input MultiShInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -896,7 +893,7 @@ input MultiShInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleShOutput{
@@ -1017,7 +1014,7 @@ input SingleI18nInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: I18nSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1040,7 +1037,7 @@ input MultiI18nInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1050,7 +1047,7 @@ input MultiI18nInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleI18nOutput{
@@ -1173,7 +1170,7 @@ input SingleHandleInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: HandleSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1196,7 +1193,7 @@ input MultiHandleInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1206,7 +1203,7 @@ input MultiHandleInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleHandleOutput{
@@ -1348,7 +1345,7 @@ input SinglePartyInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: PartySelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1371,7 +1368,7 @@ input MultiPartyInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1381,7 +1378,7 @@ input MultiPartyInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SinglePartyOutput{
@@ -1515,7 +1512,7 @@ input SinglePartyHandleInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: PartyHandleSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1538,7 +1535,7 @@ input MultiPartyHandleInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1548,7 +1545,7 @@ input MultiPartyHandleInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SinglePartyHandleOutput{
@@ -1663,7 +1660,7 @@ input SinglePartyI18nInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: PartyI18nSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1686,7 +1683,7 @@ input MultiPartyI18nInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1696,7 +1693,7 @@ input MultiPartyI18nInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SinglePartyI18nOutput{
@@ -1792,7 +1789,6 @@ type Currency {
   currencyActors: [CurrencyActor] 
   currencyHandles: [CurrencyActor] 
   currencyParties: [CurrencyActor] 
-  currencyColorSchemes: [CurrencyActor] 
   colorSchemeId: String 
   colorScheme: ColorScheme 
   createdAtFormatted(format: String = "YYYY/MM/DD"): String 
@@ -1812,7 +1808,7 @@ input SingleCurrencyInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: CurrencySelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -1835,7 +1831,7 @@ input MultiCurrencyInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -1845,7 +1841,7 @@ input MultiCurrencyInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleCurrencyOutput{
@@ -1914,7 +1910,6 @@ input CurrencyFilterInput {
   currencyActors: String_Selector
   currencyHandles: String_Selector
   currencyParties: String_Selector
-  currencyColorSchemes: String_Selector
   colorSchemeId: String_Selector
 }
 
@@ -1928,7 +1923,6 @@ input CurrencySortInput {
   currencyActors: SortOptions
   currencyHandles: SortOptions
   currencyParties: SortOptions
-  currencyColorSchemes: SortOptions
   colorSchemeId: SortOptions
 }
 
@@ -1978,7 +1972,7 @@ input SingleCurrencyActorInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: CurrencyActorSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2001,7 +1995,7 @@ input MultiCurrencyActorInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2011,7 +2005,7 @@ input MultiCurrencyActorInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleCurrencyActorOutput{
@@ -2138,7 +2132,7 @@ input SingleMessageInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: MessageSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2161,7 +2155,7 @@ input MultiMessageInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2171,7 +2165,7 @@ input MultiMessageInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleMessageOutput{
@@ -2306,7 +2300,7 @@ input SingleRoomInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: RoomSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2329,7 +2323,7 @@ input MultiRoomInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2339,7 +2333,7 @@ input MultiRoomInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleRoomOutput{
@@ -2525,7 +2519,7 @@ input SingleRoomI18nInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: RoomI18nSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2548,7 +2542,7 @@ input MultiRoomI18nInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2558,7 +2552,7 @@ input MultiRoomI18nInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleRoomI18nOutput{
@@ -2667,7 +2661,7 @@ input SingleRoomHandleInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: RoomHandleSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2690,7 +2684,7 @@ input MultiRoomHandleInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2700,7 +2694,7 @@ input MultiRoomHandleInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleRoomHandleOutput{
@@ -2818,7 +2812,7 @@ input SingleEquipmentInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: EquipmentSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2841,7 +2835,7 @@ input MultiEquipmentInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2851,7 +2845,7 @@ input MultiEquipmentInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleEquipmentOutput{
@@ -2925,7 +2919,7 @@ input SingleLawInput {
   id: String
 
   # backwards-compatibility
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   selector: LawSelectorUniqueInput
 
   # options (backwards-compatibility)
@@ -2948,7 +2942,7 @@ input MultiLawInput {
 
   # backwards-compatibility
   # A JSON object that contains the query terms used to fetch data
-  "Deprecated (use 'filter/id' fields instead)."
+  # Deprecated (use 'filter/id' fields instead).
   terms: JSON
 
   # options (backwards-compatibility)
@@ -2958,7 +2952,7 @@ input MultiLawInput {
   enableTotal: Boolean
   # An identifier to name the query's execution context
   contextName: String
-  
+
 }
 
 type SingleLawOutput{
@@ -3139,462 +3133,462 @@ type Mutation {
   # Mutation for creating new User documents
   createUser(
   input: CreateUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateUserDataInput
 ) : UserMutationOutput
 
   # Mutation for updating a User document
   updateUser(
   input: UpdateUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: UserSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateUserDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateUserDataInput
 ) : UserMutationOutput
 
   # Mutation for upserting a User document
   upsertUser(
   input: UpsertUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: UserSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateUserDataInput
 ) : UserMutationOutput
 
   # Mutation for deleting a User document
   deleteUser(
   input: DeleteUserInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: UserSelectorUniqueInput
 ) : UserMutationOutput
 
   # Mutation for creating new ColorScheme documents
   createColorScheme(
   input: CreateColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateColorSchemeDataInput
 ) : ColorSchemeMutationOutput
 
   # Mutation for updating a ColorScheme document
   updateColorScheme(
   input: UpdateColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: ColorSchemeSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateColorSchemeDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateColorSchemeDataInput
 ) : ColorSchemeMutationOutput
 
   # Mutation for upserting a ColorScheme document
   upsertColorScheme(
   input: UpsertColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: ColorSchemeSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateColorSchemeDataInput
 ) : ColorSchemeMutationOutput
 
   # Mutation for deleting a ColorScheme document
   deleteColorScheme(
   input: DeleteColorSchemeInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: ColorSchemeSelectorUniqueInput
 ) : ColorSchemeMutationOutput
 
   # Mutation for creating new Sh documents
   createSh(
   input: CreateShInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateShDataInput
 ) : ShMutationOutput
 
   # Mutation for updating a Sh document
   updateSh(
   input: UpdateShInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: ShSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateShDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateShDataInput
 ) : ShMutationOutput
 
   # Mutation for upserting a Sh document
   upsertSh(
   input: UpsertShInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: ShSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateShDataInput
 ) : ShMutationOutput
 
   # Mutation for deleting a Sh document
   deleteSh(
   input: DeleteShInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: ShSelectorUniqueInput
 ) : ShMutationOutput
 
   # Mutation for creating new I18n documents
   createI18n(
   input: CreateI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateI18nDataInput
 ) : I18nMutationOutput
 
   # Mutation for updating a I18n document
   updateI18n(
   input: UpdateI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: I18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateI18nDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateI18nDataInput
 ) : I18nMutationOutput
 
   # Mutation for upserting a I18n document
   upsertI18n(
   input: UpsertI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: I18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateI18nDataInput
 ) : I18nMutationOutput
 
   # Mutation for deleting a I18n document
   deleteI18n(
   input: DeleteI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: I18nSelectorUniqueInput
 ) : I18nMutationOutput
 
   # Mutation for creating new Handle documents
   createHandle(
   input: CreateHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateHandleDataInput
 ) : HandleMutationOutput
 
   # Mutation for updating a Handle document
   updateHandle(
   input: UpdateHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: HandleSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateHandleDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateHandleDataInput
 ) : HandleMutationOutput
 
   # Mutation for upserting a Handle document
   upsertHandle(
   input: UpsertHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: HandleSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateHandleDataInput
 ) : HandleMutationOutput
 
   # Mutation for deleting a Handle document
   deleteHandle(
   input: DeleteHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: HandleSelectorUniqueInput
 ) : HandleMutationOutput
 
   # Mutation for creating new Party documents
   createParty(
   input: CreatePartyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreatePartyDataInput
 ) : PartyMutationOutput
 
   # Mutation for updating a Party document
   updateParty(
   input: UpdatePartyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdatePartyDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdatePartyDataInput
 ) : PartyMutationOutput
 
   # Mutation for upserting a Party document
   upsertParty(
   input: UpsertPartyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdatePartyDataInput
 ) : PartyMutationOutput
 
   # Mutation for deleting a Party document
   deleteParty(
   input: DeletePartyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartySelectorUniqueInput
 ) : PartyMutationOutput
 
   # Mutation for creating new PartyHandle documents
   createPartyHandle(
   input: CreatePartyHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreatePartyHandleDataInput
 ) : PartyHandleMutationOutput
 
   # Mutation for updating a PartyHandle document
   updatePartyHandle(
   input: UpdatePartyHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartyHandleSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdatePartyHandleDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdatePartyHandleDataInput
 ) : PartyHandleMutationOutput
 
   # Mutation for upserting a PartyHandle document
   upsertPartyHandle(
   input: UpsertPartyHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartyHandleSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdatePartyHandleDataInput
 ) : PartyHandleMutationOutput
 
   # Mutation for deleting a PartyHandle document
   deletePartyHandle(
   input: DeletePartyHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartyHandleSelectorUniqueInput
 ) : PartyHandleMutationOutput
 
   # Mutation for creating new PartyI18n documents
   createPartyI18n(
   input: CreatePartyI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreatePartyI18nDataInput
 ) : PartyI18nMutationOutput
 
   # Mutation for updating a PartyI18n document
   updatePartyI18n(
   input: UpdatePartyI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartyI18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdatePartyI18nDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdatePartyI18nDataInput
 ) : PartyI18nMutationOutput
 
   # Mutation for upserting a PartyI18n document
   upsertPartyI18n(
   input: UpsertPartyI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartyI18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdatePartyI18nDataInput
 ) : PartyI18nMutationOutput
 
   # Mutation for deleting a PartyI18n document
   deletePartyI18n(
   input: DeletePartyI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: PartyI18nSelectorUniqueInput
 ) : PartyI18nMutationOutput
 
   # Mutation for creating new Currency documents
   createCurrency(
   input: CreateCurrencyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateCurrencyDataInput
 ) : CurrencyMutationOutput
 
   # Mutation for updating a Currency document
   updateCurrency(
   input: UpdateCurrencyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: CurrencySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateCurrencyDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateCurrencyDataInput
 ) : CurrencyMutationOutput
 
   # Mutation for upserting a Currency document
   upsertCurrency(
   input: UpsertCurrencyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: CurrencySelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateCurrencyDataInput
 ) : CurrencyMutationOutput
 
   # Mutation for deleting a Currency document
   deleteCurrency(
   input: DeleteCurrencyInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: CurrencySelectorUniqueInput
 ) : CurrencyMutationOutput
 
   # Mutation for creating new CurrencyActor documents
   createCurrencyActor(
   input: CreateCurrencyActorInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateCurrencyActorDataInput
 ) : CurrencyActorMutationOutput
 
   # Mutation for updating a CurrencyActor document
   updateCurrencyActor(
   input: UpdateCurrencyActorInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: CurrencyActorSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateCurrencyActorDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateCurrencyActorDataInput
 ) : CurrencyActorMutationOutput
 
   # Mutation for upserting a CurrencyActor document
   upsertCurrencyActor(
   input: UpsertCurrencyActorInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: CurrencyActorSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateCurrencyActorDataInput
 ) : CurrencyActorMutationOutput
 
   # Mutation for deleting a CurrencyActor document
   deleteCurrencyActor(
   input: DeleteCurrencyActorInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: CurrencyActorSelectorUniqueInput
 ) : CurrencyActorMutationOutput
 
   # Mutation for creating new Message documents
   createMessage(
   input: CreateMessageInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateMessageDataInput
 ) : MessageMutationOutput
 
   # Mutation for updating a Message document
   updateMessage(
   input: UpdateMessageInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: MessageSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateMessageDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateMessageDataInput
 ) : MessageMutationOutput
 
   # Mutation for upserting a Message document
   upsertMessage(
   input: UpsertMessageInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: MessageSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateMessageDataInput
 ) : MessageMutationOutput
 
   # Mutation for deleting a Message document
   deleteMessage(
   input: DeleteMessageInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: MessageSelectorUniqueInput
 ) : MessageMutationOutput
 
   # Mutation for creating new Room documents
   createRoom(
   input: CreateRoomInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateRoomDataInput
 ) : RoomMutationOutput
 
   # Mutation for updating a Room document
   updateRoom(
   input: UpdateRoomInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateRoomDataInput
 ) : RoomMutationOutput
 
   # Mutation for upserting a Room document
   upsertRoom(
   input: UpsertRoomInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateRoomDataInput
 ) : RoomMutationOutput
 
   # Mutation for deleting a Room document
   deleteRoom(
   input: DeleteRoomInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomSelectorUniqueInput
 ) : RoomMutationOutput
 
   # Mutation for creating new RoomI18n documents
   createRoomI18n(
   input: CreateRoomI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateRoomI18nDataInput
 ) : RoomI18nMutationOutput
 
   # Mutation for updating a RoomI18n document
   updateRoomI18n(
   input: UpdateRoomI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomI18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomI18nDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateRoomI18nDataInput
 ) : RoomI18nMutationOutput
 
   # Mutation for upserting a RoomI18n document
   upsertRoomI18n(
   input: UpsertRoomI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomI18nSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateRoomI18nDataInput
 ) : RoomI18nMutationOutput
 
   # Mutation for deleting a RoomI18n document
   deleteRoomI18n(
   input: DeleteRoomI18nInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomI18nSelectorUniqueInput
 ) : RoomI18nMutationOutput
 
   # Mutation for creating new RoomHandle documents
   createRoomHandle(
   input: CreateRoomHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: CreateRoomHandleDataInput
 ) : RoomHandleMutationOutput
 
   # Mutation for updating a RoomHandle document
   updateRoomHandle(
   input: UpdateRoomHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomHandleSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
-  data: UpdateRoomHandleDataInput 
+  # Deprecated (use 'input' field instead).
+  data: UpdateRoomHandleDataInput
 ) : RoomHandleMutationOutput
 
   # Mutation for upserting a RoomHandle document
   upsertRoomHandle(
   input: UpsertRoomHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomHandleSelectorUniqueInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   data: UpdateRoomHandleDataInput
 ) : RoomHandleMutationOutput
 
   # Mutation for deleting a RoomHandle document
   deleteRoomHandle(
   input: DeleteRoomHandleInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: RoomHandleSelectorUniqueInput
 ) : RoomHandleMutationOutput
 
   # Mutation for deleting a Equipment document
   deleteEquipment(
   input: DeleteEquipmentInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: EquipmentSelectorUniqueInput
 ) : EquipmentMutationOutput
 
   # Mutation for deleting a Law document
   deleteLaw(
   input: DeleteLawInput,
-  "Deprecated (use 'input' field instead)."
+  # Deprecated (use 'input' field instead).
   selector: LawSelectorUniqueInput
 ) : LawMutationOutput
 

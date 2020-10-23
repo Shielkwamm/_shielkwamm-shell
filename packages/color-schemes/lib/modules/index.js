@@ -1,3 +1,3 @@
-import './collections.js';
-import './routes';
-import './components';
+export * from './routes';
+export * from './components';
+export * from './colorScheme/index.js';

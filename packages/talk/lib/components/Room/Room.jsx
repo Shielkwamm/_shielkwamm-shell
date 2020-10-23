@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import React from 'react';
+import { Components } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import { Handle } from 'meteor/garden';
+import { RoomCurrencies } from './RoomCurrencies';
 
-const Room = ({ room }) => (
+export const Room = ({ room }) => (
   <div  style={{
     overflow: "auto",
     color: room.colorScheme.color,
@@ -27,12 +29,12 @@ const Room = ({ room }) => (
     <p style={{color: room.colorScheme.linkColor}}>handles</p>
     {room.roomHandles.map(roomHandle => (
       <React.Fragment key={roomHandle._id}>
-        {roomHandle.handle.isActive ? (<Components.Handle colorScheme={room.colorScheme} key={roomHandle._id} handle={roomHandle.handle}/>) : null }
+        {roomHandle.handle.isActive ? (<Handle colorScheme={room.colorScheme} key={roomHandle._id} handle={roomHandle.handle}/>) : null }
       </React.Fragment>
     ))}
     </Grid>
     <Grid style={{textAlign: "center"}} item xs={4}>
-    <Components.RoomCurrencies room={room}/>
+    <RoomCurrencies room={room}/>
     </Grid>
     <Grid style={{textAlign: "right"}} item xs={4}>
     <p style={{color: room.colorScheme.linkColor}}>i18ns</p>
@@ -43,5 +45,3 @@ const Room = ({ room }) => (
     </Grid>
   </div>
 );
-
-registerComponent({ name: 'Room', component: Room});

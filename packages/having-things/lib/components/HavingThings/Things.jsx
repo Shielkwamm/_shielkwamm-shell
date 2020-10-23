@@ -1,9 +1,16 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Components, useMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 
-const EquipmentList = ({ loading, results }) => (
+export const EquipmentList = () => {
+  const equipmentOptions = {
+    collectionName: "Equipment",
+    fragmentName: 'EquipmentFragment',
+    limit: 11
+  }
+  const { loading, results } = useMulti2(equipmentOptions);
+  return (
   <React.Fragment>
     <Grid container>
     {!loading && results.map(equipment => (
@@ -18,23 +25,14 @@ const EquipmentList = ({ loading, results }) => (
     )}
     </Grid>
   </React.Fragment>
-)
-
-const equipmentOptions = {
-  collectionName: "Equipment",
-  fragmentName: 'EquipmentFragment',
-  limit: 11
+  )
 }
 
-registerComponent({ name: "EquipmentList", component: EquipmentList, hocs: [[withMulti2, equipmentOptions]] });
-
-const Things = () => (
+export const Things = () => (
   <React.Fragment>
     <Components.HeadTags title={"Things"} />
     <h2><Link to="/">⏎ </Link>Things</h2>
     <hr></hr>
-    <Components.EquipmentList/>
+    <EquipmentList/>
   </React.Fragment>
 );
-
-registerComponent({ name: 'Things', component: Things});

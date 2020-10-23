@@ -26,9 +26,6 @@ registerFragment(`
     currencyParties {
       ...CurrencyPartiesBase
     }
-    currencyColorSchemes {
-      ...CurrencyColorSchemesBase
-    }
     colorScheme {
       ...ColorSchemeBase
     }

@@ -1,7 +1,15 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
+import { Components, useMulti2 } from 'meteor/vulcan:core';
 
-const LatestSh = ({ loading, results }) => (
+const options = {
+  collectionName: "Shs",
+  fragmentName: 'ShBest',
+  input: {sort: {createdAt: "desc"}, limit: 1}
+}
+
+export const LatestSh = () => {
+  const { loading, results } = useMulti2(options);
+  return (
   <React.Fragment>
     {!loading && results.map( sh => (
       <React.Fragment key={sh._id}>
@@ -13,12 +21,5 @@ const LatestSh = ({ loading, results }) => (
       <h1 style={{textAlign: "center"}}>=== Shielkwȃmm ===</h1>
     ): null}
   </React.Fragment>
-)
-
-const options = {
-  collectionName: "Shs",
-  fragmentName: 'ShBest',
-  input: {sort: {createdAt: "desc"}, limit: 1}
+  )
 }
-
-registerComponent({ name: 'LatestSh', component: LatestSh, hocs: [[withMulti2, options]]});

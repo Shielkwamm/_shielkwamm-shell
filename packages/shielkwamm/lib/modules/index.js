@@ -1,4 +1,4 @@
 import './routes';
-import './components';
+export * from './components';
 import './equipment/collection.js';
 import './law/collection.js';

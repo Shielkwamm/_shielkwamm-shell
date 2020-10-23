@@ -53,13 +53,18 @@ const schema = {
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
-  colorSchemeCurrencies: {
+  /*colorSchemeCurrencies: {
     label: "Color Scheme Currencies",
     type: String,
     hidden: true,
     optional: true,
     canRead: ['guests'],
-    resolveAs: {
+    relation: {
+      fieldName: 'colorSchemeCurrencies',
+      typeName: 'CurrencyActor',
+      kind: 'hasMany'
+    }
+    /*resolveAs: {
       fieldName: 'colorSchemeCurrencies',
       type: '[CurrencyActor]',
       relation: 'hasMany',
@@ -67,7 +72,7 @@ const schema = {
         return context.CurrenciesActors.find({colorSchemeId: colorScheme._id}).fetch();
       }
     }
-  },  
+  }, */ 
 };
 
 export default schema;

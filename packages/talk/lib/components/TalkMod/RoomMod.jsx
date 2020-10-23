@@ -1,13 +1,20 @@
 import React from 'react';
-import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
-import { withRouter } from 'react-router';
+import { Components, useSingle2 } from 'meteor/vulcan:core';
+import { useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
+import { RoomHeader } from '../Talk/RoomHeader';
 
-const RoomModInner = ({ loading, document }) => (
+export const RoomModInner = () => {
+  const options = {
+    collectionName: 'Rooms',
+    fragmentName: 'RoomsList',
+  }
+  const { loading, document } = useSingle2(options);
+  return (
   <React.Fragment>
     {!loading && document ? (
       <React.Fragment>
-        <Components.RoomHeader room={document}/>
+        <RoomHeader room={document}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["name"]}/>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
         <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
@@ -19,17 +26,12 @@ const RoomModInner = ({ loading, document }) => (
       </React.Fragment>
     ): null}
   </React.Fragment>
-)
-
-const options = {
-  collectionName: "Rooms",
-  fragmentName: 'RoomsList',
+  )
 }
 
-registerComponent( {name: 'RoomModInner', component: RoomModInner, hocs: [[withSingle2, options]]})
-
-const RoomMod = ({ match }) => (
-  <Components.RoomModInner input={{selector: {slug: match.params.slug}}}/>
-);
-
-registerComponent({ name: 'RoomMod', component: RoomMod, hocs: [withRouter]});
+export const RoomMod = () => {
+  const match = useRouteMatch();
+  return (
+    <RoomModInner input={{selector: {slug: match.params.slug}}}/>
+  )
+};

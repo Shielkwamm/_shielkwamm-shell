@@ -1,19 +1,18 @@
 import React from 'react';
-import { Components, registerComponent, withSingle2, withMulti2 } from 'meteor/vulcan:core';
-import { withRouter } from 'react-router';
+import { Components, useSingle2, useMulti2 } from 'meteor/vulcan:core';
+import { useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { RoomHeader } from '../Talk/RoomHeader';
 
-
-
-const RoomCannonMessage = ({ message, linkColor }) => {
+export const RoomCannonMessage = ({ message, linkColor }) => {
   const [isEditing, setIsEditing] = useState(false);
   return (
     <React.Fragment>
       {isEditing ? (
         <React.Fragment>
           <p><a onClick={e => setIsEditing(false)} style={{color: linkColor}}>exit</a></p>
-          <Components.SmartForm collectionName='Messages' fields={["text"]} documentId={message._id} successCallback={document => {setIsEditing(false);}}/>
+          <Components.SmartForm collectionName='Messages' fields={['text']} documentId={message._id} successCallback={document => {setIsEditing(false);}}/>
         </React.Fragment>
       ) : (
         <p><a onClick={e => setIsEditing(true)} style={{color: linkColor}}>edit</a> {new Date(message.createdAt).toLocaleTimeString()}: {message.text}</p>
@@ -22,7 +21,15 @@ const RoomCannonMessage = ({ message, linkColor }) => {
   )
 }
 
-const RoomCannonMessagesInner = ({ loading, results, linkColor, backgroundColor, color }) => (
+const messagesOptions = {
+  collectionName: 'Messages',
+  fragmentName: 'MessagesList',
+  pollInterval: .1
+}
+
+export const RoomCannonMessagesInner = ({ linkColor, backgroundColor, color }) => {
+  const { loading, results } = useMulti2(messagesOptions);
+  return (
   <React.Fragment>
   {!loading && results.map(message =>
     <div key={message._id}>
@@ -30,27 +37,25 @@ const RoomCannonMessagesInner = ({ loading, results, linkColor, backgroundColor,
     </div>
   )}
   </React.Fragment>
+  )
+};
+
+export const RoomCannonMessages = ({ roomId, linkColor, backgroundColor, color }) => (
+  <RoomCannonMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
 );
 
-const messagesOptions = {
-  collectionName: "Messages",
-  fragmentName: 'MessagesList',
-  pollInterval: .1
+const options = {
+  collectionName: 'Rooms',
+  fragmentName: 'RoomsList',
 }
 
-registerComponent({ name: 'RoomCannonMessagesInner', component: RoomCannonMessagesInner, hocs: [[withMulti2, messagesOptions]]});
-
-const RoomCannonMessages = ({ roomId, linkColor, backgroundColor, color }) => (
-  <Components.RoomCannonMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
-);
-
-registerComponent({ name: 'RoomCannonMessages', component: RoomCannonMessages});
-
-const RoomCannonInner = ({ loading, document }) => (
+export const RoomCannonInner = () => {
+  const { loading, document } = useSingle2(options)
+  return (
   <React.Fragment>
     {!loading && document ? (
       <div>
-        <Components.RoomHeader room={document}/>
+        <RoomHeader room={document}/>
         <Components.HeadTags title={`🔬🔬🔬: ${document.name}`}/>
         <Components.SmartForm collectionName="Rooms" showRemove={false} documentId={document._id} fields={['areCannonMessagesMuted']}/>
         <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={["zork"]}/>
@@ -58,21 +63,16 @@ const RoomCannonInner = ({ loading, document }) => (
         <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={["currentExpPoints", "level"]}/>
         <hr></hr>
         <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
-        <Components.RoomCannonMessages roomId={document._id} linkColor={document.linkColor} color={document.color} backgroundColor={document.color}/>
+        <RoomCannonMessages roomId={document._id} linkColor={document.linkColor} color={document.color} backgroundColor={document.color}/>
       </div>
     ): null}
   </React.Fragment>
-)
-
-const options = {
-  collectionName: "Rooms",
-  fragmentName: 'RoomsList',
+  )
 }
 
-registerComponent( {name: 'RoomCannonInner', component: RoomCannonInner, hocs: [[withSingle2, options]]})
-
-const RoomCannon = ({ match }) => (
-  <Components.RoomCannonInner input={{selector: {slug: match.params.slug}}}/>
-);
-
-registerComponent({ name: 'RoomCannon', component: RoomCannon, hocs: [withRouter]});
+export const RoomCannon = () => {
+  const match = useRouteMatch();
+  return (
+    <RoomCannonInner input={{selector: {slug: match.params.slug}}}/>
+  )
+};

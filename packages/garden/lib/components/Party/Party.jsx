@@ -1,9 +1,9 @@
 import React from 'react';
-import { Components, registerComponent, withMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import { PartyHandle } from './PartyHandle';
 
-const Party = ({ party }) => (
+export const Party = ({ party }) => (
   <div style={{backgroundColor: party.colorScheme.backgroundColor}}>
   <div style={{margin: 0, padding: "15px", border: "1px solid " + party.colorScheme.color}}>
   <h2 style={{marginBottom: "6px", textAlign: "center",marginTop: "10px"}}><span style={{color: party.colorScheme.linkColor}}>{!!party.isActive? "": "zZz "} {party.mood}</span> <span style={{color: party.colorScheme.altColor}}>{party.name}</span><span style={{float: "right"}}>{party.connectionStatus}</span></h2>
@@ -12,7 +12,7 @@ const Party = ({ party }) => (
   <Grid container spacing={3} style={{padding: "0 20px 20px 20px"}}>
     <Grid item xs={6} style={{color: party.colorScheme.color, float: "left"}}>
     {party.partyHandles.map(partyHandle => (
-      <div key={partyHandle._id}><Components.PartyHandle colorScheme={party.colorScheme} handle={partyHandle.handle}/></div>
+      <div key={partyHandle._id}><PartyHandle colorScheme={party.colorScheme} handle={partyHandle.handle}/></div>
     ))}
     </Grid>
     <Grid item xs={6} style={{color: party.colorScheme.linkColor, float: "right", textAlign: "right"}}>
@@ -24,5 +24,3 @@ const Party = ({ party }) => (
   </Grid>
   </div>
 )
-
-registerComponent({ name: 'Party', component: Party});

@@ -1,8 +1,7 @@
 import React from 'react';
-import { registerComponent } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
-const RoomHeader = ({ room }) => (
+export const RoomHeader = ({ room }) => (
   <div style={{
       color: room.colorScheme.color,
       paddingTop: "1px",
@@ -15,5 +14,3 @@ const RoomHeader = ({ room }) => (
     <hr></hr>
   </div>
 )
-
-registerComponent( {name: 'RoomHeader', component: RoomHeader})

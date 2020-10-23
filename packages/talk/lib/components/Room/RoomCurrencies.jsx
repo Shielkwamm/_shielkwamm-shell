@@ -1,7 +1,6 @@
 import React from 'react';
-import { Components, registerComponent} from 'meteor/vulcan:core';
 
-const RoomCurrencies = ({ room }) => {
+export const RoomCurrencies = ({ room }) => {
   //get all currencies
   const currenciesList = []
   room.roomHandles.forEach(roomHandle => {
@@ -28,5 +27,3 @@ const RoomCurrencies = ({ room }) => {
     </React.Fragment>
   )
 };
-
-registerComponent({ name: 'RoomCurrencies', component: RoomCurrencies});

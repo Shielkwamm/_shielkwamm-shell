@@ -39,7 +39,7 @@ const schema = {
     canUpdate: ['admins']
   },
   currencyActors: {
-    label: "Currency Actors",
+    label: 'Currency Actors',
     type: String,
     hidden: true,
     optional: true,
@@ -54,7 +54,7 @@ const schema = {
     }
   },
   currencyHandles: {
-    label: "Handles",
+    label: 'Handles',
     type: String,
     hidden: true,
     optional: true,
@@ -69,7 +69,7 @@ const schema = {
     }
   },
   currencyParties: {
-    label: "Parties",
+    label: 'Parties',
     type: String,
     hidden: true,
     optional: true,
@@ -83,21 +83,6 @@ const schema = {
       }
     }
   },
-  currencyColorSchemes: {
-    label: "ColorSchemes",
-    type: String,
-    hidden: true,
-    optional: true,
-    canRead: ['guests'],
-    resolveAs: {
-      fieldName: 'currencyColorSchemes',
-      type: '[CurrencyActor]',
-      relation: 'hasMany',
-      resolver: (currency, args, context) => {
-        return context.CurrenciesActors.find({currencyId: currency._id, colorSchemeId: {$exists: true}}).fetch();
-      }
-    }
-  },
   colorSchemeId: {
     type: String,
     optional: true,
@@ -105,9 +90,9 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "colorScheme",
+      fieldName: 'colorScheme',
       type: 'ColorScheme',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
 };

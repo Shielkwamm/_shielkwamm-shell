@@ -1,9 +1,11 @@
 import React from 'react';
-import { Components, registerComponent, replaceComponent, withCurrentUser, withMulti2 } from 'meteor/vulcan:core';
+import { Components, registerComponent, replaceComponent, useCurrentUser } from 'meteor/vulcan:core';
 
 //import GlyphsList from '../../modules/collection.js';
 
-const MainLayout = ({ children, loading}) => (
+const MainLayout = ({ children, loading}) => {
+  const { currentUser } = useCurrentUser();
+  return (
   <React.Fragment>
     {/*currentUser*/ true ? (
       <div>
@@ -13,7 +15,8 @@ const MainLayout = ({ children, loading}) => (
       <Components.AccountsLoginForm />
     )}
   </React.Fragment>
-);
+  )
+};
 
-registerComponent({ name: 'MainLayout', component: MainLayout, hocs: [withCurrentUser] });
+registerComponent({ name: 'MainLayout', component: MainLayout });
 replaceComponent('Layout', MainLayout);

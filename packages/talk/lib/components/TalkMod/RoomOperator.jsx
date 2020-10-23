@@ -1,10 +1,17 @@
 import React from 'react';
-import { Components, registerComponent, withSingle2 } from 'meteor/vulcan:core';
-import { withRouter } from 'react-router';
+import { Components, useSingle2 } from 'meteor/vulcan:core';
+import { useRouteMatch } from 'react-router';
+//import { RoomHeader } from '../Talk/RoomHeader';
 
 //## HACKY - hidden input field but using for copy to clip board
 
-const RoomOperatorInner = ({ loading, document }) => (
+export const RoomOperatorInner = () => {
+  const options = {
+    collectionName: 'Rooms',
+    fragmentName: 'RoomOperator',
+  }
+  const { loading, document } = useSingle2(options);
+  return (
   <React.Fragment>
     {loading ? (
       null
@@ -33,20 +40,17 @@ const RoomOperatorInner = ({ loading, document }) => (
       </div>
     )}
   </React.Fragment>
-)
-//console.log(rh.handle) && rh.handle.currencies && 
-const options = {
-  collectionName: "Rooms",
-  fragmentName: 'RoomOperator',
+  )
 }
+//console.log(rh.handle) && rh.handle.currencies && 
 
-registerComponent( {name: 'RoomOperatorInner', component: RoomOperatorInner, hocs: [[withSingle2, options]]})
 
-const RoomOperator = ({ match }) => (
-  <Components.RoomOperatorInner input={{selector: {slug: match.params.slug}}}/>
-);
-
-registerComponent({ name: 'RoomOperator', component: RoomOperator, hocs: [withRouter]});
+export const RoomOperator = () => {
+  const match = useRouteMatch();
+  return (
+    <RoomOperatorInner input={{selector: {slug: match.params.slug}}}/>
+  )
+};
 
 /*
 function copy() {
@@ -57,3 +61,4 @@ function copy() {
 
 document.querySelector("#copy").addEventListener("click", copy);
 */
+

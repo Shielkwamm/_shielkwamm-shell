@@ -1,3 +1,3 @@
 import './collections.js';
 import './routes';
-import './components';
+export * from './components';
