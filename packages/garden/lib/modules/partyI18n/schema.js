@@ -21,8 +21,8 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "party",
-      type: "Party",
+      fieldName: 'party',
+      type: 'Party',
       relation: 'hasOne'
     },
   },
@@ -35,7 +35,7 @@ const schema = {
     resolveAs: {
       fieldName: 'i18n',
       type: 'I18n',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   fluency: {

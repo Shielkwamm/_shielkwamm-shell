@@ -30,7 +30,7 @@ import { Things } from 'meteor/having-things';
 addRoute({ name: 'things', path: '/things', component: Things})
 
 import { HistoricShsList } from 'meteor/lexicon';
-addRoute({ name: "historicShsList", path: '/historic-sh', component: HistoricShsList})
+addRoute({ name: 'historicShsList', path: '/historic-sh', component: HistoricShsList})
 ///talk mod
 
 import { RoomMod } from 'meteor/talk';

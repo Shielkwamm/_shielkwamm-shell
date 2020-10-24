@@ -21,7 +21,7 @@ export const HandlesList = () => {
   const { loading, results } = useMulti2(options);
   return (
   <React.Fragment>
-    <Components.HeadTags title={`Handles`}/>
+    <Components.HeadTags title={'Handles'}/>
     <h2><Link to="/">⏎ </Link>Handles <span style={{float: 'right'}}>count [ {results && results.length} / 77]</span></h2>
     <p>~unconfirmed, !inbound, []spammy</p>
     <hr></hr>
@@ -38,7 +38,7 @@ export const HandlesList = () => {
     <hr></hr>
     <Grid container spacing={10}>
       <Grid item md={6} xs={12}>
-    <h1 style={{textAlign: "center"}}>=== Active ===</h1>
+    <h1 style={{textAlign: 'center'}}>=== Active ===</h1>
     <Grid container spacing={2}>
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>
@@ -53,7 +53,7 @@ export const HandlesList = () => {
     </Grid>
     </Grid>
     <Grid item md={6} xs={12}>
-    <h1 style={{textAlign: "center"}}>=== Inactive ===</h1>
+    <h1 style={{textAlign: 'center'}}>=== Inactive ===</h1>
     <Grid container spacing={2}>
     {!loading && results.map(handle => (
       <React.Fragment key={handle._id}>

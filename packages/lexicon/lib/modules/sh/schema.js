@@ -49,9 +49,9 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "colorScheme",
+      fieldName: 'colorScheme',
       type: 'ColorScheme',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
 };

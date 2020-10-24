@@ -58,11 +58,11 @@ export const RoomCannonInner = () => {
         <RoomHeader room={document}/>
         <Components.HeadTags title={`🔬🔬🔬: ${document.name}`}/>
         <Components.SmartForm collectionName="Rooms" showRemove={false} documentId={document._id} fields={['areCannonMessagesMuted']}/>
-        <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={["zork"]}/>
-        <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={["_sh_"]}/>
-        <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={["currentExpPoints", "level"]}/>
+        <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={['zork']}/>
+        <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={['_sh_']}/>
+        <Components.SmartForm collectionName="Rooms" showRemove={false}  documentId={document._id} fields={['currentExpPoints', 'level']}/>
         <hr></hr>
-        <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
+        <Components.SmartForm collectionName='Messages' fields={['text']} prefilledProps={{roomId: document._id}}/>
         <RoomCannonMessages roomId={document._id} linkColor={document.linkColor} color={document.color} backgroundColor={document.color}/>
       </div>
     ): null}

@@ -7,63 +7,63 @@ export const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   //console.log(message);
   let display = 'leftHighlighted';
   if(message.type === '_sh_') {
-    display = "_sh_";
+    display = '_sh_';
   }
-  else if(message.type === "message") {
-    display = "regular"
+  else if(message.type === 'message') {
+    display = 'regular'
   }
-  else if(message.type === "vibe") {
-    display = "alert";
+  else if(message.type === 'vibe') {
+    display = 'alert';
   }
-  else if(message.type === "cannon") {
-    display = "rightHighlighted";
+  else if(message.type === 'cannon') {
+    display = 'rightHighlighted';
   }
-  else if(message.type === "zork") {
-    display = "leftHighlighted";
+  else if(message.type === 'zork') {
+    display = 'leftHighlighted';
   }
   style.margin = 0;
-  if(display === "rightHighlighted"){
+  if(display === 'rightHighlighted'){
     style.color = linkColor;
-    style.fontSize = "35px";
-    style.verticalAlign = "-6px";
+    style.fontSize = '35px';
+    style.verticalAlign = '-6px';
     //style.marginTop = "-23px";
     //style.marginBottom = "-8px";
     style.height = 0;
-    style.textAlign = "right";
+    style.textAlign = 'right';
   }
-  if(display === "leftHighlighted"){
+  if(display === 'leftHighlighted'){
     style.color = color;
-    style.fontSize = "35px"
-    style.lineHeight = "0";
+    style.fontSize = '35px'
+    style.lineHeight = '0';
     //style.marginTop = "-23px";
     //style.marginBottom = "-8px";
-    style.textAlign = "left";
+    style.textAlign = 'left';
   }
-  if(display === "alert" || display === "_sh_"){
-    style.textAlign = "center";
-    style.fontSize = "30px";
-    style.verticalAlign = "-6px";
+  if(display === 'alert' || display === '_sh_'){
+    style.textAlign = 'center';
+    style.fontSize = '30px';
+    style.verticalAlign = '-6px';
     style.color = linkColor;
     style.background = backgroundColor;
     //style.margin = "-4px";
-    style.padding = "9px";
+    style.padding = '9px';
   }
   let timeStampF = timeStamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
   return (
     <React.Fragment>
-      {display === "_sh_" && message.sh? (
+      {display === '_sh_' && message.sh? (
         <Sh sh={message.sh}/>
       ) : null }
-      {display === "rightHighlighted" ? (
+      {display === 'rightHighlighted' ? (
         <p style={style}>{message.text}</p>
       ) : null }
-      {display === "regular" ? (
+      {display === 'regular' ? (
         <p>{timeStampF}: <span style={style}>{message.text}</span></p>
       ) : null }
-      {display === "leftHighlighted" ? (
+      {display === 'leftHighlighted' ? (
         <p>{timeStampF}: <span style={style}>{message.text}</span></p>
       ) : null }
-      {display === "alert" ? (
+      {display === 'alert' ? (
         <p style={style}>{message.text}</p>
       ) : null }
     </React.Fragment>

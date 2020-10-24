@@ -36,34 +36,34 @@ const Messages = createCollection({
 function processMessage(message) {
   let _sh_Regex = /^((=.{0,1}){4})\s(.{4,20})\s((=.{0,1}){4})/ // a little bit more esteemed of a regex... is _sh_ this a richard stallman joke?
   let text = message.text;
-  let room = getCollection("Rooms").findOne({_id: message.roomId});
+  let room = getCollection('Rooms').findOne({_id: message.roomId});
   if(text.match(_sh_Regex)){
     let res = text.match(_sh_Regex)
     shObj = {leftBumper: res[1], text: res[3], rightBumper: res[4], colorSchemeId: room.colorSchemeId}
     shObj.createdAt = new Date();
     let shId;
     if(message.shId) {
-      getCollection("Shs").update({_id: message.shId}, {$set: shObj})
+      getCollection('Shs').update({_id: message.shId}, {$set: shObj})
       shId = message.shId;
     }
     else {
-      shId = getCollection("Shs").insert(shObj);
+      shId = getCollection('Shs').insert(shObj);
     }
-    return {type: "_sh_", shId: shId};
+    return {type: '_sh_', shId: shId};
   }
   let vibeRegex = /^.*⬤.*$/;
   if(text.match(vibeRegex)) {
-    return {type: "vibe"};
+    return {type: 'vibe'};
   }
   let noteRegex = /^.*🔬.*$/;//maybe not need?
   if(text.match(noteRegex))  {
-    return {type: "note"};
+    return {type: 'note'};
   }
   let zorkRegex = /^[^:]+$/;
   if(text.match(zorkRegex)){
-    return {type: "zork"};
+    return {type: 'zork'};
   }
-  return {type: "message"};
+  return {type: 'message'};
 }
 
 export default Messages;

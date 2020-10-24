@@ -3,7 +3,7 @@ import { Components, useMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
 
 const options = {
-  collectionName: "Shs",
+  collectionName: 'Shs',
   fragmentName: 'ShBest', // uncomment on #Step11
 }
 

@@ -21,8 +21,8 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "party",
-      type: "Party",
+      fieldName: 'party',
+      type: 'Party',
       relation: 'hasOne'
     },
   },
@@ -35,7 +35,7 @@ const schema = {
     resolveAs: {
       fieldName: 'handle',
       type: 'Handle',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   connectionStatus: {
@@ -44,7 +44,7 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
-    defaultValue: "~"
+    defaultValue: '~'
   },
   isMod: {
     type: Boolean,

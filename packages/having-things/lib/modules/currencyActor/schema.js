@@ -23,14 +23,14 @@ const schema = {
   },
   mood: {
     type: String,
-    defaultValue: "",
+    defaultValue: '',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
   },
   note: {
     type: String,
-    defaultValue: "",
+    defaultValue: '',
     optional: true,
     canRead: ['guests'],
     canCreate: ['admins'],
@@ -45,7 +45,7 @@ const schema = {
     resolveAs: {
       fieldName: 'handle',
       type: 'Handle',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   partyId: {
@@ -57,7 +57,7 @@ const schema = {
     resolveAs: {
       fieldName: 'party',
       type: 'Party',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   colorSchemeId: {
@@ -69,7 +69,7 @@ const schema = {
     resolveAs: {
       fieldName: 'colorScheme',
       type: 'ColorScheme',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   currencyId: {
@@ -81,7 +81,7 @@ const schema = {
     resolveAs: {
       fieldName: 'currency',
       type: 'Currency',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   

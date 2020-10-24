@@ -7,15 +7,15 @@ import { RoomCurrencies } from './RoomCurrencies';
 
 export const Room = ({ room }) => (
   <div  style={{
-    overflow: "auto",
+    overflow: 'auto',
     color: room.colorScheme.color,
-    paddingTop: "1px",
-    paddingLeft: "14px",
-    paddingRight: "14px",
+    paddingTop: '1px',
+    paddingLeft: '14px',
+    paddingRight: '14px',
     background: room.colorScheme.backgroundColor,
   }}>
-    <h1><Link style={{color: room.colorScheme.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: "right"}}>{room.zork} <span style={{color: room.colorScheme.linkColor}}>{room._sh_}</span> <span style={{color: room.colorScheme.altColor}}> {room.bwam} </span></span></h1>
-    <p>{room.vibe} <a style={{color: room.colorScheme.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: "right"}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
+    <h1><Link style={{color: room.colorScheme.linkColor}} to={`/room/${room.slug}`}>{room.name}</Link> <span style={{float: 'right'}}>{room.zork} <span style={{color: room.colorScheme.linkColor}}>{room._sh_}</span> <span style={{color: room.colorScheme.altColor}}> {room.bwam} </span></span></h1>
+    <p>{room.vibe} <a style={{color: room.colorScheme.linkColor}} href={room.currentMusicUrl}>{room.currentMusicTitle}</a> <span style={{float: 'right'}}>▵△{room.currentExpPoints} / {room.totalExpPoints}△▵  ☸{room.level} / {room.maxLevel}☸</span></p>
     <p>{room.description}</p>
     <hr></hr>
     <Grid
@@ -33,10 +33,10 @@ export const Room = ({ room }) => (
       </React.Fragment>
     ))}
     </Grid>
-    <Grid style={{textAlign: "center"}} item xs={4}>
+    <Grid style={{textAlign: 'center'}} item xs={4}>
     <RoomCurrencies room={room}/>
     </Grid>
-    <Grid style={{textAlign: "right"}} item xs={4}>
+    <Grid style={{textAlign: 'right'}} item xs={4}>
     <p style={{color: room.colorScheme.linkColor}}>i18ns</p>
     {room.roomI18ns.map(roomI18n => (
       <h3 key={roomI18n._id}>{roomI18n.i18n.name}</h3>

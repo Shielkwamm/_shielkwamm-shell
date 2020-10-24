@@ -66,7 +66,7 @@ const schema = {
   zork: { // +☰
     type: String,
     optional: false,
-    defaultValue: "+☰",
+    defaultValue: '+☰',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -74,7 +74,7 @@ const schema = {
   bwam: { // ◯++
     type: String, 
     optional: false,
-    defaultValue: "◯",
+    defaultValue: '◯',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -82,7 +82,7 @@ const schema = {
   vibe: {
     type: String,
     optional: false,
-    defaultValue: "↑↑⬤",
+    defaultValue: '↑↑⬤',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -90,7 +90,7 @@ const schema = {
   _sh_: { //+△+
     type: String,
     optional: false,
-    defaultValue: "△",
+    defaultValue: '△',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -98,14 +98,14 @@ const schema = {
   currentMusicUrl: {
     type: String,
     optional: false,
-    defaultValue: "https://www.youtube.com/watch?v=HxAYJdLXgZo",
+    defaultValue: 'https://www.youtube.com/watch?v=HxAYJdLXgZo',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   currentMusicTitle: {
     type: String,
-    defaultValue: "Marble Madness Remix (2009)",
+    defaultValue: 'Marble Madness Remix (2009)',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -117,13 +117,13 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "colorScheme",
+      fieldName: 'colorScheme',
       type: 'ColorScheme',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   roomI18ns: {
-    label: "Room I18ns",
+    label: 'Room I18ns',
     type: String,
     hidden: true,
     optional: true,
@@ -138,7 +138,7 @@ const schema = {
     }
   },
   roomHandles: {
-    label: "Room Handles",
+    label: 'Room Handles',
     type: String,
     hidden: true,
     optional: true,
@@ -170,7 +170,7 @@ const schema = {
   currentExpPoints: {
     type: String,
     optional: false,
-    defaultValue: "0",
+    defaultValue: '0',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -178,7 +178,7 @@ const schema = {
   totalExpPoints: {
     type: String,
     optional: false,
-    defaultValue: "50",
+    defaultValue: '50',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -186,7 +186,7 @@ const schema = {
   level: {
     type: String,
     optional: false,
-    defaultValue: "0",
+    defaultValue: '0',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -194,20 +194,20 @@ const schema = {
   maxLevel: {
     type: String,
     optional: false,
-    defaultValue: "5",
+    defaultValue: '5',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   gameStart: {
-    label: "Game start",
+    label: 'Game start',
     type: String,
     optional: true,
     canRead: ['guests'],
     defaultValue: new Date()
   },
   gameEnd: {
-    label: "Game End",
+    label: 'Game End',
     type: String,
     optional: true,
     canRead: ['guests']

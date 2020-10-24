@@ -34,27 +34,27 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
-    defaultValue: "message",
+    defaultValue: 'message',
     options: [
     {
-      label: "Vibe",
-      value: "vibe"
+      label: 'Vibe',
+      value: 'vibe'
     },
     {
-      label: "Note",
-      value: "note"
+      label: 'Note',
+      value: 'note'
     },
     {
-      label: "Money",
-      value: "money"
+      label: 'Money',
+      value: 'money'
     },
     {
-      label: "Zork",
-      value: "zork"
+      label: 'Zork',
+      value: 'zork'
     },
     {
-      label: "_sh_",
-      value: "_sh_"
+      label: '_sh_',
+      value: '_sh_'
     }
     /*{
       label: "Expectations",
@@ -68,9 +68,9 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "sh",
+      fieldName: 'sh',
       type: 'Sh',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
 };

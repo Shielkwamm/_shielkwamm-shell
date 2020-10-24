@@ -17,13 +17,13 @@ const RoomsHandles = createCollection({
   },
   create: {
     after: [(document, properties) => {
-      let handle = getCollection("Handles").findOne({_id: document.handleId});
+      let handle = getCollection('Handles').findOne({_id: document.handleId});
       Messages.insert({roomId: document.roomId, text: `${handle.name} joined`, createdAt: new Date()})
     }],
   },
   delete: {
     after: [(document, properties) => {
-      let handle = getCollection("Handles").findOne({_id: document.handleId});
+      let handle = getCollection('Handles').findOne({_id: document.handleId});
       Messages.insert({roomId: document.roomId, text: `${handle.name} left`, createdAt: new Date()})
     }],
   }

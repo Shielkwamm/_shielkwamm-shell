@@ -24,7 +24,7 @@ const schema = {
   description: {
     type: String,
     optional: true,
-    defaultValue: "n00b",
+    defaultValue: 'n00b',
     canRead: ['admins'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
@@ -33,7 +33,7 @@ const schema = {
   note: {
     type: String,
     optional: true,
-    defaultValue: "",
+    defaultValue: '',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -41,7 +41,7 @@ const schema = {
   mood: {
     type: String,
     optional: true,
-    defaultValue: "~",
+    defaultValue: '~',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -70,7 +70,7 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  "inventory.$": {
+  'inventory.$': {
     type: String,
     optional: true,
     canRead: ['guests'],
@@ -78,7 +78,7 @@ const schema = {
     canUpdate: ['admins']
   },
   handleParties: {
-    label: "Handle Parties",
+    label: 'Handle Parties',
     type: String,
     hidden: true,
     optional: true,
@@ -93,14 +93,14 @@ const schema = {
     }
   },
   connectionStatus: {
-    label: "Connection Status",
+    label: 'Connection Status',
     type: String,
     optional: false,
     canRead: ['guests'],
-    defaultValue: "~"
+    defaultValue: '~'
   },
   handleCurrencies: {
-    label: "Handle Currencies",
+    label: 'Handle Currencies',
     type: String,
     hidden: true,
     optional: true,
@@ -115,7 +115,7 @@ const schema = {
     }
   },
   roomId: {
-    label: "Is this handle bound to a single room?",
+    label: 'Is this handle bound to a single room?',
     type: String,
     hidden: true,
     optional: true,

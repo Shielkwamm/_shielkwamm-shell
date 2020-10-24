@@ -16,7 +16,7 @@ const schema = {
   name: {
     type: String,
     optional: false,
-    defaultValue: "Ol' Glory",
+    defaultValue: 'Ol\' Glory',
     canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
@@ -24,7 +24,7 @@ const schema = {
   color: {
     type: String,
     optional: false,
-    defaultValue: "#000000",
+    defaultValue: '#000000',
     canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
@@ -32,7 +32,7 @@ const schema = {
   backgroundColor: {
     type: String,
     optional: false,
-    defaultValue: "#FFFFFF",
+    defaultValue: '#FFFFFF',
     canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
@@ -40,7 +40,7 @@ const schema = {
   linkColor: {
     type: String,
     optional: false,
-    defaultValue: "#A1A1A1",
+    defaultValue: '#A1A1A1',
     canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
@@ -48,7 +48,7 @@ const schema = {
   altColor: {
     type: String,
     optional: false,
-    defaultValue: "#A1A1A1",
+    defaultValue: '#A1A1A1',
     canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']

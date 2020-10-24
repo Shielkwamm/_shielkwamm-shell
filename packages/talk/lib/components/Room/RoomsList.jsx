@@ -11,8 +11,8 @@ export const RoomsList = () => {
   const { loading, results } = useMulti2(options);
   return (
     <div className="movies-list">
-      <Components.HeadTags title={`Rooms`}/>
-      <h2><Link to="/">⏎ </Link>Rooms <span style={{float: "right"}}> count [ {results && results.length} / 7 ]</span></h2>
+      <Components.HeadTags title={'Rooms'}/>
+      <h2><Link to="/">⏎ </Link>Rooms <span style={{float: 'right'}}> count [ {results && results.length} / 7 ]</span></h2>
       <hr></hr>
       {!loading && results && results.map(room => (
         <Room key={room._id} room={room}/>

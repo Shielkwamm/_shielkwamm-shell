@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 export const EquipmentList = () => {
   const equipmentOptions = {
-    collectionName: "Equipment",
+    collectionName: 'Equipment',
     fragmentName: 'EquipmentFragment',
     limit: 11
   }
@@ -30,7 +30,7 @@ export const EquipmentList = () => {
 
 export const Things = () => (
   <React.Fragment>
-    <Components.HeadTags title={"Things"} />
+    <Components.HeadTags title={'Things'} />
     <h2><Link to="/">⏎ </Link>Things</h2>
     <hr></hr>
     <EquipmentList/>

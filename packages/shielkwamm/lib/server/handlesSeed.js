@@ -2,11 +2,11 @@ import { getCollection } from 'meteor/vulcan:lib';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
-  const Handles = getCollection("Handles");
-  const Currencies = getCollection("Currencies")
-  const CurrenciesActors = getCollection("CurrenciesActors");
-  const Parties = getCollection("Parties");
-  const PartiesHandles = getCollection("PartiesHandles");
+  const Handles = getCollection('Handles');
+  const Currencies = getCollection('Currencies')
+  const CurrenciesActors = getCollection('CurrenciesActors');
+  const Parties = getCollection('Parties');
+  const PartiesHandles = getCollection('PartiesHandles');
 
   if(Handles.find().count() === 0) {
     handlesSeed.forEach(handle => {
@@ -21,7 +21,7 @@ Meteor.startup(() => {
       handleParties && handleParties.forEach(party => {
         let p = Parties.findOne({name: party.name})
         if(!p) {
-          console.log("###hp party " + party.name + " not found ", party);
+          console.log('###hp party ' + party.name + ' not found ', party);
           return;
         }
         PartiesHandles.insert({
@@ -36,7 +36,7 @@ Meteor.startup(() => {
      handleCurrencies && handleCurrencies.forEach(hc => {
        let currency = Currencies.findOne({glyph: hc.glyph});
        if(!currency) {
-         console.log("====  Couldn't find currency", hc.glyph)
+         console.log('====  Couldn\'t find currency', hc.glyph)
          return;
        }
        CurrenciesActors.insert({ 
@@ -57,140 +57,140 @@ Meteor.startup(() => {
 const handlesSeed = [
 //  ### Shielkwamm Council ###  
 {
-  name: "GrandNagus",
-  mood: "?-/||",
+  name: 'GrandNagus',
+  mood: '?-/||',
   isActive: false,
   currencies: [{
-    glyph: "🕑",
+    glyph: '🕑',
     amount: 2000000,
-    mood: "__[-]🕑[-]<--",
-    note: "#1 Once you have their money, you never give it back."
+    mood: '__[-]🕑[-]<--',
+    note: '#1 Once you have their money, you never give it back.'
   }],
   parties: [
-    {name: "galacticOversight", isMod: true},
-    {name: "### Shielkwamm Council ###"}
+    {name: 'galacticOversight', isMod: true},
+    {name: '### Shielkwamm Council ###'}
   ],
 },
 {
-  name: "theQuinceler",
-  mood: "[+]◯[-]",
-  currentStatus: "~"
+  name: 'theQuinceler',
+  mood: '[+]◯[-]',
+  currentStatus: '~'
 },
 {
-  name: "MonopolyMouse",
-  mood: "",
+  name: 'MonopolyMouse',
+  mood: '',
   isActive: false,
   parties: [
-    {name: "fluxers"}
+    {name: 'fluxers'}
   ]
 },
 {
-  name: "Arbitrat0r",
-  mood: "||",
+  name: 'Arbitrat0r',
+  mood: '||',
   isActive: true,
   currencies: [{
-    glyph: "〠",
+    glyph: '〠',
     amount: 1,
-    mood: "〠",
-    note: "I have decided that this forheadkiss should be wet and sloppy."
+    mood: '〠',
+    note: 'I have decided that this forheadkiss should be wet and sloppy.'
   }],
   parties: [
-    {name: "NaNers", isMod: true},
-    {name: "### Shielkwamm Council ###", isMod: true}
+    {name: 'NaNers', isMod: true},
+    {name: '### Shielkwamm Council ###', isMod: true}
   ]
 },
 {
-  name: "Inf0rmation",
-  mood: "||*",
+  name: 'Inf0rmation',
+  mood: '||*',
   isActive: true,
   parties: [
-    {name:"NaNers", isMod: true},
-    {name: "### Shielkwamm Council ###"}
+    {name:'NaNers', isMod: true},
+    {name: '### Shielkwamm Council ###'}
   ]
 },
 {
-  name: "Admin",
-  mood: "+||◯",
+  name: 'Admin',
+  mood: '+||◯',
   isActive: false,
   currencies: [{
-    glyph: "🕑",
+    glyph: '🕑',
     amount: 40,
-    mood: "+◯",
-    note: "Will 🕑 4 🕑"
+    mood: '+◯',
+    note: 'Will 🕑 4 🕑'
   }],
   parties: [
-    {name: "1Deep", isMod: true},
-    {name: "### Shielkwamm Council ###"}
+    {name: '1Deep', isMod: true},
+    {name: '### Shielkwamm Council ###'}
   ]
 },
 {
-  name: "chatb0t",
-  mood: "|*",
+  name: 'chatb0t',
+  mood: '|*',
   isActive: true,
   parties: [
-    {name: "NaNers"},
-    {name: "### Shielkwamm Council ###"}
+    {name: 'NaNers'},
+    {name: '### Shielkwamm Council ###'}
   ],
 },
 
 {
-  name: "BabeRuth",
-  mood: "||**",
+  name: 'BabeRuth',
+  mood: '||**',
   isActive: true,
   parties: [
-    {name: "galacticOversight", isMod: true},
-    {name: "HumansLeague"}
+    {name: 'galacticOversight', isMod: true},
+    {name: 'HumansLeague'}
   ],
 },
 {
-  name: "Eyebrows",
-  mood: "++☷☰**",
+  name: 'Eyebrows',
+  mood: '++☷☰**',
   isActive: true,
   parties: [
-    {name: "galacticOversight", isMod: true},
+    {name: 'galacticOversight', isMod: true},
     {name: 'sheShe'},
-    {name: "### Shielkwamm Council ###", isMod: true}
+    {name: '### Shielkwamm Council ###', isMod: true}
   ],
 },
 {
-  name: "GavelMisses",
-  mood: "||||||||||",
+  name: 'GavelMisses',
+  mood: '||||||||||',
   isActive: true,
   parties: [
-    {name: "galacticOversight"}, 
-    {name: "HumansLeague"}
+    {name: 'galacticOversight'}, 
+    {name: 'HumansLeague'}
   ],
 },
 {
-  name: "CocoHeHe",
-  mood: "+|*",
+  name: 'CocoHeHe',
+  mood: '+|*',
   isActive: false,
   parties: [
-    {name: "MathLaws", isMod: true},
-    {name: "RedditSayin"}, 
-    {name: "HumansLeague"}
+    {name: 'MathLaws', isMod: true},
+    {name: 'RedditSayin'}, 
+    {name: 'HumansLeague'}
   ],
 },
 {
-  name: "EasyOff",
-  mood: "++",
+  name: 'EasyOff',
+  mood: '++',
   isActive: false,
   parties: [
-    {name: "chillionaires", isMod: true},
-    {name: "HumansLeague"}
+    {name: 'chillionaires', isMod: true},
+    {name: 'HumansLeague'}
   ],
 },
 {
-  name: "[legalese]",
-  mood: "",
+  name: '[legalese]',
+  mood: '',
   isActive: true,
   parties: [
     {name: 'Capitalists'}
   ]
 },
 {
-  name: "MrPeanut",
-  mood: "☴",
+  name: 'MrPeanut',
+  mood: '☴',
   isActive: true,
   inventory: ['△'],
   parties: [
@@ -200,8 +200,8 @@ const handlesSeed = [
   ]
 },
 {
-  name: "FishyFishy",
-  mood: "!zZz",
+  name: 'FishyFishy',
+  mood: '!zZz',
   isActive: true,
   inventory: ['△', '☯'],
   parties: [
@@ -210,282 +210,282 @@ const handlesSeed = [
   ]
 },
 {
-  name: "BrassFace",
-  mood: "*puff puff*",
+  name: 'BrassFace',
+  mood: '*puff puff*',
   isActive: false,
   parties: [
-    {name: "seeReal", isMod: true}
+    {name: 'seeReal', isMod: true}
   ]
 },
 {
-  name: "Bobafeet",
-  mood: "☱＋☴",
+  name: 'Bobafeet',
+  mood: '☱＋☴',
   isActive: false,
   parties: [
     {name: 'rebelWraith', isMod: true}, 
   ]
 },
 {
-  name: "Warewolf",
-  mood: "☷☷☷+",
+  name: 'Warewolf',
+  mood: '☷☷☷+',
   isActive: true,
   parties: [
     {name: 'rebelWraith'}, 
   ]
 },
 {
-  name: "Neobii",
-  mood: "--",
+  name: 'Neobii',
+  mood: '--',
   isActive: false,
   parties: [
-    {name: "1Deep"},
-    {name: "rebelWraith"}
+    {name: '1Deep'},
+    {name: 'rebelWraith'}
   ]
 },
 {
-  name: "Slipurrrrs",
+  name: 'Slipurrrrs',
   mood: '-',
   inventory: ['☯'],
   isActive: true,
   parties: [
-    {name: "mother"},
-    {name: "eagle", isMod: true},
-    {name: "clearSails"}
+    {name: 'mother'},
+    {name: 'eagle', isMod: true},
+    {name: 'clearSails'}
   ]
 },
 {
-  name: "CoolSneakers",
+  name: 'CoolSneakers',
   mood: '↑‾ ',
   isActive: true,
   inventory: ['☯'],
   parties: [
-    {name: "mother"},
-    {name: "clearSails"}
+    {name: 'mother'},
+    {name: 'clearSails'}
   ]
 },
 {
-  name: "DragonJamon",
+  name: 'DragonJamon',
   mood: '**',
   isActive: true,
   parties: [
-    {name: "tales", isMod: true},
-    {name: "rum"}
+    {name: 'tales', isMod: true},
+    {name: 'rum'}
   ]
 },
 {
-  name: "JohnnyBravo",
-  mood: "+",
+  name: 'JohnnyBravo',
+  mood: '+',
   isActive: false,
   parties: [
-    {name: "dogs"}
+    {name: 'dogs'}
   ]
 },
 {
-  name: "AquaBarbie",
-  mood: "+",
+  name: 'AquaBarbie',
+  mood: '+',
   isActive: false,
   inventory: ['☯'],
   parties: [
-    {name: "time"}
+    {name: 'time'}
   ]
 },
 {
-  name: "Querty101",
-  mood: "^",
+  name: 'Querty101',
+  mood: '^',
   isActive: false,
   parties: [
-    {name: "Hallmark", isMod: true}
+    {name: 'Hallmark', isMod: true}
   ]
 },
 {
-  name: "MississippiBrazos",
-  mood: "+",
+  name: 'MississippiBrazos',
+  mood: '+',
   isActive: true,
   inventory: ['☯'],
   parties: [
-    {name: "Hallmark", isMod: true}
+    {name: 'Hallmark', isMod: true}
   ]
 },
 {
-  name: "ItchyMotors",
-  mood: "+||",
+  name: 'ItchyMotors',
+  mood: '+||',
   isActive: false,
   parties: [
-    {name: "fluxers", isMod: true}
+    {name: 'fluxers', isMod: true}
   ]
 },
 {
-  name: "Dorthies_dancin_shoes",
-  mood: "++",
+  name: 'Dorthies_dancin_shoes',
+  mood: '++',
   isActive: false,
   parties: [
-    {name: "fluxers", isMod: true}
+    {name: 'fluxers', isMod: true}
   ]
 },
 {
-  name: "FireHydrantLicker_tH",
-  mood: "|**,",
+  name: 'FireHydrantLicker_tH',
+  mood: '|**,',
   inventory: ['☯'],
   isActive: true,
   currencies: [{
-    glyph: "👀",
+    glyph: '👀',
     amount: 8.0085,
-    mood: "  👀   👀  ",
-    note: "👀  👀👀  👀"
+    mood: '  👀   👀  ',
+    note: '👀  👀👀  👀'
   }],
   parties: [
-    {name: "dang!"}
+    {name: 'dang!'}
   ]
 },
 {
-  name: "EarlyBirdie",
-  mood: "|**,",
+  name: 'EarlyBirdie',
+  mood: '|**,',
   inventory: ['☯'],
   isActive: true,
-  note: "traded [eE for cats]",
+  note: 'traded [eE for cats]',
   parties: [
-    {name: "mother", isMod: true},
-    {name: "cats"},
-    {name: "clearSails"}
+    {name: 'mother', isMod: true},
+    {name: 'cats'},
+    {name: 'clearSails'}
   ]
 },
 {
-  name: "Twoheadedsphaghettisnake666",
-  mood: "",
+  name: 'Twoheadedsphaghettisnake666',
+  mood: '',
   isActive: true,  
   parties: [
-    {name: "Jesus", isMod: true}
+    {name: 'Jesus', isMod: true}
   ]
 },
 {
-  name: "Jiminey_crickets",
-  mood: "+",
+  name: 'Jiminey_crickets',
+  mood: '+',
   isActive: false,
   parties: [
-    {name: "DollyCarson"}
+    {name: 'DollyCarson'}
   ]
 },
 {
-  name: "BurpingCactus",
-  mood: "☱*",
+  name: 'BurpingCactus',
+  mood: '☱*',
   isActive: false,
   parties: [
-    {name:  "burps", isMod: true},
-    {name: "demBoys", isDJ: true},
-    {name: "fluxers"}
+    {name:  'burps', isMod: true},
+    {name: 'demBoys', isDJ: true},
+    {name: 'fluxers'}
   ]
 },
 {
-  name: "Yoshi",
-  mood: "+++☷☷☷ ",
+  name: 'Yoshi',
+  mood: '+++☷☷☷ ',
   inventory: ['☯'],
   isActive: false,
   parties: [
-    {name: "yasss"},
-    {name: "eE"},
-    {name: "cats"},
-    {name: "demBoys"}
+    {name: 'yasss'},
+    {name: 'eE'},
+    {name: 'cats'},
+    {name: 'demBoys'}
   ]
 },
 {
-  name: "MothPuncher",
-  mood: "?+ ",
+  name: 'MothPuncher',
+  mood: '?+ ',
   parties: [
-    {name: "eE", isMod: true}
+    {name: 'eE', isMod: true}
   ]
 },
 {
-  name: "PinkyPromise",
-  mood: "+**",
+  name: 'PinkyPromise',
+  mood: '+**',
   isActive: true,
   parties: [
-    {name: "eE", isMod: false},
-    {name: "RedditSayin"},
-    {name: "graveDanger"}
+    {name: 'eE', isMod: false},
+    {name: 'RedditSayin'},
+    {name: 'graveDanger'}
   ]
 },
 {
-  name: "Truss BaVeriphi",
-  mood: "^+||",
+  name: 'Truss BaVeriphi',
+  mood: '^+||',
   isActive: true,
   parties: [
-    {name: "DollyCarson"}
+    {name: 'DollyCarson'}
   ]
 },
 {
-  name: "DrunkFlamingo",
-  mood: "+",
+  name: 'DrunkFlamingo',
+  mood: '+',
   parties: [
-    {name: "dang!"}
+    {name: 'dang!'}
   ]
 },
 {
-  name: "jetFlow",
-  note: "",
+  name: 'jetFlow',
+  note: '',
   isActive: true,
   parties: [
-    {name: "time"},
-    {name: "onBránd", isMod: true}
+    {name: 'time'},
+    {name: 'onBránd', isMod: true}
   ]
 },
 {
-  name: "Princess_Peach",
-  note: "revoked [eE]"
+  name: 'Princess_Peach',
+  note: 'revoked [eE]'
 },
 {
-  name: "waterLake",
-  mood: "[+]*☱",
+  name: 'waterLake',
+  mood: '[+]*☱',
   isActive: true,
   parties: [
-    {name: "aaaack", isMod: true}
+    {name: 'aaaack', isMod: true}
   ]
 },
 {
-  name: "chOWN",
-  mood: "+☴[+]"
+  name: 'chOWN',
+  mood: '+☴[+]'
 },
 {
-  name: "Mo3a1Mosau4",
-  connectionStatus: "~",
-  mood: "_+☴+",
+  name: 'Mo3a1Mosau4',
+  connectionStatus: '~',
+  mood: '_+☴+',
   parties: [
-    {name: "RedditSayin", isMod: true}
+    {name: 'RedditSayin', isMod: true}
   ]
 },
 {
-  name: "The_Event_That_Shant_Be_Named",
-  mood: "+⋛ ",
+  name: 'The_Event_That_Shant_Be_Named',
+  mood: '+⋛ ',
   parties: [
-    {name: "1Deep", isMod: true},
-    {name: "eE"}
+    {name: '1Deep', isMod: true},
+    {name: 'eE'}
   ]
 },
 {
-  name: "MrHanky",
-  mood: "*☴☴☴",
+  name: 'MrHanky',
+  mood: '*☴☴☴',
   inventory: ['☯'],
   parties: [
-    {name: "aaaack", isMod: true},
-    {name: "Jesus", isMod: true},
-    {name: "☲shit"}
+    {name: 'aaaack', isMod: true},
+    {name: 'Jesus', isMod: true},
+    {name: '☲shit'}
   ]
 },
 {
-  name: "aligatorAllison",
+  name: 'aligatorAllison',
   parties: [
-    {name: "burners", isMod: true}
+    {name: 'burners', isMod: true}
   ]
 },
 {
-  name: "Bulgaria",
-  mood: "-|",
+  name: 'Bulgaria',
+  mood: '-|',
   parties: [
     {name: 'stringTheory'}
   ]
 },
 {
-  name: "Jerry",
-  mood: "+||",
+  name: 'Jerry',
+  mood: '+||',
   inventory: ['☯'],
   parties: [
     {name: 'cheesy'},
@@ -494,173 +494,173 @@ const handlesSeed = [
   ]
 },
 {
-  name: "GrinchBitch",
-  mood: "+",
+  name: 'GrinchBitch',
+  mood: '+',
   parties: [
     {name: '1Deep'}
   ]
 },
 {
-  name: "Meowth",
-  mood: "~",
+  name: 'Meowth',
+  mood: '~',
   parties: [
-    {name: "RedditSayin"},
-    {name: "mother", isMod: true},
-    {name: "MathLaws", isMod: true}
+    {name: 'RedditSayin'},
+    {name: 'mother', isMod: true},
+    {name: 'MathLaws', isMod: true}
   ]
 },
 {
-  name: "B.J.",
-  mood: "?/+ "
+  name: 'B.J.',
+  mood: '?/+ '
 },
 {
-  name: "Togepikachu",
-  mood: "?+",
+  name: 'Togepikachu',
+  mood: '?+',
   parties: [
-    {name: "cheesy", isConfirmed: false}
+    {name: 'cheesy', isConfirmed: false}
   ]
 },
 {
-  name: "pi_Spinner",
-  mood: "?+",
+  name: 'pi_Spinner',
+  mood: '?+',
   parties: [
-    {name: "twizzlers"}
+    {name: 'twizzlers'}
   ]
 },
 {
-  name: "Skeletor",
-  mood: "***",
+  name: 'Skeletor',
+  mood: '***',
   inventory: ['☯'],
   isActive: true,
   parties: [
-    {name: "DollyCarson"}
+    {name: 'DollyCarson'}
   ]
 },
 {
-  name: "SpongeDude",
-  mood: "",
+  name: 'SpongeDude',
+  mood: '',
   isActive: true,
   parties: [
-    {name: "eagle"},
-    {name: "mother"}
+    {name: 'eagle'},
+    {name: 'mother'}
   ]
 },
 {
-  name: "aCuteTriangle",
-  mood: "~?-",
+  name: 'aCuteTriangle',
+  mood: '~?-',
   parties: [
-    {name: "sheShe"}
+    {name: 'sheShe'}
   ]
 },
 {
-  name: "marilynMoney",
+  name: 'marilynMoney',
   parties: [
-    {name: "smileyFaceFlag", isMod: true}
+    {name: 'smileyFaceFlag', isMod: true}
   ]
 },
 {
-  name: "weatherWonder",
+  name: 'weatherWonder',
   parties: [
-    {name: "nasaholes", isMod: false}
+    {name: 'nasaholes', isMod: false}
   ]
 },
 {
-  name: "SandStorm",
+  name: 'SandStorm',
   currencies: [{
-    glyph: "〠",
+    glyph: '〠',
     amount: .00000079999999,
-    mood: "Ω〠Ω",
-    note: "What is this?"
+    mood: 'Ω〠Ω',
+    note: 'What is this?'
   },
   {
-    glyph: "🕑",
+    glyph: '🕑',
     amount: 2,
-    mood: "++☴",
-    note: "Freebees"
+    mood: '++☴',
+    note: 'Freebees'
   }],
   parties: [
-    {name: "Hallmark"}
+    {name: 'Hallmark'}
   ]
 },
 {
-  name: "Goodwill",
+  name: 'Goodwill',
   currencies: [{
-    glyph: "🕑",
+    glyph: '🕑',
     amount: 200,
-    mood: "+⻌->[☰]",
-    note: "[+]-_🏀🏀 Use respectively, please."
+    mood: '+⻌->[☰]',
+    note: '[+]-_🏀🏀 Use respectively, please.'
   },
   {
-    glyph: "👀",
+    glyph: '👀',
     amount: 16,
-    mood: "+",
-    node: "from gat0rz"
+    mood: '+',
+    node: 'from gat0rz'
   }]
 },
 {
-  name: "guy",
+  name: 'guy',
   parties: [
-    {name: "dracul"}
+    {name: 'dracul'}
   ]
 },
 {
-  name: "Givesnolux",
-  mood: "+++",
+  name: 'Givesnolux',
+  mood: '+++',
   isHonorary: true,
   parties: [
     {name: 'eE'},
-    {name: "yasss"}
+    {name: 'yasss'}
   ]
 },
 {
-  name: "NasaShapeUp",
-  mood: "",
+  name: 'NasaShapeUp',
+  mood: '',
   isHonorary: true,
   parties: [
-    {name: "nasaholes"}
+    {name: 'nasaholes'}
   ]
 },
 {
-  name: "hab1b145_✡",
-  mood: "☴++",
+  name: 'hab1b145_✡',
+  mood: '☴++',
   currencies: [{
-    glyph: "👀",
+    glyph: '👀',
     amount: 33,
-    mood: "[+]",
-    note: "Happy Birthday?"
+    mood: '[+]',
+    note: 'Happy Birthday?'
   },
   ]
 },
 {
-  name: "tigerWoods",
-  mood: "",
+  name: 'tigerWoods',
+  mood: '',
   parties: [
     {name: 'sheShe'},
   ]
 },
 {
-  name: "Slimer",
-  mood: "+",
+  name: 'Slimer',
+  mood: '+',
   isActive: true,
   parties: [
-    {name: "mother", isMod: true},
-    {name: "saber"}
+    {name: 'mother', isMod: true},
+    {name: 'saber'}
   ]
 },
 {
-  name: "brassFace",
-  mood: "?-?+",
+  name: 'brassFace',
+  mood: '?-?+',
   isActive: true,
   parties: [
-    {name: "seeReal", isMod: true}
+    {name: 'seeReal', isMod: true}
   ]
 },
 {
-  name: "iMadeEmacs", //*access denied* *access denied* *access denied* *#root: echo "woot" >> .bashrc*"
-  mood: "++☴",
+  name: 'iMadeEmacs', //*access denied* *access denied* *access denied* *#root: echo "woot" >> .bashrc*"
+  mood: '++☴',
   isActive: true,
   parties: [
-    {name: "Hallmark"},
-    {name: "nasaholes"}
+    {name: 'Hallmark'},
+    {name: 'nasaholes'}
   ]
 }]

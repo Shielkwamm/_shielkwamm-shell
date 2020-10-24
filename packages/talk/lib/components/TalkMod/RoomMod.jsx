@@ -15,14 +15,14 @@ export const RoomModInner = () => {
     {!loading && document ? (
       <React.Fragment>
         <RoomHeader room={document}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["name"]}/>
-        <Components.SmartForm collectionName='Messages' fields={["text"]} prefilledProps={{roomId: document._id}}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentExpPoints", "level"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["zork"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["_sh_"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
-        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['name']}/>
+        <Components.SmartForm collectionName='Messages' fields={['text']} prefilledProps={{roomId: document._id}}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['currentExpPoints', 'level']}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['zork']}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['bwam']}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['_sh_']}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['vibe']}/>
+        <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['currentMusicUrl', 'currentMusicTitle']}/>
       </React.Fragment>
     ): null}
   </React.Fragment>

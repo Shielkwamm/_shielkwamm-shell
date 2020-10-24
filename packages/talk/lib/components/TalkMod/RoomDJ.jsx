@@ -16,10 +16,10 @@ export const RoomDJInner = () => {
       ) : (
         <div>
           <Components.HeadTags title={`⬤⬤⬤: ${document.name}`}/>
-          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["areDJMessagesMuted"]}/>
-          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["bwam"]}/>
-          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["vibe"]}/>
-          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={["currentMusicUrl", "currentMusicTitle"]}/>
+          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['areDJMessagesMuted']}/>
+          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['bwam']}/>
+          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['vibe']}/>
+          <Components.SmartForm showRemove={false} collectionName="Rooms" documentId={document._id} fields={['currentMusicUrl', 'currentMusicTitle']}/>
         </div>
       )}
     </React.Fragment>

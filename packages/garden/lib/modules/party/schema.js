@@ -58,7 +58,7 @@ const schema = {
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins'],
-    defaultValue: "~"
+    defaultValue: '~'
   },
   colorSchemeId: {
     type: String,
@@ -67,13 +67,13 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins'],
     resolveAs: {
-      fieldName: "colorScheme",
+      fieldName: 'colorScheme',
       type: 'ColorScheme',
-      relation: "hasOne"
+      relation: 'hasOne'
     }
   },
   partyHandles: {
-    label: "Party Handles",
+    label: 'Party Handles',
     type: String,
     hidden: true,
     optional: true,
@@ -88,7 +88,7 @@ const schema = {
     }
   },
   partyCurrencies: {
-    label: "Party Currencies",
+    label: 'Party Currencies',
     type: String,
     hidden: true,
     optional: true,
@@ -104,7 +104,7 @@ const schema = {
   },
 
   partyI18ns: {
-    label: "Party I18ns",
+    label: 'Party I18ns',
     type: String,
     hidden: true,
     optional: true,

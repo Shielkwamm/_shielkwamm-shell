@@ -17,7 +17,7 @@ const schema = {
   name: {
     type: String,
     optional: false,
-    defaultValue: "basic",
+    defaultValue: 'basic',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -25,7 +25,7 @@ const schema = {
   description: {
     type: String,
     optional: true,
-    defaultValue: "The basic glyphs of _sh_.",
+    defaultValue: 'The basic glyphs of _sh_.',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -33,7 +33,7 @@ const schema = {
   glyphSet: {
     type: String,
     optional: false,
-    defaultValue: "☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈",
+    defaultValue: '☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -41,13 +41,13 @@ const schema = {
   wikiUrl: {
     type: String,
     optional: false,
-    defaultValue: "https://github.com/Shielkwamm/one_Z-rk/wiki/Glyphs",
+    defaultValue: 'https://github.com/Shielkwamm/one_Z-rk/wiki/Glyphs',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   i18nRooms: {
-    label: "I18n Rooms",
+    label: 'I18n Rooms',
     type: String,
     hidden: true,
     optional: true,
