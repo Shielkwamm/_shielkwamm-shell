@@ -8,7 +8,7 @@ vulcan:i18n-en-us@=1.16.1
 
 ############ Accounts Packages ############
 vulcan:accounts@=1.16.1
-accounts-password@1.6.2
+accounts-password
 # accounts-twitter
 # accounts-facebook
 
@@ -33,3 +33,4 @@ shielkwamm
 vulcan:backoffice
 vulcan:ui-material@1.16.0_3
 vulcan:forms
+service-configuration
