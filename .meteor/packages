@@ -1,22 +1,18 @@
 # see http://docs.vulcanjs.org/packages
 
-vulcan:core@=1.16.0
+vulcan:core@=1.16.1
 
 ############ Language Packages ############
 
-vulcan:i18n-en-us@=1.16.0
+vulcan:i18n-en-us@=1.16.1
 
 ############ Accounts Packages ############
-vulcan:accounts
-accounts-password@1.6.0
+vulcan:accounts@=1.16.1
+accounts-password@1.6.2
 # accounts-twitter
 # accounts-facebook
 
-vulcan:ui-material
-vulcan:debug
-vulcan:forms
-
-# when in doubt live aethetically
+# when in doubt live aesthetically
 color-schemes 
 
 # Use your words
@@ -35,3 +31,5 @@ talk
 shielkwamm
 
 vulcan:backoffice
+vulcan:ui-material@1.16.0_3
+vulcan:forms

@@ -6,26 +6,27 @@ scalar Date
 
 input String_Selector {
   _eq: String
-  #_gt: String
-  #_gte: String
-  #_ilike: String
+  _gt: String
+  _gte: String
   _in: [String!]
+  _nin: [String!]
   _is_null: Boolean
   _like: String
-  #_lt: String
-  #_lte: String
-  #_neq: String
+  _lt: String
+  _lte: String
+  _neq: String
+  #_ilike: String
   #_nilike: String
-  #_nin: [String!]
   #_nlike: String
-  #_nsimilar: String
   #_similar: String
+  #_nsimilar: String
 }
 
 input String_Array_Selector {
   _in: [String!]
+  _nin: [String!]
   _contains: String
-  # _contains_all: [String_Selector]
+  _contains_all: [String_Selector]
 }
 
 input Int_Selector {
@@ -33,16 +34,18 @@ input Int_Selector {
   _gt: Int
   _gte: Int
   _in: [Int!]
-  #_is_null: Boolean
+  _nin: [Int!]
+  _is_null: Boolean
   _lt: Int
   _lte: Int
-  #_neq: Int
-  #_nin: [Int!]
+  _neq: Int
 }
 
 input Int_Array_Selector {
-  contains: Int_Selector
-  # contains_all: [Int_Selector]
+  _in: [Int!]
+  _nin: [Int!]
+  _contains: Int_Selector
+  _contains_all: [Int_Selector]
 }
 
 input Float_Selector {
@@ -50,26 +53,27 @@ input Float_Selector {
   _gt: Float
   _gte: Float
   _in: [Float!]
-  #_is_null: Boolean
+  _nin: [Float!]
+  _is_null: Boolean
   _lt: Float
   _lte: Float
-  #_neq: Float
-  #_nin: [Float!]
+  _neq: Float
 }
 
 input Float_Array_Selector {
-  contains: Float_Selector
-  # contains_all: [Float_Selector]
+  _in: [Int!]
+  _nin: [Int!]
+  _contains: Float_Selector
+  _contains_all: [Float_Selector]
 }
 
 input Boolean_Selector {
   _eq: Boolean
-  #_neq: Boolean
+  _neq: Boolean
 }
 
 input Boolean_Array_Selector {
-  contains: Boolean_Selector
-  # contains_all: [Boolean_Selector]
+  _contains: Boolean_Selector
 }
 
 input Date_Selector {
@@ -77,16 +81,16 @@ input Date_Selector {
   _gt: Date
   _gte: Date
   _in: [Date!]
-  #_is_null: Boolean
+  _nin: [Date!]
+  _is_null: Boolean
   _lt: Date
   _lte: Date
-  #_neq: Date
-  #_nin: [Date!]
+  _neq: Date
 }
 
 input Date_Array_Selector {
-  contains: Date_Selector
-  # contains_all: [Date_Selector]
+  _contains: Date_Selector
+  _contains_all: [Date_Selector]
 }
 
 # column ordering options
@@ -169,13 +173,6 @@ type Locale {
     email: String
   }
 
-type EmailResponse {
-  from: String
-  to: String
-  subject: String
-  success: JSON
-  error: String
-}
 
 # A user object
 type User {
@@ -353,333 +350,6 @@ input UserSelectorInput {
 }
 
 input UserSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for Emails
-type Email {
-  name: String 
-  template: String 
-  subject: String 
-  testPath: String 
-}
-
-
-input DeleteEmailInput{
-  filter: EmailFilterInput
-  id: String
-}
-
-input SingleEmailInput {
-  # filtering
-  filter: EmailFilterInput
-  sort: EmailSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  # Deprecated (use 'filter/id' fields instead).
-  selector: EmailSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-  # An identifier to name the query's execution context
-  contextName: String
-}
-
-input MultiEmailInput {
-
-  # filtering
-  filter: EmailFilterInput
-  sort: EmailSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  # Deprecated (use 'filter/id' fields instead).
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  # An identifier to name the query's execution context
-  contextName: String
-
-}
-
-type SingleEmailOutput{
-  result: Email
-}
-
-type  MultiEmailOutput{
-  results: [Email]
-  totalCount: Int
-}
-
-type EmailMutationOutput{
-  data: Email
-}
-
-input EmailFilterInput {
-  _and: [EmailFilterInput]
-  _not: EmailFilterInput
-  _or: [EmailFilterInput]
-
-
-  name: String_Selector
-  template: String_Selector
-  subject: String_Selector
-  testPath: String_Selector
-}
-
-input EmailSortInput {
-  name: SortOptions
-  template: SortOptions
-  subject: SortOptions
-  testPath: SortOptions
-}
-
-input EmailSelectorInput {
-  _and: [EmailSelectorInput]
-  _or: [EmailSelectorInput]
-
-}
-
-input EmailSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for Settings
-type Setting {
-  name: String 
-  value: JSON 
-  defaultValue: JSON 
-  isPublic: Boolean 
-  description: String 
-}
-
-
-input DeleteSettingInput{
-  filter: SettingFilterInput
-  id: String
-}
-
-input SingleSettingInput {
-  # filtering
-  filter: SettingFilterInput
-  sort: SettingSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  # Deprecated (use 'filter/id' fields instead).
-  selector: SettingSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-  # An identifier to name the query's execution context
-  contextName: String
-}
-
-input MultiSettingInput {
-
-  # filtering
-  filter: SettingFilterInput
-  sort: SettingSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  # Deprecated (use 'filter/id' fields instead).
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  # An identifier to name the query's execution context
-  contextName: String
-
-}
-
-type SingleSettingOutput{
-  result: Setting
-}
-
-type  MultiSettingOutput{
-  results: [Setting]
-  totalCount: Int
-}
-
-type SettingMutationOutput{
-  data: Setting
-}
-
-input SettingFilterInput {
-  _and: [SettingFilterInput]
-  _not: SettingFilterInput
-  _or: [SettingFilterInput]
-
-
-  name: String_Selector
-
-
-  isPublic: Boolean_Selector
-  description: String_Selector
-}
-
-input SettingSortInput {
-  name: SortOptions
-  value: SortOptions
-  defaultValue: SortOptions
-  isPublic: SortOptions
-  description: SortOptions
-}
-
-input SettingSelectorInput {
-  _and: [SettingSelectorInput]
-  _or: [SettingSelectorInput]
-
-}
-
-input SettingSelectorUniqueInput {
-  _id: String
-  documentId: String # OpenCRUD backwards compatibility
-  slug: String
-
-}
-
-
-# Type for Callbacks
-type Callback {
-  name: String 
-  iterator: JSON 
-  properties: [JSON] 
-  runs: String 
-  newSyntax: Boolean 
-  returns: String 
-  description: String 
-  hooks: [String] 
-}
-
-
-input DeleteCallbackInput{
-  filter: CallbackFilterInput
-  id: String
-}
-
-input SingleCallbackInput {
-  # filtering
-  filter: CallbackFilterInput
-  sort: CallbackSortInput
-  search: String
-  id: String
-
-  # backwards-compatibility
-  # Deprecated (use 'filter/id' fields instead).
-  selector: CallbackSelectorUniqueInput
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Return null instead of throwing MissingDocumentError
-  allowNull: Boolean
-  # An identifier to name the query's execution context
-  contextName: String
-}
-
-input MultiCallbackInput {
-
-  # filtering
-  filter: CallbackFilterInput
-  sort: CallbackSortInput
-  search: String
-  offset: Int
-  limit: Int
-
-  # backwards-compatibility
-  # A JSON object that contains the query terms used to fetch data
-  # Deprecated (use 'filter/id' fields instead).
-  terms: JSON
-
-  # options (backwards-compatibility)
-  # Whether to enable caching for this query
-  enableCache: Boolean
-  # Whether to calculate totalCount for this query
-  enableTotal: Boolean
-  # An identifier to name the query's execution context
-  contextName: String
-
-}
-
-type SingleCallbackOutput{
-  result: Callback
-}
-
-type  MultiCallbackOutput{
-  results: [Callback]
-  totalCount: Int
-}
-
-type CallbackMutationOutput{
-  data: Callback
-}
-
-input CallbackFilterInput {
-  _and: [CallbackFilterInput]
-  _not: CallbackFilterInput
-  _or: [CallbackFilterInput]
-
-
-  name: String_Selector
-
-
-  runs: String_Selector
-  newSyntax: Boolean_Selector
-  returns: String_Selector
-  description: String_Selector
-
-}
-
-input CallbackSortInput {
-  name: SortOptions
-  iterator: SortOptions
-  properties: SortOptions
-  runs: SortOptions
-  newSyntax: SortOptions
-  returns: SortOptions
-  description: SortOptions
-  hooks: SortOptions
-}
-
-input CallbackSelectorInput {
-  _and: [CallbackSelectorInput]
-  _or: [CallbackSelectorInput]
-
-}
-
-input CallbackSelectorUniqueInput {
   _id: String
   documentId: String # OpenCRUD backwards compatibility
   slug: String
@@ -3012,19 +2682,11 @@ type Query {
   
   currentUser: User
   
-  getDatabaseObject(id: String): JSON
-  
   # A single User document fetched by ID or slug
   user(input: SingleUserInput!): SingleUserOutput
   
   # A list of User documents matching a set of query terms
   users(input: MultiUserInput):  MultiUserOutput
-  
-  emails(input: MultiEmailInput):  MultiEmailOutput
-  
-  settings(input: MultiSettingInput):  MultiSettingOutput
-  
-  callbacks(input: MultiCallbackInput):  MultiCallbackOutput
   
   # A single ColorScheme document fetched by ID or slug
   colorScheme(input: SingleColorSchemeInput!): SingleColorSchemeOutput
@@ -3135,8 +2797,6 @@ type Mutation {
   sendVerificationEmail(input: AuthEmailInput): Boolean
 
   verifyEmail(input: VerifyEmailInput): VerifyEmailResult
-
-  testEmail(emailName: String) : EmailResponse
 
   # Mutation for creating new User documents
   createUser(
