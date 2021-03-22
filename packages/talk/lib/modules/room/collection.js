@@ -10,7 +10,7 @@ const Rooms = createCollection({
   // resolvers: yourCustomResolvers // null to disable default resolvers generation
   // mutations: yourCustomMutations // null to disable default mutations generation
   permissions: {
-    canRead: ['guests'],
+    canRead: ['guests', 'members', 'admins'],
     canCreate: ['admins'],
     canUpdate: ['owners', 'admins'],
     canDelete: ['owners', 'admins']
