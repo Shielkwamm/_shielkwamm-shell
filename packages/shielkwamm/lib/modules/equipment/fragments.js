@@ -7,6 +7,6 @@ registerFragment(`
      name
      glyph
      description
-     wikiUrl
+     guideUrl
    }
 `);

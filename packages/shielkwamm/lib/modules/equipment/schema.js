@@ -29,7 +29,7 @@ const schema = {
     optional: false,
     canRead: ['guests']
   },
-  wikiUrl: {
+  guideUrl: {
     type: String,
     optional: false,
     canRead: ['guests']

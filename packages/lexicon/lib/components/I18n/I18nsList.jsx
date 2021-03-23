@@ -18,7 +18,7 @@ export const I18nsList = () => {
         <div key={i18n._id}>
           <h3>{i18n.name} - <span style={{fontWeight: 'normal'}}>{i18n.description}</span></h3>
           <h1>{i18n.glyphSet}</h1>
-          <p><a href={i18n.wikiUrl} target="_blank">Wiki</a></p>
+          <p><a href={i18n.guideUrl} target="_blank">guide</a></p>
           <hr></hr>
         </div>
       ))}

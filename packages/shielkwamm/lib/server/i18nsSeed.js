@@ -1,4 +1,3 @@
-import { createMutator } from 'meteor/vulcan:core';
 import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
@@ -15,65 +14,70 @@ const i18nsSeed = [{
   name: 'basic_US',
   description: 'The basic glyphs of _sh_.',
   glyphSet: '☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑ ↓ ‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bbasic_US%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/basic'
 },
 { 
   name: 'money_$$',
   description: 'KISS',
   glyphSet: '🕑 〠 当 👀',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/%23%23%23-Leger'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/money'
 },
 {
   name: 'romNom_US',
   description: 'Roman Numerals.',
   glyphSet: 'Ⅹ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5BromNom_US%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/romNom'
 },
 {
   name: 'ra_US',
   description: 'real attitude',
   glyphSet: '🙌 👊 🥁 💋 ✔ 🔬 👀 🎉 🍦',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bra_US%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/real-attitude'
 },
 {
   name: 'female_FM',
   description: 'females',
   glyphSet: '❤ 🍕 ☾',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bfemale_FM%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/female'
 },
 {
   name: 'admin_ME',
   description: 'Stuffz',
   glyphSet: '🖌 🌍 🍕 🏀 🦠',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Badmin_Me%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/admin'
 },
 {
   name: 'agile_JP',
   description: 'Agile Lean House',
   glyphSet: '敏 現場 現物 現実 現 舎 角 組 改善 改 改革 善 改善 革 輪',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bagile_JP%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/agile'
 },
 {
   name: 'appropriate_HI',
   description: 'appropriated',
   glyphSet: '⻌ 了 ‾ ☸ ⚔ ᅘ ☑ ☕ 🦄 🍦 🌍 ☯',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bappropriate_HI%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/appropriate'
 },
 {
   name: 'math_LE',
   description: 'Mathleets',
   glyphSet: 'μ Δ Ω',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bmath_LE%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/mathleet'
 },
 {
   name: 'done_WK',
   description: '=== managing expectations ===',
   glyphSet: '😍 🍝 🎧 🦕 🔥 💋',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5Bdone_WK%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/done-work'
 },
 {
   name: '~o~_MX',
   description: 'pues',
   glyphSet: '👶 🎩 🦄',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/i18n%5B~o~_MX%5D'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/gritas'
+},{
+  name: 'film_88',
+  description: 'Get that shot!',
+  glyphSet: '🎥 📷',
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/film'
 }]

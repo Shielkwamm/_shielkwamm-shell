@@ -17,7 +17,7 @@ export const EquipmentList = () => {
       <React.Fragment key={equipment._id}>
         <Grid item xs={6} sm={4} md={3}>
       <h2>{equipment.glyph} {equipment.name}</h2>
-      <p><a href={equipment.wikiUrl}>wiki</a></p>
+      <p><a href={equipment.guideUrl}>guide</a></p>
       <p>{equipment.description}</p>
       </Grid>
       </React.Fragment>

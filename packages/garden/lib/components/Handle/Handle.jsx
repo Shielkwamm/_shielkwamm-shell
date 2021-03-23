@@ -1,5 +1,4 @@
 import React from 'react';
-import { Components } from 'meteor/vulcan:core';
 import { HandlePartiesList } from './HandlePartiesList';
 
 export const Handle = ({ handle, colorScheme, isShowingZzZs = true}) => (

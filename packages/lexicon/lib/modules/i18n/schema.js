@@ -38,7 +38,7 @@ const schema = {
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
-  wikiUrl: {
+  guideUrl: {
     type: String,
     optional: false,
     defaultValue: 'https://github.com/Shielkwamm/one_Z-rk/wiki/Glyphs',

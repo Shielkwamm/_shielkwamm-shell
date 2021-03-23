@@ -16,60 +16,60 @@ const equipmentSeed = [
   name: '_sh_',
   glyph: '△',
   description: 'How in the world did you get this?',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Crypter',
   glyph: '☯',
   description: 'Sometimes things get to === obvious ===.',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Radio Dial',
   glyph: '🔘',
   description: 'radio dial, do not [+]Ø[+] 🐭 +/o+☷++☯.',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'The big Cheese',
   glyph: '🐭',
   description: 'Please the big Cheese',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Task master',
   glyph: '🕑',
   description: '=== Manages expections ===',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Ω',
   glyph: 'Ω',
   description: 'Just be real.',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Cannon ball',
   glyph: '🔬',
   description: 'Cannon incongruenance',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Acknowledgement',
   glyph: '☾',
   description: 'Acknowledge or be gone',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'HR / Legal',
   glyph: '🦕',
   description: 'Follow the rules or get the boo box',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 },
 {
   name: 'Documentation',
   glyph: '🎥',
   description: 'Sometimes it just needs a look',
-  wikiUrl: 'https://github.com/Shielkwamm/one_Z-rk/wiki/contr0l'
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 }
 ]

@@ -1,13 +1,13 @@
 # see http://docs.vulcanjs.org/packages
 
-vulcan:core@=1.16.1
+vulcan:core@=1.16.2
 
 ############ Language Packages ############
 
-vulcan:i18n-en-us@=1.16.1
+vulcan:i18n-en-us@=1.16.2
 
 ############ Accounts Packages ############
-vulcan:accounts@=1.16.1
+vulcan:accounts@=1.16.2
 accounts-password
 # accounts-twitter
 # accounts-facebook
@@ -31,6 +31,6 @@ talk
 shielkwamm
 
 vulcan:backoffice
-vulcan:ui-material@1.16.0_3
+vulcan:ui-material@1.6.2
 vulcan:forms
 service-configuration

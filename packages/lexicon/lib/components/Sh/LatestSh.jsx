@@ -18,7 +18,10 @@ export const LatestSh = () => {
       </React.Fragment>
     ))}
     {!loading && results.length === 0 ? (
-      <h1 style={{textAlign: 'center'}}>=== Shielkwȃmm ===</h1>
+      <React.Fragment>
+        <Components.HeadTags title={"=== Shielkwȃmm ==="}/>
+        <h1 style={{textAlign: 'center'}}>=== Shielkwȃmm ===</h1>
+      </React.Fragment>
     ): null}
   </React.Fragment>
   )

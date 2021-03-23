@@ -13,7 +13,7 @@ registerFragment(`
     createdAt
     glyphSet
     description
-    wikiUrl
+    guideUrl
   }
 `);
 
