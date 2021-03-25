@@ -13,7 +13,7 @@ export const Overview = () => {
   const { loading, document } = useSingle2(options);
   return (
     <div className="movies-list">
-      <Components.HeadTags title={'Rooms'}/>
+      <Components.HeadTags title={'=== Shielkwamm ==='}/>
       <p style={{paddingLeft: '16px'}}><i>Welcome weary adventurers to...</i></p>
       <LatestSh/>
       <hr></hr>
