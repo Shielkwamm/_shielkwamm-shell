@@ -2,6 +2,10 @@ import { createMutator } from 'meteor/vulcan:core';
 import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  addRooms();
+});
+
+export function addRooms() {
   const Rooms = getCollection('Rooms')
   const ColorSchemes = getCollection('ColorSchemes')
   const Handles = getCollection('Handles');
@@ -43,11 +47,12 @@ Meteor.startup(() => {
         isCannon: !!h.isCannon,
         isDJ: !!h.isDJ,
         createdAt: new Date()
-      })
-     })
-    })
+      });
+     });
+    });
    }
-});
+}
+
 
 const roomsSeed = [{
   name: 'operat0r',
@@ -70,7 +75,7 @@ const roomsSeed = [{
     {name: 'Arbitrat0r'},
     {name: 'Inf0rmation'},
     {name: 'chatb0t'},
-    {name: 'Admin'},
+    {name: 'admin'},
     {name: 'FishyFishy'} 
   ],
   i18ns: [
@@ -82,7 +87,6 @@ const roomsSeed = [{
 {
   name: '△USA△',
   colorScheme: '△USA△',
-  isFeatured: true,
   messageDelay: 5,
   slug: '△USA△',
   description: '\'merica',
@@ -101,7 +105,7 @@ const roomsSeed = [{
     {name: 'Arbitrat0r'},
     {name: 'Inf0rmation'},
     {name: 'chatb0t'},
-    {name: 'Admin'},
+    {name: 'admin'},
     {name: 'MrPeanut', isMod: true},
     {name: 'Slipurrrrs', isMod: true, isDJ: true },
     {name: 'Truss BaVeriphi'},
@@ -136,7 +140,38 @@ const roomsSeed = [{
     {name: 'Arbitrat0r'},
     {name: 'Inf0rmation'},
     {name: 'chatb0t'},
-    {name: 'Admin'},
+    {name: 'admin'},
+    {name: 'neobii', isDJ: true}
+  ],
+  i18ns: [
+    {name: 'basic_US'},
+    {name: 'money_$$'},
+    {name: 'appropriate_HI'}
+  ]
+},
+{
+  name: 'percent20',
+  colorScheme: 'percent20',
+  isFeatured: true,
+  messageDelay: 5,
+  slug: 'percent20',
+  description: 'Space',
+  isActive: true,
+  currentExpPoints: 0,
+  totalExpPoints: 50,
+  level: 0,
+  maxLevel: 5,
+  zork: '+☰+',
+  bwam: '?+◯☯?+',
+  vibe: '↑↑⬤',
+  _sh_: '+△',
+  currentMusicUrl: 'https://www.youtube.com/watch?v=LDU_Txk06tM',
+  currentMusicTitle: 'Noisestorm - Crab Rave [Monstercat Release]',
+  handles: [
+    {name: 'Arbitrat0r'},
+    {name: 'Inf0rmation'},
+    {name: 'chatb0t'},
+    {name: 'admin'},
     {name: 'neobii', isDJ: true}
   ],
   i18ns: [

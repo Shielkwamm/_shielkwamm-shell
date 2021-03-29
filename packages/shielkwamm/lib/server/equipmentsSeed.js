@@ -2,14 +2,17 @@ import Equipment from '../modules/equipment/collection.js';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
-  if(Equipment.find().count() === 0) {
-   equipmentSeed.forEach(equipment => {
-     equipment.createdAt = new Date();
-     Equipment.insert(equipment);
-   })
-  }
+  addEquipment();
 });
 
+export function addEquipment() {
+  if(Equipment.find().count() === 0) {
+    equipmentSeed.forEach(equipment => {
+      equipment.createdAt = new Date();
+      Equipment.insert(equipment);
+    });
+   }
+}
 
 const equipmentSeed = [
 {
@@ -70,6 +73,12 @@ const equipmentSeed = [
   name: 'Documentation',
   glyph: '🎥',
   description: 'Sometimes it just needs a look',
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
+},
+{
+  name: 'Key',
+  glyph: '🔑 ',
+  description: 'Keys unlock things',
   guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
 }
 ]

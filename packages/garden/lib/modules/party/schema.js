@@ -17,14 +17,14 @@ const schema = {
   name: {
     type: String,
     optional: true,
-    canRead: ['admins'],
+    canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
   },
   description: {
     type: String,
     optional: true,
-    canRead: ['admins'],
+    canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins'],
     input: 'textarea'
@@ -40,7 +40,7 @@ const schema = {
   mood: {
     type: String,
     optional: true,
-    canRead: ['admins'],
+    canRead: ['guests'],
     canUpdate: ['admins'],
     canCreate: ['admins']
   },

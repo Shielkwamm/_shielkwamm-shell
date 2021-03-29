@@ -1,14 +1,19 @@
 import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  addI18ns();
+});
+
+export function addI18ns(){
   const I18ns = getCollection('I18ns');
-   if(I18ns.find().count() === 0) {
+  if(I18ns.find().count() === 0) {
     i18nsSeed.forEach(i18n => {
       i18n.createdAt = new Date();
       I18ns.insert(i18n);
-    })
-   }
-});
+    });
+  }
+}
+  
 
 const i18nsSeed = [{
   name: 'basic_US',
@@ -80,4 +85,8 @@ const i18nsSeed = [{
   description: 'Get that shot!',
   glyphSet: '🎥 📷',
   guideUrl: 'https://guide.shielkwamm.com/docs/i18n/film'
-}]
+},{
+  name: 'eagle_US',
+  description: 'For the eagles.',
+  glyphSet: '🦅 🔒 🥚 🔑'
+}];

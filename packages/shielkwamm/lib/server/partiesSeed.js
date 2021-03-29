@@ -2,6 +2,10 @@ import { getCollection } from 'meteor/vulcan:lib';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
+  addParties();
+});
+
+export function addParties() {
   const Parties = getCollection('Parties');
   const ColorSchemes = getCollection('ColorSchemes');
   const I18ns = getCollection('I18ns');
@@ -23,10 +27,10 @@ Meteor.startup(() => {
       let i18ns = I18ns.find({name: {$in: party.i18ns}});
       i18ns.forEach(i18n => {
         PartiesI18ns.insert({i18nId: i18n._id, partyId: partyId, createdAt: new Date(), fluency: 0})
-      })
-    })
+      });
+    });
    }
-});
+}
 
 const partiesSeed = [{
   name: 'NaNers',
@@ -151,7 +155,7 @@ const partiesSeed = [{
   isActive: true,
   mood: '+☴ *salutes i18n[en_US]',
   colorScheme: '△USA△',
-  i18ns: ['romNom_US']
+  i18ns: ['romNom_US', 'eagle_US']
 },
 {
   name: 'aaaack',

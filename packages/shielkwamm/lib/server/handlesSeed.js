@@ -2,6 +2,10 @@ import { getCollection } from 'meteor/vulcan:lib';
 import { createMutator } from 'meteor/vulcan:core';
 
 Meteor.startup(() => {
+  addHandles();
+});
+    
+export function addHandles(){
   const Handles = getCollection('Handles');
   const Currencies = getCollection('Currencies')
   const CurrenciesActors = getCollection('CurrenciesActors');
@@ -51,8 +55,7 @@ Meteor.startup(() => {
      })
    })
   }
-});
-    
+}
 
 const handlesSeed = [
 //  ### Shielkwamm Council ###  
@@ -109,7 +112,7 @@ const handlesSeed = [
   ]
 },
 {
-  name: 'Admin',
+  name: 'admin',
   mood: '+||◯',
   isActive: false,
   currencies: [{
@@ -663,4 +666,19 @@ const handlesSeed = [
     {name: 'Hallmark'},
     {name: 'nasaholes'}
   ]
-}]
+},
+{
+  name: '<<☴',
+  mood: '{{-☴[+]}}',
+  isActive: false,
+  parties: [
+    {name: 'eagle'}
+  ]
+},{
+  name: 'Scoup',
+  mood: '+🍦',
+  isActive: true,
+  parties: [
+    {name: 'eagle'}
+  ]
+}];

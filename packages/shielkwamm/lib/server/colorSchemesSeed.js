@@ -2,6 +2,10 @@ import { createMutator } from 'meteor/vulcan:core';
 import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  addColorSchemes();
+});
+
+export function addColorSchemes() {
   const ColorSchemes = getCollection('ColorSchemes');
    if(ColorSchemes.find().count() === 0) {
     colorSchemesSeed.forEach(colorScheme => {
@@ -9,7 +13,7 @@ Meteor.startup(() => {
       ColorSchemes.insert(colorScheme);
     })
    }
-});
+}
 
 const colorSchemesSeed = [{
   name: 'n00b',
@@ -66,5 +70,12 @@ const colorSchemesSeed = [{
   linkColor: '#E16C97',
   color: '#C4C9C2',
   altColor: '#DDF952'
+},
+{
+  name: 'percent20',
+  backgroundColor: '#f0f0f0',
+  linkColor: '#f56926',
+  color: '#7876c0',
+  altColor: '#e5e7eb'
 }
-]
+];
