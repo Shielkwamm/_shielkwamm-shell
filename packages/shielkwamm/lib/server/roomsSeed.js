@@ -168,16 +168,14 @@ const roomsSeed = [{
   currentMusicUrl: 'https://www.youtube.com/watch?v=LDU_Txk06tM',
   currentMusicTitle: 'Noisestorm - Crab Rave [Monstercat Release]',
   handles: [
-    {name: 'Arbitrat0r'},
-    {name: 'Inf0rmation'},
-    {name: 'chatb0t'},
     {name: 'admin'},
-    {name: 'neobii', isDJ: true}
+    {name: 'neobii', isDJ: true},
+    {name: 'Scoup'},
+    {name: '<<☴'}
   ],
   i18ns: [
     {name: 'basic_US'},
-    {name: 'money_$$'},
-    {name: 'appropriate_HI'}
+    {name: 'eagle_US'}
   ]
 }
 ]

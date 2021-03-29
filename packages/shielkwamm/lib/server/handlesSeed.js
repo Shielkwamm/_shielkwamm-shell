@@ -237,7 +237,7 @@ const handlesSeed = [
   ]
 },
 {
-  name: 'Neobii',
+  name: 'neobii',
   mood: '--',
   isActive: false,
   parties: [

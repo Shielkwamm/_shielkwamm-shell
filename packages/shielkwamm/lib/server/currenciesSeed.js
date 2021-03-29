@@ -2,6 +2,10 @@ import { createMutator } from 'meteor/vulcan:core';
 import { getCollection } from 'meteor/vulcan:lib';
 
 Meteor.startup(() => {
+  addCurrencies();
+});
+
+export function addCurrencies() {
   const Currencies = getCollection('Currencies');
   const ColorSchemes = getCollection('ColorSchemes');
   if(Currencies.find().count() === 0) {
@@ -16,8 +20,7 @@ Meteor.startup(() => {
      Currencies.insert(currency);
    })
   }
-});
-
+}
 
 const currenciesSeed = [
 {
