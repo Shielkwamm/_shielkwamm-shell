@@ -41,3 +41,6 @@ import { RoomCannon } from 'meteor/talk';
 addRoute({ name: 'roomCannon', path: '/room/:slug/cannon', component: RoomCannon});
 import { RoomOperator } from 'meteor/talk';
 addRoute({ name: 'roomOperator', path: '/room/:slug/operator', component: RoomOperator});
+
+import Login from '../components/Login';
+addRoute({ name: "login", path: '/login', component: Login})
