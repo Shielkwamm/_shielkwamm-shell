@@ -1,6 +1,8 @@
 export * from '../modules';
 //import './seed';
 
+import './cors';
+
 import './colorSchemesSeed.js';
 
 import './currenciesSeed.js';
