@@ -156,7 +156,7 @@ const roomsSeed = [{
   messageDelay: 5,
   slug: 'percent20',
   description: 'Space',
-  isActive: true,
+  isActive: false,
   currentExpPoints: 0,
   totalExpPoints: 50,
   level: 0,
@@ -176,6 +176,32 @@ const roomsSeed = [{
   i18ns: [
     {name: 'basic_US'},
     {name: 'eagle_US'}
+  ]
+},
+{
+  name: 'llololl',
+  colorScheme: 'n00b',
+  isFeatured: true,
+  messageDelay: 5,
+  slug: 'llololl',
+  description: 'lolo --> loll',
+  isActive: true,
+  currentExpPoints: 0,
+  totalExpPoints: 50,
+  level: 0,
+  maxLevel: 5,
+  zork: '🗻👌',
+  bwam: '👌',
+  vibe: '+🦓',
+  _sh_: '~[🦓🧂]',
+  currentMusicUrl: 'https://www.youtube.com/watch?v=YaN8u2T01Xw&t=113s&ab_channel=starnixon',
+  currentMusicTitle: 'Junior 85 - Raymond Scott',
+  handles: [
+    {name: 'admin'},
+    {name: 'neobii', isDJ: true},
+  ],
+  i18ns: [
+    {name: 'ad_AM'}
   ]
 }
 ]
