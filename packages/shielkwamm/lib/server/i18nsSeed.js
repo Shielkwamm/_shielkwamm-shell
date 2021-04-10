@@ -88,5 +88,11 @@ const i18nsSeed = [{
 },{
   name: 'eagle_US',
   description: 'For the eagles.',
-  glyphSet: '🦅 🔒 🥚 🔑'
+  glyphSet: '🦅 🔒 🥚 🔑',
+  guideUrl: 'https://guide.shielkwamm.com/docs/18n/eagle'
+},{
+  name: 'ad_AM',
+  description: 'Okay! The salty zebra once rode a bike up a mountain, okay?',
+  glyphSet: '🧂 🦓 🗻 👌 🚴',
+  guideUrl: 'https://guide.shielkwamm.com/docs/18n/ad-am'
 }];
