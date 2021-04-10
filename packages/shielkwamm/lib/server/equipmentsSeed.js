@@ -80,5 +80,11 @@ const equipmentSeed = [
   glyph: '🔑 ',
   description: 'Keys unlock things',
   guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control'
+},
+{
+  name: 'HearMeOut',
+  glyph: '👂',
+  description: 'When you listen to an idea for a set period of time.',
+  guideUrl: 'https://guide.shielkwamm.com/docs/i18n/things/control' 
 }
 ]
