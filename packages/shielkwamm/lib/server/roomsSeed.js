@@ -121,7 +121,7 @@ const roomsSeed = [{
 {
   name: 'Work Stuffz',
   colorScheme: 'imagination',
-  isFeatured: true,
+  isFeatured: false,
   messageDelay: 5,
   slug: 'work-stuffz',
   description: 'Spitbawlz',
@@ -152,7 +152,7 @@ const roomsSeed = [{
 {
   name: 'percent20',
   colorScheme: 'percent20',
-  isFeatured: true,
+  isFeatured: false,
   messageDelay: 5,
   slug: 'percent20',
   description: 'Space',
@@ -185,7 +185,7 @@ const roomsSeed = [{
   messageDelay: 5,
   slug: 'llololl',
   description: 'lolo --> loll',
-  isActive: true,
+  isActive: false,
   currentExpPoints: 0,
   totalExpPoints: 50,
   level: 0,
