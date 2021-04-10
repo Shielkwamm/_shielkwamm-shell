@@ -50,5 +50,12 @@ const currenciesSeed = [
   description: 'Everyone is a winner!',
   ledgerUrl: 'https://github.com/Shielkwamm/sheeeet/blob/master/LEDGER.md',
   colorScheme: 'ch@nge',
+},
+{
+  name: 'HearMeOut',
+  glyph: '👂',
+  description: 'When you listen to an idea for a set period of time.',
+  ledgerUrl: 'https://github.com/Shielkwamm/sheeeet/blob/master/LEDGER.md',
+  colorScheme: 'n00b',
 }
 ]
