@@ -14,7 +14,8 @@ export const ColorSchemesList = () => {
   return (
   <React.Fragment>
     <Components.HeadTags title={'Color Schemes'} />
-    <h2><Link to="/">⏎ </Link>Color Schemes <span style={{float: 'right'}}>count [ {results && results.length} / 11 ]</span></h2>
+    <h2><Link to="/">../ </Link></h2>
+    <h2>Color Schemes <span style={{float: 'right'}}>count [ {results && results.length} / 11 ]</span></h2>
     <hr></hr>
     {!loading && results.map(colorScheme => (
       <div key={colorScheme._id} style={{float: 'left', width: '30%', padding: '5px', display: 'inlineBlock'}}>

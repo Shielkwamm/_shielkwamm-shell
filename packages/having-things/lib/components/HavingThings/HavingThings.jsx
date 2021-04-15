@@ -49,7 +49,8 @@ export const CurrenciesList = () => {
 export const HavingThings = () => (
   <React.Fragment>
     <Components.HeadTags title={'Having Things'} />
-    <h2><Link to="/">⏎ </Link>Having Things</h2>
+    <h2><Link to="/">../ </Link></h2>
+    <h2>Having Things</h2>
     <hr></hr>
     <CurrenciesList/>
   </React.Fragment>

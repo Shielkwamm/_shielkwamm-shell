@@ -12,7 +12,8 @@ export const I18nsList = () => {
   return (
     <div className="movies-list">
       <Components.HeadTags title={'i18n'}/>
-      <h2><Link to="/">⏎ </Link>i18n <span style={{float: 'right'}}>count [ {results && results.length} / 17 ]</span></h2>
+      <h2><Link to="/">../ </Link></h2>
+      <h2>i18n <span style={{float: 'right'}}>count [ {results && results.length} / 17 ]</span></h2>
       <hr></hr>
       {!loading && results.map(i18n => (
         <div key={i18n._id}>

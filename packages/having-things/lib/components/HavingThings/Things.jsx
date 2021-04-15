@@ -31,7 +31,8 @@ export const EquipmentList = () => {
 export const Things = () => (
   <React.Fragment>
     <Components.HeadTags title={'Things'} />
-    <h2><Link to="/">⏎ </Link>Things</h2>
+    <h2><Link to="/">../ </Link></h2>
+    <h2>Things</h2>
     <hr></hr>
     <EquipmentList/>
   </React.Fragment>

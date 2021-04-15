@@ -22,7 +22,8 @@ export const HandlesList = () => {
   return (
   <React.Fragment>
     <Components.HeadTags title={'Handles'}/>
-    <h2><Link to="/">⏎ </Link>Handles <span style={{float: 'right'}}>count [ {results && results.length} / 77]</span></h2>
+    <h2><Link to="/">../ </Link></h2>
+    <h2>Handles <span style={{float: 'right'}}>count [ {results && results.length} / 77]</span></h2>
     <p>~unconfirmed, !inbound, []spammy</p>
     <hr></hr>
     {!loading && results.map(handle => (

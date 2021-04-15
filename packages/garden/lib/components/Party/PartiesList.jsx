@@ -15,7 +15,8 @@ export const PartiesList = () => {
   return (
   <div className="movies-list">
     <Components.HeadTags title={'Parties'}/>
-    <h2><Link to="/">⏎ </Link>Parties<span style={{float: 'right'}}>count [ {results && results.length} / 50 ]</span></h2>
+    <h2><Link to="/">../ </Link></h2>
+    <h2>Parties<span style={{float: 'right'}}>count [ {results && results.length} / 50 ]</span></h2>
     <hr></hr>
     <h1 style={{textAlign: 'center'}}>=== esteemed ===</h1>
     <Grid container spacing={3} style={{padding: '0 20px 20px 20px'}}>
