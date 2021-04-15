@@ -24,6 +24,7 @@ registerFragment(`
     currentMusicTitle
     description
     isActive
+    isFeatured
     messageDelay
     areDJMessagesMuted
     areCannonMessagesMuted

@@ -10,3 +10,4 @@ export * from '../components/TalkMod/RoomMod.jsx';
 export * from '../components/TalkMod/RoomDJ.jsx';
 export * from '../components/TalkMod/RoomCannon.jsx';
 export * from '../components/TalkMod/RoomOperator.jsx';
+export * from '../components/TalkMod/QuickClicks';
