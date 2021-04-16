@@ -17,14 +17,14 @@ const schema = {
   text: {
     type: String,
     optional: false,
-    canRead: ['members', 'admins'],
+    canRead: ['guests', 'members', 'admins'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
   roomId: {
     type: String,
     optional: false,
-    canRead: ['admins'],
+    canRead: ['guests', 'admins'],
     canCreate: ['admins'],
     canUpdate: ['admins']
   },
