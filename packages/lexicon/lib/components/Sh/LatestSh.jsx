@@ -1,5 +1,6 @@
 import React from 'react';
 import { Components, useMulti2 } from 'meteor/vulcan:core';
+import { Sh } from 'meteor/lexicon'
 
 const options = {
   collectionName: 'Shs',
@@ -14,7 +15,7 @@ export const LatestSh = () => {
     {!loading && results.map( sh => (
       <React.Fragment key={sh._id}>
         <Components.HeadTags title={sh.leftBumper + ' ' + sh.text + ' ' + sh.rightBumper}/>
-        <Components.Sh sh={sh}/>
+        <Sh sh={sh}/>
       </React.Fragment>
     ))}
     {!loading && results.length === 0 ? (

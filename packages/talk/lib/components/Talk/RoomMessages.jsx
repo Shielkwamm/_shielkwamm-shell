@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMulti2 } from 'meteor/vulcan:core';
+import { Sh } from 'meteor/lexicon';
 
 export const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   let timeStamp = new Date(message.createdAt);

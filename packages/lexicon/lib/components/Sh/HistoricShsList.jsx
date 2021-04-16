@@ -1,6 +1,7 @@
 import React from 'react';
 import { Components, useMulti2 } from 'meteor/vulcan:core';
 import { Link } from 'react-router-dom';
+import { Sh } from 'meteor/lexicon'
 
 const options = {
   collectionName: 'Shs',
@@ -16,7 +17,7 @@ export const HistoricShsList = () => {
       <hr></hr>
       {!loading && results.map(sh => (
         <React.Fragment key={sh._id}>
-        <Components.Sh sh={sh}/>
+        <Sh sh={sh}/>
         </React.Fragment>
       ))}  
     </div>
