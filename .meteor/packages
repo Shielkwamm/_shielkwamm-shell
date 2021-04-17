@@ -34,3 +34,4 @@ vulcan:backoffice@1.6.3
 vulcan:ui-material@1.6.3
 vulcan:forms
 service-configuration@1.0.11
+vulcan:events-ga
