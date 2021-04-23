@@ -71,12 +71,14 @@ export const RoomMessage = ({ message, linkColor, backgroundColor, color}) => {
   )
 }
 
-export const RoomMessagesInner = ({ linkColor, backgroundColor, color }) => {
+export const RoomMessages = ({ linkColor, backgroundColor, color, roomId }) => {
   const options = {
     collectionName: 'Messages',
     fragmentName: 'MessagesList', // uncomment on #Step11
-    limit: 200
+    limit: 200,
+    input: {filter: {roomId: {_eq: roomId}}}
   }
+
   const { results, loading } = useMulti2(options);
   return (
   <React.Fragment>
@@ -88,7 +90,3 @@ export const RoomMessagesInner = ({ linkColor, backgroundColor, color }) => {
   </React.Fragment>
   )
 }
-
-export const RoomMessages = ({ roomId, linkColor, backgroundColor, color }) => (
-  <RoomMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
-);

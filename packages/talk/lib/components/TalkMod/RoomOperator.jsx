@@ -6,10 +6,12 @@ import { QuickClicks } from './QuickClicks'
 
 //## HACKY - hidden input field but using for copy to clip board
 
-export const RoomOperatorInner = () => {
+export const RoomOperator = () => {
+  const match = useRouteMatch();
   const options = {
     collectionName: 'Rooms',
     fragmentName: 'RoomOperator',
+    input: {filter: {slug: {_eq: match.params.slug}}}
   }
   const { loading, document } = useSingle2(options);
   return (
@@ -36,14 +38,6 @@ export const RoomOperatorInner = () => {
   )
 }
 //console.log(rh.handle) && rh.handle.currencies && 
-
-
-export const RoomOperator = () => {
-  const match = useRouteMatch();
-  return (
-    <RoomOperatorInner input={{selector: {slug: match.params.slug}}}/>
-  )
-};
 
 /*
 function copy() {

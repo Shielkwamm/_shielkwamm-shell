@@ -3,10 +3,12 @@ import { Components, useSingle2 } from 'meteor/vulcan:core';
 import { useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 
-export const RoomDJInner = () => {
+export const RoomDJ = () => {
+  const match = useRouteMatch();
   const options = {
     collectionName: 'Rooms',
     fragmentName: 'RoomBase',
+    input: {filter: {slug: {_eq: match.params.slug}}}
   }
   const { loading, document } = useSingle2(options);
   return (
@@ -25,12 +27,3 @@ export const RoomDJInner = () => {
     </React.Fragment>
   )
 }
-
-
-
-export const RoomDJ = () => {
-  const match = useRouteMatch();
-  return (
-    <RoomDJInner input={{selector: {slug: match.params.slug}}}/>
-  )
-};

@@ -1,17 +1,19 @@
 import React from 'react';
-import { Components,useSingle2 } from 'meteor/vulcan:core';
+import { Components, useSingle2 } from 'meteor/vulcan:core';
 import { useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet'
 import { RoomHeader } from '../Talk/RoomHeader';
 import { RoomMessages } from '../Talk/RoomMessages';
+//import { Rooms } from 'meteor/talk';
 
-const options = {
-  collectionName: 'Rooms',
-  fragmentName: 'RoomsList',
-}
-
-export const ActiveRoomInner = () => {
+export const ActiveRoom = () => {
+  const match = useRouteMatch();
+  const options = {
+    collectionName: 'Rooms',
+    fragmentName: 'RoomsList',
+    input: {filter: {slug: { _eq: match.params.slug }}}
+  }
   const { loading, document } = useSingle2(options);
   return (
   <React.Fragment>
@@ -26,10 +28,3 @@ export const ActiveRoomInner = () => {
   </React.Fragment>
   )
 }
-
-export const ActiveRoom = () => {
-  const match = useRouteMatch();
-  return (
-    <ActiveRoomInner input={{selector: {slug: match.params.slug}}}/>
-  )
-};

@@ -115,7 +115,8 @@ const roomsSeed = [{
     {name: 'basic_US'},
     {name: 'female_FM'},
     {name: 'money_$$'},
-    {name: 'appropriate_HI'}
+    {name: 'appropriate_HI'},
+    {name: 'eagle_US'}
   ]
 },
 {

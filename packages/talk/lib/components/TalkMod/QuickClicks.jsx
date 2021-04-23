@@ -2,13 +2,17 @@ import React from 'react';
 import { Components, useSingle2 } from 'meteor/vulcan:core';
 import { useRouteMatch } from 'react-router';
 
-const QuickClicksInner = () => {
+export const QuickClicks = () => {
+  const match = useRouteMatch();
   const options = {
     collectionName: 'Rooms',
     fragmentName: 'RoomsList',
+    input: {filter: {slug: {_eq: match.params.slug}}}
   }
+
   const { loading, document } = useSingle2(options);
       
+  
   return (
     <React.Fragment>
       {!loading && document ? (
@@ -30,10 +34,3 @@ const QuickClicksInner = () => {
   )
   
 }
-
-export const QuickClicks = () => {
-  const match = useRouteMatch();
-  return (
-    <QuickClicksInner input={{selector: {slug: match.params.slug}}}/>
-  )
-};

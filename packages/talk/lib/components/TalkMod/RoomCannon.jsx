@@ -44,13 +44,17 @@ export const RoomCannonMessages = ({ roomId, linkColor, backgroundColor, color }
   <RoomCannonMessagesInner linkColor={linkColor} color={color} backgroundColor={backgroundColor} input={{filter: {roomId: {_eq: roomId}}}}/>
 );
 
-const options = {
-  collectionName: 'Rooms',
-  fragmentName: 'RoomsList',
-}
 
-export const RoomCannonInner = () => {
+
+export const RoomCannon = () => {
+  const match = useRouteMatch();
+  const options = {
+    collectionName: 'Rooms',
+    fragmentName: 'RoomsList',
+    input: {filter: {slug: {_eq: match.params.slug}}}
+  }
   const { loading, document } = useSingle2(options)
+  
   return (
   <React.Fragment>
     {!loading && document ? (
@@ -69,10 +73,3 @@ export const RoomCannonInner = () => {
   </React.Fragment>
   )
 }
-
-export const RoomCannon = () => {
-  const match = useRouteMatch();
-  return (
-    <RoomCannonInner input={{selector: {slug: match.params.slug}}}/>
-  )
-};
