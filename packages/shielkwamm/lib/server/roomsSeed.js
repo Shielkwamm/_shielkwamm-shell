@@ -153,7 +153,7 @@ const roomsSeed = [{
 {
   name: 'percent20',
   colorScheme: 'percent20',
-  isFeatured: false,
+  isFeatured: true,
   messageDelay: 5,
   slug: 'percent20',
   description: 'Space',
@@ -182,7 +182,7 @@ const roomsSeed = [{
 {
   name: 'llololl',
   colorScheme: 'n00b',
-  isFeatured: true,
+  isFeatured: false,
   messageDelay: 5,
   slug: 'llololl',
   description: 'lolo --> loll',
