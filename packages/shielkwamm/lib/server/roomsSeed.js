@@ -164,15 +164,16 @@ const roomsSeed = [{
   maxLevel: 5,
   zork: '+☰+',
   bwam: '?+◯☯?+',
-  vibe: '↑↑⬤',
+  vibe: '{↑↑↑⬤↑↑↑}',
   _sh_: '+△',
-  currentMusicUrl: 'https://www.youtube.com/watch?v=LDU_Txk06tM',
-  currentMusicTitle: 'Noisestorm - Crab Rave [Monstercat Release]',
+  currentMusicUrl: 'https://www.youtube.com/results?search_query=gloria+estefan+conga',
+  currentMusicTitle: 'Gloria Estephan - Conga ',
   handles: [
     {name: 'admin'},
     {name: 'neobii', isDJ: true},
     {name: 'Scoup'},
-    {name: '<<☴'}
+    {name: '<<☴'},
+    {name: '~[koko]'},
   ],
   i18ns: [
     {name: 'basic_US'},
