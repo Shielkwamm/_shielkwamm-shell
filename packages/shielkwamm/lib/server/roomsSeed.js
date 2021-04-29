@@ -166,7 +166,7 @@ const roomsSeed = [{
   bwam: '?+◯☯?+',
   vibe: '{↑↑↑⬤↑↑↑}',
   _sh_: '+△',
-  currentMusicUrl: 'https://www.youtube.com/results?search_query=gloria+estefan+conga',
+  currentMusicUrl: 'https://www.youtube.com/watch?v=5SXX-pWzOY8',
   currentMusicTitle: 'Gloria Estephan - Conga ',
   handles: [
     {name: 'admin'},
