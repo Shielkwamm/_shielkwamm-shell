@@ -670,6 +670,8 @@ type I18n {
   createdAt: Date 
   name: String 
   description: String 
+  isFeatured: Boolean 
+  isActive: Boolean 
   glyphSet: String 
   guideUrl: String 
   i18nRooms: [RoomI18n] 
@@ -748,6 +750,8 @@ input CreateI18nInput {
 input CreateI18nDataInput {
   name: String 
   description: String 
+  isFeatured: Boolean 
+  isActive: Boolean 
   glyphSet: String 
   guideUrl: String 
 }
@@ -771,6 +775,8 @@ input UpsertI18nInput{
 input UpdateI18nDataInput {
   name: String 
   description: String 
+  isFeatured: Boolean 
+  isActive: Boolean 
   glyphSet: String 
   guideUrl: String 
 }
@@ -785,6 +791,8 @@ input I18nFilterInput {
   createdAt: Date_Selector
   name: String_Selector
   description: String_Selector
+  isFeatured: Boolean_Selector
+  isActive: Boolean_Selector
   glyphSet: String_Selector
   guideUrl: String_Selector
   i18nRooms: String_Selector
@@ -795,6 +803,8 @@ input I18nSortInput {
   createdAt: SortOptions
   name: SortOptions
   description: SortOptions
+  isFeatured: SortOptions
+  isActive: SortOptions
   glyphSet: SortOptions
   guideUrl: SortOptions
   i18nRooms: SortOptions

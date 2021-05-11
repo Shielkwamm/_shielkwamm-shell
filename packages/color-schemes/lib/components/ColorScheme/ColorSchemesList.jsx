@@ -20,10 +20,10 @@ export const ColorSchemesList = () => {
     {!loading && results.map(colorScheme => (
       <div key={colorScheme._id} style={{float: 'left', width: '30%', padding: '5px', display: 'inlineBlock'}}>
         <p>{colorScheme.name}</p>
-        <div style={{height: '55px', backgroundColor: colorScheme.color}}></div>
-        <div style={{height: '55px', backgroundColor: colorScheme.backgroundColor}}></div>
-        <div style={{height: '55px', backgroundColor: colorScheme.linkColor}}></div>
-        <div style={{height: '55px', backgroundColor: colorScheme.altColor}}></div>
+        <div style={{height: '55px', backgroundColor: colorScheme.color}}>{colorScheme.color}</div>
+        <div style={{height: '55px', backgroundColor: colorScheme.backgroundColor}}>{colorScheme.backgroundColor}</div>
+        <div style={{height: '55px', backgroundColor: colorScheme.linkColor}}>{colorScheme.linkColor}</div>
+        <div style={{height: '55px', backgroundColor: colorScheme.altColor}}>{colorScheme.altColor}</div>
       </div>  
       )
     )}

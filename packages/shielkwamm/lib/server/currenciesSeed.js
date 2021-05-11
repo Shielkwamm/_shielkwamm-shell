@@ -31,7 +31,7 @@ const currenciesSeed = [
   colorScheme: 'imagination',
 },
 {
-  name: 'MockMock',
+  name: 'MokMok',
   glyph: '🕑',
   description: 'Necessary evil, makes the world go round.',
   ledgerUrl: 'https://github.com/Shielkwamm/sheeeet/blob/master/LEDGER.md',
@@ -57,5 +57,12 @@ const currenciesSeed = [
   description: 'When you listen to an idea for a set period of time.',
   ledgerUrl: 'https://github.com/Shielkwamm/sheeeet/blob/master/LEDGER.md',
   colorScheme: 'n00b',
+},
+{
+  name: 'Bleem',
+  glyph: '☺',
+  description: 'Bleeeeeeeeeeeeeeemememememememememememe',
+  ledgerUrl: 'https://github.com/Shielkwamm/sheeeet/blob/master/LEDGER.md',
+  colorScheme: 'chos'
 }
 ]

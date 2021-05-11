@@ -53,6 +53,29 @@ export function addRooms() {
    }
 }
 
+//Scoup, frFr: def open a channel on this one
+//frfr: maybe use your ~[10]syntax?
+//admin: ah, yeah playlists
+//frFr: yussss, people are just like, why does it only play one song
+//admin: _|[++]
+//admin: yeah that's a [ redacted ] youtube playlist thing
+//frFr: yeah, just so everyone knows, it's a url and title, that's a playlist
+//frFr: so you can put a playlist url there, just make sure it's the embed link
+//..admin: oh goodness, quality content to do live
+//frFr: honestly when you did that 3 thing setup, it was hard to see what you were programming,
+//frFr: you need an live editor to switch between the views
+//frFr: [++], haha def not now... :scope creep: 
+//frFr: ☕ will not do for that, it
+//admin: {{ 了 }} @ frFr
+//frFr: { 了 }
+//admin: how's the rooms here?
+//..admin: oh sorry
+//admin: 了 @ [@boi] 
+// [redacted !🔑]
+//admin: salutes @了@boi]
+// [redacted !🔑]
+//admin: @boiz?
+//@boiz: I think you're missing some zones
 
 const roomsSeed = [{
   name: 'operat0r',
@@ -65,12 +88,12 @@ const roomsSeed = [{
   totalExpPoints: 50,
   level: 0,
   maxLevel: 5,
-  zork: '++☰',
-  bwam: '[-]◯',
-  vibe: '↑⬤',
-  _sh_: '+△',
-  currentMusicUrl: 'https://www.youtube.com/watch?v=HxAYJdLXgZo',
-  currentMusicTitle: 'Marble Madness Remix (2009)',
+  zork: '{/+||☰?*}',
+  bwam: '{ ◯',
+  vibe: '↑⬤↑',
+  _sh_: '/+△',
+  currentMusicUrl: 'https://www.youtube.com/embed/xnNCidccbG8',
+  currentMusicTitle: 'Taraf De Haidouks - Turceasca',
   handles: [
     {name: 'Arbitrat0r'},
     {name: 'Inf0rmation'},
@@ -79,9 +102,10 @@ const roomsSeed = [{
     {name: 'FishyFishy'} 
   ],
   i18ns: [
-    {name: 'basic_US'},
+    {name: 'shielkwamm_SH'},
     {name: 'admin_ME'},
     {name: 'money_$$'},
+    {name: 'sign_AL'}
   ]
 },
 {
@@ -89,7 +113,7 @@ const roomsSeed = [{
   colorScheme: '△USA△',
   messageDelay: 5,
   slug: '△USA△',
-  description: '\'merica',
+  description: '-USA-',
   isActive: false,
   currentExpPoints: 0,
   totalExpPoints: 50,
@@ -99,44 +123,36 @@ const roomsSeed = [{
   bwam: '+◯/+',
   vibe: '↑↑⬤↑↑',
   _sh_: '[+]△[+]',
-  currentMusicUrl: 'https://www.youtube.com/watch?v=a-7XWhyvIpE',
-  currentMusicTitle: 'SOUSA The Stars and Stripes Forever - "The President\'s Own" U.S. Marine Band',
+  currentMusicUrl: 'https://www.youtube.com/embed/xDRWdNn_nLk',
+  currentMusicTitle: 'Appalachian Spring - Aaron Copland',
   handles: [
-    {name: 'Arbitrat0r'},
-    {name: 'Inf0rmation'},
-    {name: 'chatb0t'},
     {name: 'admin'},
-    {name: 'MrPeanut', isMod: true},
-    {name: 'Slipurrrrs', isMod: true, isDJ: true },
-    {name: 'Truss BaVeriphi'},
-    {name: 'MrHanky', isCannon: true, isDJ: true}
+    {name: 'Slipurrrrs', isDJ: true },
+    {name: 'Scoup', isMod: true, isDJ: true},
+    {name: '<<☴', isMod: true},
   ],
   i18ns: [
-    {name: 'basic_US'},
-    {name: 'female_FM'},
-    {name: 'money_$$'},
-    {name: 'appropriate_HI'},
     {name: 'eagle_US'}
   ]
 },
 {
-  name: 'Work Stuffz',
+  name: 'en·vi·ron·ment',
   colorScheme: 'imagination',
   isFeatured: false,
   messageDelay: 5,
-  slug: 'work-stuffz',
+  slug: 'en·vi·ron·ment',
   description: 'Spitbawlz',
   isActive: false,
   currentExpPoints: 0,
   totalExpPoints: 50,
   level: 0,
   maxLevel: 5,
-  zork: '+/{{☰}}+',
-  bwam: '?+◯☯?+',
-  vibe: '↑↑⬤',
-  _sh_: '+△',
-  currentMusicUrl: 'https://www.youtube.com/embed/lwJ1i5lCw0M?start=218',
-  currentMusicTitle: 'Hatsune Miku',
+  zork: '🤠',
+  bwam: '🚜',
+  vibe: '🌽',
+  _sh_: '🍅',
+  currentMusicUrl: 'https://www.youtube.com/embed/vNVguvNE7qc',
+  currentMusicTitle: 'Trace Adkins - Honky Tonk Badonkadonk (Official Music Video)',
   handles: [
     {name: 'Arbitrat0r'},
     {name: 'Inf0rmation'},
@@ -145,9 +161,8 @@ const roomsSeed = [{
     {name: 'neobii', isDJ: true}
   ],
   i18ns: [
-    {name: 'basic_US'},
-    {name: 'money_$$'},
-    {name: 'appropriate_HI'}
+    {name: 'shielkwamm_SH'},
+    {name: 'money_$$'}
   ]
 },
 {
@@ -166,18 +181,16 @@ const roomsSeed = [{
   bwam: '?+◯☯?+',
   vibe: '{↑↑↑⬤↑↑↑}',
   _sh_: '+△',
-  currentMusicUrl: 'https://www.youtube.com/watch?v=5SXX-pWzOY8',
-  currentMusicTitle: 'Gloria Estephan - Conga ',
+  currentMusicUrl: 'https://www.youtube.com/embed/D-IGJrUY-hg',
+  currentMusicTitle: 'Disrupt - Blast you to Bits ',
   handles: [
-    {name: 'admin'},
-    {name: 'neobii', isDJ: true},
-    {name: 'Scoup'},
-    {name: '<<☴'},
+    {name: 'admin', isDJ: true},
     {name: '~[koko]'},
   ],
   i18ns: [
-    {name: 'basic_US'},
-    {name: 'eagle_US'}
+    {name: 'shielkwamm_SH'},
+    {name: 'eagle_US'},
+    {name: 's_G'}
   ]
 },
 {
@@ -196,7 +209,7 @@ const roomsSeed = [{
   bwam: '👌',
   vibe: '+🦓',
   _sh_: '~[🦓🧂]',
-  currentMusicUrl: 'https://www.youtube.com/watch?v=YaN8u2T01Xw&t=113s&ab_channel=starnixon',
+  currentMusicUrl: 'https://www.youtube.com/embed/YaN8u2T01Xw',
   currentMusicTitle: 'Junior 85 - Raymond Scott',
   handles: [
     {name: 'admin'},
@@ -205,5 +218,42 @@ const roomsSeed = [{
   i18ns: [
     {name: 'ad_AM'}
   ]
+},
+{
+  name: 'eyeballsGallore',
+  colorScheme: 'chos',
+  isFeatured: false,
+  messageDelay: 5,
+  slug: 'sg',
+  description: 'lolo --> loll',
+  isActive: false,
+  currentExpPoints: 0,
+  totalExpPoints: 50,
+  level: 0,
+  maxLevel: 5,
+  zork: '☺☺☺',
+  bwam: '{ ( 🌞  )',
+  vibe: '?xo[-]⬤?xo[+]',
+  _sh_: '🥒?',
+  currentMusicUrl: 'https://www.youtube.com/embed/4vaN01VLYSQ',
+  currentMusicTitle: 'Salt-N-Pepa - Shoop',
+  handles: [
+    {name: 'admin', isDJ: false},
+  ],
+  i18ns: [
+    {name: 'ad_AM'},
+    {name: 's_G'},
+  ]
 }
 ]
+
+roomsSeed[5].handles[0].isDJ = false;//true
+roomsSeed[5].handles[0].isDJ = !!false;//true
+
+//<iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+//[ omitted due to brevity ]
+//admin, frFr: we'll plan some github scripties to manage this aspect of the story, or just clean it up when things need to get [ redacted ]
+//admin, frFr: but overall the plan should be focusing and managing parts of this that emphasize the application development related cultures
+//frFr: like you have to laugh at the meme about "exiting vim", cause that shit is funny
+//Scoup: it seems like that's all you had to say @admin
+//+◯ 

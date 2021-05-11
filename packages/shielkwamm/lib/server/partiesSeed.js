@@ -22,8 +22,8 @@ export function addParties() {
       party.colorSchemeId = colorScheme._id;
       let partyId = Parties.insert(party);
       //m2m
-      let basic = I18ns.findOne({name: 'basic_US'});
-      PartiesI18ns.insert({i18nId: basic._id, partyId: partyId})
+      let standardSh = I18ns.findOne({name: 'shielkwamm_SH'});
+      PartiesI18ns.insert({i18nId: standardSh._id, partyId: partyId});
       let i18ns = I18ns.find({name: {$in: party.i18ns}});
       i18ns.forEach(i18n => {
         PartiesI18ns.insert({i18nId: i18n._id, partyId: partyId, createdAt: new Date(), fluency: 0})
@@ -31,6 +31,19 @@ export function addParties() {
     });
    }
 }
+
+//last major revision was in 2020
+//🔑: You better handle this stuff, it's a big source of confusion
+//🔑: Any timelines on this?
+//frFr: it's good to set the story straight, but there is a ton of story to set straight 
+//.Frfr: and a lot has happened in the _sh world since we last visited
+//.Frfr: you think a month? goal?
+//admin: perhaps I've lost a lot of signals, but we'll have to go through
+//admin: one by one and pass it through the authenticion process
+//..frFr: so a good authenticiation "lol" is what we need to get this going
+//..fRfr: ordering up the "queue" as you will
+//admin: yes indeed
+//..FRFR: just make sure you don't crash the app and blame it on frfr, you [ frFr ] american.
 
 const partiesSeed = [{
   name: 'NaNers',
@@ -45,6 +58,7 @@ const partiesSeed = [{
   name: 'onBránd',
   description: '',
   isActive: true,
+  isEsteemed: true,
   mood: '☴',
   colorScheme: '=== acktweuli ===',
   i18ns: ['done_WK']
@@ -63,7 +77,6 @@ const partiesSeed = [{
   description: 'Watching over the galaxy',
   isActive: true,
   mood: '$$',
-  isEsteemed: true,
   colorScheme: '△USA△',
   i18ns: ['money_$$', 'agile_JP', 'appropriate_HI', 'math_LE']
 },
@@ -79,7 +92,7 @@ const partiesSeed = [{
 {
   name: 'chillionaires',
   description: 'Chillen on stacks',
-  isActive: false,
+  isActive: true,
   mood: '$$',
   isEsteemed: true,
   colorScheme: 'ch@nge',
@@ -90,7 +103,7 @@ const partiesSeed = [{
   description: 'Don\'t you want me, baby',
   isActive: false,
   mood: '|||',
-  isEsteemed: true,
+  isEsteemed: false,
   colorScheme: '=== acktweuli ===',
   i18ns: ['romNom_US']
 },
@@ -105,7 +118,7 @@ const partiesSeed = [{
 {
   name: 'clearSails',
   description: '💋 hygine',
-  isActive: false,
+  isActive: true,
   mood: '☴',
   colorScheme: 'n00b',
   i18ns: ['romNom_US', 'appropriate_HI']
@@ -113,7 +126,7 @@ const partiesSeed = [{
 { 
   name: 'rebelWraith',
   description: '*stares*',
-  isActive: true,
+  isActive: !!!false,
   mood: '+☴☱',
   colorScheme: 'n00b',
   i18ns: []
@@ -121,7 +134,7 @@ const partiesSeed = [{
 {
   name: 'rum',
   description: 'coconut',
-  isActive: false,
+  isActive: true,
   mood: '☴',
   colorScheme: '=== acktweuli ===',
   i18ns: ['ra_US']
@@ -137,14 +150,14 @@ const partiesSeed = [{
 {
   name: 'tales',
   description: 'FROM THE CRYPT',
-  isActive: true,
+  isActive: false,
   colorScheme: 'ch@nge',
   i18ns: ['romNom_US']
 },
 {
   name: 'yasss',
   description: 'the ones with the tall fuzzy hats!',
-  isActive: true,
+  isActive: false,
   mood: '☴☱',
   colorScheme: 'kakTUz',
   i18ns: ['romNom_US', 'female_FM']
@@ -153,6 +166,7 @@ const partiesSeed = [{
   name: 'eagle',
   description: 'Bald face',
   isActive: true,
+  isEsteemed: true,
   mood: '+☴ *salutes i18n[en_US]',
   colorScheme: '△USA△',
   i18ns: ['romNom_US', 'eagle_US']
@@ -161,7 +175,7 @@ const partiesSeed = [{
   name: 'aaaack',
   description: 'aaaaaaaaaaaaaaaahhh',
   mood: '☴',
-  isActive: true,
+  isActive: false,
   colorScheme: 'ch@nge',
   i18ns: ['ra_US', 'math_LE', '~o~_MX']
 },
@@ -216,8 +230,8 @@ const partiesSeed = [{
 {
   name: 'burners',
   description: 'flipman',
-  isActive: false,
-  mood: '☴',
+  isActive: true,
+  mood: '☴☴',
   colorScheme: 'ch@nge',
   i18ns: ['female_FM']
 },
@@ -232,7 +246,7 @@ const partiesSeed = [{
 {
   name: 'burps',
   description: '*burp*',
-  isActive: true,
+  isActive: false,
   mood: '+/o+_☱',
   colorScheme: 'kakTUz',
   i18ns: ['ra_US', 'female_FM', '~o~_MX']
@@ -271,7 +285,7 @@ const partiesSeed = [{
 },
 {
   name: '1Deep',
-  description: '⋛ We are the world ☴☲☱☰',
+  description: '⋛ World Bytes ☴☲☱☰',
   isActive: true,
   mood: '++☴',
   colorScheme: 'ch@nge',
@@ -279,7 +293,7 @@ const partiesSeed = [{
 },
 {
   name: 'Hallmark',
-  description: 'my favorite stories about US innovation',
+  description: 'My favorite stories about US innovation',
   isActive: true,
   mood: '*☴',
   colorScheme: '=== acktweuli ===',
@@ -295,8 +309,9 @@ const partiesSeed = [{
 },
 {
   name: 'Jesus',
-  description: 'suseJ',
-  isActive: false,
+  description: 'Here fishy fishy',
+  isActive: true,
+  isFeatured: true,
   mood: '+☲',
   colorScheme: 'ch@nge',
   i18ns: ['appropriate_HI']
@@ -406,5 +421,33 @@ const partiesSeed = [{
   name: 'sha6',
   description: '👀_👀',
   colorScheme: '=== acktweuli ==='
+},
+{
+  name: '@Boys',
+  description: 'ballz deep',
+  colorScheme: '=== acktweuli ===',
+  isActive: true,
+  isFeatured: true
+},
+{
+  name: 'frFr',
+  description: 'Hamlet Etu Frame Age',
+  colorScheme: '=== acktweuli ===',
+  isActive: true,
+  isFeatured: true
 }
 ]
+
+//frFr: goodness people are getting wobbly already
+//Scoup: just a note, can you consult with a teacher...
+//.Scoup or something for seating arrangement ideas
+//frFr: scope creep, but it's all good, that's a good idea...
+//.frFr: and good ideas happen here at _sh_
+//..
+//.Scoup: So that's a no, you do have a few teachers in there
+//admin: yeah, something like composition, ratio, but yeah...
+//admin: we'll mint a key for this occasion
+//{.frFr} ): later... right?
+//admin: yup!
+//...
+//frFr: k let's see if this doesn't crash everything.

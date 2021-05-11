@@ -25,7 +25,23 @@ const schema = {
   description: {
     type: String,
     optional: true,
-    defaultValue: 'The basic glyphs of _sh_.',
+    defaultValue: 'Did not not yet add a description?',
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  isFeatured: {
+    type: Boolean,
+    optional: false,
+    defaultValue: false,
+    canRead: ['guests'],
+    canCreate: ['admins'],
+    canUpdate: ['admins']
+  },
+  isActive: {
+    type: Boolean,
+    optional: false,
+    defaultValue: false,
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -33,7 +49,7 @@ const schema = {
   glyphSet: {
     type: String,
     optional: false,
-    defaultValue: '☰ ☳ ☲ ☷ ☱ ☵ ☶ ☴ | ↑↓‾ | ◯ ⚬ ⬤ ф | △ ▵ | ☸ 当 Ω | ✔ 🔬 💻 🌈',
+    defaultValue: '-7.7-',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']
@@ -41,7 +57,7 @@ const schema = {
   guideUrl: {
     type: String,
     optional: false,
-    defaultValue: 'https://github.com/Shielkwamm/one_Z-rk/wiki/Glyphs',
+    defaultValue: 'https://guide.shielkwamm.com/docs/proper/profess',
     canRead: ['guests'],
     canCreate: ['admins'],
     canUpdate: ['admins']

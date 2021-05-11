@@ -66,7 +66,7 @@ const colorSchemesSeed = [{
 },
 {
   name: 'chos',
-  backgroundColor: '#CDCDCD',
+  backgroundColor: '#ADADAD',
   linkColor: '#E16C97',
   color: '#C4C9C2',
   altColor: '#DDF952'
