@@ -1,6 +1,6 @@
 {
-  "name": "One-Zero",
-  "version": "0.7.0",
+  "name": "One-Zro",
+  "version": "0.7.2",
   "engines": {
     "npm": "^3.0"
   },
@@ -107,9 +107,9 @@
     "recompose": "^0.26.0",
     "redux": "^3.6.0",
     "rss": "^1.2.1",
-    "sanitize-html": "^1.16.3",
+    "sanitize-html": "^2.3.2",
     "sass-loader": "^7.1.0",
-    "simpl-schema": "1.9.0",
+    "simpl-schema": "1.10.2",
     "speakingurl": "^9.0.0",
     "storybook-addon-intl": "^2.3.2",
     "string-similarity": "^4.0.2",
