@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 const options = {
   collectionName: 'I18ns',
   fragmentName: 'I18nsList',
-  limit: 21
+  limit: 21,
+  //input: {sort: {isFeatured: {_eq: true}, isActive: {_eq: true}}}
 }
 
 export const I18nsList = () => {

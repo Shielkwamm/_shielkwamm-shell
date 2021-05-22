@@ -1,81 +1,17 @@
 import { createMutator } from 'meteor/vulcan:core';
 import { getCollection } from 'meteor/vulcan:lib';
 
-Meteor.startup(() => {
-  addColorSchemes();
-});
-
 export function addColorSchemes() {
   const ColorSchemes = getCollection('ColorSchemes');
-   if(ColorSchemes.find().count() === 0) {
-    colorSchemesSeed.forEach(colorScheme => {
+  //need headers because of non expect serving of json data
+  const options = {header : {'Content-Type' : 'application/json; charset=UTF-8'}};
+  //##OPS: how to put this root url in env variables
+  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/shielkwamm-state/main/colorSchemes/data.json', options);//, (error, res) => {
+    const colorSchemesData = JSON.parse(res.content);
+
+    colorSchemesData.forEach(colorScheme => {
       colorScheme.createdAt = new Date();
       ColorSchemes.insert(colorScheme);
-    })
-   }
+    });
+  //});
 }
-
-const colorSchemesSeed = [{
-  name: 'n00b',
-  backgroundColor:'#FFFFFF',
-  linkColor: '#A1A1A1',
-  color: '#000000',
-  altColor: '#FF69B4'
-},
-{
-  name: '△USA△',
-  backgroundColor:'#f1f1f1',
-  linkColor: '#bf0a30',
-  color: '#002868',
-  altColor: '#FFBB00'
-},
-{
-  name: 'kakTUz',
-  backgroundColor:'#f2c5e0',
-  linkColor: '#76b947',
-  color: '#D43790',
-  altColor: '#0093C9'
-},
-{
-  name: '=== acktweuli ===',
-  backgroundColor: '#FDF4E3',
-  linkColor: '#6C6A61',
-  color: '#705446',
-  altColor: '#654321'
-},
-{
-  name: 'ch@nge',
-  backgroundColor: '#FBCE3A',
-  linkColor: '#C9595F',
-  color: '#372F2F',
-  altColor: '#E88E5A'
-},
-{
-  name: 'stillL1f3',
-  backgroundColor: '#976366',
-  linkColor: '#D0B863',
-  color: '#83A279',
-  altColor: '#FFC98B'
-},
-{
-  name: 'imagination',
-  backgroundColor: 'rgb(226, 238, 245)',
-  linkColor: 'rgb(207, 129, 208)',
-  color: 'rgb(99, 197, 131)',
-  altColor: '#B8D8BC'
-},
-{
-  name: 'chos',
-  backgroundColor: '#ADADAD',
-  linkColor: '#E16C97',
-  color: '#C4C9C2',
-  altColor: '#DDF952'
-},
-{
-  name: 'percent20',
-  backgroundColor: '#f0f0f0',
-  linkColor: '#f56926',
-  color: '#7876c0',
-  altColor: '#e5e7eb'
-}
-];
