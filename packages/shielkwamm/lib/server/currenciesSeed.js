@@ -6,7 +6,7 @@ export function addCurrencies() {
   const ColorSchemes = getCollection('ColorSchemes');
   const options = {header : {'Content-Type' : 'application/json; charset=UTF-8'}};
 
-  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/shielkwamm-state/main/currencies/data.json', options);  
+  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/sh-things/main/currencies/data.json', options);  
   const currenciesData = JSON.parse(res.content);
 
   currenciesData.forEach(currency => {

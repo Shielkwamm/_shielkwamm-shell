@@ -8,7 +8,7 @@ export function addParties() {
   const PartiesI18ns = getCollection('PartiesI18ns');
   const options = {header : {'Content-Type' : 'application/json; charset=UTF-8'}};
 
-  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/shielkwamm-state/main/parties/data.json', options);
+  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/sh-closures/main/parties/data.json', options);
   const partiesData = JSON.parse(res.content);
 
   partiesData.forEach(party => {

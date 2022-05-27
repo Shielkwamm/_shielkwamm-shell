@@ -6,7 +6,7 @@ export function addColorSchemes() {
   //need headers because of non expect serving of json data
   const options = {header : {'Content-Type' : 'application/json; charset=UTF-8'}};
   //##OPS: how to put this root url in env variables
-  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/shielkwamm-state/main/colorSchemes/data.json', options);//, (error, res) => {
+  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/sh-state/main/colorSchemes/data.json', options);//, (error, res) => {
     const colorSchemesData = JSON.parse(res.content);
 
     colorSchemesData.forEach(colorScheme => {
