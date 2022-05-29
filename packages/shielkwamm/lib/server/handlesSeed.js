@@ -10,7 +10,7 @@ export function addHandles() {
 
   const options = {header : {'Content-Type' : 'application/json; charset=UTF-8'}};
 
-  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/shielkwamm-state/main/handles/data.json', options);
+  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/sh-state/main/handles/data.json', options);
   const handlesData = JSON.parse(res.content);
   
   handlesData.forEach(handle => {

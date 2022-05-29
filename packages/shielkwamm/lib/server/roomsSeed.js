@@ -10,7 +10,7 @@ export function addRooms() {
   const I18ns = getCollection('I18ns');
   const options = {header : {'Content-Type' : 'application/json; charset=UTF-8'}};
   
-  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/shielkwamm-state/main/rooms/data.json', options);
+  const res = HTTP.get('https://raw.githubusercontent.com/Shielkwamm/sh-closures/main/rooms/data.json', options);
   const roomsData = JSON.parse(res.content);
   //console.log(roomsData)
   roomsData.forEach(room => {
